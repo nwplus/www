@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
 const FlexBox = styled.div`
@@ -37,6 +37,7 @@ const Image = styled.img`
     height: ${(props) => props.height};
     margin-bottom: 10px;
     border-radius: 6px;
+    object-fit: cover;
 `;
 
 const BaseArrow = css`
@@ -69,6 +70,13 @@ export default function Carousel ({ images, height, width }) {
     const [imageIndex, setImageIndex] = useState(0);
     const numImages = images.length;
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setImageIndex(imageIndex == numImages - 1 ? 0 : imageIndex + 1);
+        }, 5000);
+        return () => clearInterval(interval);
+    })
+
     return (
         <>
             {
@@ -81,8 +89,8 @@ export default function Carousel ({ images, height, width }) {
                         <FlexBox>
                             {images.map((item, index) => {
                                 return index == imageIndex
-                                    ? <FilledDiamond />
-                                    : <EmptyDiamond />
+                                    ? <FilledDiamond key={index} />
+                                    : <EmptyDiamond key={index} />
                             })}
                         </FlexBox>
                     </Container>
