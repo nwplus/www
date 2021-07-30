@@ -3,11 +3,14 @@ import styled, { css } from 'styled-components';
 
 const FlexBox = styled.div`
     display: flex;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
 `
 
 const Container = styled.div`
     position: relative;
-    max-width: ${(props) => props.width}px;
+    width: ${(props) => props.width}px;
 `
 
 const FilledDiamond = styled.div`
