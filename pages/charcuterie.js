@@ -1,10 +1,18 @@
 import Head from 'next/head'
+import videoIcon from '../public/assets/logos/video-icon.svg'
+import Image from 'next/image'
 
-const resourceCard = (name, event = null, year, image, badge = null, resourceTypeLogo) => (
+
+const logo = require('../public/assets/logos/video-icon.svg')
+const resourceCard = (name, event = null, year, image, icon, badge = null) => (
   <div>
-    <img src={image} width='295px' height='210px' />
+    <Image src={logo} />
+    <img src={'../public/assets/logos/video-icon.svg'} />
+    <img src={require('../public/assets/logos/video-icon.svg')} />
+    <img src={videoIcon} />
+    <img style={{borderRadius: '10px'}} src={image} width='295px' height='210px' />
     <h3 style={{color: '#20FFAF'}}>{name}</h3>
-    <span>{event ? event + ' | ' + year : year}</span>
+    <span style={{color: '#FFFFFF'}}>{event ? event + ' | ' + year : year}</span>
   </div>
 )
 export default function Charcuterie() {
@@ -18,7 +26,10 @@ export default function Charcuterie() {
         <h1>charcuterie 😋</h1>
         <p>Just a place where we put things</p>
       </main>
-      {resourceCard('ligma', 'coachella', '2022', 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg')}
+      <div style={{backgroundColor: 'rgb(44, 38, 66)'}}>
+      {resourceCard('Ligma', 'Coachella', '2022', 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg')}
+      </div>
     </>
+
   )
 }
