@@ -1,7 +1,8 @@
 import styled from "styled-components"
+import Button from "./Button"
 
 const CardContainer = styled.div`
-    width: 300px;
+    width: 380px;
     height: 500px;
     overflow: hidden;
     border-radius: 12px;
@@ -37,7 +38,7 @@ const OverLayFooterContainer = styled.div`
     margin-top: auto;
     width: 100%;
     align-items: center;
-    padding: 1.5em;
+    padding: 1em 2.5em;
 `
 
 const EventDataContainer = styled.div`
@@ -46,7 +47,6 @@ const EventDataContainer = styled.div`
     justify-content: space-between;
     font-size: 1.2em;
     font-weight: bold;
-    margin-bottom: 0.5em;
 `
 
 const EventRegistrationStatus = styled.div`
@@ -66,7 +66,9 @@ const HackathonCard = () => {
                         <EventRegistrationStatus>Test1</EventRegistrationStatus>
                         <EventDateString>Test2</EventDateString>
                     </EventDataContainer>
-                    <div>Visit Site</div>
+                    <Button height='3em' link='https://www.google.com'>
+                        Visit Site
+                    </Button>
                 </OverLayFooterContainer>
             </OverlayContainer>
             <BackgroundImageContainer />
