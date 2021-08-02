@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Footer from '../components/Footer'
 import HackathonCard from '../components/HackathonCard'
 import Button from '../components/Button'
 import styled from 'styled-components'
@@ -17,6 +18,9 @@ export default function Charcuterie() {
       <main>
         <h1>charcuterie 😋</h1>
         <p>Just a place where we put things</p>
+
+        <h2>Footer</h2>
+        <Footer />
       </main>
 
       <h3>Hackathon cards</h3>
