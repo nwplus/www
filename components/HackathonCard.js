@@ -50,23 +50,25 @@ const EventDataContainer = styled.div`
 `
 
 const EventRegistrationStatus = styled.div`
-    color: white;
+    color: ${p => p.registrationOpen ? '#20FFAF' : 'white'};
 `
 
 const EventDateString = styled.div`
     color: #BDBAC3;
 `
 
-const HackathonCard = () => {
+const HackathonCard = ({ registrationOpen, link, dateString }) => {
     return (
         <CardContainer>
             <OverlayContainer>
                 <OverLayFooterContainer>
                     <EventDataContainer>
-                        <EventRegistrationStatus>Test1</EventRegistrationStatus>
-                        <EventDateString>Test2</EventDateString>
+                        <EventRegistrationStatus registrationOpen={registrationOpen}>
+                            {`Registration ${registrationOpen ? 'Open' : 'Closed'}`}
+                        </EventRegistrationStatus>
+                        <EventDateString>{dateString}</EventDateString>
                     </EventDataContainer>
-                    <Button height='3em' link='https://www.google.com'>
+                    <Button height='3em' link={link}>
                         Visit Site
                     </Button>
                 </OverLayFooterContainer>

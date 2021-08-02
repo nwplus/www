@@ -21,8 +21,8 @@ export default function Charcuterie() {
 
       <h3>Hackathon cards</h3>
       <RowContainer>
-        <HackathonCard/>
-        <HackathonCard/>
+        <HackathonCard registrationOpen link='https://www.google.com/' dateString='Dec 5 - 6'/>
+        <HackathonCard link='https://www.google.com/' dateString='Dec 5 - 6'/>
       </RowContainer>
 
       <h3>Buttons</h3>

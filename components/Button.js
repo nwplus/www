@@ -3,7 +3,7 @@ import styled from "styled-components"
 const StyledButton = styled.a`
     font-weight: bold;
     border-radius: ${p => p.borderRadius ? p.borderRadius : '8px'};
-    background: ${p => p.backgroundColor ? p.backgroundColor : 'linear-gradient(92.58deg, #0DEFE1 0%, #78FF96 100%)'};
+    background: ${p => p.backgroundColor ? p.backgroundColor : '#20FFAF'};
     width: ${p => p.width ? p.width : '100%'};
     height: ${p => p.height};
     display: flex;
