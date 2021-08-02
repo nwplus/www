@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import nwplusLogo from 'nwPlus_Logo_2020.png'
+import nwplusLogo from '../public/nwPlus_Logo_2020.png'
  
 const NavBarContainer = styled.div`
   display: flex;
@@ -72,7 +72,7 @@ const JoinLinkTextMinorDynamic = ({ hiring }) => {
 
 const LivePortalButton = styled.button``;
 
-export const NavBar = () => {
+export const NavBar = ({ hiring }) => {
   return (
     <NavBarContainer>
       <NavGroupContainer>
@@ -96,7 +96,7 @@ export const NavBar = () => {
       <NavGroupContainer>
         <JoinLink>
           <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
-          <JoinLinkTextMinorDynamic hiring={false}/>
+          <JoinLinkTextMinorDynamic hiring={hiring}/>
         </JoinLink>
         <LivePortalButton>Live Portal</LivePortalButton>
       </NavGroupContainer>

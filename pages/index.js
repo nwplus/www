@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
+import NavBar from '../components/NavBar';
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -13,6 +15,9 @@ export default function Home() {
       <main className={styles.main}>
         <h1>hi how are ya 👋</h1>
         <Link href="/charcuterie">Charcuterie</Link>
+
+        <h2>Navigation Bar</h2>
+        <NavBar hiring={false}/>
       </main>
 
       <footer className={styles.footer}>
