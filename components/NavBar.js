@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import nwplusLogo from 'nwPlus_Logo_2020.png'
  
 const NavBarContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-contents: space-between;
 `;
 
 const NavLogo = styled.img`
@@ -26,16 +29,28 @@ const SimpleLinkText = styled.span`
   color: #FFFFFF;
 `;
 
-const LinkGroup = () => {
-
+const LinkGroup = ({ children }) => {
+  return (
+    <div>
+      {children}
+    </div>
+  );
 };
 
-const LinkTitle = () => {
-
+const LinkTitle = ({ children }) => {
+  return(
+    <SimpleLinkText>
+      {children}
+    </SimpleLinkText>
+  );
 }
 
-const LinkGroupChild = ({ path }) => {
-
+const LinkGroupChild = ({ path, children }) => {
+  return(
+    <SimpleLink href={path} target="_blank" rel="noopener noreferrer"><SimpleLinkText>
+      {children}
+    </SimpleLinkText></SimpleLink>
+  );
 }
 
 const JoinLink = styled.a``;
@@ -45,7 +60,14 @@ const JoinLinkTextMain = styled.span``;
 const JoinLinkTextMinor = styled.span``;
 
 const JoinLinkTextMinorDynamic = ({ hiring }) => {
-
+  if (hiring) {
+    return(
+      <JoinLinkTextMinor>Application Open</JoinLinkTextMinor>
+    );
+  }
+  return(
+    <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
+  );
 };
 
 const LivePortalButton = styled.button``;
