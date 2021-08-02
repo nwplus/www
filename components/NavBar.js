@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-
-import nwplusLogo from '../public/nwPlus_Logo_2020.png'
  
 const NavBarContainer = styled.div`
   display: flex;
@@ -40,7 +38,7 @@ const LinkGroup = ({ children }) => {
 const LinkTitle = ({ children }) => {
   return(
     <SimpleLinkText>
-      {children}
+      Hackathons
     </SimpleLinkText>
   );
 }
@@ -76,7 +74,7 @@ export const NavBar = ({ hiring }) => {
   return (
     <NavBarContainer>
       <NavGroupContainer>
-        <NavLogo src={nwplusLogo} alt="nwPlus club logo in white against dark blue background"/>
+        <NavLogo src="/nwPlus_Logo_2020.png" alt="nwPlus club logo in white against dark blue background"/>
         <SimpleLink href="#"><SimpleLinkText>
           About Us
         </SimpleLinkText></SimpleLink> 
