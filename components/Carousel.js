@@ -84,22 +84,19 @@ export default function Carousel ({ images, height, width }) {
         <>
             {
                 numImages > 0
-                ? (
-                    <Container width={width}>
-                        <RightArrow onClick={() => setImageIndex(imageIndex == numImages - 1 ? 0 : imageIndex + 1)}/>
-                        <LeftArrow onClick={() => setImageIndex(imageIndex == 0 ? numImages - 1 : imageIndex - 1)}/>
-                        <Image src={images[imageIndex]} width={width} height={height}/>
-                        <FlexBox>
-                            {images.map((item, index) => {
-                                return index == imageIndex
-                                    ? <FilledDiamond key={index} />
-                                    : <EmptyDiamond key={index} />
-                            })}
-                        </FlexBox>
-                    </Container>
-                ) : (
-                    null
-                )
+                &&
+                <Container width={width}>
+                    <RightArrow onClick={() => setImageIndex(imageIndex == numImages - 1 ? 0 : imageIndex + 1)}/>
+                    <LeftArrow onClick={() => setImageIndex(imageIndex == 0 ? numImages - 1 : imageIndex - 1)}/>
+                    <Image src={images[imageIndex]} width={width} height={height}/>
+                    <FlexBox>
+                        {images.map((item, index) => {
+                            return index == imageIndex
+                                ? <FilledDiamond key={index} />
+                                : <EmptyDiamond key={index} />
+                        })}
+                    </FlexBox>
+                </Container>
             }
         </>
     )
