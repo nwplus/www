@@ -97,7 +97,7 @@ export default function Team({ profiles }) {
             >
             {/* will-change enables hardware acceleration for smoother animations */}
             {/* duplicate profile maps so that the carousel can loop infinitely */}
-            <div style={{ 'will-change': 'transform' }} id="anim-profiles">
+            <div style={{ willChange: 'transform' }} id="anim-profiles">
                 {profiles.map((profile, i) => (
                 <ProfileImage
                     key={i}
