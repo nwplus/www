@@ -69,6 +69,7 @@ const SocialMediaIcons = styled.div`
 
 let lastTime = -1
 let accumulateTime = -1
+const MAX_SPEED = 1
 
 export default function Footer() {
   const [animator, setAnimator] = useState()
@@ -81,8 +82,9 @@ export default function Footer() {
     } else {
       const deltaT = t - lastTime;
       velocity = velocity += 0.05 * accel
+      console.log(velocity)
       velocity = Math.max(0, velocity)
-      velocity = Math.min(1, velocity)
+      velocity = Math.min(MAX_SPEED, velocity)
       accumulateTime += deltaT * velocity;
     }
     lastTime = t;
@@ -91,7 +93,10 @@ export default function Footer() {
   }
   
   useEffect(() => {
-    if (animator) requestRef.current = window.requestAnimationFrame((t) => animate(animator, accel, 1, t));
+    if (animator) {
+      const vel = accel === 1 ? 0 : MAX_SPEED;
+      requestRef.current = window.requestAnimationFrame((t) => animate(animator, accel, vel, t))
+    }
     return () => window.cancelAnimationFrame(requestRef.current);
   }, [animator, accel])
 
@@ -101,7 +106,7 @@ export default function Footer() {
       easing: 'linear',
       loop: true,
       translateX: [-(124 * profiles.length), 0],
-      duration: 4000 * profiles.length,
+      duration: 3000 * profiles.length,
       autoplay: false,
     }))
   }, [setAnimator]);
