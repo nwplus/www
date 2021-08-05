@@ -3,14 +3,13 @@ import videoIcon from '../public/assets/logos/video-icon.svg'
 import Image from 'next/image'
 
 
-const logo = require('../public/assets/logos/video-icon.svg')
 const resourceCard = (name, event = null, year, image, icon, badge = null) => (
   <div>
-    <Image src={logo} />
-    <img src={'../public/assets/logos/video-icon.svg'} />
-    <img src={require('../public/assets/logos/video-icon.svg')} />
-    <img src={videoIcon} />
-    <img style={{borderRadius: '10px'}} src={image} width='295px' height='210px' />
+    <div style={{display: 'flex', backgroundImage: `url(${image})`, width:'295px', height:'210px', borderRadius: '10px', backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat', justifyContent: 'center', alignItems: 'center'}}>
+      <Image width='40px' height='40px' src={videoIcon} />
+    </div>
     <h3 style={{color: '#20FFAF'}}>{name}</h3>
     <span style={{color: '#FFFFFF'}}>{event ? event + ' | ' + year : year}</span>
   </div>
