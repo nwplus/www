@@ -33,11 +33,30 @@ const SocialMediaIcons = styled.div`
 `;
 
 
-export default function Footer() {
+// TODO: Grab profiles from firebase (Do this statically?)
 
+const MOCK_PROFILE = {
+  img: 'https://i.imgur.com/TjIKbQu.png',
+  name: 'Travis Scott',
+  emoji: '🍔',
+  color: '#33D39A',
+  title: 'Founder of the travis scott burger'
+}
+
+const profiles = Array(20).fill(MOCK_PROFILE)
+
+profiles.push({
+  img: 'https://pbs.twimg.com/profile_images/864282616597405701/M-FEJMZ0_400x400.jpg',
+  name: 'Sundar',
+  emoji: '🔤',
+  color: '#33D39A',
+  title: 'CEO of ABCs'
+})
+
+export default function Footer() {
   return (
     <FooterContainer>
-      <Team/>
+      <Team profiles={profiles} />
       <SocialMediaIcons>
         <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faFacebook} />

@@ -2,20 +2,6 @@ import React, { useRef, useEffect, useState } from 'react'
 import styled from 'styled-components';
 import { default as anime }  from '../node_modules/animejs/lib/anime.es.js'
 
-const MOCK_PROFILE = {
-    img: 'https://i.imgur.com/TjIKbQu.png',
-    name: 'Travis Scott',
-    title: 'Founder of the travis scott burger'
-}
-  
-const profiles = Array(20).fill(MOCK_PROFILE)
-
-profiles.push({
-    img: 'https://pbs.twimg.com/profile_images/864282616597405701/M-FEJMZ0_400x400.jpg',
-    name: 'Sundar',
-    title: 'CEO of ABCs'
-})
-
 const Header = styled.h2`
     font-weight: 500;
     font-size: 1.9em;
@@ -35,25 +21,25 @@ const ProfileList = styled.div`
 const ProfileImage = styled.img`
     &:hover {
     transform: scale(1.15);
-    opacity: 1;
+        opacity: 1;
     }
     width: 100px;
     height: 100px;
     border-radius: 12px;
-    background-color: red;
+    background-color: ${p => p.color};
     object-fit: cover;
     margin: 10px;
     transition: all 100ms ease-in-out;
-    opacity: 0.7;
+    opacity: 0.420;
 `
 
 let lastTime = -1
 let accumulateTime = -1
 const MAX_SPEED = 1
 
-export default function Team() {
+export default function Team({ profiles }) {
     const [animator, setAnimator] = useState()
-    const [selectedProfile, setSelectedProfile] = useState(profiles[8])
+    const [selectedProfile, setSelectedProfile] = useState(profiles[6])
     const [accel, setAccel] = useState(1)
     const requestRef = useRef()
   
@@ -99,7 +85,7 @@ export default function Team() {
         <>
             <Header>Meet the minds behind nwPlus</Header>
             <ProfileContent>
-                <b>{selectedProfile.name}</b> {selectedProfile.title}
+                <b>{selectedProfile.name}</b> {selectedProfile.emoji}&nbsp;&nbsp;&nbsp;{selectedProfile.title}
             </ProfileContent>
             <ProfileList
                 onMouseEnter={() => {
@@ -116,6 +102,7 @@ export default function Team() {
                 <ProfileImage
                     key={i}
                     src={profile.img}
+                    color={profile.color}
                     onClick={() => setSelectedProfile(profile)}
                     onMouseEnter={() => setSelectedProfile(profile)}
                 />
@@ -124,6 +111,7 @@ export default function Team() {
                 <ProfileImage
                     key={i}
                     src={profile.img}
+                    color={profile.color}
                     onClick={() => setSelectedProfile(profile)}
                     onMouseEnter={() => setSelectedProfile(profile)}
                 />
