@@ -1,5 +1,8 @@
+import React, { useRef, useEffect, useState } from 'react'
+import { default as anime }  from '../node_modules/animejs/lib/anime.es.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
+import Anime from './Anime'
 import {
   faFacebook,
   faInstagram,
@@ -10,12 +13,18 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 const MOCK_PROFILE = {
-  img: 'https://www.pngall.com/wp-content/uploads/2016/06/Obama-Free-Download-PNG.png',
+  img: 'https://i.imgur.com/TjIKbQu.png',
   name: 'Travis Scott',
   title: 'Founder of the travis scott burger'
 }
 
-const profiles = Array(20).fill(MOCK_PROFILE)
+const profiles = Array(8).fill(MOCK_PROFILE)
+
+profiles.push({
+  img: 'https://pbs.twimg.com/profile_images/864282616597405701/M-FEJMZ0_400x400.jpg',
+  name: 'Sundar',
+  title: 'CEO of ABCs'
+})
 
 const FooterContainer = styled.footer`
   background: url(/assets/footer_bg.svg), ${p => p.theme.colors.background};
@@ -32,13 +41,8 @@ const Header = styled.h2`
 
 const ProfileList = styled.div`
   height: 140px;
-  overflow-x: auto;
+  overflow-x: hidden;
   white-space: nowrap;
-  scrollbar-height: none; 
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `
 
 const ProfileImage = styled.img`
@@ -47,7 +51,7 @@ const ProfileImage = styled.img`
   border-radius: 12px;
   background-color: red;
   object-fit: cover;
-  margin: 0 1em;
+  margin: 0 12px;
 `
 
 const SocialMediaIcons = styled.div`
@@ -63,16 +67,65 @@ const SocialMediaIcons = styled.div`
   }
 `;
 
+const playSpeed = 3000 * profiles.length
+
+let lastTime = -1
+let accumulateTime = -1
+// let speed = 1
+
 export default function Footer() {
-  console.log(profiles)
+  const [animator, setAnimator] = useState()
+  const requestRef = useRef()
+  const [globSpeed, setSpeed] = useState(1)
+
+  const animate = (animator, speed, t) => {
+    if (accumulateTime === -1) {
+      accumulateTime = t
+    } else {
+      const delta = t - lastTime;
+      const deltaDelta = delta * speed;
+      accumulateTime += deltaDelta;
+    }
+    lastTime = t;
+    animator.tick(accumulateTime)
+    requestRef.current = window.requestAnimationFrame((t) => animate(animator, speed, t));
+  }
+  
+  useEffect(() => {
+    if (animator) requestRef.current = window.requestAnimationFrame((t) => animate(animator, globSpeed, t));
+    return () => window.cancelAnimationFrame(requestRef.current);
+  }, [animator, globSpeed])
+
+  useEffect(() => {
+    setAnimator(anime({
+      targets: ['#profiles'],
+      easing: 'linear',
+      loop: true,
+      translateX: [-(124 * profiles.length), 0],
+      duration: playSpeed,
+      autoplay: false,
+    }))
+  }, [setAnimator]);
+
   return (
     <FooterContainer>
       <Header>Meet the minds behind nwPlus</Header>
-      <ProfileList>
-        {profiles.map((profile) => (
-          <ProfileImage src={profile.img} />
-        ))}
-      </ProfileList>
+        <ProfileList
+          onMouseEnter={() => {
+            setSpeed(0)
+          }}  onMouseLeave={() => {
+            setSpeed(1)
+          }}
+        >
+          <div style={{ 'will-change': 'transform' }} id="profiles">
+            {profiles.map((profile, i) => (
+              <ProfileImage key={1+i} src={profile.img} />
+            ))}
+            {profiles.map((profile, i) => (
+              <ProfileImage key={12+i} src={profile.img} />
+            ))}
+          </div>
+        </ProfileList>
       <SocialMediaIcons>
         <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faFacebook} />
