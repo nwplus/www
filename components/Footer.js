@@ -67,34 +67,33 @@ const SocialMediaIcons = styled.div`
   }
 `;
 
-const playSpeed = 3000 * profiles.length
-
 let lastTime = -1
 let accumulateTime = -1
-// let speed = 1
 
 export default function Footer() {
   const [animator, setAnimator] = useState()
   const requestRef = useRef()
-  const [globSpeed, setSpeed] = useState(1)
+  const [accel, setAccel] = useState(1)
 
-  const animate = (animator, speed, t) => {
+  const animate = (animator, accel, velocity, t) => {
     if (accumulateTime === -1) {
       accumulateTime = t
     } else {
-      const delta = t - lastTime;
-      const deltaDelta = delta * speed;
-      accumulateTime += deltaDelta;
+      const deltaT = t - lastTime;
+      velocity = velocity += 0.05 * accel
+      velocity = Math.max(0, velocity)
+      velocity = Math.min(1, velocity)
+      accumulateTime += deltaT * velocity;
     }
     lastTime = t;
     animator.tick(accumulateTime)
-    requestRef.current = window.requestAnimationFrame((t) => animate(animator, speed, t));
+    requestRef.current = window.requestAnimationFrame((t) => animate(animator, accel, velocity, t));
   }
   
   useEffect(() => {
-    if (animator) requestRef.current = window.requestAnimationFrame((t) => animate(animator, globSpeed, t));
+    if (animator) requestRef.current = window.requestAnimationFrame((t) => animate(animator, accel, 1, t));
     return () => window.cancelAnimationFrame(requestRef.current);
-  }, [animator, globSpeed])
+  }, [animator, accel])
 
   useEffect(() => {
     setAnimator(anime({
@@ -102,7 +101,7 @@ export default function Footer() {
       easing: 'linear',
       loop: true,
       translateX: [-(124 * profiles.length), 0],
-      duration: playSpeed,
+      duration: 4000 * profiles.length,
       autoplay: false,
     }))
   }, [setAnimator]);
@@ -112,9 +111,9 @@ export default function Footer() {
       <Header>Meet the minds behind nwPlus</Header>
         <ProfileList
           onMouseEnter={() => {
-            setSpeed(0)
+            setAccel(-1)
           }}  onMouseLeave={() => {
-            setSpeed(1)
+            setAccel(1)
           }}
         >
           <div style={{ 'will-change': 'transform' }} id="profiles">
