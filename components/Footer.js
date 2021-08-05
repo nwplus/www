@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react'
 import { default as anime }  from '../node_modules/animejs/lib/anime.es.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
-import Anime from './Anime'
 import {
   faFacebook,
   faInstagram,
@@ -18,7 +17,7 @@ const MOCK_PROFILE = {
   title: 'Founder of the travis scott burger'
 }
 
-const profiles = Array(8).fill(MOCK_PROFILE)
+const profiles = Array(20).fill(MOCK_PROFILE)
 
 profiles.push({
   img: 'https://pbs.twimg.com/profile_images/864282616597405701/M-FEJMZ0_400x400.jpg',
@@ -39,19 +38,30 @@ const Header = styled.h2`
   font-size: 1.9em;
 `
 
+const ProfileContent = styled.p`
+  color: white;
+`
+
 const ProfileList = styled.div`
-  height: 140px;
+  height: 130px;
   overflow-x: hidden;
   white-space: nowrap;
+  margin-bottom: 20px;
 `
 
 const ProfileImage = styled.img`
+  &:hover {
+    transform: scale(1.15);
+    opacity: 1;
+  }
   width: 100px;
   height: 100px;
   border-radius: 12px;
   background-color: red;
   object-fit: cover;
-  margin: 0 12px;
+  margin: 10px;
+  transition: all 100ms ease-in-out;
+  opacity: 0.7;
 `
 
 const SocialMediaIcons = styled.div`
@@ -73,9 +83,13 @@ const MAX_SPEED = 1
 
 export default function Footer() {
   const [animator, setAnimator] = useState()
-  const requestRef = useRef()
+  const [selectedProfile, setSelectedProfile] = useState(profiles[8])
   const [accel, setAccel] = useState(1)
+  const requestRef = useRef()
 
+  // https://codesandbox.io/s/anime-js-speed-adjustment-lm0ui?file=/src/index.js:158-166
+  // https://animejs.com/documentation/#tick
+  // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
   const animate = (animator, accel, velocity, t) => {
     if (accumulateTime === -1) {
       accumulateTime = t
@@ -102,11 +116,11 @@ export default function Footer() {
 
   useEffect(() => {
     setAnimator(anime({
-      targets: ['#profiles'],
+      targets: ['#anim-profiles'],
       easing: 'linear',
       loop: true,
       translateX: [-(124 * profiles.length), 0],
-      duration: 3000 * profiles.length,
+      duration: 4000 * profiles.length,
       autoplay: false,
     }))
   }, [setAnimator]);
@@ -114,22 +128,35 @@ export default function Footer() {
   return (
     <FooterContainer>
       <Header>Meet the minds behind nwPlus</Header>
-        <ProfileList
-          onMouseEnter={() => {
-            setAccel(-1)
-          }}  onMouseLeave={() => {
-            setAccel(1)
-          }}
-        >
-          <div style={{ 'will-change': 'transform' }} id="profiles">
-            {profiles.map((profile, i) => (
-              <ProfileImage key={1+i} src={profile.img} />
-            ))}
-            {profiles.map((profile, i) => (
-              <ProfileImage key={12+i} src={profile.img} />
-            ))}
-          </div>
-        </ProfileList>
+      <ProfileContent>
+        <b>{selectedProfile.name}</b> {selectedProfile.title}
+      </ProfileContent>
+      <ProfileList
+        onMouseEnter={() => {
+          setAccel(-1)
+        }}  onMouseLeave={() => {
+          setAccel(1)
+        }}
+      >
+        <div style={{ 'will-change': 'transform' }} id="anim-profiles">
+          {profiles.map((profile, i) => (
+            <ProfileImage
+              key={i}
+              src={profile.img}
+              onClick={() => setSelectedProfile(profile)}
+              onMouseEnter={() => setSelectedProfile(profile)}
+            />
+          ))}
+          {profiles.map((profile, i) => (
+            <ProfileImage
+              key={i}
+              src={profile.img}
+              onClick={() => setSelectedProfile(profile)}
+              onMouseEnter={() => setSelectedProfile(profile)}
+            />
+          ))}
+        </div>
+      </ProfileList>
       <SocialMediaIcons>
         <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faFacebook} />
