@@ -15,7 +15,6 @@
     "animejs": "^3.2.1",
     "next": "^11.0.1",
     "react": "17.0.2",
-    "react-anime": "^4.0.4",
     "react-dom": "17.0.2",
     "styled-components": "^5.3.0"
   },
