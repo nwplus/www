@@ -11,13 +11,13 @@ const CardContainer = styled.div`
 `
 
 const BackgroundImageContainer = styled.div`
-    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg) center;
+    background: ${p => p.theme.colors.shadedGradient}, url(${p => p.imageLink}) center;
     background-size: cover;
     width: 100%;
     height: 100%;
 
     ${CardContainer}:hover & {
-        background: url(https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg) center;
+        background: url(${p => p.imageLink}) center;
         background-size: cover;
         transform: scale(1.1);
     }
@@ -50,14 +50,14 @@ const EventDataContainer = styled.div`
 `
 
 const EventRegistrationStatus = styled.div`
-    color: ${p => p.registrationOpen ? '#20FFAF' : 'white'};
+    color: ${p => p.registrationOpen ? p.theme.colors.primary : 'white'};
 `
 
 const EventDateString = styled.div`
-    color: #BDBAC3;
+    color: ${p => p.theme.colors.metadata};
 `
 
-const HackathonCard = ({ registrationOpen, link, dateString }) => {
+const HackathonCard = ({ registrationOpen, link, dateString, imageLink }) => {
     return (
         <CardContainer>
             <OverlayContainer>
@@ -73,7 +73,7 @@ const HackathonCard = ({ registrationOpen, link, dateString }) => {
                     </Button>
                 </OverLayFooterContainer>
             </OverlayContainer>
-            <BackgroundImageContainer />
+            <BackgroundImageContainer imageLink={imageLink}/>
         </CardContainer>
     )
 }

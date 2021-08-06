@@ -13,8 +13,10 @@ const theme = {
   colors: {
     primary: '#20FFAF',
     primaryGradient: 'linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%)',
+    shadedGradient: 'linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) )',
     secondary: '#fff',
     tertiary: '#E2D6FF',
+    metadata: '#BDBAC3'
   },
   mediaQueries: {
     xs: `@media only screen and (max-width: ${SCREEN_BREAKPOINTS.xs}px)`,
