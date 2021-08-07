@@ -14,6 +14,7 @@ const FooterContainer = styled.div`
   color: #20FFAF;
   text-align: center;
   padding: 64px 0;
+  width: 100%;
 `;
 
 const SocialMediaIcons = styled.div`
