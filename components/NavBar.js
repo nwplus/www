@@ -5,6 +5,7 @@ const NavBarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   background: #000000;
+  padding: 46px 87px;
 `;
 
 const NavGroupContainer = styled.div`
@@ -15,10 +16,6 @@ const NavGroupContainer = styled.div`
 
 const StyledImage = styled.img`
   margin-right: 18px;
-`;
-
-const SimpleLink = styled.a`
-  appearance: none;
 `;
 
 const SimpleLinkText = styled.span`
@@ -75,29 +72,40 @@ const JoinLink = ({ hiring }) => {
   );
 };
 
-const LivePortalButton = styled.button``;
+const LivePortalButton = styled.button`
+  border: none;
+  background: ${button => button.theme.colors.secondary};
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: bold;
+  height: 41px;
+  width: 134px;
+  border-radius: 34px;
+`;
 
 const NavBar = ({ hiring }) => {
   return (
     <NavBarContainer>
       <NavGroupContainer>
         <StyledImage src="/nwPlus_Logo_2020.png" alt="nwPlus club logo in white against dark blue background"/>
-        <SimpleLink href="#"><SimpleLinkText>
+        <a href="#"><SimpleLinkText>
           About Us
-        </SimpleLinkText></SimpleLink> 
-        <SimpleLink href="#"><SimpleLinkText>
+        </SimpleLinkText></a> 
+        <a href="#"><SimpleLinkText>
           Hackathons
-        </SimpleLinkText></SimpleLink> 
-        <SimpleLink href="#"><SimpleLinkText>
+        </SimpleLinkText></a> 
+        <a href="#"><SimpleLinkText>
           Resources
-        </SimpleLinkText></SimpleLink> 
-        <SimpleLink href="#"><SimpleLinkText>
+        </SimpleLinkText></a> 
+        <a href="#"><SimpleLinkText>
           FAQ
-        </SimpleLinkText></SimpleLink> 
+        </SimpleLinkText></a> 
       </NavGroupContainer>
       <NavGroupContainer>
         <JoinLink hiring={hiring}/>
-        <LivePortalButton>Live Portal</LivePortalButton>
+        <a href="#">
+          <LivePortalButton>Live Portal</LivePortalButton>
+        </a>
       </NavGroupContainer>
     </NavBarContainer>
   )
