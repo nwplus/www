@@ -30,11 +30,22 @@ const SimpleLinkText = styled.span`
   }
 `;
 
-const JoinLinkDynamic = styled.a`
+const JoinLinkInactive = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: ${a => a.hiring ? a.theme.colors.secondary : a.theme.colors.disabled};
+  color: ${a => a.theme.colors.disabled};
+`;
+
+const JoinLinkActive = styled.a`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: ${span => span.theme.colors.primaryGradient};
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
 `;
 
 const JoinLinkTextMain = styled.span`
@@ -46,10 +57,20 @@ const JoinLinkTextMinor = styled.span`
   font-size: 13.5px;
 `;
 
-const JoinLink = ({ hiring }) => <JoinLinkDynamic hiring={hiring} href="#">
-    <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
-    <JoinLinkTextMinor>Application {hiring ? 'Open': 'Closed'}</JoinLinkTextMinor>
-</JoinLinkDynamic>;
+const JoinLink = ({ hiring, hiringLink }) => {
+  if (hiring) {
+    return(<JoinLinkActive href={hiringLink}>
+       <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
+        <JoinLinkTextMinor>Application Open</JoinLinkTextMinor>
+    </JoinLinkActive>
+    );
+  }
+  return(<JoinLinkInactive href="#">
+       <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
+        <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
+    </JoinLinkInactive>
+  );
+};
 
 const LivePortalButton = styled.button`
   border: none;
@@ -62,7 +83,7 @@ const LivePortalButton = styled.button`
   border-radius: 34px;
 `;
 
-const NavBar = ({ hiring }) => {
+const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   return (
     <NavBarContainer>
       <NavGroupContainer>
@@ -81,8 +102,8 @@ const NavBar = ({ hiring }) => {
         </SimpleLinkText></a> 
       </NavGroupContainer>
       <NavGroupContainer>
-        <JoinLink hiring={hiring}/>
-        <a href="#">
+        <JoinLink hiring={hiring} hiringLink={hiringLink ?? '#'}/>
+        <a href={livePortalLink ?? '#'}>
           <LivePortalButton>Live Portal</LivePortalButton>
         </a>
       </NavGroupContainer>
