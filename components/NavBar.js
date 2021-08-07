@@ -62,13 +62,13 @@ const JoinLinkTextMinor = styled.span`
 
 const JoinLink = ({ hiring }) => {
   if (hiring) {
-    return(<JoinLinkActive>
+    return(<JoinLinkActive href="#">
        <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
         <JoinLinkTextMinor>Application Open</JoinLinkTextMinor>
     </JoinLinkActive>
     );
   }
-  return(<JoinLinkInactive>
+  return(<JoinLinkInactive href="#">
        <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
         <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
     </JoinLinkInactive>
