@@ -33,7 +33,6 @@ const SimpleLinkText = styled.span`
 `;
 
 const JoinLinkActive = styled.a`
-  appearance: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,7 +40,6 @@ const JoinLinkActive = styled.a`
 `;
 
 const JoinLinkInactive = styled.a`
-  appearance: none;
   display: flex;
   flex-direction: column;
   align-items: center;
