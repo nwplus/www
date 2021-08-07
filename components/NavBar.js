@@ -27,8 +27,12 @@ const SimpleLinkText = styled.span`
   line-height: 23px;
   color: #FFFFFF;
 
-  :hover {
-    color: background: linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%);
+  &:hover {
+    background: ${span => span.theme.colors.primaryGradient};
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
   }
 `;
 
