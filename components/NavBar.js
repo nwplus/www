@@ -22,10 +22,9 @@ const SimpleLink = styled.a`
 `;
 
 const SimpleLinkText = styled.span`
-  font-size: 18px;
-  font-weight: 700;
+  font-weight: bold;
   line-height: 23px;
-  color: #FFFFFF;
+  color: ${span => span.theme.colors.secondary};
 
   &:hover {
     background: ${span => span.theme.colors.primaryGradient};
@@ -36,20 +35,43 @@ const SimpleLinkText = styled.span`
   }
 `;
 
-const JoinLink = styled.a``;
+const JoinLinkActive = styled.a`
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: ${span => span.theme.colors.secondary};
+`;
 
-const JoinLinkTextMain = styled.span``;
+const JoinLinkInactive = styled.a`
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+`;
 
-const JoinLinkTextMinor = styled.span``;
+const JoinLinkTextMain = styled.span`
+  font-weight: bold;
+  margin-bottom: 4px;
+`;
 
-const JoinLinkTextMinorDynamic = ({ hiring }) => {
+const JoinLinkTextMinor = styled.span`
+  font-size: 13.5px;
+`;
+
+const JoinLink = ({ hiring }) => {
   if (hiring) {
-    return(
-      <JoinLinkTextMinor>Application Open</JoinLinkTextMinor>
+    return(<JoinLinkActive>
+       <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
+        <JoinLinkTextMinor>Application Open</JoinLinkTextMinor>
+    </JoinLinkActive>
     );
   }
-  return(
-    <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
+  return(<JoinLinkInactive>
+       <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
+        <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
+    </JoinLinkInactive>
   );
 };
 
@@ -74,10 +96,7 @@ const NavBar = ({ hiring }) => {
         </SimpleLinkText></SimpleLink> 
       </NavGroupContainer>
       <NavGroupContainer>
-        <JoinLink>
-          <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
-          <JoinLinkTextMinorDynamic hiring={hiring}/>
-        </JoinLink>
+        <JoinLink hiring={hiring}/>
         <LivePortalButton>Live Portal</LivePortalButton>
       </NavGroupContainer>
     </NavBarContainer>
