@@ -87,7 +87,7 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   return (
     <NavBarContainer>
       <NavGroupContainer>
-        <StyledImage src="/nwPlus_Logo_2020.png" alt="nwPlus club logo in white against dark blue background"/>
+        <StyledImage src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
         <a href="#"><SimpleLinkText>
           About Us
         </SimpleLinkText></a> 
