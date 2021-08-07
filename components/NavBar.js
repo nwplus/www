@@ -4,7 +4,6 @@ const NavBarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #000000;
   padding: 46px 87px;
 `;
 
