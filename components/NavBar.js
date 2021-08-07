@@ -19,7 +19,6 @@ const StyledImage = styled.img`
 
 const SimpleLinkText = styled.span`
   font-weight: bold;
-  line-height: 23px;
   color: ${span => span.theme.colors.secondary};
 
   &:hover {
@@ -42,7 +41,7 @@ const JoinLinkInactive = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: rgba(255, 255, 255, 0.6);
+  color: ${a => a.theme.colors.disabled};
 `;
 
 const JoinLinkTextMain = styled.span`
