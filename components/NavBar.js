@@ -1,18 +1,20 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
  
 const NavBarContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-contents: space-between;
-`;
-
-const NavLogo = styled.img`
+  justify-content: space-between;
+  background: #000000;
 `;
 
 const NavGroupContainer = styled.div`
   display: flex;
-  gap: 46.22px;
+  gap: 28px;
   align-items: center;
+`;
+
+const StyledImage = styled.img`
+  margin-right: 18px;
 `;
 
 const SimpleLink = styled.a`
@@ -20,36 +22,15 @@ const SimpleLink = styled.a`
 `;
 
 const SimpleLinkText = styled.span`
-  font-family: HK Grotesk;
   font-size: 18px;
   font-weight: 700;
   line-height: 23px;
   color: #FFFFFF;
+
+  :hover {
+    color: background: linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%);
+  }
 `;
-
-const LinkGroup = ({ children }) => {
-  return (
-    <div>
-      {children}
-    </div>
-  );
-};
-
-const LinkTitle = ({ children }) => {
-  return(
-    <SimpleLinkText>
-      Hackathons
-    </SimpleLinkText>
-  );
-}
-
-const LinkGroupChild = ({ path, children }) => {
-  return(
-    <SimpleLink href={path} target="_blank" rel="noopener noreferrer"><SimpleLinkText>
-      {children}
-    </SimpleLinkText></SimpleLink>
-  );
-}
 
 const JoinLink = styled.a``;
 
@@ -74,16 +55,13 @@ export const NavBar = ({ hiring }) => {
   return (
     <NavBarContainer>
       <NavGroupContainer>
-        <NavLogo src="/nwPlus_Logo_2020.png" alt="nwPlus club logo in white against dark blue background"/>
+        <StyledImage src="/nwPlus_Logo_2020.png" alt="nwPlus club logo in white against dark blue background"/>
         <SimpleLink href="#"><SimpleLinkText>
           About Us
         </SimpleLinkText></SimpleLink> 
-        <LinkGroup>
-          <LinkTitle>Hackathons</LinkTitle>
-          <LinkGroupChild href="#">cmd-f</LinkGroupChild>
-          <LinkGroupChild href="#">HackCamp</LinkGroupChild>
-          <LinkGroupChild href="#">nwHacks</LinkGroupChild>
-        </LinkGroup>
+        <SimpleLink href="#"><SimpleLinkText>
+          Hackathons
+        </SimpleLinkText></SimpleLink> 
         <SimpleLink href="#"><SimpleLinkText>
           Resources
         </SimpleLinkText></SimpleLink> 
