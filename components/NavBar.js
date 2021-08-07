@@ -51,7 +51,7 @@ const JoinLinkTextMinorDynamic = ({ hiring }) => {
 
 const LivePortalButton = styled.button``;
 
-export const NavBar = ({ hiring }) => {
+const NavBar = ({ hiring }) => {
   return (
     <NavBarContainer>
       <NavGroupContainer>
@@ -79,3 +79,5 @@ export const NavBar = ({ hiring }) => {
     </NavBarContainer>
   )
 }
+
+export default NavBar;

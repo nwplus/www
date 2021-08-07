@@ -1,9 +1,6 @@
 import Head from 'next/head'
-<<<<<<< HEAD
-import 
-=======
+import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
->>>>>>> 235ce04546f5b3078ee0b8d03d55b071aca7714c
 
 export default function Charcuterie() {
   return (
@@ -19,6 +16,9 @@ export default function Charcuterie() {
         <h2>Footer</h2>
         <Footer />
       </main>
+      <Carousel images={['https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/783px-Test-Logo.svg.png', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-588935825.jpg']}
+                height={180}
+                width={260} />
     </>
   )
 }
