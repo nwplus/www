@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'next/image'
+import Image from 'next/image';
 
 const BadgeContainer = styled.div`
   display: flex; 
@@ -29,14 +29,14 @@ const ThumbnailContainer = styled.div`
 
 const ResourceName = styled.span`
   margin-top: 8px;
-  color: #20FFAF; 
+  color: ${p => p.theme.colors.primary}; 
   font-weight: 700; 
   font-size: 18px;
 `;
 
 const EventName = styled.span`
   margin-top: 8px;
-  color: #FFFFFF; 
+  color: ${p => p.theme.colors.secondary}; 
   font-size: 13.5px;
 `;
 
