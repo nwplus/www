@@ -30,18 +30,11 @@ const SimpleLinkText = styled.span`
   }
 `;
 
-const JoinLinkActive = styled.a`
+const JoinLinkDynamic = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: ${span => span.theme.colors.secondary};
-`;
-
-const JoinLinkInactive = styled.a`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: ${a => a.theme.colors.disabled};
+  color: ${a => a.hiring ? a.theme.colors.secondary : a.theme.colors.disabled};
 `;
 
 const JoinLinkTextMain = styled.span`
@@ -53,20 +46,10 @@ const JoinLinkTextMinor = styled.span`
   font-size: 13.5px;
 `;
 
-const JoinLink = ({ hiring }) => {
-  if (hiring) {
-    return(<JoinLinkActive href="#">
-       <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
-        <JoinLinkTextMinor>Application Open</JoinLinkTextMinor>
-    </JoinLinkActive>
-    );
-  }
-  return(<JoinLinkInactive href="#">
-       <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
-        <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
-    </JoinLinkInactive>
-  );
-};
+const JoinLink = ({ hiring }) => <JoinLinkDynamic hiring={hiring} href="#">
+    <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
+    <JoinLinkTextMinor>Application {hiring ? 'Open': 'Closed'}</JoinLinkTextMinor>
+</JoinLinkDynamic>;
 
 const LivePortalButton = styled.button`
   border: none;
