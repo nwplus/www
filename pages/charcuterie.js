@@ -21,7 +21,9 @@ export default function Charcuterie() {
                 height={180}
                 width={260} />
       <h2>Join Us Page</h2>
-      <JoinUs hiring={true}/>
+      <div style={{ background: '#000', padding: '81px' }}>
+        <JoinUs hiring={true} deadlineDay={30} deadlineMonth="September"/>
+      </div>
     </>
   )
 }
