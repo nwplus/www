@@ -8,9 +8,7 @@ const Header = styled.h2`
 `
 
 const ProfileContent = styled.p`
-    color: white;
-    display: flex;
-    
+    color: white;    
     span {
         margin-right: 8px;
     }
