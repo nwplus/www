@@ -9,6 +9,11 @@ const Header = styled.h2`
 
 const ProfileContent = styled.p`
     color: white;
+    display: flex;
+    
+    span {
+        margin-right: 8px;
+    }
 `
 
 const ProfileList = styled.div`
@@ -85,7 +90,7 @@ export default function Team({ profiles }) {
         <>
             <Header>Meet the minds behind nwPlus</Header>
             <ProfileContent>
-                <b>{selectedProfile.name}</b> {selectedProfile.emoji}&nbsp;&nbsp;&nbsp;{selectedProfile.title}
+                <span><b>{selectedProfile.name}</b> {selectedProfile.emoji}</span> {selectedProfile.title}
             </ProfileContent>
             <ProfileList
                 onMouseEnter={() => {
