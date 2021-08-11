@@ -1,6 +1,7 @@
 {
   "hosting": {
-    "public": "build",
+    "target": "nwplus-io",
+    "public": "out",
     "ignore": [
       "firebase.json",
       "**/.*",
