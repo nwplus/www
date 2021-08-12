@@ -2,11 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 
+const CardContainer = styled.div`
+  position: relative;
+`
 const BadgeContainer = styled.div`
   display: flex; 
   position: absolute; 
-  margin-top: -30px; 
-  margin-left: -30px;
+  top: -30px; 
+  left: -30px;
 `;
 
 const TextContainer = styled.div`
@@ -42,7 +45,7 @@ const EventName = styled.span`
 
 export default function ResourceCard ({ name, event = null, year, image, icon, badge = null }) {
     return (
-      <div>
+      <CardContainer>
         {badge &&
           <BadgeContainer>
             <Image width='60px' height='60px' src={badge} />   
@@ -55,6 +58,6 @@ export default function ResourceCard ({ name, event = null, year, image, icon, b
           <ResourceName>{name}</ResourceName>
           <EventName>{event ? event + ' | ' + year : year}</EventName>
         </TextContainer>
-      </div>
+      </CardContainer>
     )
 }
