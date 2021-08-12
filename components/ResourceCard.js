@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 
 const CardContainer = styled.div`
   position: relative;
@@ -47,12 +46,12 @@ export default function ResourceCard ({ name, event = null, year, image, icon, b
     return (
       <CardContainer>
         {badge &&
-          <BadgeContainer>
-            <Image width='60px' height='60px' src={badge} />   
+          <BadgeContainer>            
+            <img width='60px' height='60px' src={badge} />  
           </BadgeContainer>        
         }          
         <ThumbnailContainer image={image}>   
-          <Image width='40px' height='40px' src={icon} />
+          <img width='40px' height='40px' src={icon} />
         </ThumbnailContainer>
         <TextContainer>
           <ResourceName>{name}</ResourceName>
