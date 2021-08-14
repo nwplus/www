@@ -5,8 +5,7 @@ export const BackgroundColor = styled.main`
 `;
 
 export const WithLines = styled.div`
-  background: url(/assets/lines_w_noise.svg),
-    ${(p) => p.theme.colors.background};
+  background: url(/assets/lines_w_noise.svg);
   background-size: cover;
 `;
 
