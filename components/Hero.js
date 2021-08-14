@@ -2,7 +2,7 @@ import { ContentContainer } from "./ContentContainer";
 import styled from "styled-components";
 import { LargeTitle, Title2 } from "./Typography";
 
-const HeroBackground = styled.div`
+const HeroContainer = styled.div`
   background: url(/assets/hero_illustration.svg);
   background-size: cover;
 `;
@@ -16,7 +16,7 @@ const HeroTextContainer = styled.div`
 
 export default function Hero() {
   return (
-    <HeroBackground>
+    <HeroContainer>
       <HeroTextContainer>
         <ContentContainer>
           <LargeTitle withGradient>nwPlus</LargeTitle>
@@ -25,6 +25,6 @@ export default function Hero() {
           </Title2>
         </ContentContainer>
       </HeroTextContainer>
-    </HeroBackground>
+    </HeroContainer>
   );
 }
