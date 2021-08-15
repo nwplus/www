@@ -19,10 +19,10 @@ const StyledImage = styled.img`
 
 const SimpleLinkText = styled.span`
   font-weight: bold;
-  color: ${span => span.theme.colors.secondary};
+  color: ${p => p.theme.colors.secondary};
 
   &:hover {
-    background: ${span => span.theme.colors.primaryGradient};
+    background: ${p => p.theme.colors.primaryGradient};
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent; 
@@ -34,14 +34,14 @@ const JoinLinkInactive = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: ${a => a.theme.colors.disabled};
+  color: ${p => p.theme.colors.disabled};
 `;
 
 const JoinLinkActive = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: ${span => span.theme.colors.primaryGradient};
+  background: ${p => p.theme.colors.primaryGradient};
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent; 
