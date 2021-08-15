@@ -7,7 +7,7 @@ const JoinUsContainer = styled.div`
 `;
 
 const Title = styled.span`
-  background: ${span => span.theme.colors.primaryGradient};
+  background: ${p => p.theme.colors.primaryGradient};
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent; 
@@ -27,13 +27,13 @@ const ButtonContainer = styled.div`
 const RegularText = styled.span`
   line-height: 22px;
   font-size: 18px;
-  color: ${span => span.theme.colors.bodyText};
+  color: ${p => p.theme.colors.bodyText};
 `;
 
 const AccentedText = styled.span`
   line-height: 22px;
   font-size: 18px;
-  background: ${span => span.theme.colors.primaryGradient};
+  background: ${p => p.theme.colors.primaryGradient};
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent; 
