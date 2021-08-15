@@ -47,7 +47,7 @@ const TextContainer = styled.div`
   margin-bottom: 64px;
 `;
 
-export const JoinUs = ({ hiring, deadlineMonth, deadlineDay }) => {
+export const JoinUs = ({ hiring, deadline }) => {
   return (<JoinUsContainer>
       <Title>Join Us</Title>
       <TextContainer>
@@ -59,7 +59,7 @@ export const JoinUs = ({ hiring, deadlineMonth, deadlineDay }) => {
             Applications are NOW OPEN to all UBC students, no matter your background/faculty, until&nbsp;
           </RegularText>
           <AccentedText>
-            {deadlineMonth} {deadlineDay}
+            {deadline}
           </AccentedText>
           <RegularText>.</RegularText>
         </div>
