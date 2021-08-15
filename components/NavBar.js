@@ -74,7 +74,7 @@ const JoinLink = ({ hiring, hiringLink }) => {
 
 const LivePortalButton = styled.button`
   border: none;
-  background: ${button => button.theme.colors.secondary};
+  background: ${p => p.theme.colors.secondary};
   font-size: inherit;
   font-family: inherit;
   font-weight: bold;
