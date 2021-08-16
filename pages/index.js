@@ -13,6 +13,7 @@ export default function Home() {
       <main className={styles.main}>
         <h1>hi how are ya 👋</h1>
         <Link href="/charcuterie">Charcuterie</Link>
+        <Link href="/application">Application Page</Link>
       </main>
 
       <footer className={styles.footer}>

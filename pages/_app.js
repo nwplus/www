@@ -16,6 +16,7 @@ const theme = {
     secondary: '#fff',
     tertiary: '#E2D6FF',
     bodyText: `#F1F6FD`,
+    background: '#2C2543'
   },
   mediaQueries: {
     xs: `@media only screen and (max-width: ${SCREEN_BREAKPOINTS.xs}px)`,
