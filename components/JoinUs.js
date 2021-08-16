@@ -3,7 +3,8 @@ import styled from 'styled-components'
 const JoinUsContainer = styled.div`
   display: flex;
   flex-direction: column;  
-  width: 628px;
+  width: 628px;  
+  padding: 160px 0 158px 81px;
 `;
 
 const Title = styled.span`
