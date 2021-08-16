@@ -1,6 +1,6 @@
-import { ContentContainer } from "./ContentContainer";
-import styled from "styled-components";
-import { LargeTitle, Title2 } from "./Typography";
+import { ContentContainer } from './ContentContainer';
+import styled from 'styled-components';
+import { LargeTitle, Title2 } from './Typography';
 
 const HeroContainer = styled.div`
   background: url(/assets/hero_illustration.svg);

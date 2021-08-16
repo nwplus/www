@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 const SetBackground = css`
   ${(p) => p.background && `background: ${p.background}`};
@@ -36,7 +36,7 @@ export const Title2 = styled.h2.attrs((p) => ({
   font-size: 32px;
   line-height: 40px;
   letter-spacing: -0.26px;
-  font-feature-settings: "liga" off;
+  font-feature-settings: 'liga' off;
   ${SetColor}
   ${SetBackground}
   ${(p) => p.theme.mediaQueries.mobile} {
