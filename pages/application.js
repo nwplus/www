@@ -8,13 +8,20 @@ import {
     faTwitter,
     faYoutube,
   } from '@fortawesome/free-brands-svg-icons';
-
 import Head from 'next/head';
+
 import JoinUs from '../components/JoinUs';
 
 const ApplicationPageContainer = styled.div`
   background: ${p => p.theme.colors.background};
   height: fit-content;
+  position: relative;
+`;
+
+const BackgroundImage = styled.img`
+  position: absolute;
+  width: 520px;
+  left: 880px;
 `;
 
 const FooterContainer = styled.div`
@@ -43,6 +50,7 @@ export default function Charcuterie() {
 
       <main>
         <ApplicationPageContainer>
+            <BackgroundImage src="/assets/logos/trying.svg" alt="an astronaut reaching inside a window"/>
             <JoinUs hiring={true} deadlineDay={30} deadlineMonth="September"/>
             <FooterContainer>
                 <SocialMediaIcons>
