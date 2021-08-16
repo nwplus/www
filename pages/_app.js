@@ -16,7 +16,8 @@ const theme = {
     shadedGradient: 'linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) )',
     secondary: '#fff',
     tertiary: '#E2D6FF',
-    metadata: '#BDBAC3'
+    metadata: '#BDBAC3',
+    background: '#2C2543'
   },
   mediaQueries: {
     xs: `@media only screen and (max-width: ${SCREEN_BREAKPOINTS.xs}px)`,
