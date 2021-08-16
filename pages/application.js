@@ -21,7 +21,7 @@ const ApplicationPageContainer = styled.div`
 const BackgroundImage = styled.img`
   position: absolute;
   width: 520px;
-  left: 880px;
+  left: 850px;
 `;
 
 const FooterContainer = styled.div`
