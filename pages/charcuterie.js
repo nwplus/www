@@ -3,13 +3,8 @@ import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
 import HackathonCard from '../components/HackathonCard'
 import Button from '../components/Button'
-import styled from 'styled-components'
 import ResourceCard from '../components/ResourceCard';
 import { ContentContainer } from '../components/ContentContainer';
-
-const RowContainer = styled.div`
-    display: flex;
-`
 
 const BADGE_ICON = 'assets/logos/our-pick-badge.svg';
 const VIDEO_ICON = 'assets/logos/video-icon.svg';
@@ -84,30 +79,37 @@ export default function Charcuterie() {
         <Footer />
       </main>
 
-      <h3>Hackathon cards</h3>
-      <RowContainer>
-        <HackathonCard 
-          registrationOpen 
-          link='https://www.google.com/' 
-          dateString='Dec 5 - 6' 
-          imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg' 
-        />
-        <HackathonCard 
-          link='https://www.google.com/' 
-          dateString='Dec 5 - 6' 
-          imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg' 
-        />
-      </RowContainer>
+      <ContentContainer>
+        <h3>Hackathon cards</h3>
+        <div style={{ display: 'flex' }}>
+          <HackathonCard 
+            registrationOpen 
+            link='https://www.google.com/' 
+            dateString='Dec 5 - 6' 
+            imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg' 
+          />
+          <HackathonCard 
+            link='https://www.google.com/' 
+            dateString='Dec 5 - 6' 
+            imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg' 
+          />
+        </div>
+      </ContentContainer>
 
-      <h3>Buttons</h3>
-      <RowContainer>
-        <Button link='https://www.google.com/' width='200px' height='70px'>
-          Visit Google
-        </Button>
-        <Button link='https://www.yahoo.com/' width='400px' height='50px' backgroundColor='red' borderRadius='12px' >
-          Visit Yahoo
-        </Button>
-      </RowContainer>
+      <ContentContainer>
+        <h3>Buttons</h3>
+        <div style={{ display: 'flex' }}>
+          <Button link='https://www.google.com/' width='200px' height='70px'>
+            Visit Google
+          </Button>
+          <Button link='https://www.yahoo.com/' width='400px' height='50px' backgroundColor='red' borderRadius='12px' >
+            Visit Yahoo
+          </Button>
+          <Button link='https://www.yahoo.com/' hollow width='200px' height='50px' borderRadius='12px' >
+            Visit Yahoo
+          </Button>
+        </div>
+      </ContentContainer>
     </>
   );
 }
