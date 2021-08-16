@@ -77,7 +77,7 @@ export default function Footer() {
           <FontAwesomeIcon icon={faMediumM} />
         </a>
       </SocialMediaIcons>
-      Copyright &copy; 2021 nwPlus
+      <div>Copyright &copy; 2021 nwPlus</div>
     </FooterContainer>
   )
 }
