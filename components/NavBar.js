@@ -30,7 +30,7 @@ const SimpleLinkText = styled.span`
   }
 `;
 
-const JoinLinkInactive = styled.a`
+const JoinLinkInactive = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,7 +65,7 @@ const JoinLink = ({ hiring, hiringLink }) => {
     </JoinLinkActive>
     );
   }
-  return(<JoinLinkInactive href="#">
+  return(<JoinLinkInactive>
        <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
         <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
     </JoinLinkInactive>

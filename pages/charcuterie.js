@@ -77,11 +77,8 @@ export default function Charcuterie() {
         </ContentContainer>
         <Footer />
       </main>
-      <Carousel images={['https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/783px-Test-Logo.svg.png', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-588935825.jpg']}
-                height={180}
-                width={260} />
 
-      <div style={{ position: 'fixed', top: 0, background: '#000000', width: '100%' }}>
+      <div style={{ position: 'fixed', top: 0, background: 'rgb(0, 0, 0, 0.50)', width: '100%' }}>
         <NavBar hiring={false}/>
       </div>
     </>
