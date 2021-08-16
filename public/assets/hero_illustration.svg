@@ -378,7 +378,7 @@
 </linearGradient>
 <radialGradient id="paint13_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1014 581) rotate(90) scale(354 401)">
 <stop stop-color="#78FF96"/>
-<stop offset="0.8125" stop-color="#78FF96" stop-opacity="0.1"/>
+<stop offset="1" stop-color="#78FF96" stop-opacity="0"/>
 </radialGradient>
 <radialGradient id="paint14_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(701 459.272) rotate(90) scale(167.129 481)">
 <stop stop-color="#6F00FC"/>
