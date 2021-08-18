@@ -49,6 +49,7 @@ export const Title1 = styled.h1.attrs((p) => ({
     font-size: 22px;
     line-height: 29px;
   }
+  ${(p) => p.customStyles}
 `;
 
 export const Title2 = styled.h2.attrs((p) => ({
