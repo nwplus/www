@@ -20,7 +20,7 @@ const FilterContainer = styled.div`
 
 const Header = styled.span`
   font-weight: 700;
-  margin: 5px; 
+  margin-left: 10px; 
 `;
 
 const HeaderContainer = styled.div`
@@ -29,14 +29,22 @@ const HeaderContainer = styled.div`
   align-items: center;
 `
 
-export default function ResourceFilterType() {
+export default function ResourceFilterCard({header, items}) {
   return (
     <FilterContainer>
       <HeaderContainer>
         <ResourceFilterTriangle />
-        <Header>TYPE</Header>
-      </HeaderContainer>      
-      <FormControlLabel
+        <Header>{header}</Header>
+      </HeaderContainer>
+      {items.map(item => (
+         <FormControlLabel
+         control={<Checkbox 
+          icon={<ResourceFilterUnchecked />} 
+          checkedIcon={<ResourceFilterChecked />} />}
+         label={item}
+         />
+      ))}      
+      {/* <FormControlLabel
         control={<Checkbox icon={<ResourceFilterUnchecked />} checkedIcon={<ResourceFilterChecked />} />}
         label="Videos"
         />
@@ -51,7 +59,7 @@ export default function ResourceFilterType() {
         <FormControlLabel
         control={<Checkbox icon={<ResourceFilterUnchecked />} checkedIcon={<ResourceFilterChecked />} />}
         label="GitHub"
-        />
+        /> */}
     </FilterContainer>
   )
 }

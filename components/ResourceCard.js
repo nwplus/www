@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { getResourceIcon } from '../utils/ResourceUtils';
 
 const CardContainer = styled.div`
   position: relative;
@@ -42,7 +43,7 @@ const EventName = styled.span`
   font-size: 13.5px;
 `;
 
-export default function ResourceCard ({ name, event = null, year, image, icon, badge = null }) {
+export default function ResourceCard ({ name, event = null, year, image, badge = null, type }) {
     return (
       <CardContainer>
         {badge &&
@@ -51,7 +52,7 @@ export default function ResourceCard ({ name, event = null, year, image, icon, b
           </BadgeContainer>        
         }          
         <ThumbnailContainer image={image}>   
-          <img width='40px' height='40px' src={icon} />
+          <img width='40px' height='40px' src={getResourceIcon(type)} />
         </ThumbnailContainer>
         <TextContainer>
           <ResourceName>{name}</ResourceName>

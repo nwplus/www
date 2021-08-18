@@ -3,12 +3,13 @@ import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
 import ResourceCard from '../components/ResourceCard';
 import { ContentContainer } from '../components/ContentContainer';
-import ResourceFilterType from '../components/ResourceFilterType';
+import ResourceFilterCard from '../components/ResourceFilterCard';
+import { ResourceType, ResourceEvent, ResourceYear } from '../utils/ResourceUtils';
 
 const BADGE_ICON = 'assets/logos/our-pick-badge.svg';
-const VIDEO_ICON = 'assets/logos/video-icon.svg';
-const GITHUB_ICON = 'assets/logos/github-icon.svg';
-const MEDIUM_ICON = 'assets/logos/medium-icon.svg';
+const FILTER_TYPE = 'TYPE';
+const FILTER_EVENT = 'EVENT';
+const FILTER_YEAR = 'YEAR';
 
 export default function Charcuterie() {
   return (
@@ -38,28 +39,64 @@ export default function Charcuterie() {
               padding: '8px',
             }}
           >
-            <ResourceFilterType />
+            <ResourceFilterCard header={FILTER_TYPE} items={Object.values(ResourceType)} />
+            <ResourceFilterCard header={FILTER_EVENT} items={Object.values(ResourceEvent)} />
+            <ResourceFilterCard header={FILTER_YEAR} items={Object.values(ResourceYear)} />
             <ResourceCard
               name='Ligma'
               event='Coachella'
               year='2022'
               image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
-              icon={VIDEO_ICON}
               badge={BADGE_ICON}
+              type={ResourceType.VIDEO}
             />
             <ResourceCard
               name='Ligma'
               year='2022'
               image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
-              icon={GITHUB_ICON}
               badge={BADGE_ICON}
+              type={ResourceType.GITHUB}
             />
             <ResourceCard
               name='Ligma'
               year='2022'
               image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
-              icon={MEDIUM_ICON}
+              type={ResourceType.ARTICLES}
             />
+            <ResourceCard
+              name='Ligma'
+              event='Coachella'
+              year='2022'
+              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
+              badge={BADGE_ICON}
+              type={ResourceType.VIDEO}
+            />
+            <ResourceCard
+              name='Ligma'
+              year='2022'
+              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
+              badge={BADGE_ICON}
+              type={ResourceType.GITHUB}
+            />
+            <ResourceCard
+              name='Ligma'
+              year='2022'
+              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
+              type={ResourceType.ARTICLES}
+              />
+              <ResourceCard
+              name='Ligma'
+              year='2022'
+              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
+              badge={BADGE_ICON}
+              type={ResourceType.SLIDES}
+            />
+            <ResourceCard
+              name='Ligma'
+              year='2022'
+              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
+              type={ResourceType.SLIDES}
+              />
           </div>
         </ContentContainer>
         <ContentContainer>
