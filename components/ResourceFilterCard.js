@@ -9,6 +9,7 @@ import ResourceFilterTriangle from './ResourceFilterTriangle';
 import ResourceFilterUnchecked from './ResourceFilterUnchecked';
 import { FormControlLabel } from '@material-ui/core';
 import styled from 'styled-components';
+import { resourceCategoryMapper } from '../utils/ResourceUtils';
 
 const FilterContainer = styled.div`
   display: flex; 
@@ -29,37 +30,30 @@ const HeaderContainer = styled.div`
   align-items: center;
 `
 
-export default function ResourceFilterCard({header, items}) {
+export default function ResourceFilterCard({header, items, filterStates, onChange}) {
+  const handleChange = (event) => {
+    onChange({ ...filterStates, [event.target.name]: event.target.checked });
+  };
+
   return (
     <FilterContainer>
       <HeaderContainer>
         <ResourceFilterTriangle />
         <Header>{header}</Header>
       </HeaderContainer>
-      {items.map(item => (
+      {Object.keys(items).map(item => (
          <FormControlLabel
-         control={<Checkbox 
+         control={
+         <Checkbox 
           icon={<ResourceFilterUnchecked />} 
-          checkedIcon={<ResourceFilterChecked />} />}
-         label={item}
+          checkedIcon={<ResourceFilterChecked />}
+          checked={filterStates[resourceCategoryMapper.item]} 
+          onChange={handleChange}
+          name={resourceCategoryMapper.item}
+          />}
+         label={items[item]}
          />
       ))}      
-      {/* <FormControlLabel
-        control={<Checkbox icon={<ResourceFilterUnchecked />} checkedIcon={<ResourceFilterChecked />} />}
-        label="Videos"
-        />
-      <FormControlLabel
-        control={<Checkbox icon={<ResourceFilterUnchecked />} checkedIcon={<ResourceFilterChecked />} />}
-        label="Articles"
-        />
-        <FormControlLabel
-        control={<Checkbox icon={<ResourceFilterUnchecked />} checkedIcon={<ResourceFilterChecked />} />}
-        label="PPT Slides"
-        />
-        <FormControlLabel
-        control={<Checkbox icon={<ResourceFilterUnchecked />} checkedIcon={<ResourceFilterChecked />} />}
-        label="GitHub"
-        /> */}
     </FilterContainer>
   )
 }

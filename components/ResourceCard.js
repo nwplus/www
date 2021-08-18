@@ -43,21 +43,23 @@ const EventName = styled.span`
   font-size: 13.5px;
 `;
 
-export default function ResourceCard ({ name, event = null, year, image, badge = null, type }) {
+export default function ResourceCard ({ name, event = null, year, image, badge = null, type, link }) {
     return (
-      <CardContainer>
-        {badge &&
-          <BadgeContainer>            
-            <img width='60px' height='60px' src={badge} />  
-          </BadgeContainer>        
-        }          
-        <ThumbnailContainer image={image}>   
-          <img width='40px' height='40px' src={getResourceIcon(type)} />
-        </ThumbnailContainer>
-        <TextContainer>
-          <ResourceName>{name}</ResourceName>
-          <EventName>{event ? event + ' | ' + year : year}</EventName>
-        </TextContainer>
-      </CardContainer>
+      <a href={link} target="_blank">
+        <CardContainer>
+          {badge &&
+            <BadgeContainer>            
+              <img width='60px' height='60px' src={badge} />  
+            </BadgeContainer>        
+          }          
+          <ThumbnailContainer image={image}>   
+            <img width='40px' height='40px' src={getResourceIcon(type)} />
+          </ThumbnailContainer>
+          <TextContainer>
+            <ResourceName>{name}</ResourceName>
+            <EventName>{event ? event + ' | ' + year : year}</EventName>
+          </TextContainer>
+        </CardContainer>
+      </a>
     )
 }
