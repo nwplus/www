@@ -3,6 +3,7 @@ import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
 import ResourceCard from '../components/ResourceCard';
 import { ContentContainer } from '../components/ContentContainer';
+import ResourceFilterType from '../components/ResourceFilterType';
 
 const BADGE_ICON = 'assets/logos/our-pick-badge.svg';
 const VIDEO_ICON = 'assets/logos/video-icon.svg';
@@ -34,10 +35,10 @@ export default function Charcuterie() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              backgroundColor: 'rgb(44, 38, 66)',
               padding: '8px',
             }}
           >
+            <ResourceFilterType />
             <ResourceCard
               name='Ligma'
               event='Coachella'
