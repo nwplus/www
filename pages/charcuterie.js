@@ -1,7 +1,9 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
+import Modal from '../components/Modal';
 import ResourceCard from '../components/ResourceCard';
 import { ContentContainer } from '../components/ContentContainer';
 import { Background } from '../components/Background';
@@ -13,6 +15,8 @@ const GITHUB_ICON = 'assets/logos/github-icon.svg';
 const MEDIUM_ICON = 'assets/logos/medium-icon.svg';
 
 export default function Charcuterie() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <Head>
@@ -77,8 +81,16 @@ export default function Charcuterie() {
             height={180}
             width={260}
           />
-
-          <Title2>Footer</Title2>
+        </ContentContainer>
+        <ContentContainer>
+          <Body onClick={() => setShowModal(true)}>Click me to open a modal!</Body>
+          <Modal
+            show={showModal}
+            onClose={() => setShowModal(false)}
+          >
+            <Title2>nwPlus Newsletter Sign-up</Title2>
+            <Body>Subscribe to our newsletter to stay up to date and for upcoming events!</Body>
+          </Modal>
         </ContentContainer>
         <Footer />
       </Background>
