@@ -89,6 +89,7 @@ export default function Charcuterie() {
             width={260}
           />
           <Title2>Pagination</Title2>
+          <Body>Current Page: {currPage + 1}</Body>
           <Pagination
             count={TOTAL_PAGES}
             pageIndex={currPage}
