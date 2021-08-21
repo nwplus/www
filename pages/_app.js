@@ -15,6 +15,7 @@ const theme = {
     primaryGradient: 'linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%)',
     secondary: '#fff',
     tertiary: '#E2D6FF',
+    disabled: 'rgba(255, 255, 255, 0.6)',
     background: '#2C2543',
     typography: {
       body: '#F1F6FD',

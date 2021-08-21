@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
+import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
 import ResourceCard from '../components/ResourceCard';
 import { ContentContainer } from '../components/ContentContainer';
@@ -81,6 +82,9 @@ export default function Charcuterie() {
           <Title2>Footer</Title2>
         </ContentContainer>
         <Footer />
+      <div style={{ position: 'fixed', top: 0, background: 'rgb(0, 0, 0, 0.50)', width: '100%' }}>
+        <NavBar hiring={false}/>
+      </div>
       </Background>
     </>
   );
