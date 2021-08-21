@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
-import JoinUs from '../components/JoinUs';
 import ResourceCard from '../components/ResourceCard';
 import { ContentContainer } from '../components/ContentContainer';
 
@@ -16,7 +15,11 @@ export default function Charcuterie() {
       <Head>
         <title>Charcuterie | nwPlus</title>
       </Head>
-      <main>
+      <Background>
+        <div style={{ position: 'fixed', top: 0, width: '100%' }}>
+          <NavBar hiring={false}/>
+        </div>
+        <Hero />
         <ContentContainer>
           <h1>charcuterie 😋</h1>
           <p>Just a place where we put things</p>
@@ -76,11 +79,7 @@ export default function Charcuterie() {
           <h2>Footer</h2>
         </ContentContainer>
         <Footer />
-        <h2>Join Us Page</h2>
-        <div style={{ background: '#000', padding: '81px' }}>
-          <JoinUs hiring={true} deadlineDay={30} deadlineMonth="September"/>
-        </div>
-      </main>
+      </Background>
     </>
   );
 }
