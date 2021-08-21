@@ -2,8 +2,11 @@ import Head from 'next/head';
 import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
+import Hero from '../components/Hero';
 import ResourceCard from '../components/ResourceCard';
 import { ContentContainer } from '../components/ContentContainer';
+import { Background } from '../components/Background';
+import { LargeTitle, Title2, Body } from '../components/Typography';
 
 const BADGE_ICON = 'assets/logos/our-pick-badge.svg';
 const VIDEO_ICON = 'assets/logos/video-icon.svg';
@@ -16,18 +19,22 @@ export default function Charcuterie() {
       <Head>
         <title>Charcuterie | nwPlus</title>
       </Head>
-      <main>
+      <Background>
+        <Hero />
         <ContentContainer>
-          <h1>charcuterie 😋</h1>
-          <p>Just a place where we put things</p>
-          <h2>ContentContainer</h2>
-          <p>
+          <LargeTitle>charcuterie 😋</LargeTitle>
+          <Body>Just a place where we put things</Body>
+          <Title2>ContentContainer</Title2>
+          <Body>
             Each block of content is wrapped by a ContentContainer. This
             component uniformly applies the same spacing stylings for each
-            section of the page. Note that it should not be used to wrap the
-            entire page, because the background for each component would be
-            pushed inwards as well.
-          </p>
+            section of the page.
+          </Body>
+          <Body>
+            <strong>Usage note: </strong>This container would be used in the
+            internals of each page/section - i.e. we would use this in the
+            internals of FAQ, Resources, and all other sections.
+          </Body>
         </ContentContainer>
         <ContentContainer>
           <div
@@ -35,7 +42,6 @@ export default function Charcuterie() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              backgroundColor: 'rgb(44, 38, 66)',
               padding: '8px',
             }}
           >
@@ -73,14 +79,13 @@ export default function Charcuterie() {
             width={260}
           />
 
-          <h2>Footer</h2>
+          <Title2>Footer</Title2>
         </ContentContainer>
         <Footer />
-      </main>
-
       <div style={{ position: 'fixed', top: 0, background: 'rgb(0, 0, 0, 0.50)', width: '100%' }}>
         <NavBar hiring={false}/>
       </div>
+      </Background>
     </>
   );
 }
