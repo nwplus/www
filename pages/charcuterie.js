@@ -1,10 +1,13 @@
-import Head from 'next/head'
-import Carousel from '../components/Carousel'
-import Footer from '../components/Footer'
-import HackathonCard from '../components/HackathonCard'
-import Button from '../components/Button'
+import Head from 'next/head';
+import Carousel from '../components/Carousel';
+import Footer from '../components/Footer';
+import Hero from '../components/Hero';
+import HackathonCard from '../components/HackathonCard';
+import Button from '../components/Button';
 import ResourceCard from '../components/ResourceCard';
 import { ContentContainer } from '../components/ContentContainer';
+import { Background } from '../components/Background';
+import { LargeTitle, Title2, Body } from '../components/Typography';
 
 const BADGE_ICON = 'assets/logos/our-pick-badge.svg';
 const VIDEO_ICON = 'assets/logos/video-icon.svg';
@@ -17,18 +20,22 @@ export default function Charcuterie() {
       <Head>
         <title>Charcuterie | nwPlus</title>
       </Head>
-      <main>
+      <Background>
+        <Hero />
         <ContentContainer>
-          <h1>charcuterie 😋</h1>
-          <p>Just a place where we put things</p>
-          <h2>ContentContainer</h2>
-          <p>
+          <LargeTitle>charcuterie 😋</LargeTitle>
+          <Body>Just a place where we put things</Body>
+          <Title2>ContentContainer</Title2>
+          <Body>
             Each block of content is wrapped by a ContentContainer. This
             component uniformly applies the same spacing stylings for each
-            section of the page. Note that it should not be used to wrap the
-            entire page, because the background for each component would be
-            pushed inwards as well.
-          </p>
+            section of the page.
+          </Body>
+          <Body>
+            <strong>Usage note: </strong>This container would be used in the
+            internals of each page/section - i.e. we would use this in the
+            internals of FAQ, Resources, and all other sections.
+          </Body>
         </ContentContainer>
         <ContentContainer>
           <div
@@ -36,7 +43,6 @@ export default function Charcuterie() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              backgroundColor: 'rgb(44, 38, 66)',
               padding: '8px',
             }}
           >
@@ -74,42 +80,42 @@ export default function Charcuterie() {
             width={260}
           />
 
-          <h2>Footer</h2>
+          <Title2>Footer</Title2>
         </ContentContainer>
         <Footer />
-      </main>
 
-      <ContentContainer>
-        <h3>Hackathon cards</h3>
-        <div style={{ display: 'flex' }}>
-          <HackathonCard 
-            registrationOpen 
-            link='https://www.google.com/' 
-            dateString='Dec 5 - 6' 
-            imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg' 
-          />
-          <HackathonCard 
-            link='https://www.google.com/' 
-            dateString='Dec 5 - 6' 
-            imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg' 
-          />
-        </div>
-      </ContentContainer>
+        <ContentContainer>
+          <h3>Hackathon cards</h3>
+          <div style={{ display: 'flex' }}>
+            <HackathonCard 
+              registrationOpen 
+              link='https://www.google.com/' 
+              dateString='Dec 5 - 6' 
+              imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg' 
+            />
+            <HackathonCard 
+              link='https://www.google.com/' 
+              dateString='Dec 5 - 6' 
+              imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg' 
+            />
+          </div>
+        </ContentContainer>
 
-      <ContentContainer>
-        <h3>Buttons</h3>
-        <div style={{ display: 'flex' }}>
-          <Button link='https://www.google.com/' width='200px' height='70px'>
-            Visit Google
-          </Button>
-          <Button link='https://www.yahoo.com/' width='400px' height='50px' backgroundColor='red' borderRadius='12px' >
-            Visit Yahoo
-          </Button>
-          <Button link='https://www.yahoo.com/' hollow width='200px' height='50px' borderRadius='12px' >
-            Visit Yahoo
-          </Button>
-        </div>
-      </ContentContainer>
+        <ContentContainer>
+          <h3>Buttons</h3>
+          <div style={{ display: 'flex' }}>
+            <Button link='https://www.google.com/' width='200px' height='70px'>
+              Visit Google
+            </Button>
+            <Button link='https://www.yahoo.com/' width='400px' height='50px' backgroundColor='red' borderRadius='12px' >
+              Visit Yahoo
+            </Button>
+            <Button link='https://www.yahoo.com/' hollow width='200px' height='50px' borderRadius='12px' >
+              Visit Yahoo
+            </Button>
+          </div>
+        </ContentContainer>
+      </Background>
     </>
   );
 }

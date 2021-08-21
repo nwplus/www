@@ -17,7 +17,10 @@ const theme = {
     secondary: '#fff',
     tertiary: '#E2D6FF',
     metadata: '#BDBAC3',
-    background: '#2C2543'
+    background: '#2C2543',
+    typography: {
+      body: '#F1F6FD',
+    },
   },
   mediaQueries: {
     xs: `@media only screen and (max-width: ${SCREEN_BREAKPOINTS.xs}px)`,
