@@ -21,6 +21,9 @@ const theme = {
       body: '#F1F6FD',
     },
   },
+  opacity: {
+    disabled: '0.6',
+  },
   mediaQueries: {
     xs: `@media only screen and (max-width: ${SCREEN_BREAKPOINTS.xs}px)`,
     mobile: `@media only screen and (max-width: ${SCREEN_BREAKPOINTS.mobile}px)`,

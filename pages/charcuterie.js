@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
@@ -7,6 +8,7 @@ import ResourceCard from '../components/ResourceCard';
 import { ContentContainer } from '../components/ContentContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
+import Pagination, { getClickedPageIndex } from '../components/Pagination';
 
 const BADGE_ICON = 'assets/logos/our-pick-badge.svg';
 const VIDEO_ICON = 'assets/logos/video-icon.svg';
@@ -14,6 +16,15 @@ const GITHUB_ICON = 'assets/logos/github-icon.svg';
 const MEDIUM_ICON = 'assets/logos/medium-icon.svg';
 
 export default function Charcuterie() {
+  const [currPage, setCurrPage] = useState(0);
+  const TOTAL_PAGES = 10;
+  const handlePageChange = (nextPageIndex) => {
+    if (nextPageIndex === TOTAL_PAGES || nextPageIndex < 0) {
+      return;
+    }
+    setCurrPage(nextPageIndex);
+  };
+
   return (
     <>
       <Head>
@@ -78,7 +89,15 @@ export default function Charcuterie() {
             height={180}
             width={260}
           />
-
+          <Title2>Pagination</Title2>
+          <Body>Current Page: {currPage + 1}</Body>
+          <Pagination
+            count={TOTAL_PAGES}
+            pageIndex={currPage}
+            onPageClick={(e) => setCurrPage(getClickedPageIndex(e))}
+            onPrevClick={() => handlePageChange(currPage - 1)}
+            onNextClick={() => handlePageChange(currPage + 1)}
+          />
           <Title2>Footer</Title2>
         </ContentContainer>
         <Footer />
