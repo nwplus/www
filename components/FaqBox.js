@@ -1,7 +1,7 @@
-import { useState } from "react";
-import styled, { keyframes } from "styled-components";
-import Image from "next/image";
-import arrow from "../public/assets/arrow.svg";
+import { useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import Image from 'next/image';
+import arrow from '../public/assets/arrow.svg';
 
 const fadeIn = keyframes`
   from {
@@ -14,8 +14,8 @@ const fadeIn = keyframes`
 
 const RootContainer = styled.div`
   position: relative;
-  border: 1px solid #b5b0c0;
   margin: 10px;
+  border: 1px solid #252525;
 
   > * {
     margin: 0px;
@@ -26,10 +26,11 @@ const RootContainer = styled.div`
 const TopContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  border-radius: ${(p) => (p.isExpanded ? '4px 4px 0 0' : '4px')};
   background: ${(p) =>
     p.isExpanded
-      ? "linear-gradient(0deg, #20FFAF -10.56%, #01DACC 100%)"
-      : "white"};
+      ? 'linear-gradient(0deg, #20FFAF -10.56%, #01DACC 100%)'
+      : 'white'};
 `;
 
 const Question = styled.p`
@@ -41,7 +42,7 @@ const Question = styled.p`
 const Arrow = styled(Image)`
   position: absolute;
   right: 10px;
-  transform: ${(p) => (p.isExpanded ? "rotate( -180deg )" : "none")};
+  transform: ${(p) => (p.isExpanded ? 'rotate( -180deg )' : 'none')};
   transition: transform 0.5s ease;
 `;
 
@@ -51,6 +52,8 @@ const Answer = styled.p`
   background: #4b406d;
   color: white;
   font-size: 13.5px;
+  border: 1px solid #b5b0c0;
+  border-radius: 0 0 4px 4px;
   > * {
     margin: 0px;
   }
@@ -72,11 +75,11 @@ const SmartAnswerBox = ({ answer, isHardcoded }) => {
   );
 };
 
-const FaqBox = ({ width, height, question, ...props }) => {
+const FaqBox = ({ question, ...props }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <RootContainer width={width} height={height}>
+    <RootContainer>
       <TopContainer
         onClick={() => setIsExpanded(!isExpanded)}
         isExpanded={isExpanded}
@@ -84,7 +87,7 @@ const FaqBox = ({ width, height, question, ...props }) => {
         <Question>{question}</Question>
         <Arrow
           src={arrow}
-          alt="faq selected indicator"
+          alt='faq selected indicator'
           isExpanded={isExpanded}
         ></Arrow>
       </TopContainer>
