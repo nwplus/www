@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
+import Image from "next/image";
+import arrow from "../assets/faq/arrow.svg";
 
 const fadeIn = keyframes`
   from {
@@ -10,22 +12,37 @@ const fadeIn = keyframes`
   }
 `;
 
-const Container = styled.div`
+const RootContainer = styled.div`
+  position: relative;
   border: 1px solid #b5b0c0;
+  margin: 10px;
 
   > * {
     margin: 0px;
-    padding: 1em;
+    padding: 16px;
   }
 `;
 
-const Question = styled.p`
-  color: #252525;
-  font-size: 18px;
-  background: ${(props) =>
-    props.isExpanded
+const TopContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background: ${(p) =>
+    p.isExpanded
       ? "linear-gradient(0deg, #20FFAF -10.56%, #01DACC 100%)"
       : "white"};
+`;
+
+const Question = styled.p`
+  margin: 0px;
+  color: #252525;
+  font-size: 18px;
+`;
+
+const Arrow = styled(Image)`
+  position: absolute;
+  right: 10px;
+  transform: ${(p) => (p.isExpanded ? "rotate( -180deg )" : "none")};
+  transition: transform 0.5s ease;
 `;
 
 const Answer = styled.p`
@@ -55,21 +72,24 @@ const SmartAnswerBox = ({ answer, isHardcoded }) => {
   );
 };
 
-const FaqBox = ({ question, ...props }) => {
+const FaqBox = ({ width, height, question, ...props }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <>
-      <Container>
-        <Question
-          onClick={() => setIsExpanded(!isExpanded)}
+    <RootContainer width={width} height={height}>
+      <TopContainer
+        onClick={() => setIsExpanded(!isExpanded)}
+        isExpanded={isExpanded}
+      >
+        <Question>{question}</Question>
+        <Arrow
+          src={arrow}
+          alt="faq selected indicator"
           isExpanded={isExpanded}
-        >
-          {question}
-        </Question>
-        {isExpanded && <SmartAnswerBox {...props} />}
-      </Container>
-    </>
+        ></Arrow>
+      </TopContainer>
+      {isExpanded && <SmartAnswerBox {...props} />}
+    </RootContainer>
   );
 };
 
