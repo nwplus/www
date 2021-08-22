@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import Image from 'next/image';
-import arrow from '../public/assets/arrow.svg';
 
 const fadeIn = keyframes`
   from {
@@ -26,6 +24,7 @@ const RootContainer = styled.div`
 const TopContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-radius: ${(p) => (p.isExpanded ? '4px 4px 0 0' : '4px')};
   background: ${(p) =>
     p.isExpanded
@@ -39,7 +38,7 @@ const Question = styled.p`
   font-size: 18px;
 `;
 
-const Arrow = styled(Image)`
+const Arrow = styled.img`
   position: absolute;
   right: 10px;
   transform: ${(p) => (p.isExpanded ? 'rotate( -180deg )' : 'none')};
@@ -86,7 +85,7 @@ const FaqBox = ({ question, ...props }) => {
       >
         <Question>{question}</Question>
         <Arrow
-          src={arrow}
+          src='/assets/arrow.svg'
           alt='faq selected indicator'
           isExpanded={isExpanded}
         ></Arrow>
