@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Image from "next/image";
-import arrow from "../assets/faq/arrow.svg";
+import arrow from "../public/assets/arrow.svg";
 
 const fadeIn = keyframes`
   from {

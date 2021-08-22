@@ -8,10 +8,12 @@ import {
   faTwitter,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
+import Team from './Team'
 
-const FooterContainer = styled.div`
-  background: #3A396E;
-  color: #20FFAF;
+const FooterContainer = styled.footer`
+  background: url(/assets/footer_bg.svg), ${p => p.theme.colors.background};
+  background-size: cover;
+  color: ${p => p.theme.colors.primary};
   text-align: center;
   padding: 64px 0;
 `;
@@ -22,6 +24,7 @@ const SocialMediaIcons = styled.div`
 
   a {
     margin: 0 32px;
+    transition: color 200ms;
 
     &:hover {
       color: #FFFFFF;
@@ -29,9 +32,31 @@ const SocialMediaIcons = styled.div`
   }
 `;
 
+
+// TODO: Grab profiles from firebase (Do this statically?)
+
+const MOCK_PROFILE = {
+  img: 'https://i.imgur.com/TjIKbQu.png',
+  name: 'Travis Scott',
+  emoji: '🍔',
+  color: '#33D39A',
+  title: 'Founder of the travis scott burger'
+}
+
+const profiles = Array(20).fill(MOCK_PROFILE)
+
+profiles.push({
+  img: 'https://pbs.twimg.com/profile_images/864282616597405701/M-FEJMZ0_400x400.jpg',
+  name: 'Sundar',
+  emoji: '🔤',
+  color: '#33D39A',
+  title: 'CEO of ABCs'
+})
+
 export default function Footer() {
   return (
     <FooterContainer>
+      <Team profiles={profiles} />
       <SocialMediaIcons>
         <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faFacebook} />
@@ -52,7 +77,7 @@ export default function Footer() {
           <FontAwesomeIcon icon={faMediumM} />
         </a>
       </SocialMediaIcons>
-      Copyright &copy; 2021 nwPlus
+      <div>Copyright &copy; 2021 nwPlus</div>
     </FooterContainer>
   )
 }
