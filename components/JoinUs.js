@@ -1,11 +1,5 @@
-import styled from 'styled-components'
-
-const JoinUsContainer = styled.div`
-  display: flex;
-  flex-direction: column;  
-  width: 750px;  
-  padding: 160px 0 158px 81px;
-`;
+import styled from 'styled-components';
+import { ContentContainer } from './ContentContainer';
 
 const Title = styled.span`
   background: ${p => p.theme.colors.primaryGradient};
@@ -49,7 +43,7 @@ const TextContainer = styled.div`
 `;
 
 export const JoinUs = ({ hiring, deadline }) => {
-  return (<JoinUsContainer>
+  return (<ContentContainer>
       <Title>Join Us</Title>
       <TextContainer>
         <RegularText>
@@ -72,7 +66,7 @@ export const JoinUs = ({ hiring, deadline }) => {
         <button disabled={!hiring}>View Application Package</button>
         <button disabled={!hiring}>Apply Now</button>
       </ButtonContainer>
-  </JoinUsContainer>
+  </ContentContainer>
   )
 }
 
