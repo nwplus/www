@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { ContentContainer } from './ContentContainer';
-import { Title1, Body } from './Typography';
+import { Title1, Body, MixedTextParagraph } from './Typography';
+import NavBar from './NavBar';
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -11,18 +12,21 @@ const ButtonContainer = styled.div`
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 8px;
+  margin-top: 42px;
   margin-bottom: 64px;
+  max-width: 628px;
 `;
 
-export const JoinUs = ({ hiring, deadline }) => {
+export const JoinUs = ({ hiring, hiringLink = '#', livePortalLink = '#', deadline }) => {
   return (<ContentContainer>
+    <NavBar hiring={false} hiringLink={hiringLink} livePortalLink={livePortalLink}/>
       <Title1 withGradient>Join Us</Title1>
       <TextContainer>
         <Body>
           Apply now to join our nwPlus organizing team!
         </Body>
-        <div>
+        <MixedTextParagraph>
           <Body>
             Applications are NOW OPEN to all UBC students, no matter your background/faculty, until&nbsp;
           </Body>
@@ -30,7 +34,7 @@ export const JoinUs = ({ hiring, deadline }) => {
             {deadline}
           </Body>
           <Body>.</Body>
-        </div>
+        </MixedTextParagraph>
         <Body>
           Be sure to apply early as we&#39;ll be conducting interviews and sending out offers on a rolling basis!
         </Body>

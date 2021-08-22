@@ -89,3 +89,11 @@ export const Body = styled.p.attrs((p) => ({
     line-height: 24px;
   }
 `;
+
+export const MixedTextParagraph = styled.div`
+  p {
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+`;
