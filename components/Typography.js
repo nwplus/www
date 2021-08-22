@@ -79,6 +79,11 @@ export const Body = styled.p.attrs((p) => ({
   letter-spacing: -0.43px;
   ${SetColor}
   ${SetBackground}
+  ${(p) =>
+    p.withGradient &&
+    `background: -webkit-linear-gradient(92deg, #19cbcb 1.55%, #78ff96 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;`}
   ${(p) => p.theme.mediaQueries.mobile} {
     font-size: 14px;
     line-height: 24px;

@@ -51,7 +51,7 @@ export default function Charcuterie() {
       <main>
         <ApplicationPageContainer>
             <BackgroundImage src="/assets/logos/trying.svg" alt="an astronaut reaching inside a window"/>
-            <JoinUs hiring={true} deadlineDay={30} deadlineMonth="September"/>
+            <JoinUs hiring={true} deadline="September 30"/>
             <FooterContainer>
                 <SocialMediaIcons>
                     <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
