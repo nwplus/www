@@ -17,10 +17,14 @@ const theme = {
     secondary: '#fff',
     tertiary: '#E2D6FF',
     metadata: '#BDBAC3',
+    disabled: 'rgba(255, 255, 255, 0.6)',
     background: '#2C2543',
     typography: {
       body: '#F1F6FD',
     },
+  },
+  opacity: {
+    disabled: '0.6',
   },
   mediaQueries: {
     xs: `@media only screen and (max-width: ${SCREEN_BREAKPOINTS.xs}px)`,
