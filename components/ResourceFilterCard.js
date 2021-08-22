@@ -32,28 +32,32 @@ const HeaderContainer = styled.div`
 
 export default function ResourceFilterCard({header, items, filterStates, onChange}) {
   const handleChange = (event) => {
+    console.log('[event.target.name]: ', event)
     onChange({ ...filterStates, [event.target.name]: event.target.checked });
   };
-
+  console.log('filterStates: ', filterStates)
   return (
     <FilterContainer>
       <HeaderContainer>
         <ResourceFilterTriangle />
         <Header>{header}</Header>
       </HeaderContainer>
-      {Object.keys(items).map(item => (
+      {Object.keys(items).map(item => {
+        console.log('resourceCategoryMapper[items[item]]: ', resourceCategoryMapper[items[item]])
+        return(        
          <FormControlLabel
          control={
          <Checkbox 
           icon={<ResourceFilterUnchecked />} 
           checkedIcon={<ResourceFilterChecked />}
-          checked={filterStates[resourceCategoryMapper.item]} 
+          checked={filterStates[resourceCategoryMapper[items[item]]]} 
           onChange={handleChange}
-          name={resourceCategoryMapper.item}
+          name={resourceCategoryMapper[items[item]]}
           />}
          label={items[item]}
-         />
-      ))}      
+         />    
+        )     
+         })}      
     </FilterContainer>
   )
 }

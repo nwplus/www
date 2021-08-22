@@ -27,8 +27,6 @@ export default function ResourceContainer() {
     2020: false,
     2021: false
   });
-console.log('videos: ', typeFilters.videos)
-console.log('github: ', typeFilters.github)
   return (
     <Container>
       <ResourceFilterCard header={FILTER_TYPE} 
