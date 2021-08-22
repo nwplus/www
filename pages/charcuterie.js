@@ -53,7 +53,7 @@ export default function Charcuterie() {
         <ContentContainer>
           <FaqBox question='Test?' answer='Test'/>
           <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={true}/>
-          <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded/>
+          <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={false}/>
         </ContentContainer>
         <ContentContainer>
           <div
