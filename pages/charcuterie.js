@@ -84,15 +84,15 @@ export default function Charcuterie() {
         </ContentContainer>
         <ContentContainer>
           <Body onClick={() => setShowModal(true)}>Click me to open a modal!</Body>
-          <Modal
-            show={showModal}
-            onClose={() => setShowModal(false)}
-          >
-            <Title2>nwPlus Newsletter Sign-up</Title2>
-            <Body>Subscribe to our newsletter to stay up to date and for upcoming events!</Body>
-          </Modal>
         </ContentContainer>
         <Footer />
+        <Modal
+          show={showModal}
+          onClose={() => setShowModal(false)}
+        >
+          <Title2>nwPlus Newsletter Sign-up</Title2>
+          <Body>Subscribe to our newsletter to stay up to date and for upcoming events!</Body>
+        </Modal>
       </Background>
     </>
   );
