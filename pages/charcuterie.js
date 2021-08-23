@@ -16,7 +16,6 @@ const GITHUB_ICON = 'assets/logos/github-icon.svg';
 const MEDIUM_ICON = 'assets/logos/medium-icon.svg';
 
 export default function Charcuterie() {
-  const DEFAULT_STARTING_PAGE = 0;
   const resourcesMockData = [
     {
       name: 'Ligma',
@@ -151,7 +150,6 @@ export default function Charcuterie() {
           <Title2>Paginated Resources</Title2>
           <ResourcePage
             resources={resourcesMockData}
-            startingPageIndex={DEFAULT_STARTING_PAGE}
           />
           <Title2>Footer</Title2>
         </ContentContainer>
