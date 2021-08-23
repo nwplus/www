@@ -26,6 +26,7 @@ export default function Modal({ children, show, onClose }) {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 99;
   `;
 
   const ModalContainer = styled.div`
