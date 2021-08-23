@@ -11,6 +11,8 @@ import { ContentContainer } from '../components/ContentContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
 import Pagination, { getClickedPageIndex } from '../components/Pagination';
+import FaqSection from '../components/FaqSection';
+import Faq from '../components/Faq';
 
 const BADGE_ICON = 'assets/logos/our-pick-badge.svg';
 const VIDEO_ICON = 'assets/logos/video-icon.svg';
@@ -134,6 +136,17 @@ export default function Charcuterie() {
               Visit Yahoo
             </Button>
           </div>
+        </ContentContainer>
+
+        <ContentContainer>
+          <Faq faqs={
+            [
+              { category: 'Category1', questions: ['q1', 'q2', 'q3'] },
+              { category: 'Category2', questions: ['q1', 'q2'] },
+              { category: 'Category3', questions: ['q1', 'q2', 'q3', 'q4'] },
+              { category: 'Category4', questions: ['q1', 'q2', 'q3', 'q4', 'q5'] },
+              { category: 'Category5', questions: ['q1', 'q2', 'q3'] }
+            ]}/>
         </ContentContainer>
         
         <div style={{ position: 'fixed', top: 0, background: 'rgb(0, 0, 0, 0.50)', width: '100%' }}>
