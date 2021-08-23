@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
+import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
 import Modal from '../components/Modal';
+import HackathonCard from '../components/HackathonCard';
+import Button from '../components/Button';
 import ResourceCard from '../components/ResourceCard';
 import { ContentContainer } from '../components/ContentContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
+import Pagination, { getClickedPageIndex } from '../components/Pagination';
 
 const BADGE_ICON = 'assets/logos/our-pick-badge.svg';
 const VIDEO_ICON = 'assets/logos/video-icon.svg';
@@ -16,6 +20,14 @@ const MEDIUM_ICON = 'assets/logos/medium-icon.svg';
 
 export default function Charcuterie() {
   const [showModal, setShowModal] = useState(false);
+  const [currPage, setCurrPage] = useState(0);
+  const TOTAL_PAGES = 10;
+  const handlePageChange = (nextPageIndex) => {
+    if (nextPageIndex === TOTAL_PAGES || nextPageIndex < 0) {
+      return;
+    }
+    setCurrPage(nextPageIndex);
+  };
 
   return (
     <>
@@ -39,6 +51,7 @@ export default function Charcuterie() {
             internals of FAQ, Resources, and all other sections.
           </Body>
         </ContentContainer>
+
         <ContentContainer>
           <div
             style={{
@@ -71,6 +84,7 @@ export default function Charcuterie() {
             />
           </div>
         </ContentContainer>
+
         <ContentContainer>
           <Carousel
             images={[
@@ -82,17 +96,68 @@ export default function Charcuterie() {
             width={260}
           />
         </ContentContainer>
+
         <ContentContainer>
           <Body onClick={() => setShowModal(true)}>Click me to open a modal!</Body>
+          <Modal
+            show={showModal}
+            onClose={() => setShowModal(false)}
+          >
+            <Title2>nwPlus Newsletter Sign-up</Title2>
+            <Body>Subscribe to our newsletter to stay up to date and for upcoming events!</Body>
+          </Modal>
         </ContentContainer>
+
+        <ContentContainer>
+          <Title2>Pagination</Title2>
+          <Body>Current Page: {currPage + 1}</Body>
+          <Pagination
+            count={TOTAL_PAGES}
+            pageIndex={currPage}
+            onPageClick={(e) => setCurrPage(getClickedPageIndex(e))}
+            onPrevClick={() => handlePageChange(currPage - 1)}
+            onNextClick={() => handlePageChange(currPage + 1)}
+          />
+          <Title2>Footer</Title2>
+        </ContentContainer>
+
+        <ContentContainer>
+          <h3>Hackathon cards</h3>
+          <div style={{ display: 'flex' }}>
+            <HackathonCard
+              registrationOpen
+              link='https://www.google.com/'
+              dateString='Dec 5 - 6'
+              imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg'
+            />
+            <HackathonCard
+              link='https://www.google.com/'
+              dateString='Dec 5 - 6'
+              imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg'
+            />
+          </div>
+        </ContentContainer>
+
+        <ContentContainer>
+          <h3>Buttons</h3>
+          <div style={{ display: 'flex' }}>
+            <Button link='https://www.google.com/' width='200px' height='70px'>
+              Visit Google
+            </Button>
+            <Button link='https://www.yahoo.com/' width='400px' height='50px' backgroundColor='red' borderRadius='12px' >
+              Visit Yahoo
+            </Button>
+            <Button link='https://www.yahoo.com/' hollow width='200px' height='50px' borderRadius='12px' >
+              Visit Yahoo
+            </Button>
+          </div>
+        </ContentContainer>
+
         <Footer />
-        <Modal
-          show={showModal}
-          onClose={() => setShowModal(false)}
-        >
-          <Title2>nwPlus Newsletter Sign-up</Title2>
-          <Body>Subscribe to our newsletter to stay up to date and for upcoming events!</Body>
-        </Modal>
+
+        <div style={{ position: 'fixed', top: 0, background: 'rgb(0, 0, 0, 0.50)', width: '100%' }}>
+          <NavBar hiring={false}/>
+        </div>
       </Background>
     </>
   );
