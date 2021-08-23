@@ -17,8 +17,8 @@ const ResourcePageContainer = styled.div`
   ${(p) => p.theme.mediaQueries.mobile} {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    column-gap: 16px;
-    row-gap: 16px;
+    column-gap: 28px;
+    row-gap: 24px;
     margin-bottom: 16px;
   }
 `;

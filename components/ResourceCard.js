@@ -29,7 +29,7 @@ const ThumbnailContainer = styled.div`
   align-items: center;
   ${(p) => p.theme.mediaQueries.mobile} {
     width: 160px;
-    height: 111px;
+    height: 112px;
   }
 `;
 
