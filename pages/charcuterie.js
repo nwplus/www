@@ -142,38 +142,6 @@ export default function Charcuterie() {
           </Body>
         </ContentContainer>
         <ContentContainer>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              padding: '8px',
-            }}
-          >
-            <ResourceCard
-              name='Ligma'
-              event='Coachella'
-              year='2022'
-              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
-              icon={VIDEO_ICON}
-              badge={BADGE_ICON}
-            />
-            <ResourceCard
-              name='Ligma'
-              year='2022'
-              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
-              icon={GITHUB_ICON}
-              badge={BADGE_ICON}
-            />
-            <ResourceCard
-              name='Ligma'
-              year='2022'
-              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
-              icon={MEDIUM_ICON}
-            />
-          </div>
-        </ContentContainer>
-        <ContentContainer>
           <Carousel
             images={[
               'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/783px-Test-Logo.svg.png',
