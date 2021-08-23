@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
@@ -6,11 +5,9 @@ import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
 import HackathonCard from '../components/HackathonCard';
 import Button from '../components/Button';
-import ResourceCard from '../components/ResourceCard';
 import { ContentContainer } from '../components/ContentContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
-import Pagination, { getClickedPageIndex } from '../components/Pagination';
 import ResourcePage from '../components/ResourcePage';
 
 const BADGE_ICON = 'assets/logos/our-pick-badge.svg';
@@ -27,7 +24,7 @@ export default function Charcuterie() {
       year: '2022',
       image:
         'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: VIDEO_ICON,
+      icon: GITHUB_ICON,
       badge: BADGE_ICON,
     },
     {
@@ -36,7 +33,7 @@ export default function Charcuterie() {
       year: '2022',
       image:
         'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: VIDEO_ICON,
+      icon: MEDIUM_ICON,
       badge: BADGE_ICON,
     },
     {
@@ -53,7 +50,7 @@ export default function Charcuterie() {
       year: '2222',
       image:
         'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: VIDEO_ICON,
+      icon: GITHUB_ICON,
     },
     {
       name: 'Hi Vincent',
@@ -75,7 +72,7 @@ export default function Charcuterie() {
       year: '2022',
       image:
         'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: VIDEO_ICON,
+      icon: MEDIUM_ICON,
       badge: BADGE_ICON,
     },
     {
@@ -92,7 +89,7 @@ export default function Charcuterie() {
       year: '2022',
       image:
         'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: VIDEO_ICON,
+      icon: MEDIUM_ICON,
       badge: BADGE_ICON,
     },
     {
@@ -100,14 +97,14 @@ export default function Charcuterie() {
       year: '2022',
       image:
         'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: VIDEO_ICON,
+      icon: GITHUB_ICON,
     },
     {
       name: 'its jenny',
       year: '2022',
       image:
         'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: VIDEO_ICON,
+      icon: MEDIUM_ICON,
       badge: BADGE_ICON,
     },
     {
