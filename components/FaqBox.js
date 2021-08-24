@@ -25,6 +25,7 @@ const TopContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   border-radius: ${(p) => (p.isExpanded ? '4px 4px 0 0' : '4px')};
+  border: 2px solid #20FFAF;
   background: ${(p) =>
     p.isExpanded
       ? 'linear-gradient(0deg, #20FFAF -10.56%, #01DACC 100%)'
@@ -39,7 +40,7 @@ const Question = styled.p`
 
 const Arrow = styled.img`
   position: absolute;
-  right: 10px;
+  right: 15px;
   transform: ${(p) => (p.isExpanded ? 'rotate( -180deg )' : 'none')};
   transition: transform 0.5s ease;
 `;
