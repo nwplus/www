@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 import FaqSection from './FaqSection'
 
-const FaqGrid = styled.div`
+const FaqContainer = styled.div`
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto;
+
+    ${p => p.theme.mediaQueries.mobile} {
+        display: flex;
+        flex-direction: column;
+    }
 `
 
 const Title = styled.div`
@@ -13,6 +18,9 @@ const Title = styled.div`
     font-weight: bold;
     font-size: 3em;
     margin-bottom: 1em;
+    ${p => p.theme.mediaQueries.mobile} {
+        font-size: 1.75em;
+    }
 `
 
 const FlexContainer = styled.div`
@@ -32,14 +40,14 @@ const Faq = ({ faqs }) => {
     return (
         <div>
             <Title>Frequently Asked Questions</Title>
-            <FaqGrid>
+            <FaqContainer>
                 <FlexContainer>
                     {firstHalf.map(faq => <StyledSection category={faq.category} questions={faq.questions}/>)}
                 </FlexContainer>
                 <FlexContainer>
                     {secondHalf.map(faq => <StyledSection category={faq.category} questions={faq.questions}/>)}
                 </FlexContainer>    
-            </FaqGrid>
+            </FaqContainer>
         </div>
     )
 }
