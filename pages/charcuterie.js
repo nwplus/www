@@ -5,6 +5,8 @@ import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
 import HackathonCard from '../components/HackathonCard';
 import Button from '../components/Button';
+import ResourceCard from '../components/ResourceCard';
+import FaqBox from '../components/FaqBox';
 import { ContentContainer } from '../components/ContentContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
@@ -136,6 +138,43 @@ export default function Charcuterie() {
             internals of each page/section - i.e. we would use this in the
             internals of FAQ, Resources, and all other sections.
           </Body>
+        </ContentContainer>
+        <ContentContainer>
+          <FaqBox question='Test?' answer='Test'/>
+          <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={true}/>
+          <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={false}/>
+        </ContentContainer>
+        <ContentContainer>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '8px',
+            }}
+          >
+            <ResourceCard
+              name='Ligma'
+              event='Coachella'
+              year='2022'
+              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
+              icon={VIDEO_ICON}
+              badge={BADGE_ICON}
+            />
+            <ResourceCard
+              name='Ligma'
+              year='2022'
+              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
+              icon={GITHUB_ICON}
+              badge={BADGE_ICON}
+            />
+            <ResourceCard
+              name='Ligma'
+              year='2022'
+              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
+              icon={MEDIUM_ICON}
+            />
+          </div>
         </ContentContainer>
         <ContentContainer>
           <Carousel
