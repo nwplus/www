@@ -60,46 +60,128 @@ export default function ResourceContainer() {
         let hackcampFilter = false;
         let nwhacksFilter = false;
         let cmdfFilter = false;
+        let isEventFilter = false;
 
-        if (typeFilters.videos || 
-            typeFilters.github || 
-            typeFilters.articles || 
-            typeFilters.slides || 
-            eventFilters.hackcamp || 
-            eventFilters.nwhacks || 
-            eventFilters.cmd_f) {
-          if (typeFilters.videos) {
-            videosFilter = resource.type === ResourceType.VIDEO
-          }
+        let filter2019 = false;
+        let filter2020 = false;
+        let filter2021 = false;
+        let isYearFilter = false;
+
+        // if (typeFilters.videos || 
+        //     typeFilters.github || 
+        //     typeFilters.articles || 
+        //     typeFilters.slides || 
+        //     eventFilters.hackcamp || 
+        //     eventFilters.nwhacks || 
+        //     eventFilters.cmd_f) {
+        //   if (typeFilters.videos) {
+        //     videosFilter = resource.type === ResourceType.VIDEO
+        //   }
   
-          if (typeFilters.github) {
-            githubFilter = resource.type === ResourceType.GITHUB
-          }
+        //   if (typeFilters.github) {
+        //     githubFilter = resource.type === ResourceType.GITHUB
+        //   }
   
-          if (typeFilters.articles) {
-            articlesFilter = resource.type === ResourceType.ARTICLES
-          }
+        //   if (typeFilters.articles) {
+        //     articlesFilter = resource.type === ResourceType.ARTICLES
+        //   }
   
-          if (typeFilters.slides) {
-            slidesFilter = resource.type === ResourceType.SLIDES
-          }
+        //   if (typeFilters.slides) {
+        //     slidesFilter = resource.type === ResourceType.SLIDES
+        //   }
 
-          if (eventFilters.hackcamp) {
-            hackcampFilter = resource.event === ResourceEvent.HACK_CAMP
-          }
+        //   if (eventFilters.hackcamp) {
+        //     hackcampFilter = resource.event === ResourceEvent.HACK_CAMP
+        //   }
 
-          if (eventFilters.nwhacks) {
-            nwhacksFilter = resource.event === ResourceEvent.NW_HACKS
-          }
+        //   if (eventFilters.nwhacks) {
+        //     nwhacksFilter = resource.event === ResourceEvent.NW_HACKS
+        //   }
 
-          if (eventFilters.cmd_f) {
-            cmdfFilter = resource.event === ResourceEvent.CMD_F
-          }
+        //   if (eventFilters.cmd_f) {
+        //     cmdfFilter = resource.event === ResourceEvent.CMD_F
+        //   }
 
-          return (videosFilter || githubFilter || articlesFilter || slidesFilter);
-        }        
+        //   return (videosFilter || githubFilter || articlesFilter || slidesFilter);          
+        // }        
 
-        else return true
+        // else return true
+        const isTypeFilterChecked = (typeFilters.videos || typeFilters.github || typeFilters.articles || typeFilters.slides);
+        const isEventFilterChecked = (eventFilters.hackcamp || eventFilters.nwhacks || eventFilters.cmd_f);
+        const isYearFilterChecked = (yearFilters[2019] || yearFilters[2020] || yearFilters[2021]);
+
+        if (typeFilters.videos) {
+          videosFilter = resource.type === ResourceType.VIDEO
+        }
+
+        if (typeFilters.github) {
+          githubFilter = resource.type === ResourceType.GITHUB
+        }
+
+        if (typeFilters.articles) {
+          articlesFilter = resource.type === ResourceType.ARTICLES
+        }
+
+        if (typeFilters.slides) {
+          slidesFilter = resource.type === ResourceType.SLIDES
+        }
+
+        if (eventFilters.hackcamp) {
+          hackcampFilter = resource.event === ResourceEvent.HACK_CAMP
+        }
+
+        if (eventFilters.nwhacks) {
+          nwhacksFilter = resource.event === ResourceEvent.NW_HACKS
+        }
+
+        if (eventFilters.cmd_f) {
+          cmdfFilter = resource.event === ResourceEvent.CMD_F
+        }
+
+        if (yearFilters[2019]) {
+          filter2019 = resource.year === ResourceYear[2019]
+        }
+
+        if (yearFilters[2020]) {
+          filter2020 = resource.year === ResourceYear[2020]
+        }
+
+        if (yearFilters[2021]) {
+          filter2021 = resource.year === ResourceYear[2021]
+        }
+
+        isTypeFilter = (videosFilter || githubFilter || articlesFilter || slidesFilter);
+        isEventFilter = (hackcampFilter || nwhacksFilter || cmdfFilter);
+        isYearFilter = (filter2019 || filter2020 || filter2021);
+        
+        if(isTypeFilterChecked && isEventFilterChecked && isYearFilterChecked) {
+          return (isTypeFilter && isEventFilter && isYearFilter);
+        }
+
+        else if(isTypeFilterChecked && isYearFilterChecked) {
+          return (isTypeFilter && isYearFilter);
+        }
+        
+        else if(isTypeFilterChecked && isEventFilterChecked) {
+          return (isTypeFilter && isEventFilter);
+        }
+
+        else if(isEventFilterChecked && isYearFilterChecked) {
+          return (isEventFilter && isYearFilter);
+        }
+
+        else if(isTypeFilterChecked) {
+          return isTypeFilter;
+        }
+
+        else if(isEventFilterChecked) {
+          return isEventFilter;
+        }
+
+        else if(isYearFilterChecked) {
+          return isYearFilter;
+        }
+        else return true;
       }).map(data => (
         <ResourceCard name={data.name} 
           event={data.event} 
