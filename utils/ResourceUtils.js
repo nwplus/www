@@ -42,6 +42,81 @@ export const resourceCategoryMapper = {
   2021: '2021'
 }
 
+export const MOCK_RESOURCES_DATA = [
+  {
+    name: 'Ligma',
+    event: 'Coachella',
+    year: '2022',
+    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    badge: BADGE_ICON,
+    type: ResourceType.VIDEO,
+    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+  },
+  {
+    name: 'Ligma',
+    event: 'Coachella',
+    year: '2022',
+    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    badge: BADGE_ICON,
+    type: ResourceType.VIDEO,
+    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+  },
+  {
+    name: 'Ligma',
+    event: 'Coachella',
+    year: '2022',
+    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    badge: BADGE_ICON,
+    type: ResourceType.GITHUB,
+    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+  },
+  {
+    name: 'Ligma',
+    event: 'Coachella',
+    year: '2022',
+    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    badge: BADGE_ICON,
+    type: ResourceType.GITHUB,
+    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+  },
+  {
+    name: 'Ligma',
+    event: 'Coachella',
+    year: '2022',
+    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    badge: BADGE_ICON,
+    type: ResourceType.GITHUB,
+    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+  },
+  {
+    name: 'Ligma',
+    event: 'Coachella',
+    year: '2022',
+    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    badge: BADGE_ICON,
+    type: ResourceType.ARTICLES,
+    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+  },
+  {
+    name: 'Ligma',
+    event: 'Coachella',
+    year: '2022',
+    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    badge: BADGE_ICON,
+    type: ResourceType.ARTICLES,
+    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+  },
+  {
+    name: 'Ligma',
+    event: 'Coachella',
+    year: '2022',
+    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    badge: BADGE_ICON,
+    type: ResourceType.SLIDES,
+    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+  }
+]
+
 export const MOCK_RESOURCES = [
   <ResourceCard
     name='Ligma'

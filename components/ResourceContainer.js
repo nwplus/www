@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { FILTER_TYPE, FILTER_EVENT, FILTER_YEAR, ResourceType, ResourceEvent, ResourceYear, MOCK_RESOURCES } from '../utils/ResourceUtils';
+import { FILTER_TYPE, FILTER_EVENT, FILTER_YEAR, ResourceType, ResourceEvent, ResourceYear, MOCK_RESOURCES, MOCK_RESOURCES_DATA } from '../utils/ResourceUtils';
 import ResourceFilterCard from './ResourceFilterCard';
+import ResourceCard from './ResourceCard';
 
 const Container = styled.div`
   display: flex;
@@ -49,25 +50,66 @@ export default function ResourceContainer() {
         filterStates={yearFilters} 
         onChange={setYearFilters} 
       />
-      {MOCK_RESOURCES.filter(resource => {
-        if (typeFilters.videos) {
-          return resource.type === ResourceType.VIDEO
-        }
+      {MOCK_RESOURCES_DATA.filter(resource => {
+        let videosFilter = false;
+        let githubFilter = false;
+        let articlesFilter = false;
+        let slidesFilter = false;
+        let isTypeFilter = false;
 
-        else if (typeFilters.github) {
-          return resource.type === ResourceType.GITHUB
-        }
+        let hackcampFilter = false;
+        let nwhacksFilter = false;
+        let cmdfFilter = false;
 
-        else if (typeFilters.articles) {
-          return resource.type === ResourceType.ARTICLES
-        }
+        if (typeFilters.videos || 
+            typeFilters.github || 
+            typeFilters.articles || 
+            typeFilters.slides || 
+            eventFilters.hackcamp || 
+            eventFilters.nwhacks || 
+            eventFilters.cmd_f) {
+          if (typeFilters.videos) {
+            videosFilter = resource.type === ResourceType.VIDEO
+          }
+  
+          if (typeFilters.github) {
+            githubFilter = resource.type === ResourceType.GITHUB
+          }
+  
+          if (typeFilters.articles) {
+            articlesFilter = resource.type === ResourceType.ARTICLES
+          }
+  
+          if (typeFilters.slides) {
+            slidesFilter = resource.type === ResourceType.SLIDES
+          }
 
-        else if (typeFilters.slides) {
-          return resource.type === ResourceType.SLIDES
-        }
+          if (eventFilters.hackcamp) {
+            hackcampFilter = resource.event === ResourceEvent.HACK_CAMP
+          }
+
+          if (eventFilters.nwhacks) {
+            nwhacksFilter = resource.event === ResourceEvent.NW_HACKS
+          }
+
+          if (eventFilters.cmd_f) {
+            cmdfFilter = resource.event === ResourceEvent.CMD_F
+          }
+
+          return (videosFilter || githubFilter || articlesFilter || slidesFilter);
+        }        
 
         else return true
-      })}
+      }).map(data => (
+        <ResourceCard name={data.name} 
+          event={data.event} 
+          year={data.year} 
+          image={data.image} 
+          badge={data.badge} 
+          type={data.type} 
+          link={data.link} 
+        />
+      ))}
     </Container>
   )
 }
