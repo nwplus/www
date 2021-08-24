@@ -13,9 +13,18 @@ const theme = {
   colors: {
     primary: '#20FFAF',
     primaryGradient: 'linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%)',
+    shadedGradient: 'linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) )',
     secondary: '#fff',
     tertiary: '#E2D6FF',
-    bodyText: `#F1F6FD`,
+    metadata: '#BDBAC3',
+    disabled: 'rgba(255, 255, 255, 0.6)',
+    background: '#2C2543',
+    typography: {
+      body: '#F1F6FD',
+    },
+  },
+  opacity: {
+    disabled: '0.6',
   },
   mediaQueries: {
     xs: `@media only screen and (max-width: ${SCREEN_BREAKPOINTS.xs}px)`,
