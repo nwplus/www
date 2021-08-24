@@ -13,7 +13,6 @@ const fadeIn = keyframes`
 const RootContainer = styled.div`
   position: relative;
   margin: 10px;
-  border: 1px solid #252525;
 
   > * {
     margin: 0px;
@@ -51,7 +50,7 @@ const Answer = styled.p`
   background: #4b406d;
   color: white;
   font-size: 13.5px;
-  border: 1px solid #b5b0c0;
+  border: 2px solid #20FFAF;
   border-radius: 0 0 4px 4px;
   > * {
     margin: 0px;
