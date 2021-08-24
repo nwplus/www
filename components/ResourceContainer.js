@@ -27,6 +27,9 @@ export default function ResourceContainer() {
     2020: false,
     2021: false
   });
+  console.log('typeFilters: ', typeFilters)
+  console.log('eventFilters: ', eventFilters)
+  console.log('yearFilters: ', yearFilters)
   return (
     <Container>
       <ResourceFilterCard header={FILTER_TYPE} 
@@ -46,7 +49,25 @@ export default function ResourceContainer() {
         filterStates={yearFilters} 
         onChange={setYearFilters} 
       />
-      {MOCK_RESOURCES}
+      {MOCK_RESOURCES.filter(resource => {
+        if (typeFilters.videos) {
+          return resource.type === ResourceType.VIDEO
+        }
+
+        else if (typeFilters.github) {
+          return resource.type === ResourceType.GITHUB
+        }
+
+        else if (typeFilters.articles) {
+          return resource.type === ResourceType.ARTICLES
+        }
+
+        else if (typeFilters.slides) {
+          return resource.type === ResourceType.SLIDES
+        }
+
+        else return true
+      })}
     </Container>
   )
 }

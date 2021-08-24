@@ -35,7 +35,6 @@ export default function ResourceFilterCard({header, items, filterStates, onChang
     console.log('[event.target.name]: ', event)
     onChange({ ...filterStates, [event.target.name]: event.target.checked });
   };
-  console.log('filterStates: ', filterStates)
   return (
     <FilterContainer>
       <HeaderContainer>
@@ -43,16 +42,15 @@ export default function ResourceFilterCard({header, items, filterStates, onChang
         <Header>{header}</Header>
       </HeaderContainer>
       {Object.keys(items).map(item => {
-        console.log('resourceCategoryMapper[items[item]]: ', resourceCategoryMapper[items[item]])
         return(        
          <FormControlLabel
          control={
          <Checkbox 
           icon={<ResourceFilterUnchecked />} 
           checkedIcon={<ResourceFilterChecked />}
-          checked={filterStates[resourceCategoryMapper[items[item]]]} 
+          checked={filterStates[resourceCategoryMapper[item]]} 
           onChange={handleChange}
-          name={resourceCategoryMapper[items[item]]}
+          name={resourceCategoryMapper[item]}
           />}
          label={items[item]}
          />    
