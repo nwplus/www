@@ -2,6 +2,8 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/storage'
 
+const HACKATHONS = 'Hackathons'
+
 if (!firebase.apps.length) {
   const config = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
