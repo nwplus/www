@@ -9,7 +9,7 @@ import ResourceCard from '../components/ResourceCard';
 import FaqBox from '../components/FaqBox';
 import { ContentContainer } from '../components/ContentContainer';
 import ResourceFilterCard from '../components/ResourceFilterCard';
-import { ResourceType, ResourceEvent, ResourceYear, MOCK_RESOURCES, FILTER_TYPE, FILTER_EVENT, FILTER_YEAR } from '../utils/ResourceUtils';
+import { ResourceType, ResourceEvent, ResourceYear, MOCK_RESOURCES, FILTER_TYPE, FILTER_EVENT, FILTER_YEAR, MOCK_RESOURCES_DATA } from '../utils/ResourceUtils';
 import ResourceContainer from '../components/ResourceContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
@@ -175,7 +175,7 @@ export default function Charcuterie() {
           />
           <Title2>Paginated Resources</Title2>
           <ResourcePage
-            resources={resourcesMockData}
+            resources={MOCK_RESOURCES_DATA}
           />
           <Title2>Footer</Title2>
         </ContentContainer>

@@ -52,7 +52,7 @@ export default function ResourceCard({
   event = null,
   year,
   image,
-  icon,
+  type,
   badge = null,
 }) {
   return (
@@ -63,7 +63,7 @@ export default function ResourceCard({
         </BadgeContainer>
       )}
       <ThumbnailContainer image={image}>
-        <img width='40px' height='40px' src={icon} />
+        <img width='40px' height='40px' src={getResourceIcon(type)} />
       </ThumbnailContainer>
       <TextContainer>
         <ResourceName>{name}</ResourceName>

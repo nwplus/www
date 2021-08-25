@@ -26,16 +26,17 @@ const ResourcePageContainer = styled.div`
 const RESOURCES_PER_PAGE = 6;
 
 export default function ResourcePage({ resources, startingPageIndex = 0 }) {
+  console.log('resources: ', resources)
   const [currPageIndex, setCurrPageIndex] = useState(startingPageIndex);
   const [currPageResources, setCurrPageResources] = useState([]);
 
-  const TOTAL_RESOURCE_PAGES = resources.length / RESOURCES_PER_PAGE;
+  const TOTAL_RESOURCE_PAGES = Math.ceil(resources.length / RESOURCES_PER_PAGE);
 
   const getCurrPageResources = (resources, currPageIndex) => {
     const currPageResources = [];
     for (let i = currPageIndex; i < RESOURCES_PER_PAGE; i++) {
-      const { name, year, image, icon } = resources[i];
-      if (!name || !year || !image || !icon) {
+      const { name, year, image, type } = resources[i];
+      if (!name || !year || !image || !type) {
         return;
       }
       currPageResources.push(resources[i]);

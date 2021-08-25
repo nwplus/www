@@ -114,7 +114,43 @@ export const MOCK_RESOURCES_DATA = [
     badge: BADGE_ICON,
     type: ResourceType.SLIDES,
     link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
-  }
+  },
+  {
+    name: 'cmd-f video 2021',
+    event: ResourceEvent.CMD_F,
+    year: '2021',
+    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    badge: BADGE_ICON,
+    type: ResourceType.VIDEO,
+    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+  },
+  {
+    name: 'nwHacks articles 2019',
+    event: ResourceEvent.CMD_F,
+    year: '2021',
+    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    badge: BADGE_ICON,
+    type: ResourceType.ARTICLES,
+    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+  },
+  {
+    name: 'hackcamp slides 2020',
+    event: ResourceEvent.HACK_CAMP,
+    year: '2020',
+    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    badge: BADGE_ICON,
+    type: ResourceType.SLIDES,
+    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+  },
+  {
+    name: 'nwhacks articles 2020',
+    event: ResourceEvent.NW_HACKS,
+    year: '2020',
+    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    badge: BADGE_ICON,
+    type: ResourceType.ARTICLES,
+    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+  },
 ]
 
 export const MOCK_RESOURCES = [
