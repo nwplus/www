@@ -12,7 +12,7 @@ const FilterContainer = styled.div`
   flex-direction: column;
   background-color: #BDBAC3;
   border-radius: 10px;
-  padding: 20px;
+  padding: 0.8em;
 `;
 
 const Header = styled.span`

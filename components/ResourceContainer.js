@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { FILTER_TYPE, FILTER_EVENT, FILTER_YEAR, ResourceType, ResourceEvent, ResourceYear, MOCK_RESOURCES, MOCK_RESOURCES_DATA } from '../utils/ResourceUtils';
+import { FILTER_TYPE, FILTER_EVENT, FILTER_YEAR, ResourceType, ResourceEvent, ResourceYear, MOCK_RESOURCES_DATA } from '../utils/ResourceUtils';
 import ResourceFilterCard from './ResourceFilterCard';
 import ResourcePage from './ResourcePage';
-import { Title2, Title1, Body, LinkBody } from './Typography';
+import { Title1, Body, LinkBody } from './Typography';
 
 const Container = styled.div`
   display: flex;
@@ -26,18 +26,38 @@ const CardContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 8px;
+  ${(p) => p.theme.mediaQueries.mobile} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 40px;
+  ${(p) => p.theme.mediaQueries.mobile} {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+    justify-content: center;
+  }
 `
 
 const FilterCardContainer = styled.div`
   margin-bottom: 15px;
+  flex-wrap: wrap-content;
+  ${(p) => p.theme.mediaQueries.mobile} {
+    margin-right: 10px;
+    margin-bottom: 0px;
+  }
 `
-const NO_BREAK_SPACE = '\u00a0'
+const NO_BREAK_SPACE = '\u00a0';
+const RESOURCES_TITLE = 'Resources';
+const RESOURCES_BODY = 'If you are looking to get started in Computer Science, check out our';
+const RESOURCES_LINK = 'https://resources.nwplus.io/';
+const RESOURCES_LINK_TEXT = 'Self-Learning Resources Wiki!';
 
 export default function ResourceContainer() {
   const [typeFilters, setTypeFilters] = useState({
@@ -155,12 +175,12 @@ export default function ResourceContainer() {
   return (
     <Container>
       <HeaderContainer>
-        <Title1 withGradient>Resources</Title1>
+        <Title1 withGradient>{RESOURCES_TITLE}</Title1>
         <BodyContainer>
-          <Body>If you are looking to get started in Computer Science, check out our</Body>
+          <Body>{RESOURCES_BODY}</Body>
           {NO_BREAK_SPACE}
-          <a href='https://resources.nwplus.io/' target='_blank'>
-            <LinkBody>Self-Learning Resources Wiki!</LinkBody>
+          <a href={RESOURCES_LINK} target='_blank'>
+            <LinkBody>{RESOURCES_LINK_TEXT}</LinkBody>
           </a>
         </BodyContainer>
       </HeaderContainer>
@@ -181,12 +201,14 @@ export default function ResourceContainer() {
               onChange={setEventFilters} 
             />
           </FilterCardContainer>
-          <ResourceFilterCard 
-            header={FILTER_YEAR} 
-            items={ResourceYear} 
-            filterStates={yearFilters} 
-            onChange={setYearFilters} 
-          />
+          <FilterCardContainer>
+            <ResourceFilterCard 
+              header={FILTER_YEAR} 
+              items={ResourceYear} 
+              filterStates={yearFilters} 
+              onChange={setYearFilters} 
+            />
+          </FilterCardContainer>
         </FilterContainer>
         <ResourcePage resources={filteredResources} />
       </CardContainer>
