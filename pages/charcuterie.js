@@ -34,6 +34,9 @@ export default function Charcuterie() {
         <title>Charcuterie | nwPlus</title>
       </Head>
       <Background>
+        <div style={{ position: 'fixed', top: 0, width: '100%' }}>
+          <NavBar hiring={false}/>
+        </div>
         <Hero />
         <ContentContainer>
           <LargeTitle>charcuterie 😋</LargeTitle>

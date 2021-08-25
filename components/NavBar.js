@@ -83,7 +83,7 @@ const LivePortalButton = styled.button`
   border-radius: 34px;
 `;
 
-const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
+const NavBar = ({ hiring, hiringLink = '#', livePortalLink = '#' }) => {
   return (
     <NavBarContainer>
       <NavGroupContainer>
@@ -102,8 +102,8 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
         </SimpleLinkText></a> 
       </NavGroupContainer>
       <NavGroupContainer>
-        <JoinLink hiring={hiring} hiringLink={hiringLink ?? '#'}/>
-        <a href={livePortalLink ?? '#'}>
+        <JoinLink hiring={hiring} hiringLink={hiringLink}/>
+        <a href={livePortalLink}>
           <LivePortalButton>Live Portal</LivePortalButton>
         </a>
       </NavGroupContainer>

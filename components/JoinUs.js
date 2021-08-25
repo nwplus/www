@@ -1,23 +1,7 @@
-import styled from 'styled-components'
-
-const JoinUsContainer = styled.div`
-  display: flex;
-  flex-direction: column;  
-  width: 750px;  
-  padding: 160px 0 158px 81px;
-`;
-
-const Title = styled.span`
-  background: ${p => p.theme.colors.primaryGradient};
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-text-fill-color: transparent;
-
-  font-size: 43px;
-  font-weight: bold;
-  margin-bottom: 42px;
-`;
+import styled from 'styled-components';
+import { ContentContainer } from './ContentContainer';
+import { Title1, Body, MixedTextParagraph } from './Typography';
+import NavBar from './NavBar';
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -25,54 +9,41 @@ const ButtonContainer = styled.div`
   align-items: center;  
 `;
 
-const RegularText = styled.span`
-  line-height: 22px;
-  font-size: 18px;
-  color: ${p => p.theme.colors.bodyText};
-`;
-
-const AccentedText = styled.span`
-  line-height: 22px;
-  font-size: 18px;
-  background: ${p => p.theme.colors.primaryGradient};
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-text-fill-color: transparent;
-`;
-
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 8px;
+  margin-top: 42px;
   margin-bottom: 64px;
+  max-width: 628px;
 `;
 
-export const JoinUs = ({ hiring, deadline }) => {
-  return (<JoinUsContainer>
-      <Title>Join Us</Title>
+export const JoinUs = ({ hiring, hiringLink = '#', livePortalLink = '#', deadline }) => {
+  return (<ContentContainer>
+    <NavBar hiring={false} hiringLink={hiringLink} livePortalLink={livePortalLink}/>
+      <Title1 withGradient>Join Us</Title1>
       <TextContainer>
-        <RegularText>
+        <Body>
           Apply now to join our nwPlus organizing team!
-        </RegularText>
-        <div>
-          <RegularText>
+        </Body>
+        <MixedTextParagraph>
+          <Body>
             Applications are NOW OPEN to all UBC students, no matter your background/faculty, until&nbsp;
-          </RegularText>
-          <AccentedText>
+          </Body>
+          <Body withGradient>
             {deadline}
-          </AccentedText>
-          <RegularText>.</RegularText>
-        </div>
-        <RegularText>
+          </Body>
+          <Body>.</Body>
+        </MixedTextParagraph>
+        <Body>
           Be sure to apply early as we&#39;ll be conducting interviews and sending out offers on a rolling basis!
-        </RegularText>
+        </Body>
       </TextContainer>
       <ButtonContainer>
         <button disabled={!hiring}>View Application Package</button>
         <button disabled={!hiring}>Apply Now</button>
       </ButtonContainer>
-  </JoinUsContainer>
+  </ContentContainer>
   )
 }
 
