@@ -22,10 +22,10 @@ const BackgroundImage = styled.img`
 `;
 
 const FooterContainer = styled.div`
-    text-align: center;
-    padding: 64px 0;
-    width: 100%;
-    color: ${p => p.theme.colors.secondary};
+  text-align: center;
+  padding: 64px 0;
+  width: 100%;
+  color: ${p => p.theme.colors.secondary};
 `;
 
 const SocialMediaIcons = styled.div`
