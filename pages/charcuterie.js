@@ -5,11 +5,9 @@ import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
 import HackathonCard from '../components/HackathonCard';
 import Button from '../components/Button';
-import ResourceCard from '../components/ResourceCard';
 import FaqBox from '../components/FaqBox';
 import { ContentContainer } from '../components/ContentContainer';
-import ResourceFilterCard from '../components/ResourceFilterCard';
-import { ResourceType, ResourceEvent, ResourceYear, MOCK_RESOURCES, FILTER_TYPE, FILTER_EVENT, FILTER_YEAR, MOCK_RESOURCES_DATA } from '../utils/ResourceUtils';
+import { MOCK_RESOURCES_DATA } from '../utils/ResourceUtils';
 import ResourceContainer from '../components/ResourceContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
@@ -148,19 +146,6 @@ export default function Charcuterie() {
           <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={false}/>
         </ContentContainer>
         <ContentContainer>
-          {/* <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              padding: '8px',
-            }}
-          >
-            <ResourceFilterCard header={FILTER_TYPE} items={Object.values(ResourceType)} />
-            <ResourceFilterCard header={FILTER_EVENT} items={Object.values(ResourceEvent)} />
-            <ResourceFilterCard header={FILTER_YEAR} items={Object.values(ResourceYear)} />
-            {MOCK_RESOURCES}
-          </div> */}
           <ResourceContainer />
         </ContentContainer>
         <ContentContainer>

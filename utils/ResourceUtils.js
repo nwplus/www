@@ -126,8 +126,8 @@ export const MOCK_RESOURCES_DATA = [
   },
   {
     name: 'nwHacks articles 2019',
-    event: ResourceEvent.CMD_F,
-    year: '2021',
+    event: ResourceEvent.NW_HACKS,
+    year: '2019',
     image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
     badge: BADGE_ICON,
     type: ResourceType.ARTICLES,
