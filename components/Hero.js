@@ -9,14 +9,16 @@ import scollAnimation from './lotties/scroll.json';
  * https://www.quora.com/In-CSS-how-do-I-set-a-background-image-on-a-div-without-part-of-the-image-getting-cutoff */
 const HeroContainer = styled.div`
   width: 100%;
-  height: 0;
+  min-height: 100vh;
   padding-bottom: 69%;
   background: url(/assets/hero_illustration.svg);
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
 `;
 
 const HeroTextContainer = styled.div`
-  padding-top: 33%;
+  padding-top: 28%;
 `;
 
 const ScrollContainer = styled.div`
@@ -25,6 +27,9 @@ const ScrollContainer = styled.div`
   align-items: center;
   color: ${p => p.theme.colors.metadata};
   font-size: 13.5px;
+  ${(p) => p.theme.mediaQueries.mobile} {
+    display: none;
+  }
 `;
 
 const ScrollText = styled.p`
@@ -40,23 +45,25 @@ export default function Hero() {
           <Title2>
             Leading Western Canada&#39;s <br /> Biggest Hackathons
           </Title2>
-          <ScrollContainer>
-            <Lottie 
-              options={{
-                loop: true,
-                autoplay: true,
-                animationData: scollAnimation,
-                rendererSettings: {
-                  preserveAspectRatio: 'xMidYMid slice'
-                }
-              }}
-              height={44}
-              width={28}
-            />
-            <ScrollText>Scroll to check out our hackathons and resources!</ScrollText>
-          </ScrollContainer>
         </ContentContainer>
       </HeroTextContainer>
+      <ContentContainer>      
+        <ScrollContainer>
+          <Lottie 
+            options={{
+              loop: true,
+              autoplay: true,
+              animationData: scollAnimation,
+              rendererSettings: {
+                preserveAspectRatio: 'xMidYMid slice'
+              }
+            }}
+            height={44}
+            width={28}
+          />
+          <ScrollText>Scroll to check out our hackathons and resources!</ScrollText>
+        </ScrollContainer>
+      </ContentContainer>
     </HeroContainer>
   );
 }
