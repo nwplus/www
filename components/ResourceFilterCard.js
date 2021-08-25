@@ -32,7 +32,6 @@ const HeaderContainer = styled.div`
 
 export default function ResourceFilterCard({header, items, filterStates, onChange}) {
   const handleChange = (event) => {
-    console.log('[event.target.name]: ', event)
     onChange({ ...filterStates, [event.target.name]: event.target.checked });
   };
   return (
