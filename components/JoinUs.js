@@ -1,12 +1,19 @@
 import styled from 'styled-components';
 import { ContentContainer } from './ContentContainer';
 import { Title1, Body, MixedTextParagraph } from './Typography';
-import NavBar from './NavBar';
+import Button from './Button';
+
+
+const PaddingContainer = styled.div`
+  margin-top: 200px;
+`;
 
 const ButtonContainer = styled.div`
   display: flex;
   gap: 42px;
   align-items: center;  
+  margin-left: -10px;
+  margin-bottom: 110px;
 `;
 
 const TextContainer = styled.div`
@@ -14,35 +21,36 @@ const TextContainer = styled.div`
   flex-direction: column;
   gap: 8px;
   margin-top: 42px;
-  margin-bottom: 64px;
-  max-width: 628px;
+  margin-bottom: 34px;
+  max-width: 638px;
 `;
 
-export const JoinUs = ({ hiring, hiringLink = '#', livePortalLink = '#', deadline }) => {
+export const JoinUs = ({ hiring, deadline }) => {
   return (<ContentContainer>
-    <NavBar hiring={false} hiringLink={hiringLink} livePortalLink={livePortalLink}/>
-      <Title1 withGradient>Join Us</Title1>
-      <TextContainer>
-        <Body>
-          Apply now to join our nwPlus organizing team!
-        </Body>
-        <MixedTextParagraph>
+      <PaddingContainer>
+        <Title1 withGradient>Join Us</Title1>
+        <TextContainer>
           <Body>
-            Applications are NOW OPEN to all UBC students, no matter your background/faculty, until&nbsp;
+            Apply now to join our nwPlus organizing team!
           </Body>
-          <Body withGradient>
-            {deadline}
+          <MixedTextParagraph>
+            <Body>
+              Applications are NOW OPEN to all UBC students, no matter your background/faculty, until&nbsp;
+            </Body>
+            <Body withGradient>
+              {deadline}
+            </Body>
+            <Body>.</Body>
+          </MixedTextParagraph>
+          <Body>
+            Be sure to apply early as we&#39;ll be conducting interviews and sending out offers on a rolling basis!
           </Body>
-          <Body>.</Body>
-        </MixedTextParagraph>
-        <Body>
-          Be sure to apply early as we&#39;ll be conducting interviews and sending out offers on a rolling basis!
-        </Body>
-      </TextContainer>
-      <ButtonContainer>
-        <button disabled={!hiring}>View Application Package</button>
-        <button disabled={!hiring}>Apply Now</button>
-      </ButtonContainer>
+        </TextContainer>
+        <ButtonContainer>
+          <Button disabled={!hiring} width="212px" height="48px" hollow>View Application Package</Button>
+          <Button disabled={!hiring} width="212px" height="48px">Apply Now</Button>
+        </ButtonContainer>
+      </PaddingContainer>
   </ContentContainer>
   )
 }

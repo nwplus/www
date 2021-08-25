@@ -5,6 +5,9 @@ const NavBarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 46px 87px;
+  width: 100%;
+  position: absolute;
+  z-index: 3;
 `;
 
 const NavGroupContainer = styled.div`

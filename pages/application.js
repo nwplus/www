@@ -11,17 +11,14 @@ import {
 import Head from 'next/head';
 
 import JoinUs from '../components/JoinUs';
-
-const ApplicationPageContainer = styled.div`
-  background: ${p => p.theme.colors.background};
-  height: fit-content;
-  position: relative;
-`;
+import { Background } from '../components/Background';
+import NavBar from '../components/NavBar';
 
 const BackgroundImage = styled.img`
   position: absolute;
-  width: 510px;
+  width: 560px;
   right: 0;
+  z-index: 0;
 `;
 
 const FooterContainer = styled.div`
@@ -41,7 +38,12 @@ const SocialMediaIcons = styled.div`
 `;
 
 
-export default function Charcuterie() {
+export default function ApplicationPage() {
+  const deadline = 'September 30';
+  const livePortalLink = '#';
+  const hiringLink = '#';
+  const hiring = false;
+
   return (
     <>
       <Head>
@@ -49,9 +51,10 @@ export default function Charcuterie() {
       </Head>
 
       <main>
-        <ApplicationPageContainer>
+      <NavBar hiring={hiring} hiringLink={hiringLink} livePortalLink={livePortalLink}/>
+        <Background>
             <BackgroundImage src="/assets/logos/trying.svg" alt="an astronaut reaching inside a window"/>
-            <JoinUs hiring={true} deadline="September 30"/>
+            <JoinUs hiring={hiring} deadline={deadline}/>
             <FooterContainer>
                 <SocialMediaIcons>
                     <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
@@ -75,7 +78,7 @@ export default function Charcuterie() {
                 </SocialMediaIcons>
                 <div>Copyright &copy; 2021 nwPlus</div>
             </FooterContainer>
-        </ApplicationPageContainer>
+        </Background>
       </main>
     </>
   )

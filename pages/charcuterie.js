@@ -148,10 +148,6 @@ export default function Charcuterie() {
             </Button>
           </div>
         </ContentContainer>
-        
-        <div style={{ position: 'fixed', top: 0, background: 'rgb(0, 0, 0, 0.50)', width: '100%' }}>
-          <NavBar hiring={false}/>
-        </div>
       </Background>
     </>
   );
