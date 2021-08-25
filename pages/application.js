@@ -11,7 +11,7 @@ import {
 import Head from 'next/head';
 
 import JoinUs from '../components/JoinUs';
-import { Background } from '../components/Background';
+import { BackgroundColor } from '../components/Background';
 import NavBar from '../components/NavBar';
 
 const BackgroundImage = styled.img`
@@ -52,7 +52,7 @@ export default function ApplicationPage() {
 
       <main>
       <NavBar hiring={hiring} hiringLink={hiringLink} livePortalLink={livePortalLink}/>
-        <Background>
+        <BackgroundColor>
             <BackgroundImage src="/assets/logos/trying.svg" alt="an astronaut reaching inside a window"/>
             <JoinUs hiring={hiring} deadline={deadline}/>
             <FooterContainer>
@@ -78,7 +78,7 @@ export default function ApplicationPage() {
                 </SocialMediaIcons>
                 <div>Copyright &copy; 2021 nwPlus</div>
             </FooterContainer>
-        </Background>
+        </BackgroundColor>
       </main>
     </>
   )
