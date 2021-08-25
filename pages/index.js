@@ -13,10 +13,11 @@ export default function Home() {
           <meta name="description" content="Website for all things nwPlus!" />
         </Head>
 
-        <main className={styles.main}>
-          <h1>hi how are ya 👋</h1>
-          <Link href="/charcuterie">Charcuterie</Link>
-        </main>
+      <main className={styles.main}>
+        <h1>hi how are ya 👋</h1>
+        <Link href="/charcuterie">Charcuterie</Link>
+        <Link href="/application">Application Page</Link>
+      </main>
 
         <footer className={styles.footer}>Copyright &copy; 2021 nwPlus</footer>
       </div>

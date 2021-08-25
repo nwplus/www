@@ -3,11 +3,12 @@ import styled from 'styled-components'
 const JoinUsContainer = styled.div`
   display: flex;
   flex-direction: column;  
-  width: 628px;
+  width: 750px;  
+  padding: 160px 0 158px 81px;
 `;
 
 const Title = styled.span`
-  background: ${span => span.theme.colors.primaryGradient};
+  background: ${p => p.theme.colors.primaryGradient};
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent; 
@@ -27,13 +28,13 @@ const ButtonContainer = styled.div`
 const RegularText = styled.span`
   line-height: 22px;
   font-size: 18px;
-  color: ${span => span.theme.colors.bodyText};
+  color: ${p => p.theme.colors.bodyText};
 `;
 
 const AccentedText = styled.span`
   line-height: 22px;
   font-size: 18px;
-  background: ${span => span.theme.colors.primaryGradient};
+  background: ${p => p.theme.colors.primaryGradient};
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent; 
@@ -47,7 +48,7 @@ const TextContainer = styled.div`
   margin-bottom: 64px;
 `;
 
-export const JoinUs = ({ hiring, deadlineMonth, deadlineDay }) => {
+export const JoinUs = ({ hiring, deadline }) => {
   return (<JoinUsContainer>
       <Title>Join Us</Title>
       <TextContainer>
@@ -59,7 +60,7 @@ export const JoinUs = ({ hiring, deadlineMonth, deadlineDay }) => {
             Applications are NOW OPEN to all UBC students, no matter your background/faculty, until&nbsp;
           </RegularText>
           <AccentedText>
-            {deadlineMonth} {deadlineDay}
+            {deadline}
           </AccentedText>
           <RegularText>.</RegularText>
         </div>
