@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+
+import { BackgroundColor } from './Background';
  
 const NavBarContainer = styled.div`
   display: flex;
@@ -116,11 +118,13 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   if (showDropdown) {
-    return (<NavBarContainer>
+    return (<BackgroundColor>
+      <NavBarContainer>
         <StyledImage src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
-        <Cross src="/assets/icons/menu.svg" alt="dropdown menu icon"
-        onClick={() => setShowDropdown(true)}/>
-      </NavBarContainer>);
+        <Cross src="/assets/icons/close.svg" alt="dropdown menu icon"
+        onClick={() => setShowDropdown(false)}/>
+      </NavBarContainer>
+    </BackgroundColor>);
   }
 
   return (
