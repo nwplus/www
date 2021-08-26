@@ -23,7 +23,6 @@ export default function Charcuterie() {
         <title>Charcuterie | nwPlus</title>
       </Head>
       <Background>
-        <Hero />
         <ContentContainer>
           <LargeTitle>charcuterie 😋</LargeTitle>
           <Body>Just a place where we put things</Body>
