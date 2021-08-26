@@ -23,10 +23,12 @@ export default function Home() {
     display: flex;
     align-items: center;
     gap: 52px;
+    margin-bottom: 64px;
 
     ${themeContext.mediaQueries.mobile} {
       justify-content: center;
       gap: 40px;
+      margin-bottom: 44px;
     }
   `;
 
