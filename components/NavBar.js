@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useState } from 'react';
  
 const NavBarContainer = styled.div`
   display: flex;
@@ -101,14 +102,27 @@ const LivePortalButton = styled.button`
   border-radius: 34px;
 `;
 
-const Cross = styled.img`
-  fill: ${(p) => p.theme.colors.secondary};
-  ${(p) => p.theme.mediaQueries.mobile} {
-    fill: ${(p) => p.theme.colors.secondary};
+const Menu = styled.img`
+  display: none;
+  ${p => p.theme.mediaQueries.mobile} {
+    display: block;
+    width: 25px;
   }
 `;
 
+const Cross = Menu;
+
 const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  if (showDropdown) {
+    return (<NavBarContainer>
+        <StyledImage src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
+        <Cross src="/assets/icons/menu.svg" alt="dropdown menu icon"
+        onClick={() => setShowDropdown(true)}/>
+      </NavBarContainer>);
+  }
+
   return (
     <NavBarContainer>
       <NavGroupContainer>
@@ -134,9 +148,8 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
           <LivePortalButton>Live Portal</LivePortalButton>
         </a>
       </NavTextContainer>
-      <NavGroupContainer>
-      <Cross src="/assets/icons/menu.svg" alt="dropdown menu icon"/>
-      </NavGroupContainer>
+      <Menu src="/assets/icons/menu.svg" alt="dropdown menu icon"
+      onClick={() => setShowDropdown(true)}/>
     </NavBarContainer>
   )
 }
