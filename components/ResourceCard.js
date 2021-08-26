@@ -35,11 +35,18 @@ const ThumbnailContainer = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
   ${(p) => p.theme.mediaQueries.mobile} {
     width: 160px;
     height: 112px;
   }
+  &:hover {
+    background-size: 150%;
+  }
+  &:hover #icon {
+    display: none;
+    cursor: pointer;        
+  }  
 `;
 
 const ResourceName = styled.span`
@@ -73,7 +80,7 @@ export default function ResourceCard({
           </BadgeContainer>
         )}
         <ThumbnailContainer image={image}>
-          <img width='40px' height='40px' src={getResourceIcon(type)} />
+          <img id='icon' width='40px' height='40px' src={getResourceIcon(type)} />
         </ThumbnailContainer>
         <TextContainer>
           <ResourceName>{name}</ResourceName>
