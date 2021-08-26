@@ -26,14 +26,12 @@ const ResourcePageContainer = styled.div`
 const RESOURCES_PER_PAGE = 6;
 
 export default function ResourcePage({ resources, startingPageIndex = 0 }) {
-  console.log('resources: ', resources)
   const [currPageIndex, setCurrPageIndex] = useState(startingPageIndex);
   const [currPageResources, setCurrPageResources] = useState([]);
 
   const TOTAL_RESOURCE_PAGES = Math.ceil(resources.length / RESOURCES_PER_PAGE);
 
   const getCurrPageResources = (resources, currPageIndex) => {
-    console.log('resources: ', resources)
     const currPageResources = [];
     for (let i = currPageIndex; i < RESOURCES_PER_PAGE && i < resources.length; i++) {
       const { name, year, image, type } = resources[i];
@@ -42,7 +40,6 @@ export default function ResourcePage({ resources, startingPageIndex = 0 }) {
       }
       currPageResources.push(resources[i]);
     }
-    console.log('currPageResources: ', currPageResources)
     return currPageResources;
   };
 

@@ -36,9 +36,10 @@ export default function ResourceFilterCard({header, items, filterStates, onChang
         <ResourceFilterTriangle />
         <Header>{header}</Header>
       </HeaderContainer>
-      {Object.keys(items).map(item => {
+      {Object.keys(items).map((item, index) => {
         return(        
          <FormControlLabel
+         key={index}
          control={
          <Checkbox 
           icon={<ResourceFilterUnchecked />} 
