@@ -29,13 +29,13 @@ export default function ResourcePage({ resources, startingPageIndex = 0 }) {
   const [currPageIndex, setCurrPageIndex] = useState(startingPageIndex);
   const [currPageResources, setCurrPageResources] = useState([]);
 
-  const TOTAL_RESOURCE_PAGES = resources.length / RESOURCES_PER_PAGE;
+  const TOTAL_RESOURCE_PAGES = Math.ceil(resources.length / RESOURCES_PER_PAGE);
 
   const getCurrPageResources = (resources, currPageIndex) => {
     const currPageResources = [];
-    for (let i = currPageIndex; i < RESOURCES_PER_PAGE; i++) {
-      const { name, year, image, icon } = resources[i];
-      if (!name || !year || !image || !icon) {
+    for (let i = currPageIndex; i < RESOURCES_PER_PAGE && i < resources.length; i++) {
+      const { name, year, image, type } = resources[i];
+      if (!name || !year || !image || !type) {
         return;
       }
       currPageResources.push(resources[i]);
@@ -45,7 +45,7 @@ export default function ResourcePage({ resources, startingPageIndex = 0 }) {
 
   useEffect(() => {
     setCurrPageResources(getCurrPageResources(resources, currPageIndex));
-  }, [currPageIndex, setCurrPageIndex]);
+  }, [currPageIndex, setCurrPageIndex, resources]);
 
   const handlePageChange = (nextPageIndex) => {
     if (nextPageIndex === TOTAL_RESOURCE_PAGES || nextPageIndex < 0) {
