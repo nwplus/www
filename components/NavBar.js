@@ -30,7 +30,7 @@ const NavTextContainer = styled.div`
   }
 `;
 
-const StyledImage = styled.img`
+const NWPLUSLOGO = styled.img`
   margin-right: 18px;
 
   ${(p) => p.theme.mediaQueries.mobile} {
@@ -89,9 +89,9 @@ const JoinLinkTextMinor = styled.span`
   font-size: 13.5px;
 `;
 
-const JoinLink = ({ hiring, hiringLink }) => {
+const JoinLink = ({ hiring, hiringLink, setShowDropdown }) => {
   if (hiring) {
-    return(<JoinLinkActive href={hiringLink}>
+    return(<JoinLinkActive href={hiringLink} onClick={() => setShowDropdown(false)}>
        <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
         <JoinLinkTextMinor>Application Open</JoinLinkTextMinor>
     </JoinLinkActive>
@@ -141,17 +141,17 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   if (showDropdown) {
     return (<BackgroundColor>
       <NavBarContainer>
-        <StyledImage src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
+        <NWPLUSLOGO src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
         <Cross src="/assets/icons/close.svg" alt="dropdown menu icon"
         onClick={() => setShowDropdown(false)}/>
       </NavBarContainer>
       <DropDownContentContainer>
-        <LinkText href="#">About Us</LinkText>
-        <LinkText href="#">Hackathons</LinkText>
-        <LinkText href="#">Resources</LinkText>
-        <LinkText href="#">FAQ</LinkText>
-        <JoinLink hiring={hiring} hiringLink={hiringLink ?? '#'}/>
-        <a href={livePortalLink ?? '#'}>
+        <LinkText href="#" onClick={() => setShowDropdown(false)}>About Us</LinkText>
+        <LinkText href="#" onClick={() => setShowDropdown(false)}>Hackathons</LinkText>
+        <LinkText href="#" onClick={() => setShowDropdown(false)}>Resources</LinkText>
+        <LinkText href="#" onClick={() => setShowDropdown(false)}>FAQ</LinkText>
+        <JoinLink hiring={hiring} hiringLink={hiringLink ?? '#'} setShowDropdown={setShowDropdown}/>
+        <a href={livePortalLink ?? '#'} rel="noreferrer noopener" target={livePortalLink && "_blank"}>
           <LivePortalButton>Live Portal</LivePortalButton>
         </a>
       </DropDownContentContainer>
@@ -161,7 +161,7 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   return (
     <NavBarContainer>
       <NavGroupContainer>
-        <StyledImage src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
+        <NWPLUSLOGO src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
         <NavTextContainer>
           <LinkText href="#">About Us</LinkText>
           <LinkText href="#">Hackathons</LinkText>
