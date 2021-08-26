@@ -50,9 +50,9 @@ export const Title3 = styled.h3.attrs((p) => ({
 }))`
   font-style: normal;
   font-weight: 600;
-  font-size: 42.63px;
-  line-height: 53px;
-  letter-spacing: 0.38px;
+  font-size: 23.99px;
+  line-height: 30px;
+  letter-spacing: -0.45px;
   font-feature-settings: 'liga' off;
   ${SetColor}
   ${SetBackground}
@@ -63,8 +63,8 @@ export const Title3 = styled.h3.attrs((p) => ({
     -webkit-text-fill-color: transparent;`
   }
   ${(p) => p.theme.mediaQueries.mobile} {
-    font-size: 22px;
-    line-height: 29px;
+    font-size: 12px;
+    line-height: 16px;
   }
   ${(p) => p.customStyles}
 `;
