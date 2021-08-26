@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
-import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
 import Modal from '../components/Modal';
@@ -21,14 +20,6 @@ const MEDIUM_ICON = 'assets/logos/medium-icon.svg';
 
 export default function Charcuterie() {
   const [showModal, setShowModal] = useState(false);
-  const [currPage, setCurrPage] = useState(0);
-  const TOTAL_PAGES = 10;
-  const handlePageChange = (nextPageIndex) => {
-    if (nextPageIndex === TOTAL_PAGES || nextPageIndex < 0) {
-      return;
-    }
-    setCurrPage(nextPageIndex);
-  };
   const resourcesMockData = [
     {
       name: 'Ligma',
@@ -213,15 +204,6 @@ export default function Charcuterie() {
         </ContentContainer>
 
         <ContentContainer>
-          <Title2>Pagination</Title2>
-          <Body>Current Page: {currPage + 1}</Body>
-          <Pagination
-            count={TOTAL_PAGES}
-            pageIndex={currPage}
-            onPageClick={(e) => setCurrPage(getClickedPageIndex(e))}
-            onPrevClick={() => handlePageChange(currPage - 1)}
-            onNextClick={() => handlePageChange(currPage + 1)}
-          />
           <Title2>Paginated Resources</Title2>
           <ResourcePage
             resources={resourcesMockData}
