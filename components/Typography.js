@@ -85,18 +85,3 @@ export const Body = styled.p.attrs((p) => ({
     line-height: 24px;
   }
 `;
-
-export const DropdownOption = styled.p.attrs((p) => ({
-  color: p.color || p.theme.colors.typography.body,
-}))`
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 23px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  font-feature-settings: 'liga' off;
-  margin: 12px 0;
-  ${SetColor}
-`;

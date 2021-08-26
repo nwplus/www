@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { useState } from 'react';
 
 import { BackgroundColor } from './Background';
-import { DropdownOption } from './Typography';
  
 const NavBarContainer = styled.div`
   display: flex;
@@ -39,9 +38,10 @@ const StyledImage = styled.img`
   }
 `;
 
-const SimpleLinkText = styled.span`
+const LinkText = styled.a`
   font-weight: bold;
   color: ${p => p.theme.colors.secondary};
+  font-feature-settings: 'liga' off;
 
   &:hover {
     background: ${p => p.theme.colors.primaryGradient};
@@ -61,8 +61,6 @@ const JoinLinkInactive = styled.div`
   ${(p) => p.theme.mediaQueries.mobile} {
     flex-direction: row;
     gap: 10px;
-    margin-bottom: 24px;
-    margin-top: 6px;
   }
 `;
 
@@ -79,8 +77,6 @@ const JoinLinkActive = styled.a`
   ${(p) => p.theme.mediaQueries.mobile} {
     flex-direction: row;
     gap: 10px;
-    margin-bottom: 24px;
-    margin-top: 6px;
   }
 `;
 
@@ -117,6 +113,9 @@ const LivePortalButton = styled.button`
   height: 41px;
   width: 134px;
   border-radius: 34px;
+
+  ${p => p.theme.mediaQueries.mobile} {
+    width: 160px;
 `;
 
 const Menu = styled.img`
@@ -130,9 +129,10 @@ const Menu = styled.img`
 const Cross = Menu;
 
 const DropDownContentContainer = styled.div`
-  padding: 20px 0 27px 20px;
+  padding: 32px 0 27px 20px;
   display: flex;
   flex-direction: column;
+  gap: 24px;
 `;
 
 const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
@@ -146,10 +146,10 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
         onClick={() => setShowDropdown(false)}/>
       </NavBarContainer>
       <DropDownContentContainer>
-        <DropdownOption>About Us</DropdownOption>
-        <DropdownOption>Hackathons</DropdownOption>
-        <DropdownOption>Resources</DropdownOption>
-        <DropdownOption>FAQ</DropdownOption>
+        <LinkText href="#">About Us</LinkText>
+        <LinkText href="#">Hackathons</LinkText>
+        <LinkText href="#">Resources</LinkText>
+        <LinkText href="#">FAQ</LinkText>
         <JoinLink hiring={hiring} hiringLink={hiringLink ?? '#'}/>
         <a href={livePortalLink ?? '#'}>
           <LivePortalButton>Live Portal</LivePortalButton>
@@ -163,18 +163,10 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
       <NavGroupContainer>
         <StyledImage src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
         <NavTextContainer>
-          <a href="#"><SimpleLinkText>
-            About Us
-          </SimpleLinkText></a> 
-          <a href="#"><SimpleLinkText>
-            Hackathons
-          </SimpleLinkText></a> 
-          <a href="#"><SimpleLinkText>
-            Resources
-          </SimpleLinkText></a> 
-          <a href="#"><SimpleLinkText>
-            FAQ
-          </SimpleLinkText></a> 
+          <LinkText href="#">About Us</LinkText>
+          <LinkText href="#">Hackathons</LinkText>
+          <LinkText href="#">Resources</LinkText>
+          <LinkText href="#">FAQ</LinkText>
         </NavTextContainer>
       </NavGroupContainer>
       <NavTextContainer>
