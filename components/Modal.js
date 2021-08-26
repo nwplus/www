@@ -10,12 +10,6 @@ import styled, { ThemeContext } from 'styled-components'
 export default function Modal({ children, show, onClose }) {
   const themeContext = useContext(ThemeContext);
 
-  function handleMouse(e) {
-    console.log('handle mouse');
-    e.preventDefault();
-    e.stopPropagation();
-  }
-
   const ModalBackground = styled.div`
     position: fixed;
     top: 0;
@@ -69,12 +63,10 @@ export default function Modal({ children, show, onClose }) {
   return (
     <>
       {show &&
-        <ModalBackground
-          onMouseLeave={(e) => { handleMouse(e) }}
-        >
+        <ModalBackground>
           <ModalContainer>
             <CloseButton onClick={onClose}>
-              <img src="/assets/icons/x.svg" />
+              <img src="/assets/icons/close.svg" />
             </CloseButton>
             {children}
           </ModalContainer>
