@@ -49,7 +49,17 @@ export const Title1 = styled.h1.attrs((p) => ({
     font-size: 22px;
     line-height: 29px;
   }
-  ${(p) => p.customStyles}
+  ${(p) =>
+    p.underline &&
+    'text-decoration: underline;'
+  }
+  ${(p) =>
+    p.hover &&
+    `&:hover {
+      cursor: pointer;
+      color: ${p.theme.colors.primary}
+    }`
+  }
 `;
 
 export const Title2 = styled.h2.attrs((p) => ({

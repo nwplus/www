@@ -30,13 +30,6 @@ export default function Home() {
     }
   `;
 
-  const StyledTitle1 = styled(Title1)`
-    &:hover {
-      cursor: pointer;
-      color: ${themeContext.colors.primary}
-    }
-  `;
-
   const AboutSection = styled.div`
     display: flex;
     flex-direction: row;
@@ -59,20 +52,22 @@ export default function Home() {
         <Hero />
         <ContentContainer>
           <AboutHeader>
-            <StyledTitle1
+            <Title1
               color={activeTab === 'Who We Are' ? themeContext.colors.primary : themeContext.colors.tertiary}
-              customStyles={activeTab === 'Who We Are' ? 'text-decoration: underline;' : ''}
+              underline={activeTab === 'Who We Are'}
+              hover
               onClick={() => setActiveTab('Who We Are')}
             >
               Who We Are
-            </StyledTitle1>
-            <StyledTitle1
+            </Title1>
+            <Title1
               color={activeTab === 'What We Do' ? themeContext.colors.primary : themeContext.colors.tertiary}
-              customStyles={activeTab === 'What We Do' ? 'text-decoration: underline;' : ''}
+              underline={activeTab === 'What We Do'}
+              hover
               onClick={() => setActiveTab('What We Do')}
             >
               What We Do
-            </StyledTitle1>
+            </Title1>
           </AboutHeader>
           {activeTab === 'Who We Are' ?
             <AboutSection>
