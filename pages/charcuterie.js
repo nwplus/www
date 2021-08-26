@@ -8,10 +8,11 @@ import Modal from '../components/Modal';
 import HackathonCard from '../components/HackathonCard';
 import Button from '../components/Button';
 import ResourceCard from '../components/ResourceCard';
+import FaqBox from '../components/FaqBox';
 import { ContentContainer } from '../components/ContentContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
-import Pagination, { getClickedPageIndex } from '../components/Pagination';
+import ResourcePage from '../components/ResourcePage';
 
 const BADGE_ICON = 'assets/logos/our-pick-badge.svg';
 const VIDEO_ICON = 'assets/logos/video-icon.svg';
@@ -28,6 +29,104 @@ export default function Charcuterie() {
     }
     setCurrPage(nextPageIndex);
   };
+  const resourcesMockData = [
+    {
+      name: 'Ligma',
+      event: 'Coachella',
+      year: '2022',
+      image:
+        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+      icon: GITHUB_ICON,
+      badge: BADGE_ICON,
+    },
+    {
+      name: 'Ligma',
+      event: 'Coachella',
+      year: '2022',
+      image:
+        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+      icon: MEDIUM_ICON,
+      badge: BADGE_ICON,
+    },
+    {
+      name: 'Ligma2',
+      event: 'Not Coachella',
+      year: '2022',
+      image:
+        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+      icon: VIDEO_ICON,
+      badge: BADGE_ICON,
+    },
+    {
+      name: 'Lig3ma',
+      year: '2222',
+      image:
+        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+      icon: GITHUB_ICON,
+    },
+    {
+      name: 'Hi Vincent',
+      year: '2023',
+      image:
+        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+      icon: VIDEO_ICON,
+      badge: BADGE_ICON,
+    },
+    {
+      name: 'Lig2ma',
+      year: '2022',
+      image:
+        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+      icon: VIDEO_ICON,
+    },
+    {
+      name: 'L1igma',
+      year: '2022',
+      image:
+        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+      icon: MEDIUM_ICON,
+      badge: BADGE_ICON,
+    },
+    {
+      name: 'Ligma',
+      event: 'Coachella',
+      year: '2022',
+      image:
+        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+      icon: VIDEO_ICON,
+    },
+    {
+      name: 'not Ligma2',
+      event: 'Not Coachella',
+      year: '2022',
+      image:
+        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+      icon: MEDIUM_ICON,
+      badge: BADGE_ICON,
+    },
+    {
+      name: 'Lig3ma',
+      year: '2022',
+      image:
+        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+      icon: GITHUB_ICON,
+    },
+    {
+      name: 'its jenny',
+      year: '2022',
+      image:
+        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+      icon: MEDIUM_ICON,
+      badge: BADGE_ICON,
+    },
+    {
+      name: 'Ligma',
+      year: '2022',
+      image:
+        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+      icon: VIDEO_ICON,
+    },
+  ];
 
   return (
     <>
@@ -52,6 +151,11 @@ export default function Charcuterie() {
           </Body>
         </ContentContainer>
 
+        <ContentContainer>
+          <FaqBox question='Test?' answer='Test'/>
+          <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={true}/>
+          <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={false}/>
+        </ContentContainer>
         <ContentContainer>
           <div
             style={{
@@ -118,6 +222,10 @@ export default function Charcuterie() {
             onPrevClick={() => handlePageChange(currPage - 1)}
             onNextClick={() => handlePageChange(currPage + 1)}
           />
+          <Title2>Paginated Resources</Title2>
+          <ResourcePage
+            resources={resourcesMockData}
+          />
           <Title2>Footer</Title2>
         </ContentContainer>
 
@@ -144,19 +252,36 @@ export default function Charcuterie() {
             <Button link='https://www.google.com/' width='200px' height='70px'>
               Visit Google
             </Button>
-            <Button link='https://www.yahoo.com/' width='400px' height='50px' backgroundColor='red' borderRadius='12px' >
+            <Button
+              link='https://www.yahoo.com/'
+              width='400px'
+              height='50px'
+              backgroundColor='red'
+              borderRadius='12px'
+            >
               Visit Yahoo
             </Button>
-            <Button link='https://www.yahoo.com/' hollow width='200px' height='50px' borderRadius='12px' >
+            <Button
+              link='https://www.yahoo.com/'
+              hollow
+              width='200px'
+              height='50px'
+              borderRadius='12px'
+            >
               Visit Yahoo
             </Button>
           </div>
         </ContentContainer>
 
-        <Footer />
-
-        <div style={{ position: 'fixed', top: 0, background: 'rgb(0, 0, 0, 0.50)', width: '100%' }}>
-          <NavBar hiring={false}/>
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            background: 'rgb(0, 0, 0, 0.50)',
+            width: '100%',
+          }}
+        >
+          <NavBar hiring={false} />
         </div>
       </Background>
     </>
