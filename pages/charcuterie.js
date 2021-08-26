@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
 import NavBar from '../components/NavBar';
-import Hero from '../components/Hero';
 import Modal from '../components/Modal';
 import HackathonCard from '../components/HackathonCard';
 import Button from '../components/Button';
