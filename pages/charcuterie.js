@@ -1,8 +1,9 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
-import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
+import Modal from '../components/Modal';
 import HackathonCard from '../components/HackathonCard';
 import Button from '../components/Button';
 import FaqBox from '../components/FaqBox';
@@ -14,6 +15,8 @@ import { LargeTitle, Title2, Body } from '../components/Typography';
 import ResourcePage from '../components/ResourcePage';
 
 export default function Charcuterie() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <Head>
@@ -36,6 +39,7 @@ export default function Charcuterie() {
             internals of FAQ, Resources, and all other sections.
           </Body>
         </ContentContainer>
+
         <ContentContainer>
           <FaqBox question='Test?' answer='Test'/>
           <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={true}/>
@@ -44,6 +48,7 @@ export default function Charcuterie() {
         <ContentContainer>
           <ResourceContainer />
         </ContentContainer>
+
         <ContentContainer>
           <Carousel
             images={[
@@ -54,13 +59,26 @@ export default function Charcuterie() {
             height={180}
             width={260}
           />
+        </ContentContainer>
+
+        <ContentContainer>
+          <Body onClick={() => setShowModal(true)}>Click me to open a modal!</Body>
+          <Modal
+            show={showModal}
+            onClose={() => setShowModal(false)}
+          >
+            <Title2>nwPlus Newsletter Sign-up</Title2>
+            <Body>Subscribe to our newsletter to stay up to date and for upcoming events!</Body>
+          </Modal>
+        </ContentContainer>
+
+        <ContentContainer>
           <Title2>Paginated Resources</Title2>
           <ResourcePage
             resources={MOCK_RESOURCES_DATA}
           />
           <Title2>Footer</Title2>
         </ContentContainer>
-        <Footer />
 
         <ContentContainer>
           <h3>Hackathon cards</h3>
