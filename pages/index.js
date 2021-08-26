@@ -19,7 +19,7 @@ export default function Home() {
   const themeContext = useContext(ThemeContext);
   const [activeTab, setActiveTab] = useState('Who We Are');
 
-  const AboutTitle = styled.div`
+  const AboutHeader = styled.div`
     display: flex;
     align-items: center;
     gap: 52px;
@@ -58,7 +58,7 @@ export default function Home() {
       <Background>
         <Hero />
         <ContentContainer>
-          <AboutTitle>
+          <AboutHeader>
             <StyledTitle1
               color={activeTab === 'Who We Are' ? themeContext.colors.primary : themeContext.colors.tertiary}
               customStyles={activeTab === 'Who We Are' ? 'text-decoration: underline;' : ''}
@@ -73,7 +73,7 @@ export default function Home() {
             >
               What We Do
             </StyledTitle1>
-          </AboutTitle>
+          </AboutHeader>
           {activeTab === 'Who We Are' ?
             <AboutSection>
               <Carousel
