@@ -13,6 +13,7 @@ import Head from 'next/head';
 import JoinUs from '../components/JoinUs';
 import { BackgroundColor } from '../components/Background';
 import NavBar from '../components/NavBar';
+import fireDb from '../utilities/firebase';
 
 const BackgroundImage = styled.img`
   position: absolute;
@@ -39,7 +40,7 @@ const SocialMediaIcons = styled.div`
 
 
 export default function ApplicationPage() {
-  const deadline = 'September 30';
+  const deadline = fireDb.getCollection('www', 'Applications');
   const livePortalLink = '#';
   const hiringLink = '#';
   const hiring = false;
