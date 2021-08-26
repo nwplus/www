@@ -31,23 +31,23 @@ export const LargeTitle = styled.h1.attrs((p) => ({
 export const Title1 = styled.h1.attrs((p) => ({
   color: p.color || p.theme.colors.secondary,
 }))`
+  margin: 0;
   font-style: normal;
   font-weight: 800;
   font-size: 42.63px;
-  line-height: 53px;
   letter-spacing: 0.38px;
-  font-feature-settings: 'liga' off;
+  line-height: 53.46px;
   ${SetColor}
   ${SetBackground}
   ${(p) =>
     p.withGradient &&
-    `background: -webkit-linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%);
+    `background: -webkit-linear-gradient(92deg, #19cbcb 1.55%, #78ff96 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;`
   }
   ${(p) => p.theme.mediaQueries.mobile} {
-    font-size: 22px;
-    line-height: 29px;
+    font-size: 21.32px;
+    line-height: 27.77px;
   }
   ${(p) =>
     p.underline &&
@@ -98,5 +98,28 @@ export const Body = styled.p.attrs((p) => ({
   ${(p) => p.theme.mediaQueries.mobile} {
     font-size: 14px;
     line-height: 24px;
+  }
+`;
+
+export const LinkBody = styled.p.attrs((p) => ({
+  color: p.color || p.theme.colors.typography.body,
+}))`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.43px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;  
+  ${SetColor}
+  ${SetBackground}
+  ${(p) => p.theme.mediaQueries.mobile} {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  &:hover {
+    color: ${(p) => p.theme.colors.primary};
+    cursor: pointer;
   }
 `;

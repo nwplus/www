@@ -1,18 +1,22 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
-import Footer from '../components/Footer';
+import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
-import ResourceCard from '../components/ResourceCard';
+import Modal from '../components/Modal';
+import HackathonCard from '../components/HackathonCard';
+import Button from '../components/Button';
+import FaqBox from '../components/FaqBox';
 import { ContentContainer } from '../components/ContentContainer';
+import { MOCK_RESOURCES_DATA } from '../utils/ResourceUtils';
+import ResourceContainer from '../components/ResourceContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
-
-const BADGE_ICON = 'assets/logos/our-pick-badge.svg';
-const VIDEO_ICON = 'assets/logos/video-icon.svg';
-const GITHUB_ICON = 'assets/logos/github-icon.svg';
-const MEDIUM_ICON = 'assets/logos/medium-icon.svg';
+import ResourcePage from '../components/ResourcePage';
 
 export default function Charcuterie() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <Head>
@@ -35,38 +39,16 @@ export default function Charcuterie() {
             internals of FAQ, Resources, and all other sections.
           </Body>
         </ContentContainer>
+
         <ContentContainer>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              padding: '8px',
-            }}
-          >
-            <ResourceCard
-              name='Ligma'
-              event='Coachella'
-              year='2022'
-              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
-              icon={VIDEO_ICON}
-              badge={BADGE_ICON}
-            />
-            <ResourceCard
-              name='Ligma'
-              year='2022'
-              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
-              icon={GITHUB_ICON}
-              badge={BADGE_ICON}
-            />
-            <ResourceCard
-              name='Ligma'
-              year='2022'
-              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
-              icon={MEDIUM_ICON}
-            />
-          </div>
+          <FaqBox question='Test?' answer='Test'/>
+          <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={true}/>
+          <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={false}/>
         </ContentContainer>
+        <ContentContainer>
+          <ResourceContainer />
+        </ContentContainer>
+
         <ContentContainer>
           <Carousel
             images={[
@@ -77,10 +59,81 @@ export default function Charcuterie() {
             height={180}
             width={260}
           />
+        </ContentContainer>
 
+        <ContentContainer>
+          <Body onClick={() => setShowModal(true)}>Click me to open a modal!</Body>
+          <Modal
+            show={showModal}
+            onClose={() => setShowModal(false)}
+          >
+            <Title2>nwPlus Newsletter Sign-up</Title2>
+            <Body>Subscribe to our newsletter to stay up to date and for upcoming events!</Body>
+          </Modal>
+        </ContentContainer>
+
+        <ContentContainer>
+          <Title2>Paginated Resources</Title2>
+          <ResourcePage
+            resources={MOCK_RESOURCES_DATA}
+          />
           <Title2>Footer</Title2>
         </ContentContainer>
-        <Footer />
+
+        <ContentContainer>
+          <h3>Hackathon cards</h3>
+          <div style={{ display: 'flex' }}>
+            <HackathonCard
+              registrationOpen
+              link='https://www.google.com/'
+              dateString='Dec 5 - 6'
+              imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg'
+            />
+            <HackathonCard
+              link='https://www.google.com/'
+              dateString='Dec 5 - 6'
+              imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg'
+            />
+          </div>
+        </ContentContainer>
+
+        <ContentContainer>
+          <h3>Buttons</h3>
+          <div style={{ display: 'flex' }}>
+            <Button link='https://www.google.com/' width='200px' height='70px'>
+              Visit Google
+            </Button>
+            <Button
+              link='https://www.yahoo.com/'
+              width='400px'
+              height='50px'
+              backgroundColor='red'
+              borderRadius='12px'
+            >
+              Visit Yahoo
+            </Button>
+            <Button
+              link='https://www.yahoo.com/'
+              hollow
+              width='200px'
+              height='50px'
+              borderRadius='12px'
+            >
+              Visit Yahoo
+            </Button>
+          </div>
+        </ContentContainer>
+
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            background: 'rgb(0, 0, 0, 0.50)',
+            width: '100%',
+          }}
+        >
+          <NavBar hiring={false} />
+        </div>
       </Background>
     </>
   );
