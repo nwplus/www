@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 
 import { BackgroundColor } from './Background';
+import { DropdownOption } from './Typography';
  
 const NavBarContainer = styled.div`
   display: flex;
@@ -56,6 +57,13 @@ const JoinLinkInactive = styled.div`
   flex-direction: column;
   align-items: center;
   color: ${p => p.theme.colors.disabled};
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 24px;
+    margin-top: 6px;
+  }
 `;
 
 const JoinLinkActive = styled.a`
@@ -67,6 +75,13 @@ const JoinLinkActive = styled.a`
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent; 
   -moz-text-fill-color: transparent;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 24px;
+    margin-top: 6px;
+  }
 `;
 
 const JoinLinkTextMain = styled.span`
@@ -108,11 +123,17 @@ const Menu = styled.img`
   display: none;
   ${p => p.theme.mediaQueries.mobile} {
     display: block;
-    width: 25px;
+    width: 30px;
   }
 `;
 
 const Cross = Menu;
+
+const DropDownContentContainer = styled.div`
+  padding: 20px 0 27px 20px;
+  display: flex;
+  flex-direction: column;
+`;
 
 const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -124,6 +145,16 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
         <Cross src="/assets/icons/close.svg" alt="dropdown menu icon"
         onClick={() => setShowDropdown(false)}/>
       </NavBarContainer>
+      <DropDownContentContainer>
+        <DropdownOption>About Us</DropdownOption>
+        <DropdownOption>Hackathons</DropdownOption>
+        <DropdownOption>Resources</DropdownOption>
+        <DropdownOption>FAQ</DropdownOption>
+        <JoinLink hiring={hiring} hiringLink={hiringLink ?? '#'}/>
+        <a href={livePortalLink ?? '#'}>
+          <LivePortalButton>Live Portal</LivePortalButton>
+        </a>
+      </DropDownContentContainer>
     </BackgroundColor>);
   }
 
