@@ -4,6 +4,14 @@ import { getResourceIcon } from '../utils/ResourceUtils';
 
 const CardContainer = styled.div`
   position: relative;
+  text-align: left;
+  ${(p) => p.theme.mediaQueries.mobile} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 `;
 const BadgeContainer = styled.div`
   display: flex;

@@ -101,13 +101,8 @@ export const LinkBody = styled.p.attrs((p) => ({
     font-size: 14px;
     line-height: 24px;
   }
-  ${(p) =>
-    p.withGradient &&
-    `background: -webkit-linear-gradient(92deg, #19cbcb 1.55%, #78ff96 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;`}
   &:hover {
-    color: ${(p) => p.theme.colors.primaryGradient};
+    color: ${(p) => p.theme.colors.primary};
     cursor: pointer;
   }
 `;

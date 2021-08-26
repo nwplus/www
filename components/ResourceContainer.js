@@ -20,6 +20,10 @@ const HeaderContainer = styled.div`
 const BodyContainer = styled.div`
   display: flex;
   flex-direction: row;
+  ${(p) => p.theme.mediaQueries.mobile} {
+    display: inline;
+    text-align: center;
+  }
 `
 
 const CardContainer = styled.div`
@@ -27,7 +31,6 @@ const CardContainer = styled.div`
   justify-content: space-between;
   padding: 8px;
   ${(p) => p.theme.mediaQueries.mobile} {
-    display: flex;
     flex-direction: column;
     justify-content: center;
   }
@@ -41,7 +44,7 @@ const FilterContainer = styled.div`
     display: flex;
     flex-direction: row;
     margin-bottom: 16px;
-    justify-content: center;
+    margin-right: 0px;
   }
 `
 
@@ -50,12 +53,10 @@ const FilterCardContainer = styled.div`
   flex-wrap: wrap-content;
   ${(p) => p.theme.mediaQueries.mobile} {
     margin-right: 10px;
-    margin-bottom: 0px;
   }
 `
-const NO_BREAK_SPACE = '\u00a0';
 const RESOURCES_TITLE = 'Resources';
-const RESOURCES_BODY = 'If you are looking to get started in Computer Science, check out our';
+const RESOURCES_BODY = 'If you are looking to get started in Computer Science, check out our \u00a0';
 const RESOURCES_LINK = 'https://resources.nwplus.io/';
 const RESOURCES_LINK_TEXT = 'Self-Learning Resources Wiki!';
 
@@ -178,7 +179,6 @@ export default function ResourceContainer() {
         <Title1 withGradient>{RESOURCES_TITLE}</Title1>
         <BodyContainer>
           <Body>{RESOURCES_BODY}</Body>
-          {NO_BREAK_SPACE}
           <a href={RESOURCES_LINK} target='_blank'>
             <LinkBody>{RESOURCES_LINK_TEXT}</LinkBody>
           </a>
