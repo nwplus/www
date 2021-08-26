@@ -101,6 +101,13 @@ const LivePortalButton = styled.button`
   border-radius: 34px;
 `;
 
+const Cross = styled.img`
+  fill: ${(p) => p.theme.colors.secondary};
+  ${(p) => p.theme.mediaQueries.mobile} {
+    fill: ${(p) => p.theme.colors.secondary};
+  }
+`;
+
 const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   return (
     <NavBarContainer>
@@ -127,6 +134,9 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
           <LivePortalButton>Live Portal</LivePortalButton>
         </a>
       </NavTextContainer>
+      <NavGroupContainer>
+      <Cross src="/assets/icons/menu.svg" alt="dropdown menu icon"/>
+      </NavGroupContainer>
     </NavBarContainer>
   )
 }
