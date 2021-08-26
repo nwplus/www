@@ -5,6 +5,10 @@ const NavBarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 46px 87px;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    padding: 18px 16.78px 0 20px;
+  }
 `;
 
 const NavGroupContainer = styled.div`
@@ -13,8 +17,22 @@ const NavGroupContainer = styled.div`
   align-items: center;
 `;
 
+const NavTextContainer = styled.div`
+  display: flex;
+  gap: 28px;
+  align-items: center;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    display: none;
+  }
+`;
+
 const StyledImage = styled.img`
   margin-right: 18px;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    width: 21.89px;
+  }
 `;
 
 const SimpleLinkText = styled.span`
@@ -88,25 +106,27 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
     <NavBarContainer>
       <NavGroupContainer>
         <StyledImage src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
-        <a href="#"><SimpleLinkText>
-          About Us
-        </SimpleLinkText></a> 
-        <a href="#"><SimpleLinkText>
-          Hackathons
-        </SimpleLinkText></a> 
-        <a href="#"><SimpleLinkText>
-          Resources
-        </SimpleLinkText></a> 
-        <a href="#"><SimpleLinkText>
-          FAQ
-        </SimpleLinkText></a> 
+        <NavTextContainer>
+          <a href="#"><SimpleLinkText>
+            About Us
+          </SimpleLinkText></a> 
+          <a href="#"><SimpleLinkText>
+            Hackathons
+          </SimpleLinkText></a> 
+          <a href="#"><SimpleLinkText>
+            Resources
+          </SimpleLinkText></a> 
+          <a href="#"><SimpleLinkText>
+            FAQ
+          </SimpleLinkText></a> 
+        </NavTextContainer>
       </NavGroupContainer>
-      <NavGroupContainer>
+      <NavTextContainer>
         <JoinLink hiring={hiring} hiringLink={hiringLink ?? '#'}/>
         <a href={livePortalLink ?? '#'}>
           <LivePortalButton>Live Portal</LivePortalButton>
         </a>
-      </NavGroupContainer>
+      </NavTextContainer>
     </NavBarContainer>
   )
 }
