@@ -1,8 +1,8 @@
-import firebase from 'firebase/app'
-import 'firebase/firestore'
-import 'firebase/storage'
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/storage';
 
-const HACKATHONS = 'Hackathons'
+const HACKATHONS = 'Hackathons';
 
 if (!firebase.apps.length) {
   const config = {
@@ -13,45 +13,50 @@ if (!firebase.apps.length) {
     storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-  }
-  firebase.initializeApp(config)
+  };
+  firebase.initializeApp(config);
+  console.log(firebase);
 }
 
-const db = firebase.firestore()
+const db = firebase.firestore();
 
 const fireDb = {
   subscribeToCollection: (hackathon, collection, callback) => {
-    let ref
+    let ref;
     if (collection.toUpperCase() === 'FAQ') {
-      ref = db.collection('FAQ').where('hackathonIDs', 'array-contains', hackathon)
+      ref = db
+        .collection('FAQ')
+        .where('hackathonIDs', 'array-contains', hackathon);
     } else {
-      ref = db.collection(HACKATHONS).doc(hackathon).collection(collection)
+      ref = db.collection(HACKATHONS).doc(hackathon).collection(collection);
     }
-    return ref.onSnapshot(snapshot => {
-      const data = []
-      snapshot.forEach(doc => {
-        data.push(doc.data())
-      })
-      callback(data)
-    })
+    return ref.onSnapshot((snapshot) => {
+      const data = [];
+      snapshot.forEach((doc) => {
+        data.push(doc.data());
+      });
+      callback(data);
+    });
   },
   getCollection: async (hackathon, collection) => {
-    let ref
-    let data
+    let ref;
+    let data;
     if (collection.toUpperCase() === 'FAQ') {
-      ref = db.collection('FAQ').where('hackathonIDs', 'array-contains', hackathon)
+      ref = db
+        .collection('FAQ')
+        .where('hackathonIDs', 'array-contains', hackathon);
     } else {
-      ref = db.collection(HACKATHONS).doc(hackathon).collection(collection)
+      ref = db.collection(HACKATHONS).doc(hackathon).collection(collection);
     }
-    data = await ref.get()
-    data = data.docs.map(doc => doc.data())
-    return data
+    data = await ref.get();
+    data = data.docs.map((doc) => doc.data());
+    return data;
   },
-  getWebsiteData: async hackathon => {
-    const ref = db.collection(HACKATHONS).doc(hackathon)
-    const data = await ref.get()
-    return data.data()
+  getWebsiteData: async (hackathon) => {
+    const ref = db.collection(HACKATHONS).doc(hackathon);
+    const data = await ref.get();
+    return data.data();
   },
-}
+};
 
-export default fireDb
+export default fireDb;
