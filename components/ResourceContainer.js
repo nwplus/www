@@ -179,7 +179,7 @@ export default function ResourceContainer() {
         <Title1 withGradient>{RESOURCES_TITLE}</Title1>
         <BodyContainer>
           <Body>{RESOURCES_BODY}</Body>
-          <a href={RESOURCES_LINK} target='_blank'>
+          <a href={RESOURCES_LINK} target='_blank' rel="noreferrer">
             <LinkBody>{RESOURCES_LINK_TEXT}</LinkBody>
           </a>
         </BodyContainer>
