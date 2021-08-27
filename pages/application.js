@@ -22,7 +22,7 @@ const TryingContainer = styled.div`
   background-repeat: no-repeat; 
   background-position: right; 
   background-size: contain; 
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   padding-bottom: 53%; 
@@ -50,7 +50,7 @@ const SocialMediaIcons = styled.div`
 `;
 
 const FullScreenBackgroundColor = styled(BackgroundColor)`
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 export default function ApplicationPage() {

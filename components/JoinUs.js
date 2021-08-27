@@ -14,6 +14,10 @@ const ButtonContainer = styled.div`
   align-items: center;  
   margin-left: -10px;
   margin-bottom: 40px;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    margin-bottom: 360px;
+  }
 `;
 
 const TextContainer = styled.div`
