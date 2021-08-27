@@ -15,12 +15,15 @@ import { BackgroundColor } from '../components/Background';
 import NavBar from '../components/NavBar';
 import fireDb from '../utilities/firebase';
 
-const BackgroundImage = styled.img`
-  position: absolute;
-  width: 560px;
-  right: 0;
-  z-index: 0;
-`;
+const HeroContainer = styled.div` 
+  width: 100%; 
+  min-height: 100vh; 
+  padding-bottom: 69%; 
+  background: url(/assets/trying.svg); 
+  background-repeat: no-repeat; 
+  background-position: top; 
+  background-size: contain; 
+`; 
 
 const FooterContainer = styled.div`
   text-align: center;
@@ -40,7 +43,8 @@ const SocialMediaIcons = styled.div`
 
 
 export default function ApplicationPage() {
-  const deadline = fireDb.getCollection('www', 'Applications');
+  const deadline = fireDb.getCollection('www', 'Applications').deadline;
+  console.log(deadline, "this is the log");
   const livePortalLink = '#';
   const hiringLink = '#';
   const hiring = false;
@@ -54,31 +58,32 @@ export default function ApplicationPage() {
       <main>
       <NavBar hiring={hiring} hiringLink={hiringLink} livePortalLink={livePortalLink}/>
         <BackgroundColor>
-            <BackgroundImage src="/assets/logos/trying.svg" alt="an astronaut reaching inside a window"/>
-            <JoinUs hiring={hiring} deadline={deadline}/>
-            <FooterContainer>
-                <SocialMediaIcons>
-                    <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faFacebook} />
-                    </a>
-                    <a href="https://www.instagram.com/nwplusubc" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faInstagram} />
-                    </a>
-                    <a href="https://twitter.com/nwplusubc" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faTwitter} />
-                    </a>
-                    <a href="https://www.linkedin.com/company/nwplus" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faLinkedinIn} />
-                    </a>
-                    <a href="https://www.youtube.com/c/nwPlusUBC" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faYoutube} />
-                    </a>
-                    <a href="https://medium.com/nwplusubc" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faMediumM} />
-                    </a>
-                </SocialMediaIcons>
-                <div>Copyright &copy; 2021 nwPlus</div>
-            </FooterContainer>
+            <HeroContainer>
+              <JoinUs hiring={hiring} deadline={deadline}/>
+              <FooterContainer>
+                  <SocialMediaIcons>
+                      <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon icon={faFacebook} />
+                      </a>
+                      <a href="https://www.instagram.com/nwplusubc" target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon icon={faInstagram} />
+                      </a>
+                      <a href="https://twitter.com/nwplusubc" target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon icon={faTwitter} />
+                      </a>
+                      <a href="https://www.linkedin.com/company/nwplus" target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon icon={faLinkedinIn} />
+                      </a>
+                      <a href="https://www.youtube.com/c/nwPlusUBC" target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon icon={faYoutube} />
+                      </a>
+                      <a href="https://medium.com/nwplusubc" target="_blank" rel="noreferrer">
+                      <FontAwesomeIcon icon={faMediumM} />
+                      </a>
+                  </SocialMediaIcons>
+                  <div>Copyright &copy; 2021 nwPlus</div>
+              </FooterContainer>
+            </HeroContainer>
         </BackgroundColor>
       </main>
     </>
