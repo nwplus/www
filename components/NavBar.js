@@ -28,7 +28,7 @@ const NavBarContainer = styled.div`
   margin: 25px 0;
 
   ${(p) => p.theme.mediaQueries.mobile} {
-    margin: 0;
+    margin: 10px 0;
   }
 `;
 
@@ -147,7 +147,7 @@ const HamburgerMenu = styled.img`
 const Cross = HamburgerMenu;
 
 const DropDownContentContainer = styled.div`
-  padding: 32px 0 27px 20px;
+  padding: 20px 0 27px 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
