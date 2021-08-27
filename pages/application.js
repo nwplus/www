@@ -15,7 +15,7 @@ import { BackgroundColor } from '../components/Background';
 import NavBar from '../components/NavBar';
 import fireDb from '../utilities/firebase';
 
-const HeroContainer = styled.div` 
+const TryingContainer = styled.div` 
   width: 100%;
   height: 0;
   background: url(/assets/trying.svg); 
@@ -26,6 +26,11 @@ const HeroContainer = styled.div`
   top: 0;
   right: 0;
   padding-bottom: 53%; 
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    top: 385px;
+    padding-bottom: 100%;
+  }
 `; 
 
 const FooterContainer = styled.div`
@@ -63,7 +68,7 @@ export default function ApplicationPage() {
 
       <FullScreenBackgroundColor>
         <NavBar hiring={hiring} hiringLink={hiringLink} livePortalLink={livePortalLink}/>
-        <HeroContainer/>
+        <TryingContainer/>
         <JoinUs hiring={hiring} deadline={deadline}/>
           <FooterContainer>
               <SocialMediaIcons>
