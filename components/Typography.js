@@ -50,7 +50,7 @@ export const Title3 = styled.h3.attrs((p) => ({
 }))`
   font-style: normal;
   font-weight: 600;
-  font-size: 23.99px;
+  font-size: 24px;
   line-height: 30px;
   letter-spacing: -0.45px;
   font-feature-settings: 'liga' off;
