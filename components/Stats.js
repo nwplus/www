@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 import { LargeTitle, Body } from './Typography';
 
 const HACKATHON_STAT_DIAMOND = 'assets/hackathonsStat.svg';
@@ -54,8 +54,6 @@ function Diamond({src, number, description}) {
 }
 
 export default function Stats ({numHackathons, numProjects, prizesValue, numWorkshops, donationsValue}) {
-    const theme = useTheme();
-    console.log(theme);
     return (
         <Container>
             <div>
