@@ -16,7 +16,7 @@ const ButtonContainer = styled.div`
   margin-bottom: 40px;
 
   ${(p) => p.theme.mediaQueries.mobile} {
-    margin-bottom: 360px;
+    margin-bottom: 100%;
   }
 `;
 

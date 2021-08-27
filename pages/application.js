@@ -28,7 +28,7 @@ const TryingContainer = styled.div`
   padding-bottom: 53%; 
 
   ${(p) => p.theme.mediaQueries.mobile} {
-    top: 385px;
+    top: 65%;
     padding-bottom: 100%;
   }
 `; 
