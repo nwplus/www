@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { ThemeContext } from 'styled-components';
 // Components
 import { Background } from '../components/Background'
@@ -14,11 +14,25 @@ import {
   Title1,
   Title2,
   Body,
-} from '../components/Typography'
+} from '../components/Typography';
+import fireDb from '../utilities/firebase';
 
 export default function Home() {
   const themeContext = useContext(ThemeContext);
   const [activeTab, setActiveTab] = useState('Who We Are');
+  const [applicationInfo, setApplicationInfo] = useState(null);
+  const [livePortalLink, setLivePortalLink] = useState('');
+
+  const getApplicationData = async () => {
+    const applicationInfo = await fireDb.getCollection('www', 'Applications');
+    setApplicationInfo(applicationInfo[0]);
+    const liveportalInfo = await fireDb.getCollection('www', 'LivePortalLink');
+    setLivePortalLink(liveportalInfo[0].url);
+  }
+
+  useEffect(() => {
+    getApplicationData();
+  }, []);
 
   const AboutHeader = styled.div`
     display: flex;
@@ -52,7 +66,7 @@ export default function Home() {
         <meta name="description" content="Website for all things nwPlus!" />
       </Head>
       <Background>
-        <NavBar hiring={false}/>
+        <NavBar hiring={applicationInfo?.isOpen} hiringLink={applicationInfo?.url} livePortalLink={livePortalLink}/>
         <Hero />
         <ContentContainer>
           <AboutHeader>

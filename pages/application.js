@@ -60,17 +60,18 @@ const FullScreenBackgroundColor = styled(BackgroundColor)`
 
 export default function ApplicationPage() {
   const [applicationInfo, setApplicationInfo] = useState(null);
+  const [livePortalLink, setLivePortalLink] = useState('');
 
   const getApplicationData = async () => {
     const applicationInfo = await fireDb.getCollection('www', 'Applications');
     setApplicationInfo(applicationInfo[0]);
+    const liveportalInfo = await fireDb.getCollection('www', 'LivePortalLink');
+    setLivePortalLink(liveportalInfo[0].url);
   }
 
   useEffect(() => {
     getApplicationData();
   }, []);
-
-  const livePortalLink = '#';
 
   return (
     <>
