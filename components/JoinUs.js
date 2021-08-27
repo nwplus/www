@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Content } from './ContentContainer';
+import { ContentContainer } from './ContentContainer';
 import { Title1, Body, MixedTextParagraph } from './Typography';
 import Button from './Button';
 
@@ -27,7 +27,7 @@ const TextContainer = styled.div`
 
 export const JoinUs = ({ hiring, deadline }) => {
   return (<PaddingContainer>
-      <Content>
+      <ContentContainer>
         <Title1 withGradient>Join Us</Title1>
         <TextContainer>
           <Body>
@@ -50,7 +50,7 @@ export const JoinUs = ({ hiring, deadline }) => {
           <Button disabled={!hiring} width="212px" height="48px" hollow>View Application Package</Button>
           <Button disabled={!hiring} width="212px" height="48px">Apply Now</Button>
         </ButtonContainer>
-      </Content>
+      </ContentContainer>
   </PaddingContainer>
   )
 }
