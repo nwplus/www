@@ -27,8 +27,12 @@ const TryingContainer = styled.div`
   right: 0;
   padding-bottom: 53%; 
 
+  ${(p) => p.theme.mediaQueries.tablet} {
+    top: 10%;
+  }
+
   ${(p) => p.theme.mediaQueries.mobile} {
-    top: 65%;
+    top: 42%;
     padding-bottom: 100%;
   }
 `; 
@@ -50,7 +54,7 @@ const SocialMediaIcons = styled.div`
 `;
 
 const FullScreenBackgroundColor = styled(BackgroundColor)`
-  min-height: 100vh;
+  min-height: 120vh;
 `;
 
 export default function ApplicationPage() {

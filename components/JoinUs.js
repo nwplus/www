@@ -17,7 +17,7 @@ const ButtonContainer = styled.div`
   gap: 42px;
   align-items: center;  
   margin-left: -10px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 
   ${(p) => p.theme.mediaQueries.mobile} {
     margin-bottom: 100%;
