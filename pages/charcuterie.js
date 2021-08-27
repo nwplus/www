@@ -129,7 +129,6 @@ export default function Charcuterie() {
           </div>
         </ContentContainer>
 
-<<<<<<< HEAD
         <div
           style={{
             position: 'fixed',
@@ -139,10 +138,6 @@ export default function Charcuterie() {
           }}
         >
           <NavBar hiring={false} />
-=======
-        <div style={{ position: 'fixed', top: 0, background: 'rgb(0, 0, 0, 0.50)', width: '100%' }}>
-          <NavBar hiring={false}/>
->>>>>>> 5e1e729 (stats component desktop view)
         </div>
       </Background>
     </>
