@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
+import Stats from '../components/Stats';
 import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
 import Modal from '../components/Modal';
@@ -59,6 +60,10 @@ export default function Charcuterie() {
             height={180}
             width={260}
           />
+        </ContentContainer>
+
+        <ContentContainer>
+          <Stats numHackathons={13} numProjects={280} prizesValue={'$110,230'} numWorkshops={50} donationsValue={'$5,075'} />
         </ContentContainer>
 
         <ContentContainer>
