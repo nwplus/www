@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
+import Stats from '../components/Stats';
 import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
@@ -91,6 +92,7 @@ export default function Charcuterie() {
             height={180}
             width={260}
           />
+          <Stats numHackathons={13} numProjects={280} prizesValue={'$110,230'} numWorkshops={50} donationsValue={'$5,075'} />
           <Title2>Pagination</Title2>
           <Body>Current Page: {currPage + 1}</Body>
           <Pagination
@@ -107,16 +109,16 @@ export default function Charcuterie() {
         <ContentContainer>
           <h3>Hackathon cards</h3>
           <div style={{ display: 'flex' }}>
-            <HackathonCard 
-              registrationOpen 
-              link='https://www.google.com/' 
-              dateString='Dec 5 - 6' 
-              imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg' 
+            <HackathonCard
+              registrationOpen
+              link='https://www.google.com/'
+              dateString='Dec 5 - 6'
+              imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg'
             />
-            <HackathonCard 
-              link='https://www.google.com/' 
-              dateString='Dec 5 - 6' 
-              imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg' 
+            <HackathonCard
+              link='https://www.google.com/'
+              dateString='Dec 5 - 6'
+              imageLink='https://i.pinimg.com/474x/00/5e/95/005e953027d76c35ee6ec1446d43a739.jpg'
             />
           </div>
         </ContentContainer>
@@ -135,7 +137,7 @@ export default function Charcuterie() {
             </Button>
           </div>
         </ContentContainer>
-        
+
         <div style={{ position: 'fixed', top: 0, background: 'rgb(0, 0, 0, 0.50)', width: '100%' }}>
           <NavBar hiring={false}/>
         </div>
