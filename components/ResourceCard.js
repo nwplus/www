@@ -1,8 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { getResourceIcon } from '../utils/ResourceUtils';
 
 const CardContainer = styled.div`
   position: relative;
+  text-align: left;
+  ${(p) => p.theme.mediaQueries.mobile} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 `;
 const BadgeContainer = styled.div`
   display: flex;
@@ -26,11 +35,18 @@ const ThumbnailContainer = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
   ${(p) => p.theme.mediaQueries.mobile} {
     width: 160px;
     height: 112px;
   }
+  &:hover {
+    background-size: 150%;
+  }
+  &:hover #icon {
+    display: none;
+    cursor: pointer;        
+  }  
 `;
 
 const ResourceName = styled.span`
@@ -51,23 +67,26 @@ export default function ResourceCard({
   event = null,
   year,
   image,
-  icon,
+  type,
   badge = null,
+  link,
 }) {
   return (
-    <CardContainer>
-      {badge && (
-        <BadgeContainer>
-          <img width='60px' height='60px' src={badge} />
-        </BadgeContainer>
-      )}
-      <ThumbnailContainer image={image}>
-        <img width='40px' height='40px' src={icon} />
-      </ThumbnailContainer>
-      <TextContainer>
-        <ResourceName>{name}</ResourceName>
-        <EventName>{event ? event + ' | ' + year : year}</EventName>
-      </TextContainer>
-    </CardContainer>
+    <a href={link} target="_blank" rel="noreferrer">
+      <CardContainer>
+        {badge && (
+          <BadgeContainer>
+            <img width='60px' height='60px' src={badge} />
+          </BadgeContainer>
+        )}
+        <ThumbnailContainer image={image}>
+          <img id='icon' width='40px' height='40px' src={getResourceIcon(type)} />
+        </ThumbnailContainer>
+        <TextContainer>
+          <ResourceName>{name}</ResourceName>
+          <EventName>{event ? event + ' | ' + year : year}</EventName>
+        </TextContainer>
+      </CardContainer>
+    </a>
   );
 }

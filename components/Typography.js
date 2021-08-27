@@ -97,3 +97,26 @@ export const MixedTextParagraph = styled.div`
     display: inline;
   }
 `;
+
+export const LinkBody = styled.p.attrs((p) => ({
+  color: p.color || p.theme.colors.typography.body,
+}))`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.43px;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;  
+  ${SetColor}
+  ${SetBackground}
+  ${(p) => p.theme.mediaQueries.mobile} {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  &:hover {
+    color: ${(p) => p.theme.colors.primary};
+    cursor: pointer;
+  }
+`;

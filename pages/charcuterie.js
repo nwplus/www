@@ -1,122 +1,23 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
-import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import JoinUs from '../components/JoinUs';
 import Hero from '../components/Hero';
+import Modal from '../components/Modal';
 import HackathonCard from '../components/HackathonCard';
 import Button from '../components/Button';
-import ResourceCard from '../components/ResourceCard';
 import FaqBox from '../components/FaqBox';
+import Footer from '../components/Footer';
 import { ContentContainer } from '../components/ContentContainer';
+import { MOCK_RESOURCES_DATA } from '../utils/ResourceUtils';
+import ResourceContainer from '../components/ResourceContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
 import ResourcePage from '../components/ResourcePage';
 
-const BADGE_ICON = 'assets/logos/our-pick-badge.svg';
-const VIDEO_ICON = 'assets/logos/video-icon.svg';
-const GITHUB_ICON = 'assets/logos/github-icon.svg';
-const MEDIUM_ICON = 'assets/logos/medium-icon.svg';
-
 export default function Charcuterie() {
-  const resourcesMockData = [
-    {
-      name: 'Ligma',
-      event: 'Coachella',
-      year: '2022',
-      image:
-        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: GITHUB_ICON,
-      badge: BADGE_ICON,
-    },
-    {
-      name: 'Ligma',
-      event: 'Coachella',
-      year: '2022',
-      image:
-        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: MEDIUM_ICON,
-      badge: BADGE_ICON,
-    },
-    {
-      name: 'Ligma2',
-      event: 'Not Coachella',
-      year: '2022',
-      image:
-        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: VIDEO_ICON,
-      badge: BADGE_ICON,
-    },
-    {
-      name: 'Lig3ma',
-      year: '2222',
-      image:
-        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: GITHUB_ICON,
-    },
-    {
-      name: 'Hi Vincent',
-      year: '2023',
-      image:
-        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: VIDEO_ICON,
-      badge: BADGE_ICON,
-    },
-    {
-      name: 'Lig2ma',
-      year: '2022',
-      image:
-        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: VIDEO_ICON,
-    },
-    {
-      name: 'L1igma',
-      year: '2022',
-      image:
-        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: MEDIUM_ICON,
-      badge: BADGE_ICON,
-    },
-    {
-      name: 'Ligma',
-      event: 'Coachella',
-      year: '2022',
-      image:
-        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: VIDEO_ICON,
-    },
-    {
-      name: 'not Ligma2',
-      event: 'Not Coachella',
-      year: '2022',
-      image:
-        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: MEDIUM_ICON,
-      badge: BADGE_ICON,
-    },
-    {
-      name: 'Lig3ma',
-      year: '2022',
-      image:
-        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: GITHUB_ICON,
-    },
-    {
-      name: 'its jenny',
-      year: '2022',
-      image:
-        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: MEDIUM_ICON,
-      badge: BADGE_ICON,
-    },
-    {
-      name: 'Ligma',
-      year: '2022',
-      image:
-        'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-      icon: VIDEO_ICON,
-    },
-  ];
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <>
@@ -141,43 +42,16 @@ export default function Charcuterie() {
             internals of FAQ, Resources, and all other sections.
           </Body>
         </ContentContainer>
+
         <ContentContainer>
           <FaqBox question='Test?' answer='Test'/>
           <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={true}/>
           <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={false}/>
         </ContentContainer>
         <ContentContainer>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              padding: '8px',
-            }}
-          >
-            <ResourceCard
-              name='Ligma'
-              event='Coachella'
-              year='2022'
-              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
-              icon={VIDEO_ICON}
-              badge={BADGE_ICON}
-            />
-            <ResourceCard
-              name='Ligma'
-              year='2022'
-              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
-              icon={GITHUB_ICON}
-              badge={BADGE_ICON}
-            />
-            <ResourceCard
-              name='Ligma'
-              year='2022'
-              image='https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg'
-              icon={MEDIUM_ICON}
-            />
-          </div>
+          <ResourceContainer />
         </ContentContainer>
+
         <ContentContainer>
           <Carousel
             images={[
@@ -188,13 +62,26 @@ export default function Charcuterie() {
             height={180}
             width={260}
           />
+        </ContentContainer>
+
+        <ContentContainer>
+          <Body onClick={() => setShowModal(true)}>Click me to open a modal!</Body>
+          <Modal
+            show={showModal}
+            onClose={() => setShowModal(false)}
+          >
+            <Title2>nwPlus Newsletter Sign-up</Title2>
+            <Body>Subscribe to our newsletter to stay up to date and for upcoming events!</Body>
+          </Modal>
+        </ContentContainer>
+
+        <ContentContainer>
           <Title2>Paginated Resources</Title2>
           <ResourcePage
-            resources={resourcesMockData}
+            resources={MOCK_RESOURCES_DATA}
           />
           <Title2>Footer</Title2>
         </ContentContainer>
-        <Footer />
 
         <ContentContainer>
           <h3>Hackathon cards</h3>
