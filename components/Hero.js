@@ -9,7 +9,7 @@ import scollAnimation from './lotties/scroll.json';
  * https://www.quora.com/In-CSS-how-do-I-set-a-background-image-on-a-div-without-part-of-the-image-getting-cutoff */
 const HeroContainer = styled.div`
   width: 100%;
-  min-height: 100vh;
+  height: 0;
   padding-bottom: 69%;
   background: url(/assets/hero_illustration.svg);
   background-repeat: no-repeat;
