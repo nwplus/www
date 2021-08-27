@@ -16,14 +16,16 @@ import NavBar from '../components/NavBar';
 import fireDb from '../utilities/firebase';
 
 const HeroContainer = styled.div` 
-  width: 470px; 
-  padding-bottom: 69%; 
+  width: 100%;
+  height: 0;
   background: url(/assets/trying.svg); 
   background-repeat: no-repeat; 
-  background-position: right top; 
+  background-position: right; 
   background-size: contain; 
-  position: absolute;
+  position: fixed;
+  top: 0;
   right: 0;
+  padding-bottom: 53%; 
 `; 
 
 const FooterContainer = styled.div`
@@ -42,6 +44,9 @@ const SocialMediaIcons = styled.div`
   }
 `;
 
+const FullScreenBackgroundColor = styled(BackgroundColor)`
+  height: 100vh;
+`;
 
 export default function ApplicationPage() {
   const deadline = fireDb.getCollection('www', 'Applications').deadline;
@@ -56,36 +61,34 @@ export default function ApplicationPage() {
         <title>Application Page | nwPlus</title>
       </Head>
 
-      <main>
-      <NavBar hiring={hiring} hiringLink={hiringLink} livePortalLink={livePortalLink}/>
-        <BackgroundColor>
-          <HeroContainer/>
-          <JoinUs hiring={hiring} deadline={deadline}/>
-            <FooterContainer>
-                <SocialMediaIcons>
-                    <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faFacebook} />
-                    </a>
-                    <a href="https://www.instagram.com/nwplusubc" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faInstagram} />
-                    </a>
-                    <a href="https://twitter.com/nwplusubc" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faTwitter} />
-                    </a>
-                    <a href="https://www.linkedin.com/company/nwplus" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faLinkedinIn} />
-                    </a>
-                    <a href="https://www.youtube.com/c/nwPlusUBC" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faYoutube} />
-                    </a>
-                    <a href="https://medium.com/nwplusubc" target="_blank" rel="noreferrer">
-                    <FontAwesomeIcon icon={faMediumM} />
-                    </a>
-                </SocialMediaIcons>
-                <div>Copyright &copy; 2021 nwPlus</div>
-            </FooterContainer>
-        </BackgroundColor>
-      </main>
+      <FullScreenBackgroundColor>
+        <NavBar hiring={hiring} hiringLink={hiringLink} livePortalLink={livePortalLink}/>
+        <HeroContainer/>
+        <JoinUs hiring={hiring} deadline={deadline}/>
+          <FooterContainer>
+              <SocialMediaIcons>
+                  <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
+                  <FontAwesomeIcon icon={faFacebook} />
+                  </a>
+                  <a href="https://www.instagram.com/nwplusubc" target="_blank" rel="noreferrer">
+                  <FontAwesomeIcon icon={faInstagram} />
+                  </a>
+                  <a href="https://twitter.com/nwplusubc" target="_blank" rel="noreferrer">
+                  <FontAwesomeIcon icon={faTwitter} />
+                  </a>
+                  <a href="https://www.linkedin.com/company/nwplus" target="_blank" rel="noreferrer">
+                  <FontAwesomeIcon icon={faLinkedinIn} />
+                  </a>
+                  <a href="https://www.youtube.com/c/nwPlusUBC" target="_blank" rel="noreferrer">
+                  <FontAwesomeIcon icon={faYoutube} />
+                  </a>
+                  <a href="https://medium.com/nwplusubc" target="_blank" rel="noreferrer">
+                  <FontAwesomeIcon icon={faMediumM} />
+                  </a>
+              </SocialMediaIcons>
+              <div>Copyright &copy; 2021 nwPlus</div>
+          </FooterContainer>
+      </FullScreenBackgroundColor>
     </>
   )
 }
