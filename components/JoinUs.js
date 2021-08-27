@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { ContentContainer } from './ContentContainer';
+import { Content } from './ContentContainer';
 import { Title1, Body, MixedTextParagraph } from './Typography';
 import Button from './Button';
 
 
 const PaddingContainer = styled.div`
-  margin-top: 200px;
+  padding-top: 256px;
 `;
 
 const ButtonContainer = styled.div`
@@ -13,7 +13,7 @@ const ButtonContainer = styled.div`
   gap: 42px;
   align-items: center;  
   margin-left: -10px;
-  margin-bottom: 110px;
+  margin-bottom: 40px;
 `;
 
 const TextContainer = styled.div`
@@ -26,8 +26,8 @@ const TextContainer = styled.div`
 `;
 
 export const JoinUs = ({ hiring, deadline }) => {
-  return (<ContentContainer>
-      <PaddingContainer>
+  return (<PaddingContainer>
+      <Content>
         <Title1 withGradient>Join Us</Title1>
         <TextContainer>
           <Body>
@@ -50,8 +50,8 @@ export const JoinUs = ({ hiring, deadline }) => {
           <Button disabled={!hiring} width="212px" height="48px" hollow>View Application Package</Button>
           <Button disabled={!hiring} width="212px" height="48px">Apply Now</Button>
         </ButtonContainer>
-      </PaddingContainer>
-  </ContentContainer>
+      </Content>
+  </PaddingContainer>
   )
 }
 

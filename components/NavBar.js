@@ -1,13 +1,25 @@
 import styled from 'styled-components';
-import { Content } from './ContentContainer';
+import { Content, Wrapper} from './ContentContainer';
+
+const StyledWrapper = styled(Wrapper)`
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  max-width: unset;
+  display: flex;
+  justify-content: center;
+`;
+
+const StyledContent = styled(Content)`
+  max-width: 1600px;
+`;
  
-const NavBarContainer = styled(Content)`
+const NavBarContainer = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: absolute;
-  top: 0;
-  z-index: 3;
+  margin: 25px 0;
 `;
 
 const NavGroupContainer = styled.div`
@@ -88,29 +100,33 @@ const LivePortalButton = styled.button`
 
 const NavBar = ({ hiring, hiringLink = '#', livePortalLink = '#' }) => {
   return (
-    <NavBarContainer>
-      <NavGroupContainer>
-        <StyledImage src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
-        <a href="#"><SimpleLinkText>
-          About Us
-        </SimpleLinkText></a> 
-        <a href="#"><SimpleLinkText>
-          Hackathons
-        </SimpleLinkText></a> 
-        <a href="#"><SimpleLinkText>
-          Resources
-        </SimpleLinkText></a> 
-        <a href="#"><SimpleLinkText>
-          FAQ
-        </SimpleLinkText></a> 
-      </NavGroupContainer>
-      <NavGroupContainer>
-        <JoinLink hiring={hiring} hiringLink={hiringLink}/>
-        <a href={livePortalLink}>
-          <LivePortalButton>Live Portal</LivePortalButton>
-        </a>
-      </NavGroupContainer>
-    </NavBarContainer>
+    <StyledWrapper>
+      <StyledContent>
+        <NavBarContainer>
+          <NavGroupContainer>
+            <StyledImage src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
+            <a href="#"><SimpleLinkText>
+              About Us
+            </SimpleLinkText></a> 
+            <a href="#"><SimpleLinkText>
+              Hackathons
+            </SimpleLinkText></a> 
+            <a href="#"><SimpleLinkText>
+              Resources
+            </SimpleLinkText></a> 
+            <a href="#"><SimpleLinkText>
+              FAQ
+            </SimpleLinkText></a> 
+          </NavGroupContainer>
+          <NavGroupContainer>
+            <JoinLink hiring={hiring} hiringLink={hiringLink}/>
+            <a href={livePortalLink}>
+              <LivePortalButton>Live Portal</LivePortalButton>
+            </a>
+          </NavGroupContainer>
+        </NavBarContainer>
+      </StyledContent>
+    </StyledWrapper>
   )
 }
 
