@@ -6,6 +6,10 @@ import Button from './Button';
 
 const PaddingContainer = styled.div`
   padding-top: 256px;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    padding-top: 75px;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -17,6 +21,8 @@ const ButtonContainer = styled.div`
 
   ${(p) => p.theme.mediaQueries.mobile} {
     margin-bottom: 100%;
+    flex-direction: column;
+    gap: 0;
   }
 `;
 
@@ -27,6 +33,11 @@ const TextContainer = styled.div`
   margin-top: 42px;
   margin-bottom: 34px;
   max-width: 638px;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
 `;
 
 export const JoinUs = ({ hiring, deadline }) => {

@@ -54,7 +54,8 @@ const FullScreenBackgroundColor = styled(BackgroundColor)`
 `;
 
 export default function ApplicationPage() {
-  const deadline = fireDb.getCollection('www', 'Applications').deadline;
+  const application = fireDb.getCollection('www', 'Applications');
+  const deadline = application.then(data => data[0].deadline);
   console.log(deadline, "this is the log");
   const livePortalLink = '#';
   const hiringLink = '#';
@@ -69,7 +70,7 @@ export default function ApplicationPage() {
       <FullScreenBackgroundColor>
         <NavBar hiring={hiring} hiringLink={hiringLink} livePortalLink={livePortalLink}/>
         <TryingContainer/>
-        <JoinUs hiring={hiring} deadline={deadline}/>
+        <JoinUs hiring={hiring} deadline={"Sept"}/>
           <FooterContainer>
               <SocialMediaIcons>
                   <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
