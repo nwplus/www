@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
   width: 100%;
   padding: 24px 40px;
   scroll-behaviour: smooth;

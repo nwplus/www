@@ -1,12 +1,12 @@
 import styled from 'styled-components';
+import { Content } from './ContentContainer';
  
-const NavBarContainer = styled.div`
+const NavBarContainer = styled(Content)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 46px 87px;
-  width: 100%;
   position: absolute;
+  top: 0;
   z-index: 3;
 `;
 
