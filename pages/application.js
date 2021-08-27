@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faFacebook,
@@ -58,12 +59,18 @@ const FullScreenBackgroundColor = styled(BackgroundColor)`
 `;
 
 export default function ApplicationPage() {
-  const application = fireDb.getCollection('www', 'Applications');
-  const deadline = application.then(data => data[0].deadline);
-  console.log(deadline, "this is the log");
+  const [applicationInfo, setApplicationInfo] = useState(null);
+
+  const getApplicationData = async () => {
+    const applicationInfo = await fireDb.getCollection('www', 'Applications');
+    setApplicationInfo(applicationInfo[0]);
+  }
+
+  useEffect(() => {
+    getApplicationData();
+  }, []);
+
   const livePortalLink = '#';
-  const hiringLink = '#';
-  const hiring = false;
 
   return (
     <>
@@ -72,9 +79,9 @@ export default function ApplicationPage() {
       </Head>
 
       <FullScreenBackgroundColor>
-        <NavBar hiring={hiring} hiringLink={hiringLink} livePortalLink={livePortalLink}/>
+        <NavBar hiring={applicationInfo?.isOpen} hiringLink={applicationInfo?.url} livePortalLink={livePortalLink}/>
         <TryingContainer/>
-        <JoinUs hiring={hiring} deadline={"Sept"}/>
+        <JoinUs hiring={applicationInfo?.isOpen} deadline={applicationInfo?.deadline}/>
           <FooterContainer>
               <SocialMediaIcons>
                   <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">

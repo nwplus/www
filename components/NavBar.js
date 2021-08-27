@@ -107,7 +107,7 @@ const JoinLinkTextMinor = styled.span`
   font-size: 13.5px;
 `;
 
-const JoinLink = ({ hiring, hiringLink, setShowDropdown }) => {
+const JoinLink = ({ hiring, hiringLink, setShowDropdown = () => null }) => {
   if (hiring) {
     return(<JoinLinkActive href={hiringLink} onClick={() => setShowDropdown(false)}>
        <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
@@ -153,12 +153,12 @@ const DropDownContentContainer = styled.div`
   gap: 24px;
 `;
 
-const MenuList = ({ setShowDropdown = null }) => {
+const MenuList = ({ setShowDropdown = () => null }) => {
   return  (<>
-    <LinkText href="#" onClick={() => setShowDropdown && setShowDropdown(false)}>About Us</LinkText>
-    <LinkText href="#" onClick={() => setShowDropdown && setShowDropdown(false)}>Hackathons</LinkText>
-    <LinkText href="#" onClick={() => setShowDropdown && setShowDropdown(false)}>Resources</LinkText>
-    <LinkText href="#" onClick={() => setShowDropdown && setShowDropdown(false)}>FAQ</LinkText>
+    <LinkText href="#" onClick={() => setShowDropdown()}>About Us</LinkText>
+    <LinkText href="#" onClick={() => setShowDropdown()}>Hackathons</LinkText>
+    <LinkText href="#" onClick={() => setShowDropdown()}>Resources</LinkText>
+    <LinkText href="#" onClick={() => setShowDropdown()}>FAQ</LinkText>
   </>);
 }
 
@@ -174,8 +174,8 @@ const NavBar = ({ hiring, hiringLink = '#', livePortalLink = '#' }) => {
           onClick={() => setShowDropdown(false)}/>
         </NavBarContainer>
         <DropDownContentContainer>
-          <MenuList setShowDropdown={setShowDropdown}/>
-          <JoinLink hiring={hiring} hiringLink={hiringLink}/>
+          <MenuList setShowDropdown={() => setShowDropdown(false)}/>
+          <JoinLink hiring={hiring} hiringLink={hiringLink} setShowDropdown={() => setShowDropdown(false)}/>
           <a href={livePortalLink} rel="noreferrer noopener" target={livePortalLink !== '#' && "_blank"}>
             <LivePortalButton>Live Portal</LivePortalButton>
           </a>
