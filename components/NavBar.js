@@ -118,7 +118,7 @@ const LivePortalButton = styled.button`
     width: 160px;
 `;
 
-const Menu = styled.img`
+const HamburgerMenu = styled.img`
   display: none;
   ${p => p.theme.mediaQueries.mobile} {
     display: block;
@@ -126,7 +126,7 @@ const Menu = styled.img`
   }
 `;
 
-const Cross = Menu;
+const Cross = HamburgerMenu;
 
 const DropDownContentContainer = styled.div`
   padding: 32px 0 27px 20px;
@@ -175,7 +175,7 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
           <LivePortalButton>Live Portal</LivePortalButton>
         </a>
       </NavTextContainer>
-      <Menu src="/assets/icons/menu.svg" alt="dropdown menu icon"
+      <HamburgerMenu src="/assets/icons/menu.svg" alt="dropdown menu icon"
       onClick={() => setShowDropdown(true)}/>
     </NavBarContainer>
   )
