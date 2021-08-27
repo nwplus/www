@@ -66,7 +66,7 @@ export default function Modal({ children, show, onClose }) {
         <ModalBackground>
           <ModalContainer>
             <CloseButton onClick={onClose}>
-              <img src="/assets/icons/close.svg" />
+              <img src="/assets/icons/close_grey.svg" />
             </CloseButton>
             {children}
           </ModalContainer>

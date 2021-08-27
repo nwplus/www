@@ -132,7 +132,6 @@ export default function Charcuterie() {
           style={{
             position: 'fixed',
             top: 0,
-            background: 'rgb(0, 0, 0, 0.50)',
             width: '100%',
           }}
         >
