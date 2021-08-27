@@ -81,7 +81,8 @@ export default function ApplicationPage() {
       <FullScreenBackgroundColor>
         <NavBar hiring={applicationInfo?.isOpen} hiringLink={applicationInfo?.url} livePortalLink={livePortalLink}/>
         <TryingContainer/>
-        <JoinUs hiring={applicationInfo?.isOpen} deadline={applicationInfo?.deadline}/>
+        <JoinUs hiring={applicationInfo?.isOpen} deadline={applicationInfo?.deadline}
+          formUrl={applicationInfo?.applicationFormUrl} packageUrl={applicationInfo?.applicationPackageUrl}/>
           <FooterContainer>
               <SocialMediaIcons>
                   <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">

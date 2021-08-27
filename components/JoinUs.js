@@ -56,7 +56,7 @@ const MobileFormatContainer = styled.div`
   }
 `;
 
-export const JoinUs = ({ hiring, deadline }) => {
+export const JoinUs = ({ hiring, deadline, packageUrl, formUrl }) => {
   return (<PaddingContainer>
       <ContentContainer>
         <MobileFormatContainer>
@@ -79,8 +79,8 @@ export const JoinUs = ({ hiring, deadline }) => {
             </Body>
           </TextContainer>
           <ButtonContainer>
-            <StyledButton disabled={!hiring} width="212px" height="48px" hollow>View Application Package</StyledButton>
-            <StyledButton disabled={!hiring} width="212px" height="48px">Apply Now</StyledButton>
+            <StyledButton width="212px" height="48px" hollow href={hiring && packageUrl}>View Application Package</StyledButton>
+            <StyledButton width="212px" height="48px" href={hiring && formUrl}>Apply Now</StyledButton>
           </ButtonContainer>
         </MobileFormatContainer>
       </ContentContainer>
