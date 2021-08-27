@@ -135,6 +135,15 @@ const DropDownContentContainer = styled.div`
   gap: 24px;
 `;
 
+const MenuList = ({ setShowDropdown = null }) => {
+  return  (<>
+    <LinkText href="#" onClick={() => setShowDropdown && setShowDropdown(false)}>About Us</LinkText>
+    <LinkText href="#" onClick={() => setShowDropdown && setShowDropdown(false)}>Hackathons</LinkText>
+    <LinkText href="#" onClick={() => setShowDropdown && setShowDropdown(false)}>Resources</LinkText>
+    <LinkText href="#" onClick={() => setShowDropdown && setShowDropdown(false)}>FAQ</LinkText>
+  </>);
+}
+
 const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -146,10 +155,7 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
         onClick={() => setShowDropdown(false)}/>
       </NavBarContainer>
       <DropDownContentContainer>
-        <LinkText href="#" onClick={() => setShowDropdown(false)}>About Us</LinkText>
-        <LinkText href="#" onClick={() => setShowDropdown(false)}>Hackathons</LinkText>
-        <LinkText href="#" onClick={() => setShowDropdown(false)}>Resources</LinkText>
-        <LinkText href="#" onClick={() => setShowDropdown(false)}>FAQ</LinkText>
+        <MenuList setShowDropdown={setShowDropdown}/>
         <JoinLink hiring={hiring} hiringLink={hiringLink ?? '#'} setShowDropdown={setShowDropdown}/>
         <a href={livePortalLink ?? '#'} rel="noreferrer noopener" target={livePortalLink && "_blank"}>
           <LivePortalButton>Live Portal</LivePortalButton>
@@ -163,10 +169,7 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
       <NavGroupContainer>
         <NwPlusLogo src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
         <NavTextContainer>
-          <LinkText href="#">About Us</LinkText>
-          <LinkText href="#">Hackathons</LinkText>
-          <LinkText href="#">Resources</LinkText>
-          <LinkText href="#">FAQ</LinkText>
+          <MenuList/>
         </NavTextContainer>
       </NavGroupContainer>
       <NavTextContainer>
