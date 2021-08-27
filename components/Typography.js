@@ -43,10 +43,22 @@ export const Title1 = styled.h1.attrs((p) => ({
     p.withGradient &&
     `background: -webkit-linear-gradient(92deg, #19cbcb 1.55%, #78ff96 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;`}
+    -webkit-text-fill-color: transparent;`
+  }
   ${(p) => p.theme.mediaQueries.mobile} {
     font-size: 21.32px;
     line-height: 27.77px;
+  }
+  ${(p) =>
+    p.underline &&
+    'text-decoration: underline;'
+  }
+  ${(p) =>
+    p.hover &&
+    `&:hover {
+      cursor: pointer;
+      color: ${p.theme.colors.primary}
+    }`
   }
 `;
 
@@ -61,6 +73,11 @@ export const Title2 = styled.h2.attrs((p) => ({
   font-feature-settings: 'liga' off;
   ${SetColor}
   ${SetBackground}
+  ${(p) =>
+    p.withGradient &&
+    `background: -webkit-linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;`}
   ${(p) => p.theme.mediaQueries.mobile} {
     font-size: 16px;
     line-height: 24px;
