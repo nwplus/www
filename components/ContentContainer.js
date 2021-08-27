@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   width: 100%;
   max-width: 1600px;
-  min-width: 960px;
   margin: 0 auto;
   ${(p) => p.theme.mediaQueries.mobile} {
     max-width: 640px;
