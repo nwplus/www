@@ -30,7 +30,7 @@ const NavTextContainer = styled.div`
   }
 `;
 
-const NWPLUSLOGO = styled.img`
+const NwPlusLogo = styled.img`
   margin-right: 18px;
 
   ${(p) => p.theme.mediaQueries.mobile} {
@@ -141,7 +141,7 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   if (showDropdown) {
     return (<BackgroundColor>
       <NavBarContainer>
-        <NWPLUSLOGO src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
+        <NwPlusLogo src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
         <Cross src="/assets/icons/close.svg" alt="dropdown menu icon"
         onClick={() => setShowDropdown(false)}/>
       </NavBarContainer>
@@ -161,7 +161,7 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   return (
     <NavBarContainer>
       <NavGroupContainer>
-        <NWPLUSLOGO src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
+        <NwPlusLogo src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
         <NavTextContainer>
           <LinkText href="#">About Us</LinkText>
           <LinkText href="#">Hackathons</LinkText>
