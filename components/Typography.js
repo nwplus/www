@@ -84,6 +84,30 @@ export const Title2 = styled.h2.attrs((p) => ({
   }
 `;
 
+export const Title3 = styled.h3.attrs((p) => ({
+  color: p.color || p.theme.colors.secondary,
+}))`
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -0.45px;
+  font-feature-settings: 'liga' off;
+  ${SetColor}
+  ${SetBackground}
+  ${(p) =>
+    p.withGradient &&
+    `background: -webkit-linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;`
+  }
+  ${(p) => p.theme.mediaQueries.mobile} {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  ${(p) => p.customStyles}
+`;
+
 export const Body = styled.p.attrs((p) => ({
   color: p.color || p.theme.colors.typography.body,
 }))`

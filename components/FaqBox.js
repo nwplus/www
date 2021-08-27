@@ -85,7 +85,7 @@ const FaqBox = ({ question, ...props }) => {
       >
         <Question>{question}</Question>
         <Arrow
-          src='/assets/arrow.svg'
+          src='/assets/icons/arrow.svg'
           alt='faq selected indicator'
           isExpanded={isExpanded}
         ></Arrow>
