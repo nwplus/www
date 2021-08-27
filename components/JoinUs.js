@@ -23,6 +23,13 @@ const ButtonContainer = styled.div`
     margin-bottom: 100%;
     flex-direction: column;
     gap: 0;
+    width: 100%;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  ${(p) => p.theme.mediaQueries.mobile} {
+    width: 100%;
   }
 `;
 
@@ -40,31 +47,42 @@ const TextContainer = styled.div`
   }
 `;
 
+const MobileFormatContainer = styled.div`
+  ${(p) => p.theme.mediaQueries.mobile} {
+    margin: 0 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
 export const JoinUs = ({ hiring, deadline }) => {
   return (<PaddingContainer>
       <ContentContainer>
-        <Title1 withGradient>Join Us</Title1>
-        <TextContainer>
-          <Body>
-            Apply now to join our nwPlus organizing team!
-          </Body>
-          <MixedTextParagraph>
+        <MobileFormatContainer>
+          <Title1 withGradient>Join Us</Title1>
+          <TextContainer>
             <Body>
-              Applications are NOW OPEN to all UBC students, no matter your background/faculty, until&nbsp;
+              Apply now to join our nwPlus organizing team!
             </Body>
-            <Body withGradient>
-              {deadline}
+            <MixedTextParagraph>
+              <Body>
+                Applications are NOW OPEN to all UBC students, no matter your background/faculty, until&nbsp;
+              </Body>
+              <Body withGradient>
+                {deadline}
+              </Body>
+              <Body>.</Body>
+            </MixedTextParagraph>
+            <Body>
+              Be sure to apply early as we&#39;ll be conducting interviews and sending out offers on a rolling basis!
             </Body>
-            <Body>.</Body>
-          </MixedTextParagraph>
-          <Body>
-            Be sure to apply early as we&#39;ll be conducting interviews and sending out offers on a rolling basis!
-          </Body>
-        </TextContainer>
-        <ButtonContainer>
-          <Button disabled={!hiring} width="212px" height="48px" hollow>View Application Package</Button>
-          <Button disabled={!hiring} width="212px" height="48px">Apply Now</Button>
-        </ButtonContainer>
+          </TextContainer>
+          <ButtonContainer>
+            <StyledButton disabled={!hiring} width="212px" height="48px" hollow>View Application Package</StyledButton>
+            <StyledButton disabled={!hiring} width="212px" height="48px">Apply Now</StyledButton>
+          </ButtonContainer>
+        </MobileFormatContainer>
       </ContentContainer>
   </PaddingContainer>
   )
