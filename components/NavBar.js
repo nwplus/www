@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 
 import { BackgroundColor } from './Background';
+import { SCREEN_BREAKPOINTS } from '../pages/_app';
  
 const NavBarContainer = styled.div`
   display: flex;
@@ -157,8 +158,19 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);    
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };    
   }, []);
+
+  const handleResize = () => {
+    if(window.innerWidth <= SCREEN_BREAKPOINTS.mobile) {
+      setShowDropdown(false);
+      console.log("width detecting");
+    }
+  }
 
   const handleScroll = () => {
     const scroll = window.pageYOffset || document.documentElement.scrollTop;
