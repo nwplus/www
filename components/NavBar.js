@@ -195,7 +195,7 @@ const NavBar = () => {
   }, []);
 
   const handleResize = () => {
-    if(window.innerWidth <= SCREEN_BREAKPOINTS.mobile) {
+    if(window.innerWidth >= SCREEN_BREAKPOINTS.mobile) {
       setShowDropdown(false);
       console.log("width detecting");
     }
