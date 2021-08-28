@@ -24,6 +24,7 @@ export default function Charcuterie() {
         <title>Charcuterie | nwPlus</title>
       </Head>
       <Background>
+        <NavBar hiring={false}/>
         <Hero />
         <ContentContainer>
           <LargeTitle>charcuterie 😋</LargeTitle>
@@ -82,7 +83,6 @@ export default function Charcuterie() {
           <ResourcePage
             resources={MOCK_RESOURCES_DATA}
           />
-          <Title2>Footer</Title2>
         </ContentContainer>
 
         <ContentContainer>
@@ -101,7 +101,9 @@ export default function Charcuterie() {
             />
           </div>
         </ContentContainer>
-
+      <Carousel images={['https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/783px-Test-Logo.svg.png', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-588935825.jpg']}
+                height={180}
+                width={260} />
         <ContentContainer>
           <h3>Buttons</h3>
           <div style={{ display: 'flex' }}>
@@ -128,16 +130,6 @@ export default function Charcuterie() {
             </Button>
           </div>
         </ContentContainer>
-
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            width: '100%',
-          }}
-        >
-          <NavBar hiring={false} />
-        </div>
       </Background>
     </>
   );
