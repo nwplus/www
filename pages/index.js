@@ -14,7 +14,7 @@ import {
   Title1,
   Title2,
   Body,
-} from '../components/Typography'
+} from '../components/Typography';
 
 export default function Home() {
   const themeContext = useContext(ThemeContext);
@@ -52,7 +52,7 @@ export default function Home() {
         <meta name="description" content="Website for all things nwPlus!" />
       </Head>
       <Background>
-        <NavBar hiring={false} />
+        <NavBar/>
         <Hero />
         <ContentContainer>
           <AboutHeader>

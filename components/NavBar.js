@@ -1,22 +1,40 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 
-import { BackgroundColor } from './Background';
 import { SCREEN_BREAKPOINTS } from '../pages/_app';
+import fireDb from '../utilities/firebase';
+
+import { Content, Wrapper} from './ContentContainer';
+
+const StyledWrapper = styled(Wrapper)`
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  max-width: unset;
+  display: flex;
+  justify-content: center;
+`;
+
+const StyledWrapperDark = styled(StyledWrapper)`
+  background-color: ${(p) => p.theme.colors.background};
+`;
+
+const StyledContent = styled(Content)`
+  max-width: 1600px;
+`;
  
 const NavBarContainer = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 46px 87px;
   visibility: ${p => p.visibility};
   opacity: ${p => p.opacity};
   transition: 0.5s ease-in-out;
-  position: fixed;
-  width: 100%;
+  margin: 25px 0;
 
   ${(p) => p.theme.mediaQueries.mobile} {
-    padding: 18px 16.78px 0 20px;
+    margin: 10px 0;
   }
 `;
 
@@ -95,7 +113,7 @@ const JoinLinkTextMinor = styled.span`
   font-size: 13.5px;
 `;
 
-const JoinLink = ({ hiring, hiringLink, setShowDropdown }) => {
+const JoinLink = ({ hiring, hiringLink, setShowDropdown = () => null }) => {
   if (hiring) {
     return(<JoinLinkActive href={hiringLink} onClick={() => setShowDropdown(false)}>
        <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
@@ -135,30 +153,41 @@ const HamburgerMenu = styled.img`
 const Cross = HamburgerMenu;
 
 const DropDownContentContainer = styled.div`
-  padding: 32px 0 27px 20px;
+  padding: 20px 0 27px 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
 `;
 
-const MenuList = ({ setShowDropdown = null }) => {
+const MenuList = ({ setShowDropdown = () => null }) => {
   return  (<>
-    <LinkText href="#" onClick={() => setShowDropdown && setShowDropdown(false)}>About Us</LinkText>
-    <LinkText href="#" onClick={() => setShowDropdown && setShowDropdown(false)}>Hackathons</LinkText>
-    <LinkText href="#" onClick={() => setShowDropdown && setShowDropdown(false)}>Resources</LinkText>
-    <LinkText href="#" onClick={() => setShowDropdown && setShowDropdown(false)}>FAQ</LinkText>
+    <LinkText href="#" onClick={() => setShowDropdown()}>About Us</LinkText>
+    <LinkText href="#" onClick={() => setShowDropdown()}>Hackathons</LinkText>
+    <LinkText href="#" onClick={() => setShowDropdown()}>Resources</LinkText>
+    <LinkText href="#" onClick={() => setShowDropdown()}>FAQ</LinkText>
   </>);
 }
 
-const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
+const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [visibility, setVisibility] = useState('visible');
   const [opacity, setOpacity] = useState('1');
   const [lastScroll, setLastScroll] = useState(0);
 
+  const [applicationInfo, setapplicationInfo] = useState(null);
+  const [livePortalLink, setLivePortalLink] = useState('');
+
+  const getApplicationData = async () => {
+    const applicationInfo = await fireDb.getCollection('www', 'Applications');
+    setapplicationInfo(applicationInfo[0]);
+    const liveportalInfo = await fireDb.getCollection('www', 'LivePortalLink');
+    setLivePortalLink(liveportalInfo[0].url);
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
+    getApplicationData();
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
@@ -189,39 +218,45 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   }
 
   if (showDropdown) {
-    return (<BackgroundColor>
-      <NavBarContainer>
-        <NwPlusLogo src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
-        <Cross src="/assets/icons/close_white.svg" alt="dropdown menu icon"
-        onClick={() => setShowDropdown(false)}/>
-      </NavBarContainer>
-      <DropDownContentContainer>
-        <MenuList setShowDropdown={setShowDropdown}/>
-        <JoinLink hiring={hiring} hiringLink={hiringLink ?? '#'} setShowDropdown={setShowDropdown}/>
-        <a href={livePortalLink ?? '#'} rel="noreferrer noopener" target={livePortalLink && "_blank"}>
-          <LivePortalButton>Live Portal</LivePortalButton>
-        </a>
-      </DropDownContentContainer>
-    </BackgroundColor>);
+    return (<StyledWrapperDark>
+      <StyledContent>
+        <NavBarContainer>
+          <NwPlusLogo src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
+          <Cross src="/assets/icons/close_white.svg" alt="dropdown menu icon"
+          onClick={() => setShowDropdown(false)}/>
+        </NavBarContainer>
+        <DropDownContentContainer>
+          <MenuList setShowDropdown={() => setShowDropdown(false)}/>
+          <JoinLink hiring={applicationInfo?.isOpen} hiringLink={applicationInfo?.url} setShowDropdown={() => setShowDropdown(false)}/>
+          <a href={livePortalLink} rel="noreferrer noopener" target={livePortalLink !== '#' && "_blank"}>
+            <LivePortalButton>Live Portal</LivePortalButton>
+          </a>
+        </DropDownContentContainer>
+      </StyledContent>
+    </StyledWrapperDark>
+    );
   }
 
-  return (
-    <NavBarContainer visibility={visibility} opacity={opacity}>
-      <NavGroupContainer>
-        <NwPlusLogo src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
+  return (<StyledWrapper>
+    <StyledContent>
+      <NavBarContainer visibility={visibility} opacity={opacity}>
+        <NavGroupContainer>
+          <NwPlusLogo src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
+          <NavTextContainer>
+            <MenuList/>
+          </NavTextContainer>
+        </NavGroupContainer>
         <NavTextContainer>
-          <MenuList/>
+          <JoinLink hiring={applicationInfo?.isOpen} hiringLink={applicationInfo?.url ?? '#'}/>
+          <a href={livePortalLink ?? '#'}>
+            <LivePortalButton>Live Portal</LivePortalButton>
+          </a>
         </NavTextContainer>
-      </NavGroupContainer>
-      <NavTextContainer>
-        <JoinLink hiring={hiring} hiringLink={hiringLink ?? '#'}/>
-        <a href={livePortalLink ?? '#'}>
-          <LivePortalButton>Live Portal</LivePortalButton>
-        </a>
-      </NavTextContainer>
-      <HamburgerMenu src="/assets/icons/menu.svg" alt="dropdown menu icon"
-      onClick={() => setShowDropdown(true)}/>
-    </NavBarContainer>
+        <HamburgerMenu src="/assets/icons/menu.svg" alt="dropdown menu icon"
+        onClick={() => setShowDropdown(true)}/>
+      </NavBarContainer>
+      </StyledContent>
+    </StyledWrapper>
   )
 }
 
