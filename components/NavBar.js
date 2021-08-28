@@ -205,13 +205,11 @@ const NavBar = () => {
   const handleResize = () => {
     if(window.innerWidth >= SCREEN_BREAKPOINTS.mobile) {
       setShowDropdown(false);
-      console.log("width detecting");
     }
   }
 
   const handleScroll = () => {
     const scroll = window.pageYOffset || document.documentElement.scrollTop;
-    console.log(scroll, "scroll is trigggered");
     if (scroll <= 0) {
       setVisibility('visible');
       setOpacity('1');
