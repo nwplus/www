@@ -82,7 +82,6 @@ export default function Charcuterie() {
           <ResourcePage
             resources={MOCK_RESOURCES_DATA}
           />
-          <Title2>Footer</Title2>
         </ContentContainer>
 
         <ContentContainer>
