@@ -2,13 +2,13 @@ import Head from 'next/head'
 import styled from 'styled-components'
 import { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
+import NavBar from '../components/NavBar';
 // Components
 import { Background } from '../components/Background'
 import { ContentContainer } from '../components/ContentContainer';
 import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
-import NavBar from '../components/NavBar';
 // Typography
 import {
   Title1,
