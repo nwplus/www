@@ -8,12 +8,13 @@ import { ContentContainer } from '../components/ContentContainer';
 import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
+import NavBar from '../components/NavBar';
 // Typography
 import {
   Title1,
   Title2,
   Body,
-} from '../components/Typography'
+} from '../components/Typography';
 
 export default function Home() {
   const themeContext = useContext(ThemeContext);
@@ -51,6 +52,7 @@ export default function Home() {
         <meta name="description" content="Website for all things nwPlus!" />
       </Head>
       <Background>
+        <NavBar/>
         <Hero />
         <ContentContainer>
           <AboutHeader>

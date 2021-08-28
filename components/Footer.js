@@ -16,6 +16,7 @@ const FooterContainer = styled.footer`
   color: ${p => p.theme.colors.primary};
   text-align: center;
   padding: 64px 0;
+  width: 100%;
 `;
 
 const SocialMediaIcons = styled.div`

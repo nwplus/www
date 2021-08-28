@@ -16,6 +16,7 @@ export const LargeTitle = styled.h1.attrs((p) => ({
   font-weight: 900;
   font-size: 56.83px;
   letter-spacing: 0.04em;
+  line-height: 41px;
   ${SetColor}
   ${SetBackground}
   ${(p) =>
@@ -119,9 +120,22 @@ export const Body = styled.p.attrs((p) => ({
   letter-spacing: -0.43px;
   ${SetColor}
   ${SetBackground}
+  ${(p) =>
+    p.withGradient &&
+    `background: -webkit-linear-gradient(92deg, #19cbcb 1.55%, #78ff96 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;`}
   ${(p) => p.theme.mediaQueries.mobile} {
     font-size: 14px;
     line-height: 24px;
+  }
+`;
+
+export const MixedTextParagraph = styled.div`
+  p {
+    margin: 0;
+    padding: 0;
+    display: inline;
   }
 `;
 

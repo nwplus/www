@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
+import Stats from '../components/Stats';
 import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
 import Modal from '../components/Modal';
@@ -24,6 +25,7 @@ export default function Charcuterie() {
         <title>Charcuterie | nwPlus</title>
       </Head>
       <Background>
+        <NavBar hiring={false}/>
         <Hero />
         <ContentContainer>
           <LargeTitle>charcuterie 😋</LargeTitle>
@@ -63,6 +65,10 @@ export default function Charcuterie() {
         </ContentContainer>
 
         <ContentContainer>
+          <Stats numHackathons={13} numProjects={280} prizesValue={'$110,230'} numWorkshops={50} donationsValue={'$5,075'} />
+        </ContentContainer>
+
+        <ContentContainer>
           <Body onClick={() => setShowModal(true)}>Click me to open a modal!</Body>
           <Modal
             show={showModal}
@@ -78,7 +84,6 @@ export default function Charcuterie() {
           <ResourcePage
             resources={MOCK_RESOURCES_DATA}
           />
-          <Title2>Footer</Title2>
         </ContentContainer>
 
         <ContentContainer>
@@ -97,7 +102,9 @@ export default function Charcuterie() {
             />
           </div>
         </ContentContainer>
-
+      <Carousel images={['https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/783px-Test-Logo.svg.png', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-588935825.jpg']}
+                height={180}
+                width={260} />
         <ContentContainer>
           <h3>Buttons</h3>
           <div style={{ display: 'flex' }}>
@@ -127,16 +134,6 @@ export default function Charcuterie() {
             </Button>
           </div>
         </ContentContainer>
-
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            width: '100%',
-          }}
-        >
-          <NavBar hiring={false} />
-        </div>
       </Background>
     </>
   );
