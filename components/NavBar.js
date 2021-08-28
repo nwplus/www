@@ -42,12 +42,20 @@ const NavGroupContainer = styled.div`
   display: flex;
   gap: 28px;
   align-items: center;
+
+  ${p => p.theme.mediaQueries.tablet} {
+    gap: 5px;
+  }
 `;
 
 const NavTextContainer = styled.div`
   display: flex;
   gap: 28px;
   align-items: center;
+
+  ${p => p.theme.mediaQueries.tablet} {
+    gap: 15px;
+  }
 
   ${(p) => p.theme.mediaQueries.mobile} {
     display: none;
