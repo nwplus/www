@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Carousel from '../components/Carousel';
 import NavBar from '../components/NavBar';
-import JoinUs from '../components/JoinUs';
 import Hero from '../components/Hero';
 import Modal from '../components/Modal';
 import HackathonCard from '../components/HackathonCard';
 import Button from '../components/Button';
 import FaqBox from '../components/FaqBox';
-import Footer from '../components/Footer';
 import { ContentContainer } from '../components/ContentContainer';
 import { MOCK_RESOURCES_DATA } from '../utils/ResourceUtils';
 import ResourceContainer from '../components/ResourceContainer';
@@ -80,7 +78,6 @@ export default function Charcuterie() {
           <ResourcePage
             resources={MOCK_RESOURCES_DATA}
           />
-          <Title2>Footer</Title2>
         </ContentContainer>
 
         <ContentContainer>
@@ -99,16 +96,9 @@ export default function Charcuterie() {
             />
           </div>
         </ContentContainer>
-
-        <h2>Footer</h2>
-        <Footer />
       <Carousel images={['https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/783px-Test-Logo.svg.png', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-588935825.jpg']}
                 height={180}
                 width={260} />
-      <h2>Join Us Page</h2>
-      <div style={{ background: '#000', padding: '81px' }}>
-        <JoinUs hiring={true} deadlineDay={30} deadlineMonth="September"/>
-      </div>
         <ContentContainer>
           <h3>Buttons</h3>
           <div style={{ display: 'flex' }}>
