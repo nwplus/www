@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { BackgroundColor } from './Background';
  
@@ -8,6 +8,11 @@ const NavBarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 46px 87px;
+  visibility: ${p => p.visibility};
+  opacity: ${p => p.opacity};
+  transition: 0.5s ease-in-out;
+  position: fixed;
+  width: 100%;
 
   ${(p) => p.theme.mediaQueries.mobile} {
     padding: 18px 16.78px 0 20px;
@@ -146,6 +151,30 @@ const MenuList = ({ setShowDropdown = null }) => {
 
 const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [visibility, setVisibility] = useState('visible');
+  const [opacity, setOpacity] = useState('1');
+  const [lastScroll, setLastScroll] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);    
+  }, []);
+
+  const handleScroll = () => {
+    const scroll = window.pageYOffset || document.documentElement.scrollTop;
+    console.log(scroll, "scroll is trigggered");
+    if (scroll <= 0) {
+      setVisibility('visible');
+      setOpacity('1');
+    } else if (scroll > lastScroll) {
+      setVisibility('hidden');
+      setOpacity('0');
+    } else {
+      setVisibility('visible');
+      setOpacity('1');
+    }
+    setLastScroll(scroll);
+  }
 
   if (showDropdown) {
     return (<BackgroundColor>
@@ -165,7 +194,7 @@ const NavBar = ({ hiring, hiringLink, livePortalLink }) => {
   }
 
   return (
-    <NavBarContainer>
+    <NavBarContainer visibility={visibility} opacity={opacity}>
       <NavGroupContainer>
         <NwPlusLogo src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
         <NavTextContainer>

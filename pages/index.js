@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styled from 'styled-components'
 import { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
+import NavBar from '../components/NavBar';
 // Components
 import { Background } from '../components/Background'
 import { ContentContainer } from '../components/ContentContainer';
@@ -51,6 +52,7 @@ export default function Home() {
         <meta name="description" content="Website for all things nwPlus!" />
       </Head>
       <Background>
+        <NavBar hiring={false} />
         <Hero />
         <ContentContainer>
           <AboutHeader>
