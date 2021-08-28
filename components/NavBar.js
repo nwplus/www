@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+import fireDb from '../utilities/firebase';
 
 import { Content, Wrapper} from './ContentContainer';
 
@@ -162,8 +164,21 @@ const MenuList = ({ setShowDropdown = () => null }) => {
   </>);
 }
 
-const NavBar = ({ hiring, hiringLink = '#', livePortalLink = '#' }) => {
+const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [applicationInfo, setapplicationInfo] = useState(null);
+  const [livePortalLink, setLivePortalLink] = useState('');
+
+  const getApplicationData = async () => {
+    const applicationInfo = await fireDb.getCollection('www', 'Applications');
+    setapplicationInfo(applicationInfo[0]);
+    const liveportalInfo = await fireDb.getCollection('www', 'LivePortalLink');
+    setLivePortalLink(liveportalInfo[0].url);
+  }
+
+  useEffect(() => {
+    getApplicationData();
+  }, []);
 
   if (showDropdown) {
     return (<StyledWrapperDark>
@@ -175,7 +190,7 @@ const NavBar = ({ hiring, hiringLink = '#', livePortalLink = '#' }) => {
         </NavBarContainer>
         <DropDownContentContainer>
           <MenuList setShowDropdown={() => setShowDropdown(false)}/>
-          <JoinLink hiring={hiring} hiringLink={hiringLink} setShowDropdown={() => setShowDropdown(false)}/>
+          <JoinLink hiring={applicationInfo?.isOpen} hiringLink={applicationInfo?.url} setShowDropdown={() => setShowDropdown(false)}/>
           <a href={livePortalLink} rel="noreferrer noopener" target={livePortalLink !== '#' && "_blank"}>
             <LivePortalButton>Live Portal</LivePortalButton>
           </a>
@@ -195,7 +210,7 @@ const NavBar = ({ hiring, hiringLink = '#', livePortalLink = '#' }) => {
           </NavTextContainer>
         </NavGroupContainer>
         <NavTextContainer>
-          <JoinLink hiring={hiring} hiringLink={hiringLink ?? '#'}/>
+          <JoinLink hiring={applicationInfo?.isOpen} hiringLink={applicationInfo?.url ?? '#'}/>
           <a href={livePortalLink ?? '#'}>
             <LivePortalButton>Live Portal</LivePortalButton>
           </a>

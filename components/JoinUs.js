@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+
+import fireDb from '../utilities/firebase';
+
 import { ContentContainer } from './ContentContainer';
 import { Title1, Body, MixedTextParagraph } from './Typography';
 import Button from './Button';
@@ -56,7 +60,18 @@ const MobileFormatContainer = styled.div`
   }
 `;
 
-export const JoinUs = ({ hiring, deadline, packageUrl, formUrl }) => {
+export const JoinUs = () => {
+  const [applicationInfo, setapplicationInfo] = useState(null);
+
+  const getApplicationData = async () => {
+    const applicationInfo = await fireDb.getCollection('www', 'Applications');
+    setapplicationInfo(applicationInfo[0]);
+  }
+
+  useEffect(() => {
+    getApplicationData();
+  }, []);
+
   return (<PaddingContainer>
       <ContentContainer>
         <MobileFormatContainer>
@@ -70,7 +85,7 @@ export const JoinUs = ({ hiring, deadline, packageUrl, formUrl }) => {
                 Applications are NOW OPEN to all UBC students, no matter your background/faculty, until&nbsp;
               </Body>
               <Body withGradient>
-                {deadline}
+                {applicationInfo?.deadline}
               </Body>
               <Body>.</Body>
             </MixedTextParagraph>
@@ -79,8 +94,8 @@ export const JoinUs = ({ hiring, deadline, packageUrl, formUrl }) => {
             </Body>
           </TextContainer>
           <ButtonContainer>
-            <StyledButton width="212px" height="48px" hollow href={hiring && packageUrl}>View Application Package</StyledButton>
-            <StyledButton width="212px" height="48px" href={hiring && formUrl}>Apply Now</StyledButton>
+            <StyledButton width="212px" height="48px" hollow href={applicationInfo?.isOpen && applicationInfo?.packageUrl}>View Application Package</StyledButton>
+            <StyledButton width="212px" height="48px" href={applicationInfo?.isOpen && applicationInfo?.formUrl}>Apply Now</StyledButton>
           </ButtonContainer>
         </MobileFormatContainer>
       </ContentContainer>

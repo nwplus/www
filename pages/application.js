@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faFacebook,
@@ -14,7 +13,6 @@ import Head from 'next/head';
 import JoinUs from '../components/JoinUs';
 import { BackgroundColor } from '../components/Background';
 import NavBar from '../components/NavBar';
-import fireDb from '../utilities/firebase';
 
 const TryingContainer = styled.div` 
   width: 100%;
@@ -59,20 +57,6 @@ const FullScreenBackgroundColor = styled(BackgroundColor)`
 `;
 
 export default function ApplicationPage() {
-  const [applicationInfo, setApplicationInfo] = useState(null);
-  const [livePortalLink, setLivePortalLink] = useState('');
-
-  const getApplicationData = async () => {
-    const applicationInfo = await fireDb.getCollection('www', 'Applications');
-    setApplicationInfo(applicationInfo[0]);
-    const liveportalInfo = await fireDb.getCollection('www', 'LivePortalLink');
-    setLivePortalLink(liveportalInfo[0].url);
-  }
-
-  useEffect(() => {
-    getApplicationData();
-  }, []);
-
   return (
     <>
       <Head>
@@ -80,10 +64,9 @@ export default function ApplicationPage() {
       </Head>
 
       <FullScreenBackgroundColor>
-        <NavBar hiring={applicationInfo?.isOpen} hiringLink={applicationInfo?.url} livePortalLink={livePortalLink}/>
+        <NavBar/>
         <TryingContainer/>
-        <JoinUs hiring={applicationInfo?.isOpen} deadline={applicationInfo?.deadline}
-          formUrl={applicationInfo?.applicationFormUrl} packageUrl={applicationInfo?.applicationPackageUrl}/>
+        <JoinUs/>
           <FooterContainer>
               <SocialMediaIcons>
                   <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
