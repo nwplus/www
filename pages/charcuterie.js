@@ -14,6 +14,7 @@ import ResourceContainer from '../components/ResourceContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
 import ResourcePage from '../components/ResourcePage';
+import axios from 'axios';
 
 export default function Charcuterie() {
   const [showModal, setShowModal] = useState(false);
@@ -107,6 +108,9 @@ export default function Charcuterie() {
         <ContentContainer>
           <h3>Buttons</h3>
           <div style={{ display: 'flex' }}>
+            <Button onClick={() => axios.post('https://us-central1-nwplus-ubc.cloudfunctions.net/addToMailingList', {email: 'a@b.com'})} width='200px' height='50px'>
+              Subscribe
+            </Button>
             <Button link='https://www.google.com/' width='200px' height='70px'>
               Visit Google
             </Button>
