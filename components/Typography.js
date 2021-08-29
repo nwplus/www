@@ -143,6 +143,7 @@ export const MixedTextParagraph = styled.div`
 export const LinkBody = styled.p.attrs((p) => ({
   color: p.color || p.theme.colors.typography.body,
 }))`
+  display: inline;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;

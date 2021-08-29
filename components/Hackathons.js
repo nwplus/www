@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import HackathonCard from './HackathonCard'
 import NewsletterModal from './NewsletterModal'
-import { Body } from './Typography';
+import { Body, LinkBody } from './Typography';
 
 export default function Hackathons() {
   const themeContext = useContext(ThemeContext);
@@ -10,6 +10,7 @@ export default function Hackathons() {
 
   const HackathonsContainer = styled.div`
     display: flex;
+    justify-content: center;
 
     ${themeContext.mediaQueries.mobile} {
       flex-direction: column;
@@ -48,7 +49,7 @@ export default function Hackathons() {
           imageLink="/assets/cmd-f2021.png"
         />
       </HackathonsContainer>
-      <Body align="center"><CTA onClick={() => setShowModal(true)}>Subscribe</CTA> to our newsletter to stay up to date on our hackathons!</Body>
+      <Body align="center"><LinkBody onClick={() => setShowModal(true)}>Subscribe</LinkBody> to our newsletter to stay up to date on our hackathons!</Body>
       <NewsletterModal
         show={showModal}
         onClose={() => setShowModal(false)}
