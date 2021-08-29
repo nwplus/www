@@ -9,6 +9,7 @@ import { ContentContainer } from '../components/ContentContainer';
 import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
+import NewsletterModal from '../components/NewsletterModal';
 // Typography
 import {
   Title1,
@@ -19,6 +20,7 @@ import {
 export default function Home() {
   const themeContext = useContext(ThemeContext);
   const [activeTab, setActiveTab] = useState('Who We Are');
+  const [showModal, setShowModal] = useState(true);
 
   const AboutHeader = styled.div`
     display: flex;
@@ -93,6 +95,10 @@ export default function Home() {
             <Body>This second part still needs to be done</Body>
           }
         </ContentContainer>
+        <NewsletterModal
+          show={showModal}
+          onClose={() => setShowModal(false)}
+        />
         <Footer />
       </Background>
     </>
