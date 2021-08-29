@@ -26,13 +26,13 @@ export default function Modal({ children, show, onClose }) {
   const ModalContainer = styled.div`
     position: fixed;
     width: 884px;
-    height: 525px;
+    max-height: 525px;
     background: url(/assets/modal_bg.svg);
     border-radius: 42px;
     padding: 48px;
     ${themeContext.mediaQueries.mobile} {
       width: 304px;
-      height: 432px;
+      max-height: 432px;
       background: url(/assets/mobile_modal_bg.svg);
       padding: 48px 16px;
     }
