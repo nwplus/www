@@ -12,7 +12,8 @@ const fadeIn = keyframes`
 
 const RootContainer = styled.div`
   position: relative;
-  margin: 10px;
+  width: 100%;
+  margin: 4px 0;
 
   > * {
     margin: 0px;
@@ -41,8 +42,12 @@ const Question = styled.p`
 const Arrow = styled.img`
   position: absolute;
   right: 15px;
-  transform: ${(p) => (p.isExpanded ? 'rotate( -180deg )' : 'none')};
+  transform: ${(p) => (p.isExpanded ? 'none' : 'rotate( -180deg )')};
   transition: transform 0.5s ease;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Answer = styled.p`

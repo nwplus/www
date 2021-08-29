@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import NavBar from '../components/NavBar';
 // Components
 import { Background } from '../components/Background'
 import { ContentContainer } from '../components/ContentContainer';
 import Carousel from '../components/Carousel'
+import Faq from '../components/Faq'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 // Typography
@@ -15,10 +16,22 @@ import {
   Title2,
   Body,
 } from '../components/Typography';
+// Misc
+import fireDb from '../utilities/firebase';
 
 export default function Home() {
   const themeContext = useContext(ThemeContext);
   const [activeTab, setActiveTab] = useState('Who We Are');
+  const [faqs, setFaqs] = useState(null);
+  
+  const getFaq = async () => {
+    const faqs = await fireDb.getCollection('www', 'FAQ');
+    setFaqs(faqs);
+  }
+
+  useEffect(() => {
+    getFaq();
+  }, []);
 
   const AboutHeader = styled.div`
     display: flex;
@@ -93,6 +106,17 @@ export default function Home() {
             <Body>This second part still needs to be done</Body>
           }
         </ContentContainer>
+        {faqs &&
+          <ContentContainer>
+            <Title1
+              withGradient
+              align="center"
+            >
+              Frequently Asked Questions
+            </Title1>
+            <Faq faqs={faqs} />
+          </ContentContainer>
+        }
         <Footer />
       </Background>
     </>

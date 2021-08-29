@@ -3,53 +3,50 @@ import FaqSection from './FaqSection'
 
 const FaqContainer = styled.div`
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
+    gap: 76px;
+    margin-top: 64px;
 
     ${p => p.theme.mediaQueries.mobile} {
         display: flex;
         flex-direction: column;
-    }
-`
-
-const Title = styled.div`
-    color: ${p => p.theme.colors.primary};
-    text-align: center;
-    font-weight: bold;
-    font-size: 3em;
-    margin-bottom: 1em;
-    ${p => p.theme.mediaQueries.mobile} {
-        font-size: 1.75em;
+        gap: 24px;
     }
 `
 
 const FlexContainer = styled.div`
     display: flex;
     flex-direction: column;
+
+    & > div:not(:first-child) {
+        margin-top: 40px;
+
+        ${p => p.theme.mediaQueries.mobile} {
+            margin-top: 24px;
+        }
+    }
 `
 
-const StyledSection = styled(FaqSection)`
-    margin-top: 2em;
-`
-
-const Faq = ({ faqs }) => {
-    const halfIndex = Math.ceil(faqs.length / 2)
-    const firstHalf = faqs.slice(0, halfIndex)
-    const secondHalf = faqs.slice(-halfIndex+1)
+export default function Faq({ faqs }) {
+    // Bucket each FAQ into a dictionary where the key is the category
+    var categories = {};
+    faqs.forEach((faq) => {
+        if (categories[faq.category] == undefined) {
+            categories[faq.category] = [];
+        }
+        categories[faq.category].push(faq);
+    });
 
     return (
-        <div>
-            <Title>Frequently Asked Questions</Title>
-            <FaqContainer>
-                <FlexContainer>
-                    {firstHalf.map(faq => <StyledSection category={faq.category} questions={faq.questions}/>)}
-                </FlexContainer>
-                <FlexContainer>
-                    {secondHalf.map(faq => <StyledSection category={faq.category} questions={faq.questions}/>)}
-                </FlexContainer>    
-            </FaqContainer>
-        </div>
+        <FaqContainer>
+            <FlexContainer>
+                {categories['Hackers'] && <FaqSection category={'Hackers'} faqs={categories['Hackers']}/>}
+                {categories['Sponsors'] && <FaqSection category={'Sponsors'} faqs={categories['Sponsors']}/>}
+            </FlexContainer>
+            <FlexContainer>
+                {categories['General'] &&<FaqSection category={'General'} faqs={categories['General']}/>}
+            </FlexContainer>    
+        </FaqContainer>
     )
 }
-
-export default Faq

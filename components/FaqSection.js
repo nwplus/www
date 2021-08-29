@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import FaqBox from './FaqBox'
 
 const SectionContainer = styled.div`
     display: flex;
@@ -17,15 +18,11 @@ const CategoryName = styled.div`
     }
 `
 
-const StyledQuestion = styled.div`
-    margin-top: 0.5em;
-`
-
-const FaqSection = ({ category, questions, className }) => {
+const FaqSection = ({ category, faqs }) => {
     return (
-        <SectionContainer className={className}>
+        <SectionContainer>
             <CategoryName>{category}</CategoryName>
-            {questions.map(q => <StyledQuestion>{q}</StyledQuestion>)}
+            {faqs.map(faq => <FaqBox question={faq.question} answer={faq.answer} />)}
         </SectionContainer>
     )
 }

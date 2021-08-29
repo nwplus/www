@@ -136,17 +136,6 @@ export default function Charcuterie() {
             </Button>
           </div>
         </ContentContainer>
-
-        <ContentContainer>
-          <Faq faqs={
-            [
-              { category: 'Category1', questions: ['q1', 'q2', 'q3'] },
-              { category: 'Category2', questions: ['q1', 'q2'] },
-              { category: 'Category3', questions: ['q1', 'q2', 'q3', 'q4'] },
-              { category: 'Category4', questions: ['q1', 'q2', 'q3', 'q4', 'q5'] },
-              { category: 'Category5', questions: ['q1', 'q2', 'q3'] }
-            ]}/>
-        </ContentContainer>
       </Background>
     </>
   );

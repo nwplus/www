@@ -61,6 +61,7 @@ export const Title1 = styled.h1.attrs((p) => ({
       color: ${p.theme.colors.primary}
     }`
   }
+  ${(p) => p.align ? `text-align: ${p.align}` : ''};
 `;
 
 export const Title2 = styled.h2.attrs((p) => ({
