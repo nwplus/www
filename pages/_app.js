@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import { ThemeProvider } from 'styled-components';
 
-const SCREEN_BREAKPOINTS = {
+export const SCREEN_BREAKPOINTS = {
   xs: 576,
   mobile: 768,
   tablet: 992,

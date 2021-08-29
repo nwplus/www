@@ -6,6 +6,7 @@ const FlexBox = styled.div`
     width: 30%;
     margin-left: auto;
     margin-right: auto;
+    justify-content: center;
 `
 
 const Container = styled.div`
@@ -16,7 +17,7 @@ const Container = styled.div`
 const FilledDiamond = styled.div`
     width: 12px;
     height: 12px;
-    background-color: red;
+    background-color: ${(p) => p.theme.colors.primary};
     border-radius: 4px;
     transform: rotateY(0deg) rotate(45deg);
     margin-right: 5px;
@@ -26,7 +27,7 @@ const FilledDiamond = styled.div`
 const EmptyDiamond = styled.div`
     width: 12px;
     height: 12px;
-    border-color: coral;
+    border-color: ${(p) => p.theme.colors.primary};
     border-style: solid;
     border-width: thin;
     border-radius: 4px;
