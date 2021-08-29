@@ -85,7 +85,7 @@ export default function NewsletterModal({ show, onClose }) {
         if (err.response.status === 409) {
           setInputMessage(`${email} is already subscribed!`);
         } else {
-          etInputMessage('Something went wrong, please try again later.');
+          setInputMessage('Something went wrong, please try again later.');
         }
       });
     } else {
