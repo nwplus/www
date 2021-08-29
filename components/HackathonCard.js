@@ -75,7 +75,7 @@ const HackathonCard = ({ registrationOpen, link, dateString, imageLink }) => {
                     </Button>
                 </OverLayFooterContainer>
             </OverlayContainer>
-            <BackgroundImageContainer imageLink={imageLink}/>
+            <BackgroundImageContainer/>
         </CardContainer>
     )
 }
