@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import styled, { ThemeContext } from 'styled-components'
+import axios from 'axios';
 import Button from './Button'
 import Modal from './Modal'
 import { Body, Title2 } from './Typography'
@@ -63,11 +64,30 @@ export default function NewsletterModal({ show, onClose }) {
 
   const emailInput = React.createRef();
   function addToMailingList() {
+    // Reset any error/info messages from before
+    setInputMessage('');
+    
     const email = emailInput.current.value;
     const validEmail = validateEmail(email);
 
     if (validEmail) {
-      setInputMessage('Subscribed!');
+      axios({
+        method: 'POST',
+        url: 'https://us-central1-nwplus-ubc.cloudfunctions.net/addToMailingList',
+        data: {
+          email: email,
+        },
+      }).then((res) => {
+        console.log(res);
+        setInputMessage(`${email} is now subscribed!`);
+      }).catch((err) => {
+        // If the email is already subscribed we get a 409
+        if (err.response.status === 409) {
+          setInputMessage(`${email} is already subscribed!`);
+        } else {
+          etInputMessage('Something went wrong, please try again later.');
+        }
+      });
     } else {
       setInputMessage('Please enter a valid email.');
     }
