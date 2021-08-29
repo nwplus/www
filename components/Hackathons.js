@@ -11,19 +11,11 @@ export default function Hackathons() {
   const HackathonsContainer = styled.div`
     display: flex;
     justify-content: center;
+    margin-top: 2em;
 
     ${themeContext.mediaQueries.mobile} {
       flex-direction: column;
       align-items: center;
-    }
-  `;
-
-  const CTA = styled.span`
-    font-weight: bold;
-    text-decoration: underline;
-
-    &:hover {
-      cursor: pointer;
     }
   `;
 
