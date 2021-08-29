@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
   width: 100%;
   padding: 24px 40px;
   scroll-behaviour: smooth;

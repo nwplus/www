@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styled from 'styled-components'
 import { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
+import NavBar from '../components/NavBar';
 // Components
 import { Background } from '../components/Background'
 import { ContentContainer } from '../components/ContentContainer';
@@ -14,7 +15,7 @@ import {
   Title1,
   Title2,
   Body,
-} from '../components/Typography'
+} from '../components/Typography';
 
 export default function Home() {
   const themeContext = useContext(ThemeContext);
@@ -53,6 +54,7 @@ export default function Home() {
         <meta name="description" content="Website for all things nwPlus!" />
       </Head>
       <Background>
+        <NavBar/>
         <Hero />
         <ContentContainer>
           <AboutHeader>

@@ -14,6 +14,7 @@ import ResourceContainer from '../components/ResourceContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
 import ResourcePage from '../components/ResourcePage';
+import axios from 'axios';
 
 export default function Charcuterie() {
   const [showModal, setShowModal] = useState(false);
@@ -24,6 +25,7 @@ export default function Charcuterie() {
         <title>Charcuterie | nwPlus</title>
       </Head>
       <Background>
+        <NavBar hiring={false}/>
         <Hero />
         <ContentContainer>
           <LargeTitle>charcuterie 😋</LargeTitle>
@@ -82,7 +84,6 @@ export default function Charcuterie() {
           <ResourcePage
             resources={MOCK_RESOURCES_DATA}
           />
-          <Title2>Footer</Title2>
         </ContentContainer>
 
         <ContentContainer>
@@ -101,10 +102,15 @@ export default function Charcuterie() {
             />
           </div>
         </ContentContainer>
-
+      <Carousel images={['https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/783px-Test-Logo.svg.png', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-588935825.jpg']}
+                height={180}
+                width={260} />
         <ContentContainer>
           <h3>Buttons</h3>
           <div style={{ display: 'flex' }}>
+            <Button onClick={() => axios.post('https://us-central1-nwplus-ubc.cloudfunctions.net/addToMailingList', {email: 'a@b.com'})} width='200px' height='50px'>
+              Subscribe
+            </Button>
             <Button link='https://www.google.com/' width='200px' height='70px'>
               Visit Google
             </Button>
@@ -128,16 +134,6 @@ export default function Charcuterie() {
             </Button>
           </div>
         </ContentContainer>
-
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            width: '100%',
-          }}
-        >
-          <NavBar hiring={false} />
-        </div>
       </Background>
     </>
   );

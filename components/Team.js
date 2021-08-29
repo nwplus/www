@@ -42,7 +42,7 @@ const MAX_SPEED = 1
 
 export default function Team({ profiles }) {
     const [animator, setAnimator] = useState()
-    const [selectedProfile, setSelectedProfile] = useState(profiles[6])
+    const [selectedProfile, setSelectedProfile] = useState(null)
     const [accel, setAccel] = useState(1)
     const requestRef = useRef()
   
@@ -88,7 +88,7 @@ export default function Team({ profiles }) {
         <>
             <Header>Meet the minds behind nwPlus</Header>
             <ProfileContent>
-                <span><b>{selectedProfile.name}</b> {selectedProfile.emoji}</span> {selectedProfile.title}
+                <span><b>{selectedProfile?.name}</b> {selectedProfile?.emoji}</span> {selectedProfile?.title}
             </ProfileContent>
             <ProfileList
                 onMouseEnter={() => {
