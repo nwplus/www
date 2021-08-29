@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import styled from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import { useContext, useEffect, useState } from 'react';
-import { ThemeContext } from 'styled-components';
 import NavBar from '../components/NavBar';
 // Components
 import { Background } from '../components/Background'
@@ -16,7 +15,7 @@ import {
   Title2,
   Body,
 } from '../components/Typography';
-// Misc
+// Utility
 import fireDb from '../utilities/firebase';
 
 export default function Home() {
@@ -56,6 +55,15 @@ export default function Home() {
       flex-direction: column;
       gap: 32px;
     }
+  `;
+
+  // Added min-height so that planet peeks out
+  // When actual FAQs are populated I'm guessing it'll be taller anyways
+  const FaqSection = styled.div`
+    background: url('assets/faq-stars.svg'), url('assets/faq-planet.svg');
+    background-position: top left, bottom right;
+    background-repeat: no-repeat;
+    min-height: 600px;
   `;
 
   return (
@@ -108,13 +116,15 @@ export default function Home() {
         </ContentContainer>
         {faqs &&
           <ContentContainer>
-            <Title1
-              withGradient
-              align="center"
-            >
-              Frequently Asked Questions
-            </Title1>
-            <Faq faqs={faqs} />
+            <FaqSection>
+              <Title1
+                withGradient
+                align="center"
+              >
+                Frequently Asked Questions
+              </Title1>
+              <Faq faqs={faqs} />
+            </FaqSection>
           </ContentContainer>
         }
         <Footer />
