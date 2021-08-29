@@ -13,8 +13,6 @@ import { MOCK_RESOURCES_DATA } from '../utils/ResourceUtils';
 import ResourceContainer from '../components/ResourceContainer';
 import { Background } from '../components/Background';
 import { LargeTitle, Title2, Body } from '../components/Typography';
-import FaqSection from '../components/FaqSection';
-import Faq from '../components/Faq';
 import ResourcePage from '../components/ResourcePage';
 import axios from 'axios';
 

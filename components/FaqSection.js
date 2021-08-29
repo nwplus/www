@@ -22,7 +22,7 @@ const FaqSection = ({ category, faqs }) => {
     return (
         <SectionContainer>
             <CategoryName>{category}</CategoryName>
-            {faqs.map(faq => <FaqBox question={faq.question} answer={faq.answer} />)}
+            {faqs.map(faq => <FaqBox key={faq.question} question={faq.question} answer={faq.answer} />)}
         </SectionContainer>
     )
 }
