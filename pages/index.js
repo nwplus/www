@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import styled, { ThemeContext } from 'styled-components'
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 // Components
 import { Background } from '../components/Background'
 import { ContentContainer } from '../components/ContentContainer';
 import Carousel from '../components/Carousel'
+import Faq from '../components/Faq'
 import Footer from '../components/Footer'
 import Hackathons from '../components/Hackathons'
 import Hero from '../components/Hero'
@@ -15,6 +16,8 @@ import {
   Title2,
   Body,
 } from '../components/Typography';
+// Utility
+import fireDb from '../utilities/firebase';
 
 const AboutHeader = styled.div`
   display: flex;
@@ -41,9 +44,28 @@ const AboutSection = styled.div`
   }
 `;
 
+// Added min-height so that planet peeks out
+// When actual FAQs are populated I'm guessing it'll be taller anyways
+const FaqSection = styled.div`
+  background: url('assets/faq-stars.svg'), url('assets/faq-planet.svg');
+  background-position: top left, bottom right;
+  background-repeat: no-repeat;
+  min-height: 600px;
+`;
+
 export default function Home() {
   const themeContext = useContext(ThemeContext);
   const [activeTab, setActiveTab] = useState('Who We Are');
+  const [faqs, setFaqs] = useState(null);
+  
+  const getFaq = async () => {
+    const faqs = await fireDb.getCollection('www', 'FAQ');
+    setFaqs(faqs);
+  }
+
+  useEffect(() => {
+    getFaq();
+  }, []);
 
   return (
     <>
@@ -99,6 +121,19 @@ export default function Home() {
           </Title1>
           <Hackathons />
         </ContentContainer>
+        {faqs &&
+          <ContentContainer>
+            <FaqSection>
+              <Title1
+                withGradient
+                align="center"
+              >
+                Frequently Asked Questions
+              </Title1>
+              <Faq faqs={faqs} />
+            </FaqSection>
+          </ContentContainer>
+        }
         <Footer />
       </Background>
     </>

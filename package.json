@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "DEPLOY_ENV=PRODUCTION next build && next export",
     "start": "next start",
     "lint": "eslint ./ --ext js,jsx,ts,tsx"
   },
