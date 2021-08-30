@@ -5,62 +5,62 @@ import Button from './Button'
 import Modal from './Modal'
 import { Body, Title2 } from './Typography'
 
+const ComboButton = styled(Button)`
+  margin-top: -41px;
+  margin-left: calc(100% - 200px);
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    height: 36px;
+    width: 90px;
+    margin-top: -36px;
+    margin-left: calc(100% - 90px);
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const Description = styled.div`
+  width: 50%;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    width: 75%;
+  }
+`;
+
+const Logo = styled.img`
+${(p) => p.theme.mediaQueries.mobile} {
+    width: 60px;
+  }
+`;
+
+const StyledInput = styled.input`
+  border: 2px solid ${(p) => p.theme.colors.primary};
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: transparent;
+  color: white;
+  font-weight: normal;
+  font-size: 18px;
+  width: 100%;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    padding: 4px 8px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+`;
+
 export default function NewsletterModal({ show, onClose }) {
   const themeContext = useContext(ThemeContext);
   const [inputMessage, setInputMessage] = useState('');
-
-  const ComboButton = styled(Button)`
-    margin-top: -41px;
-    margin-left: calc(100% - 200px);
-
-    ${themeContext.mediaQueries.mobile} {
-      height: 36px;
-      width: 90px;
-      margin-top: -36px;
-      margin-left: calc(100% - 90px);
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-  `;
-
-  const Content = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  `;
-
-  const Description = styled.div`
-    width: 50%;
-
-    ${themeContext.mediaQueries.mobile} {
-      width: 75%;
-    }
-  `;
-
-  const Logo = styled.img`
-    ${themeContext.mediaQueries.mobile} {
-      width: 60px;
-    }
-  `;
-
-  const StyledInput = styled.input`
-    border: 2px solid ${themeContext.colors.primary};
-    border-radius: 8px;
-    padding: 8px 12px;
-    background: transparent;
-    color: white;
-    font-weight: normal;
-    font-size: 18px;
-    width: 100%;
-
-    ${themeContext.mediaQueries.mobile} {
-      padding: 4px 8px;
-      font-size: 14px;
-      line-height: 24px;
-    }
-  `;
 
   const emailInput = React.createRef();
   function addToMailingList() {
@@ -125,9 +125,7 @@ export default function NewsletterModal({ show, onClose }) {
           <Logo src="/assets/logos/nwPlus_Logo_2020_color.svg" alt="nwPlus Logo" />
         </div>
         <Description>
-          <Title2
-            color={themeContext.colors.primary}
-          >
+          <Title2 color={themeContext.colors.primary}>
             nwPlus Newsletter Sign-up
           </Title2>
           <Body>Subscribe to our newsletter to stay up to date and for upcoming events!</Body>

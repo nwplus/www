@@ -1,6 +1,11 @@
 import styled from "styled-components"
 import Button from "./Button"
 
+const BackgroundImageContainer = styled.div`
+    width: 100%;
+    height: 100%;
+`
+
 const CardContainer = styled.div`
     width: 380px;
     height: 500px;
@@ -8,17 +13,14 @@ const CardContainer = styled.div`
     border-radius: 12px;
     margin: 2em;
     position: relative;
-`
 
-const BackgroundImageContainer = styled.div`
-    background: ${p => p.theme.colors.shadedGradient}, url(${p => p.imageLink}) center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-
-    ${CardContainer}:hover & {
-        background: url(${p => p.imageLink}) center;
+    & > ${BackgroundImageContainer} {
+        background: ${p => p.theme.colors.shadedGradient}, url(${p => p.imageLink}) center;
         background-size: cover;
+    }
+
+    &:hover > ${BackgroundImageContainer} {
+        background: url(${p => p.imageLink}) center;
         transform: scale(1.1);
     }
 `
@@ -59,7 +61,7 @@ const EventDateString = styled.div`
 
 const HackathonCard = ({ registrationOpen, link, dateString, imageLink }) => {
     return (
-        <CardContainer>
+        <CardContainer imageLink={imageLink}>
             <OverlayContainer>
                 <OverLayFooterContainer>
                     <EventDataContainer>
@@ -73,7 +75,7 @@ const HackathonCard = ({ registrationOpen, link, dateString, imageLink }) => {
                     </Button>
                 </OverLayFooterContainer>
             </OverlayContainer>
-            <BackgroundImageContainer imageLink={imageLink}/>
+            <BackgroundImageContainer/>
         </CardContainer>
     )
 }
