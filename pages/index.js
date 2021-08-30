@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import styled from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import { useContext, useState } from 'react';
-import { ThemeContext } from 'styled-components';
 import NavBar from '../components/NavBar';
 // Components
 import { Background } from '../components/Background'
@@ -17,34 +16,34 @@ import {
   Body,
 } from '../components/Typography';
 
+const AboutHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  margin-bottom: 64px;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 44px;
+  }
+`;
+
+const AboutSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 128px;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    flex-direction: column;
+    gap: 32px;
+  }
+`;
+
 export default function Home() {
   const themeContext = useContext(ThemeContext);
   const [activeTab, setActiveTab] = useState('Who We Are');
-
-  const AboutHeader = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 52px;
-    margin-bottom: 64px;
-
-    ${themeContext.mediaQueries.mobile} {
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 44px;
-    }
-  `;
-
-  const AboutSection = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 128px;
-
-    ${themeContext.mediaQueries.mobile} {
-      flex-direction: column;
-      gap: 32px;
-    }
-  `;
 
   return (
     <>

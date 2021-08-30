@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react'
-import styled, { ThemeContext } from 'styled-components'
+import { useState } from 'react'
+import styled from 'styled-components'
 import HackathonCard from './HackathonCard'
 import NewsletterModal from './NewsletterModal'
 import { Body, LinkBody } from './Typography';
@@ -21,20 +21,19 @@ const cmdfData = {
 }
 const subscribeCTAText = 'to our newsletter to stay up to date on our hackathons!';
 
+const HackathonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
 export default function Hackathons() {
-  const themeContext = useContext(ThemeContext);
   const [showModal, setShowModal] = useState(false);
-
-  const HackathonsContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    margin-top: 2em;
-
-    ${themeContext.mediaQueries.mobile} {
-      flex-direction: column;
-      align-items: center;
-    }
-  `;
 
   return (
     <>
