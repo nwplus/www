@@ -9,6 +9,7 @@ import Carousel from '../components/Carousel'
 import Faq from '../components/Faq'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
+import NewsletterModal from '../components/NewsletterModal';
 // Typography
 import {
   Title1,
@@ -22,6 +23,7 @@ export default function Home() {
   const themeContext = useContext(ThemeContext);
   const [activeTab, setActiveTab] = useState('Who We Are');
   const [faqs, setFaqs] = useState(null);
+  const [showModal, setShowModal] = useState(true);
   
   const getFaq = async () => {
     const faqs = await fireDb.getCollection('www', 'FAQ');
