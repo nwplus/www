@@ -17,15 +17,6 @@ const HeaderContainer = styled.div`
   margin-bottom: 30px;
 `
 
-const BodyContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  ${(p) => p.theme.mediaQueries.mobile} {
-    display: inline;
-    text-align: center;
-  }
-`
-
 const CardContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -56,7 +47,7 @@ const FilterCardContainer = styled.div`
   }
 `
 const RESOURCES_TITLE = 'Resources';
-const RESOURCES_BODY = 'If you are looking to get started in Computer Science, check out our \u00a0';
+const RESOURCES_BODY = 'If you are looking to get started in Computer Science, check out our ';
 const RESOURCES_LINK = 'https://resources.nwplus.io/';
 const RESOURCES_LINK_TEXT = 'Self-Learning Resources Wiki!';
 
@@ -177,12 +168,12 @@ export default function ResourceContainer() {
     <Container>
       <HeaderContainer>
         <Title1 withGradient>{RESOURCES_TITLE}</Title1>
-        <BodyContainer>
-          <Body>{RESOURCES_BODY}</Body>
+        <Body>
+          {RESOURCES_BODY}
           <a href={RESOURCES_LINK} target='_blank' rel="noreferrer">
             <LinkBody>{RESOURCES_LINK_TEXT}</LinkBody>
           </a>
-        </BodyContainer>
+        </Body>
       </HeaderContainer>
       <CardContainer>      
         <FilterContainer>

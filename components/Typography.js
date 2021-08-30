@@ -126,6 +126,7 @@ export const Body = styled.p.attrs((p) => ({
     `background: -webkit-linear-gradient(92deg, #19cbcb 1.55%, #78ff96 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;`}
+  ${(p) => p.align ? `text-align: ${p.align};` : ''}
   ${(p) => p.theme.mediaQueries.mobile} {
     font-size: 14px;
     line-height: 24px;
@@ -143,6 +144,7 @@ export const MixedTextParagraph = styled.div`
 export const LinkBody = styled.p.attrs((p) => ({
   color: p.color || p.theme.colors.typography.body,
 }))`
+  display: inline;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;

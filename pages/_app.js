@@ -13,7 +13,7 @@ const theme = {
   colors: {
     primary: '#20FFAF',
     primaryGradient: 'linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%)',
-    shadedGradient: 'linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) )',
+    shadedGradient: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 47.69%, rgba(0, 0, 0, 0.8) 100%)',
     secondary: '#fff',
     tertiary: '#E2D6FF',
     metadata: '#BDBAC3',
