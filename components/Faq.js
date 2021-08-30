@@ -32,7 +32,7 @@ export default function Faq({ faqs }) {
     // Bucket each FAQ into a dictionary where the key is the category
     var categories = {};
     faqs.forEach((faq) => {
-        if (categories[faq.category] == undefined) {
+        if (!categories[faq.category]) {
             categories[faq.category] = [];
         }
         categories[faq.category].push(faq);
