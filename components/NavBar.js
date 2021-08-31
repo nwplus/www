@@ -19,10 +19,10 @@ const NavBarContainer = styled.nav`
   opacity: ${p => p.opacity};
   ${p => p.darkBg ? `background-color: ${p.theme.colors.background};` : ''}
   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-  padding: 48px 40px;
+  padding: 48px 40px 0;
 
   ${(p) => p.theme.mediaQueries.mobile} {
-    padding: 24px 40px;
+    padding: 24px 40px 0;
   }
 `;
 
