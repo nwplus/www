@@ -167,12 +167,38 @@ const DropDownContentContainer = styled.div`
   gap: 24px;
 `;
 
-const MenuList = ({ setShowDropdown = () => null }) => {
+const MenuItem = ({ name, href, isAnchor}) => {
+  const [anchorTarget, setAnchorTarget] = useState(null);
+  
+  useEffect(() => {
+    if (isAnchor) {
+      setAnchorTarget(document.getElementById(href));
+    }
+  }, [href]);
+
+  const handleClick = (event) => {
+    if (isAnchor && anchorTarget) {
+      event.preventDefault();
+      anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  return (
+    <LinkText
+      href={href}
+      onClick={handleClick}
+    >
+      {name}
+    </LinkText>
+  )
+}
+
+const MenuList = () => {
   return  (<>
-    <LinkText href="#" onClick={() => setShowDropdown()}>About Us</LinkText>
-    <LinkText href="#" onClick={() => setShowDropdown()}>Hackathons</LinkText>
-    <LinkText href="#" onClick={() => setShowDropdown()}>Resources</LinkText>
-    <LinkText href="#" onClick={() => setShowDropdown()}>FAQ</LinkText>
+    <MenuItem name="About Us" href="#about" isAnchor />
+    <MenuItem name="Hackathons" href="#hackathons" isAnchor />
+    <MenuItem name="Resources" href="#resources" isAnchor />
+    <MenuItem name="FAQ" href="#faq" isAnchor />
   </>);
 }
 

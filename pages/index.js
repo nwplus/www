@@ -10,6 +10,8 @@ import Faq from '../components/Faq'
 import Footer from '../components/Footer'
 import Hackathons from '../components/Hackathons'
 import Hero from '../components/Hero'
+import ResourceContainer from '../components/ResourceContainer'
+import Stats from '../components/Stats'
 // Typography
 import {
   Title1,
@@ -18,6 +20,8 @@ import {
 } from '../components/Typography';
 // Utility
 import fireDb from '../utilities/firebase';
+
+const SECTION_MARGIN = '10em auto'
 
 const AboutHeader = styled.div`
   display: flex;
@@ -76,7 +80,10 @@ export default function Home() {
       <Background>
         <NavBar/>
         <Hero />
-        <ContentContainer>
+        <ContentContainer
+          id="about"
+          margin={SECTION_MARGIN}
+        >
           <AboutHeader>
             <Title1
               color={activeTab === 'Who We Are' ? themeContext.colors.primary : themeContext.colors.tertiary}
@@ -112,17 +119,29 @@ export default function Home() {
               </div>
             </AboutSection>
             :
-            <Body>This second part still needs to be done</Body>
+            <Stats numHackathons={13} numProjects={280} prizesValue={'$110,230'} numWorkshops={50} donationsValue={'$5,075'} />
           }
         </ContentContainer>
-        <ContentContainer>
+        <ContentContainer
+          id="hackathons" 
+          margin={SECTION_MARGIN}
+        >
           <Title1 withGradient align="center">
             Hackathons
           </Title1>
           <Hackathons />
         </ContentContainer>
+        <ContentContainer
+          id="resources" 
+          margin={SECTION_MARGIN}
+        >
+          <ResourceContainer />
+        </ContentContainer>
         {faqs &&
-          <ContentContainer>
+          <ContentContainer
+            id="faq" 
+            margin={SECTION_MARGIN}
+          >
             <FaqSection>
               <Title1
                 withGradient
