@@ -210,11 +210,11 @@ const NavBar = () => {
     const applicationInfo = await fireDb.getCollection('www', 'Applications');
     setapplicationInfo(applicationInfo[0]);
     const liveportalInfo = await fireDb.getCollection('www', 'LivePortalLink');
-    setLivePortalLink(liveportalInfo[0].url);
+    setLivePortalLink(liveportalInfo[0]?.url);
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll());
+    window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
     getApplicationData();
     return () => {
