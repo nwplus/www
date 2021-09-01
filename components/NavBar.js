@@ -214,7 +214,7 @@ const NavBar = () => {
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll());
     window.addEventListener('resize', handleResize);
     getApplicationData();
     return () => {
