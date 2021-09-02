@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react'
 import styled from 'styled-components';
 import { default as anime }  from '../node_modules/animejs/lib/anime.es.js'
+import { Title2 } from './Typography.js';
 
-const Header = styled.h2`
-    font-weight: 500;
-    font-size: 1.9em;
-`
+const StyledTitle = styled(Title2)`
+    color: ${p => p.theme.colors.primary};
+`;
 
 const ProfileContent = styled.p`
     color: white;    
@@ -86,7 +86,7 @@ export default function Team({ profiles }) {
 
     return (
         <>
-            <Header>Meet the minds behind nwPlus</Header>
+            <StyledTitle>Meet the minds behind nwPlus</StyledTitle>
             <ProfileContent>
                 <span><b>{selectedProfile?.name}</b> {selectedProfile?.emoji}</span> {selectedProfile?.title}
             </ProfileContent>

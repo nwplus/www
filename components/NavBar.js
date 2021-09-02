@@ -150,9 +150,9 @@ const Cross = HamburgerMenu;
 
 const DropDownContentContainer = styled.div`
   position: fixed;
-  top: 78px;
+  top: 54px;
   z-index: 3;
-  padding: 20px 40px 27px;
+  padding: 24px 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -214,7 +214,7 @@ const NavBar = () => {
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll());
     window.addEventListener('resize', handleResize);
     getApplicationData();
     return () => {

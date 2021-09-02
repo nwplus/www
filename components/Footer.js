@@ -13,7 +13,7 @@ import Team from './Team'
 const FooterContainer = styled.footer`
   background: url(/assets/footer_bg.svg), ${p => p.theme.colors.background};
   background-size: cover;
-  color: ${p => p.theme.colors.primary};
+  color: #FFFFFF;
   text-align: center;
   padding: 64px 0;
   width: 100%;
@@ -28,7 +28,7 @@ const SocialMediaIcons = styled.div`
     transition: color 200ms;
 
     &:hover {
-      color: #FFFFFF;
+      color: ${p => p.theme.colors.primary};
     }
   }
 `;
