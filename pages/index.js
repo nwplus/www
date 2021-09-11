@@ -106,9 +106,13 @@ export default function Home() {
             <AboutSection>
               <Carousel
                 images={[
-                  'https://scontent.fyvr3-1.fna.fbcdn.net/v/t1.6435-9/171788186_1090725268105290_344021127570405381_n.png?_nc_cat=102&ccb=1-5&_nc_sid=730e14&_nc_ohc=QP6tZOAfk-0AX-mb3TQ&_nc_ht=scontent.fyvr3-1.fna&oh=2c924af3eaa2d87f45483473d3d4a0a7&oe=614148B6',
-                  'https://scontent.fyvr3-1.fna.fbcdn.net/v/t1.6435-9/158891616_1070573106787173_8122468539488463532_n.png?_nc_cat=100&ccb=1-5&_nc_sid=0debeb&_nc_ohc=KsBDFeeQzUMAX--wM9s&_nc_ht=scontent.fyvr3-1.fna&oh=9e70e738f9716ca4edccf3d9db09df56&oe=61429F8A',
-                  'https://scontent.fyvr3-1.fna.fbcdn.net/v/t1.6435-9/158819777_1070572326787251_7225962860519033885_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=0debeb&_nc_ohc=sGZSN1F_uPAAX9fRRJM&_nc_ht=scontent.fyvr3-1.fna&oh=0f84d4c57cd59472cdf75420135410e2&oe=6140EDAB'
+                  '/assets/images/team_nwplus.png',
+                  '/assets/images/team_social_1.png',
+                  '/assets/images/team_hackcamp.png',
+                  '/assets/images/team_nwhacks.png',
+                  '/assets/images/team_social_2.png',
+                  '/assets/images/team_design.png',
+                  '/assets/images/team_dev.png'
                 ]}
                 height={363}
                 width={520}
