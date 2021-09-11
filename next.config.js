@@ -6,6 +6,11 @@ module.exports = () => {
       reactStrictMode: true,
       poweredByHeader: false,
       trailingSlash: true, // https://github.com/vercel/next.js/discussions/10522#discussioncomment-28307
+      exportPathMap() {
+        return {
+          "/404": { page: "/404/index" },
+        }
+      },
       env: {
         NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_ENV_FIREBASE_API_KEY,
         NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: process.env.NEXT_ENV_FIREBASE_AUTH_DOMAIN,
