@@ -7,7 +7,6 @@ import { ContentContainer } from './ContentContainer';
 import { Title1, Body, MixedTextParagraph } from './Typography';
 import Button from './Button';
 
-
 const PaddingContainer = styled.div`
   padding-top: 256px;
 
@@ -19,7 +18,7 @@ const PaddingContainer = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   gap: 42px;
-  align-items: center;  
+  align-items: center;
   margin-left: -10px;
   margin-bottom: 60px;
 
@@ -66,41 +65,62 @@ export const JoinUs = () => {
   const getApplicationData = async () => {
     const applicationInfo = await fireDb.getCollection('www', 'Applications');
     setapplicationInfo(applicationInfo[0]);
-  }
+  };
 
   useEffect(() => {
     getApplicationData();
   }, []);
 
-  return (<PaddingContainer>
+  return (
+    <PaddingContainer>
       <ContentContainer>
         <MobileFormatContainer>
           <Title1 withGradient>Join Us</Title1>
           <TextContainer>
-            <Body>
-              Apply now to join our nwPlus organizing team!
-            </Body>
+            <Body>Apply now to join our nwPlus organizing team!</Body>
             <MixedTextParagraph>
               <Body>
-                Applications are NOW OPEN to all UBC students, no matter your background/faculty, until&nbsp;
+                Applications are NOW OPEN to all UBC students, no matter your
+                background/faculty, until&nbsp;
               </Body>
-              <Body withGradient>
-                {applicationInfo?.deadline}
-              </Body>
+              <Body withGradient>{applicationInfo?.deadline}</Body>
               <Body>.</Body>
             </MixedTextParagraph>
             <Body>
-              Be sure to apply early as we&#39;ll be conducting interviews and sending out offers on a rolling basis!
+              Be sure to apply early as we&#39;ll be conducting interviews and
+              sending out offers on a rolling basis!
             </Body>
           </TextContainer>
           <ButtonContainer>
-            <StyledButton width="212px" height="48px" hollow href={applicationInfo?.isOpen && applicationInfo?.packageUrl}>View Application Package</StyledButton>
-            <StyledButton width="212px" height="48px" href={applicationInfo?.isOpen && applicationInfo?.formUrl}>Apply Now</StyledButton>
+            <StyledButton
+              width='212px'
+              height='48px'
+              hollow
+              href={
+                applicationInfo?.isOpen &&
+                applicationInfo?.applicationPackageUrl
+              }
+              rel='noreferrer noopener'
+              target='_blank'
+            >
+              View Application Package
+            </StyledButton>
+            <StyledButton
+              width='212px'
+              height='48px'
+              href={
+                applicationInfo?.isOpen && applicationInfo?.applicationFormUrl
+              }
+              rel='noreferrer noopener'
+              target='_blank'
+            >
+              Apply Now
+            </StyledButton>
           </ButtonContainer>
         </MobileFormatContainer>
       </ContentContainer>
-  </PaddingContainer>
-  )
-}
+    </PaddingContainer>
+  );
+};
 
-export default JoinUs
+export default JoinUs;
