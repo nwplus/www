@@ -1,5 +1,3 @@
-import ResourceCard from "../components/ResourceCard";
-
 const VIDEO_ICON = 'assets/logos/video-icon.svg';
 const GITHUB_ICON = 'assets/logos/github-icon.svg';
 const MEDIUM_ICON = 'assets/logos/medium-icon.svg';
@@ -42,116 +40,17 @@ export const resourceCategoryMapper = {
   2021: '2021'
 }
 
-export const MOCK_RESOURCES_DATA = [
+export const RESOURCES = [
   {
-    name: 'hackcamp video 2020',
-    event: ResourceEvent.HACK_CAMP,
+    name: 'Web Dev for Dummies',
+    event: ResourceEvent.NW_HACKS,
     year: '2020',
-    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
+    image: 'https://i.ytimg.com/vi/R7UxJMAVvLU/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDWdHwEkVTw0mR8hmb0UwxMI0CcYQ',
     badge: BADGE_ICON,
     type: ResourceType.VIDEO,
-    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
+    link: 'https://www.youtube.com/watch?v=R7UxJMAVvLU'
   },
-  {
-    name: 'nwhacks video 2019',
-    event: ResourceEvent.NW_HACKS,
-    year: '2019',
-    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-    badge: BADGE_ICON,
-    type: ResourceType.VIDEO,
-    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
-  },
-  {
-    name: 'cmd-f github 2021',
-    event: ResourceEvent.CMD_F,
-    year: '2021',
-    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-    badge: BADGE_ICON,
-    type: ResourceType.GITHUB,
-    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
-  },
-  {
-    name: 'hackcamp github 2020',
-    event: ResourceEvent.HACK_CAMP,
-    year: '2020',
-    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-    badge: BADGE_ICON,
-    type: ResourceType.GITHUB,
-    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
-  },
-  {
-    name: 'nwhacks github 2019',
-    event: ResourceEvent.NW_HACKS,
-    year: '2019',
-    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-    badge: BADGE_ICON,
-    type: ResourceType.GITHUB,
-    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
-  },
-  {
-    name: 'cmd-f articles 2021',
-    event: ResourceEvent.CMD_F,
-    year: '2021',
-    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-    badge: BADGE_ICON,
-    type: ResourceType.ARTICLES,
-    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
-  },
-  {
-    name: 'hackcamp articles 2020',
-    event: ResourceEvent.HACK_CAMP,
-    year: '2020',
-    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-    badge: BADGE_ICON,
-    type: ResourceType.ARTICLES,
-    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
-  },
-  {
-    name: 'nwhacks slides 2019',
-    event: ResourceEvent.NW_HACKS,
-    year: '2019',
-    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-    badge: BADGE_ICON,
-    type: ResourceType.SLIDES,
-    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
-  },
-  {
-    name: 'cmd-f video 2021',
-    event: ResourceEvent.CMD_F,
-    year: '2021',
-    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-    badge: BADGE_ICON,
-    type: ResourceType.VIDEO,
-    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
-  },
-  {
-    name: 'nwHacks articles 2019',
-    event: ResourceEvent.NW_HACKS,
-    year: '2019',
-    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-    badge: BADGE_ICON,
-    type: ResourceType.ARTICLES,
-    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
-  },
-  {
-    name: 'hackcamp slides 2020',
-    event: ResourceEvent.HACK_CAMP,
-    year: '2020',
-    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-    badge: BADGE_ICON,
-    type: ResourceType.SLIDES,
-    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
-  },
-  {
-    name: 'nwhacks articles 2020',
-    event: ResourceEvent.NW_HACKS,
-    year: '2020',
-    image: 'https://variety.com/wp-content/uploads/2021/03/coachella-music-festival.jpg',
-    badge: BADGE_ICON,
-    type: ResourceType.ARTICLES,
-    link: 'https://www.youtube.com/watch?v=kOHB85vDuow&ab_channel=JYPEntertainment'
-  },
-]
+];
 
 export const getResourceIcon = (type) => {
   switch (type) {

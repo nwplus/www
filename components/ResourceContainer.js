@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-import { FILTER_TYPE, FILTER_EVENT, FILTER_YEAR, ResourceType, ResourceEvent, ResourceYear, MOCK_RESOURCES_DATA } from '../utils/ResourceUtils';
+import { FILTER_TYPE, FILTER_EVENT, FILTER_YEAR, ResourceType, ResourceEvent, ResourceYear, RESOURCES } from '../utils/ResourceUtils';
 import ResourceFilterCard from './ResourceFilterCard';
 import ResourcePage from './ResourcePage';
 import { Title1, Body, LinkBody } from './Typography';
@@ -18,8 +18,8 @@ const HeaderContainer = styled.div`
 `
 
 const CardContainer = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   padding: 8px;
   ${(p) => p.theme.mediaQueries.mobile} {
     flex-direction: column;
@@ -70,7 +70,7 @@ export default function ResourceContainer() {
     2021: false
   });
   
-  const filteredResources = MOCK_RESOURCES_DATA.filter(resource => {
+  const filteredResources = RESOURCES.filter(resource => {
     let videosFilter = false;
     let githubFilter = false;
     let articlesFilter = false;
