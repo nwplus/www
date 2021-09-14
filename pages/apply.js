@@ -50,6 +50,12 @@ const SocialMediaIcons = styled.div`
   a {
     margin: 0 32px;
   }
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    a {
+      margin: 0 10px;
+    }
+  }
 `;
 
 const FullScreenBackgroundColor = styled(BackgroundColor)`
