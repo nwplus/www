@@ -189,10 +189,10 @@ const MenuItem = ({ name, href, isAnchor }) => {
 const MenuList = () => {
   return (
     <>
-      <MenuItem name='About Us' href='#about' isAnchor />
-      <MenuItem name='Hackathons' href='#hackathons' isAnchor />
-      <MenuItem name='Resources' href='#resources' isAnchor />
-      <MenuItem name='FAQ' href='#faq' isAnchor />
+      <MenuItem name='About Us' href='/#about' isAnchor />
+      <MenuItem name='Hackathons' href='/#hackathons' isAnchor />
+      <MenuItem name='Resources' href='/#resources' isAnchor />
+      <MenuItem name='FAQ' href='/#faq' isAnchor />
     </>
   );
 };
