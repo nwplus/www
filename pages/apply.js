@@ -46,6 +46,11 @@ const FooterContainer = styled.div`
 const SocialMediaIcons = styled.div`
   font-size: 32px;
   margin-bottom: 16px;
+  transition: color 200ms;
+
+  &:hover {
+    color: ${(p) => p.theme.colors.primary};
+  }
 
   a {
     margin: 0 32px;
