@@ -70,7 +70,7 @@ const HackathonCard = ({ registrationOpen, link, dateString, imageLink }) => {
                         </EventRegistrationStatus>
                         <EventDateString>{dateString}</EventDateString>
                     </EventDataContainer>
-                    <Button height='3em' link={link}>
+                    <Button height='3em' link={link} target='_blank' rel='noopener noreferrer'>
                         Visit Site
                     </Button>
                 </OverLayFooterContainer>
