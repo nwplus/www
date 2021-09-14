@@ -25,7 +25,7 @@ export default function Charcuterie() {
         <title>Charcuterie | nwPlus</title>
       </Head>
       <Background>
-        <NavBar hiring={false}/>
+        <NavBar hiring={false} />
         <Hero />
         <ContentContainer>
           <LargeTitle>charcuterie 😋</LargeTitle>
@@ -44,9 +44,17 @@ export default function Charcuterie() {
         </ContentContainer>
 
         <ContentContainer>
-          <FaqBox question='Test?' answer='Test'/>
-          <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={true}/>
-          <FaqBox question='Test?' answer='<h1>H1 test</h1>' isHardcoded={false}/>
+          <FaqBox question='Test?' answer='Test' />
+          <FaqBox
+            question='Test?'
+            answer='<h1>H1 test</h1>'
+            isHardcoded={true}
+          />
+          <FaqBox
+            question='Test?'
+            answer='<h1>H1 test</h1>'
+            isHardcoded={false}
+          />
         </ContentContainer>
         <ContentContainer>
           <ResourceContainer />
@@ -65,25 +73,31 @@ export default function Charcuterie() {
         </ContentContainer>
 
         <ContentContainer>
-          <Stats numHackathons={13} numProjects={280} prizesValue={'$110,230'} numWorkshops={50} donationsValue={'$5,075'} />
+          <Stats
+            numHackathons={13}
+            numProjects={280}
+            prizesValue={'$110,230'}
+            numWorkshops={50}
+            donationsValue={'$5,075'}
+          />
         </ContentContainer>
 
         <ContentContainer>
-          <Body onClick={() => setShowModal(true)}>Click me to open a modal!</Body>
-          <Modal
-            show={showModal}
-            onClose={() => setShowModal(false)}
-          >
+          <Body onClick={() => setShowModal(true)}>
+            Click me to open a modal!
+          </Body>
+          <Modal show={showModal} onClose={() => setShowModal(false)}>
             <Title2>nwPlus Newsletter Sign-up</Title2>
-            <Body>Subscribe to our newsletter to stay up to date and for upcoming events!</Body>
+            <Body>
+              Subscribe to our newsletter to stay up to date and for upcoming
+              events!
+            </Body>
           </Modal>
         </ContentContainer>
 
         <ContentContainer>
           <Title2>Paginated Resources</Title2>
-          <ResourcePage
-            resources={MOCK_RESOURCES_DATA}
-          />
+          <ResourcePage resources={MOCK_RESOURCES_DATA} />
         </ContentContainer>
 
         <ContentContainer>
@@ -102,13 +116,28 @@ export default function Charcuterie() {
             />
           </div>
         </ContentContainer>
-      <Carousel images={['https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/783px-Test-Logo.svg.png', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg', 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-588935825.jpg']}
-                height={180}
-                width={260} />
+        <Carousel
+          images={[
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/783px-Test-Logo.svg.png',
+            'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg',
+            'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-588935825.jpg',
+          ]}
+          height={180}
+          width={260}
+        />
         <ContentContainer>
           <h3>Buttons</h3>
           <div style={{ display: 'flex' }}>
-            <Button onClick={() => axios.post('https://us-central1-nwplus-ubc.cloudfunctions.net/addToMailingList', {email: 'a@b.com'})} width='200px' height='50px'>
+            <Button
+              onClick={() =>
+                axios.post(
+                  'https://us-central1-nwplus-ubc.cloudfunctions.net/addToMailingList',
+                  { email: 'a@b.com' }
+                )
+              }
+              width='200px'
+              height='50px'
+            >
               Subscribe
             </Button>
             <Button link='https://www.google.com/' width='200px' height='70px'>
