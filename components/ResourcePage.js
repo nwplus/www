@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ResourceCard from './ResourceCard';
 import Pagination, { getClickedPageIndex } from './Pagination';
+import { Body } from './Typography';
 
 const ResourcePageWrapper = styled.div`
+  width: 100%;
   text-align: center;
 `;
 
 const ResourcePageContainer = styled.div`
+  width: 100%;
   display: inline-grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
@@ -55,18 +58,24 @@ export default function ResourcePage({ resources, startingPageIndex = 0 }) {
   };
   return (
     <ResourcePageWrapper>
-      <ResourcePageContainer>
-        {currPageResources.map((resource, index) => (
-          <ResourceCard key={index} {...resource} />
-        ))}
-      </ResourcePageContainer>
-      <Pagination
-        count={TOTAL_RESOURCE_PAGES}
-        pageIndex={currPageIndex}
-        onPageClick={(e) => setCurrPageIndex(getClickedPageIndex(e))}
-        onPrevClick={() => handlePageChange(currPageIndex - 1)}
-        onNextClick={() => handlePageChange(currPageIndex + 1)}
-      />
+      {currPageResources.length == 0 ?
+        <Body>We couldn&apos;t find any resources here :(</Body>
+        :
+        <>
+          <ResourcePageContainer>
+            {currPageResources.map((resource, index) => (
+              <ResourceCard key={index} {...resource} />
+            ))}
+          </ResourcePageContainer>
+          <Pagination
+            count={TOTAL_RESOURCE_PAGES}
+            pageIndex={currPageIndex}
+            onPageClick={(e) => setCurrPageIndex(getClickedPageIndex(e))}
+            onPrevClick={() => handlePageChange(currPageIndex - 1)}
+            onNextClick={() => handlePageChange(currPageIndex + 1)}
+          />
+        </>
+      }
     </ResourcePageWrapper>
   );
 }
