@@ -44,7 +44,7 @@ export const RESOURCES = [
   {
     name: 'Web Dev for Dummies',
     year: '2020',
-    image: 'https://i.ytimg.com/vi/R7UxJMAVvLU/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDWdHwEkVTw0mR8hmb0UwxMI0CcYQ',
+    image: 'https://img.youtube.com/vi/R7UxJMAVvLU/maxresdefault.jpg',
     badge: BADGE_ICON,
     type: ResourceType.VIDEO,
     link: 'https://www.youtube.com/watch?v=R7UxJMAVvLU'
@@ -53,7 +53,7 @@ export const RESOURCES = [
     name: 'Git the Basics Workshop',
     event: ResourceEvent.CMD_F,
     year: '2021',
-    image: 'https://i.ytimg.com/an_webp/BjJn4HW_-PI/mqdefault_6s.webp?du=3000&sqp=CNzBhIoG&rs=AOn4CLCKvA-rF5Obce1IYBVBmWEdozlo7Q',
+    image: 'https://img.youtube.com/vi/BjJn4HW_-PI/maxresdefault.jpg',
     badge: BADGE_ICON,
     type: ResourceType.VIDEO,
     link: 'https://www.youtube.com/watch?v=BjJn4HW_-PI'
@@ -61,7 +61,7 @@ export const RESOURCES = [
   {
     name: 'Technical Interview Workshop: Beginner Edition',
     year: '2020',
-    image: 'https://i.ytimg.com/vi/J7Goi2aF0uw/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCqoUcsCe75F6Krxl_QUpx9hZeGWQ',
+    image: 'https://img.youtube.com/vi/J7Goi2aF0uw/maxresdefault.jpg',
     badge: BADGE_ICON,
     type: ResourceType.VIDEO,
     link: 'https://www.youtube.com/watch?v=J7Goi2aF0uw'
