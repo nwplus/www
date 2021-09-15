@@ -59,7 +59,7 @@ export default function ResourcePage({ resources, startingPageIndex = 0 }) {
   return (
     <ResourcePageWrapper>
       {currPageResources.length == 0 ?
-        <Body>We couldn't find any resources here :(</Body>
+        <Body>We couldn&apos;t find any resources here :(</Body>
         :
         <>
           <ResourcePageContainer>
