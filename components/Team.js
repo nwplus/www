@@ -12,6 +12,10 @@ const ProfileContent = styled.p`
   span {
     margin-right: 8px;
   }
+  height: 1em;
+  b {
+    margin-right: 8px;
+  }
 `;
 
 const ProfileList = styled.div`
@@ -43,7 +47,7 @@ const ProfileImage = styled.img`
 
 let lastTime = -1;
 let accumulateTime = -1;
-const MAX_SPEED = 1;
+const MAX_SPEED = 2;
 
 export default function Team({ profiles }) {
   const [animator, setAnimator] = useState();
@@ -124,6 +128,7 @@ export default function Team({ profiles }) {
               color={profile.color}
               onClick={() => setSelectedProfile(profile)}
               onMouseEnter={() => setSelectedProfile(profile)}
+              onMouseLeave={() => setSelectedProfile({})}
             />
           ))}
           {profiles.map((profile, i) => (
@@ -133,6 +138,7 @@ export default function Team({ profiles }) {
               color={profile.color}
               onClick={() => setSelectedProfile(profile)}
               onMouseEnter={() => setSelectedProfile(profile)}
+              onMouseLeave={() => setSelectedProfile({})}
             />
           ))}
         </div>
