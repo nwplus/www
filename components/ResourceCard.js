@@ -28,7 +28,7 @@ const TextContainer = styled.div`
 const ThumbnailContainer = styled.div`
   display: flex;
   background-image: url(${(props) => props.image});
-  width: 295px;
+  width: 100%;
   height: 210px;
   border-radius: 10px;
   background-position: center;

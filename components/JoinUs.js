@@ -94,8 +94,8 @@ export const JoinUs = () => {
             </Body>
           </TextContainer>
           <ButtonContainer>
-            <StyledButton width="212px" height="48px" hollow href={applicationInfo?.isOpen && applicationInfo?.packageUrl}>View Application Package</StyledButton>
-            <StyledButton width="212px" height="48px" href={applicationInfo?.isOpen && applicationInfo?.formUrl}>Apply Now</StyledButton>
+            <StyledButton width="212px" height="48px" hollow href={applicationInfo?.isOpen && applicationInfo?.applicationPackageUrl} target='_blank' rel='noopener noreferrer'>View Application Package</StyledButton>
+            <StyledButton width="212px" height="48px" href={applicationInfo?.isOpen && applicationInfo?.applicationFormUrl} target='_blank' rel='noopener noreferrer'>Apply Now</StyledButton>
           </ButtonContainer>
         </MobileFormatContainer>
       </ContentContainer>
