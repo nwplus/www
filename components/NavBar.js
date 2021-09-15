@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import { SCREEN_BREAKPOINTS } from '../pages/_app';
 import fireDb from '../utilities/firebase';
- 
+
 const NavBarContainer = styled.nav`
   position: fixed;
   top: 0;
@@ -15,9 +15,9 @@ const NavBarContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  visibility: ${p => p.visibility};
-  opacity: ${p => p.opacity};
-  ${p => p.darkBg ? `background-color: ${p.theme.colors.background};` : ''}
+  visibility: ${(p) => p.visibility};
+  opacity: ${(p) => p.opacity};
+  ${(p) => (p.darkBg ? `background-color: ${p.theme.colors.background};` : '')}
   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
   padding: 48px 40px 0;
 
@@ -31,7 +31,7 @@ const NavGroupContainer = styled.div`
   gap: 28px;
   align-items: center;
 
-  ${p => p.theme.mediaQueries.tablet} {
+  ${(p) => p.theme.mediaQueries.tablet} {
     gap: 5px;
   }
 `;
@@ -41,7 +41,7 @@ const NavTextContainer = styled.div`
   gap: 28px;
   align-items: center;
 
-  ${p => p.theme.mediaQueries.tablet} {
+  ${(p) => p.theme.mediaQueries.tablet} {
     gap: 15px;
   }
 
@@ -60,14 +60,14 @@ const NwPlusLogo = styled.img`
 
 const LinkText = styled.a`
   font-weight: bold;
-  color: ${p => p.theme.colors.secondary};
+  color: ${(p) => p.theme.colors.secondary};
   font-feature-settings: 'liga' off;
 
   &:hover {
-    background: ${p => p.theme.colors.primaryGradient};
+    background: ${(p) => p.theme.colors.primaryGradient};
     -webkit-background-clip: text;
     -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
+    -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
   }
 `;
@@ -76,7 +76,7 @@ const JoinLinkInactive = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: ${p => p.theme.colors.disabled};
+  color: ${(p) => p.theme.colors.disabled};
 
   ${(p) => p.theme.mediaQueries.mobile} {
     flex-direction: row;
@@ -88,10 +88,10 @@ const JoinLinkActive = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: ${p => p.theme.colors.primaryGradient};
+  background: ${(p) => p.theme.colors.primaryGradient};
   -webkit-background-clip: text;
   -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
+  -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 
   ${(p) => p.theme.mediaQueries.mobile} {
@@ -111,22 +111,24 @@ const JoinLinkTextMinor = styled.span`
 
 const JoinLink = ({ hiring, hiringLink, setShowDropdown = () => null }) => {
   if (hiring) {
-    return(<JoinLinkActive href={hiringLink} onClick={() => setShowDropdown(false)}>
-       <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
+    return (
+      <JoinLinkActive href={hiringLink} onClick={() => setShowDropdown(false)}>
+        <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
         <JoinLinkTextMinor>Application Open</JoinLinkTextMinor>
-    </JoinLinkActive>
+      </JoinLinkActive>
     );
   }
-  return(<JoinLinkInactive>
-       <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
-        <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
+  return (
+    <JoinLinkInactive>
+      <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
+      <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
     </JoinLinkInactive>
   );
 };
 
 const LivePortalButton = styled.button`
   border: none;
-  background: ${p => p.theme.colors.secondary};
+  background: ${(p) => p.theme.colors.secondary};
   font-size: inherit;
   font-family: inherit;
   font-weight: bold;
@@ -134,13 +136,13 @@ const LivePortalButton = styled.button`
   width: 134px;
   border-radius: 34px;
 
-  ${p => p.theme.mediaQueries.mobile} {
+  ${(p) => p.theme.mediaQueries.mobile} {
     width: 160px;
 `;
 
 const HamburgerMenu = styled.img`
   display: none;
-  ${p => p.theme.mediaQueries.mobile} {
+  ${(p) => p.theme.mediaQueries.mobile} {
     display: block;
     width: 30px;
   }
@@ -158,12 +160,12 @@ const DropDownContentContainer = styled.div`
   align-items: flex-start;
   gap: 24px;
   width: 100%;
-  background-color: ${p => p.theme.colors.background};
+  background-color: ${(p) => p.theme.colors.background};
 `;
 
 const MenuItem = ({ name, href, isAnchor }) => {
   const [anchorTarget, setAnchorTarget] = useState(null);
-  
+
   useEffect(() => {
     if (isAnchor) {
       setAnchorTarget(document.getElementById(href));
@@ -175,28 +177,25 @@ const MenuItem = ({ name, href, isAnchor }) => {
       event.preventDefault();
       anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  }
+  };
 
   return (
-    <LinkText
-      href={href}
-      onClick={handleClick}
-    >
+    <LinkText href={href} onClick={handleClick}>
       {name}
     </LinkText>
-  )
-}
+  );
+};
 
 const MenuList = () => {
   return (
     <>
-      <MenuItem name="About Us" href="/#about" isAnchor />
-      <MenuItem name="Hackathons" href="/#hackathons" isAnchor />
-      <MenuItem name="Resources" href="/#resources" isAnchor />
-      <MenuItem name="FAQ" href="/#faq" isAnchor />
+      <MenuItem name='About Us' href='/#about' isAnchor />
+      <MenuItem name='Hackathons' href='/#hackathons' isAnchor />
+      <MenuItem name='Resources' href='/#resources' isAnchor />
+      <MenuItem name='FAQ' href='/#faq' isAnchor />
     </>
   );
-}
+};
 
 const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -211,7 +210,7 @@ const NavBar = () => {
     setapplicationInfo(applicationInfo[0]);
     const liveportalInfo = await fireDb.getCollection('www', 'LivePortalLink');
     setLivePortalLink(liveportalInfo[0]?.url);
-  }
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll());
@@ -220,14 +219,14 @@ const NavBar = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
-    };    
+    };
   }, []);
 
   const handleResize = () => {
-    if(window.innerWidth >= SCREEN_BREAKPOINTS.mobile) {
+    if (window.innerWidth >= SCREEN_BREAKPOINTS.mobile) {
       setShowDropdown(false);
     }
-  }
+  };
 
   const handleScroll = () => {
     var lastScroll = 0;
@@ -244,20 +243,37 @@ const NavBar = () => {
         setOpacity('1');
       }
       lastScroll = scroll;
-    }
-  }
+    };
+  };
 
   if (showDropdown) {
     return (
       <>
         <NavBarContainer darkBg>
-          <NwPlusLogo src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
-          <Cross src="/assets/icons/close_white.svg" alt="dropdown menu icon" onClick={() => setShowDropdown(false)}/>
+          <a href='/'>
+            <NwPlusLogo
+              src='/assets/logos/nwPlus_Logo_2020.svg'
+              alt='nwPlus club logo in white against dark blue background'
+            />
+          </a>
+          <Cross
+            src='/assets/icons/close_white.svg'
+            alt='dropdown menu icon'
+            onClick={() => setShowDropdown(false)}
+          />
         </NavBarContainer>
         <DropDownContentContainer>
           <MenuList />
-          <JoinLink hiring={applicationInfo?.isOpen} hiringLink={applicationInfo?.url} setShowDropdown={() => setShowDropdown(false)}/>
-          <a href={livePortalLink} rel="noreferrer noopener" target={livePortalLink !== '#' && "_blank"}>
+          <JoinLink
+            hiring={applicationInfo?.isOpen}
+            hiringLink={applicationInfo?.url}
+            setShowDropdown={() => setShowDropdown(false)}
+          />
+          <a
+            href={livePortalLink}
+            rel='noreferrer noopener'
+            target={livePortalLink !== '#' && '_blank'}
+          >
             <LivePortalButton>Live Portal</LivePortalButton>
           </a>
         </DropDownContentContainer>
@@ -268,20 +284,32 @@ const NavBar = () => {
   return (
     <NavBarContainer visibility={visibility} opacity={opacity}>
       <NavGroupContainer>
-        <NwPlusLogo src="/assets/logos/nwPlus_Logo_2020.svg" alt="nwPlus club logo in white against dark blue background"/>
+        <a href='/'>
+          <NwPlusLogo
+            src='/assets/logos/nwPlus_Logo_2020.svg'
+            alt='nwPlus club logo in white against dark blue background'
+          />
+        </a>
         <NavTextContainer>
           <MenuList />
         </NavTextContainer>
       </NavGroupContainer>
       <NavTextContainer>
-        <JoinLink hiring={applicationInfo?.isOpen} hiringLink={applicationInfo?.url ?? '#'}/>
+        <JoinLink
+          hiring={applicationInfo?.isOpen}
+          hiringLink={applicationInfo?.url ?? '#'}
+        />
         <a href={livePortalLink ?? '#'}>
           <LivePortalButton>Live Portal</LivePortalButton>
         </a>
       </NavTextContainer>
-      <HamburgerMenu src="/assets/icons/menu.svg" alt="dropdown menu icon" onClick={() => setShowDropdown(true)}/>
+      <HamburgerMenu
+        src='/assets/icons/menu.svg'
+        alt='dropdown menu icon'
+        onClick={() => setShowDropdown(true)}
+      />
     </NavBarContainer>
-  )
-}
+  );
+};
 
 export default NavBar;
