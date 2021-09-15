@@ -250,7 +250,7 @@ const NavBar = () => {
     return (
       <>
         <NavBarContainer darkBg>
-          <a href='https://nwplus.io'>
+          <a href='/'>
             <NwPlusLogo
               src='/assets/logos/nwPlus_Logo_2020.svg'
               alt='nwPlus club logo in white against dark blue background'
@@ -284,7 +284,7 @@ const NavBar = () => {
   return (
     <NavBarContainer visibility={visibility} opacity={opacity}>
       <NavGroupContainer>
-        <a href='https://nwplus.io'>
+        <a href='/'>
           <NwPlusLogo
             src='/assets/logos/nwPlus_Logo_2020.svg'
             alt='nwPlus club logo in white against dark blue background'
