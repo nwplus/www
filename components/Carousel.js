@@ -34,6 +34,7 @@ const EmptyDiamond = styled.div`
     transform: rotateY(0deg) rotate(45deg);
     margin-right: 5px;
     margin-left: 5px;
+    cursor: pointer;
 `;
 
 const Image = styled.img`
@@ -97,7 +98,7 @@ export default function Carousel ({ images, height, width }) {
                         {images.map((item, index) => {
                             return index == imageIndex
                                 ? <FilledDiamond key={index} />
-                                : <EmptyDiamond key={index} />
+                                : <EmptyDiamond key={index} onClick={() => setImageIndex(index)}/>
                         })}
                     </FlexBox>
                 </Container>
