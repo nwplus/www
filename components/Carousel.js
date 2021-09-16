@@ -11,7 +11,7 @@ const FlexBox = styled.div`
 
 const Container = styled.div`
     position: relative;
-    width: ${(props) => props.width}px;
+    width: 100%;
 `
 
 const FilledDiamond = styled.div`
@@ -62,8 +62,8 @@ const RightArrow = styled.i`
     ${BaseArrow}
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
-    margin-right: 10px;
-    right: 1%;
+    margin-right: 0px;
+    right: 8%;
 `
 
 const LeftArrow = styled.i`
