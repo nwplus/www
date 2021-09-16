@@ -37,22 +37,25 @@ const EmptyDiamond = styled.div`
 `;
 
 const Image = styled.img`
-    width: ${(props) => props.width};
-    height: ${(props) => props.height};
+    width: 29vw;
+    height: 25hw;
     margin-bottom: 10px;
     border-radius: 6px;
     object-fit: cover;
+    ${(p) => p.theme.mediaQueries.mobile} {
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 const BaseArrow = css`
-    border: solid white;
+    border: solid ${(p) => p.theme.colors.primary};
     border-width: 0 2px 2px 0;
     display: inline-block;
     padding: 5px;
     cursor: pointer;
     position: absolute;
     top: 40%;
-    box-shadow: 0px 0px 10px -4px #fff;
 `;
 
 const RightArrow = styled.i`
