@@ -7,7 +7,7 @@ const BackgroundImageContainer = styled.div`
 `
 
 const CardContainer = styled.div`
-    width: 380px;
+    width: 100%;
     height: 500px;
     overflow: hidden;
     border-radius: 12px;
@@ -46,9 +46,14 @@ const OverLayFooterContainer = styled.div`
 const EventDataContainer = styled.div`
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     font-size: 1.2em;
     font-weight: bold;
+
+    ${(p) => p.theme.mediaQueries.mobile} {
+        flex-direction: column;
+    }
 `
 
 const EventRegistrationStatus = styled.div`
