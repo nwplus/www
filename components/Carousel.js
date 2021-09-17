@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 
 const FlexBox = styled.div`
     display: flex;
-    width: 30%;
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
