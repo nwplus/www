@@ -34,6 +34,7 @@ const FilterContainer = styled.div`
   ${(p) => p.theme.mediaQueries.mobile} {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     margin-bottom: 16px;
     margin-right: 0px;
   }
@@ -44,6 +45,7 @@ const FilterCardContainer = styled.div`
   flex-wrap: wrap-content;
   ${(p) => p.theme.mediaQueries.mobile} {
     margin-right: 10px;
+    flex-grow: 1;
   }
 `
 const RESOURCES_TITLE = 'Resources';
