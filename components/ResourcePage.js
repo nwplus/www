@@ -18,7 +18,7 @@ const ResourcePageContainer = styled.div`
   row-gap: 56px;
   margin-bottom: 40px;
   ${(p) => p.theme.mediaQueries.mobile} {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-rows: 1fr 1fr 1fr;
     column-gap: 28px;
     row-gap: 24px;
