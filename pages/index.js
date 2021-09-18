@@ -61,7 +61,7 @@ export default function Home() {
   const themeContext = useContext(ThemeContext);
   const [activeTab, setActiveTab] = useState('Who We Are');
   const [faqs, setFaqs] = useState(null);
-  
+
   const getFaq = async () => {
     const faqs = await fireDb.getCollection('www', 'FAQ');
     setFaqs(faqs);
@@ -115,7 +115,7 @@ export default function Home() {
                   '/assets/images/team_dev.png'
                 ]}
                 height={363}
-                width={520}
+                width={500}
               />
               <div>
                 <Title2 withGradient>nwPlus is a student-led club supporting aspiring programmers and designers, based out of University of British Columbia.</Title2>
@@ -127,7 +127,7 @@ export default function Home() {
           }
         </ContentContainer>
         <ContentContainer
-          id="hackathons" 
+          id="hackathons"
           margin={SECTION_MARGIN}
         >
           <Title1 withGradient align="center">
@@ -136,14 +136,14 @@ export default function Home() {
           <Hackathons />
         </ContentContainer>
         <ContentContainer
-          id="resources" 
+          id="resources"
           margin={SECTION_MARGIN}
         >
           <ResourceContainer />
         </ContentContainer>
         {faqs &&
           <ContentContainer
-            id="faq" 
+            id="faq"
             margin={SECTION_MARGIN}
           >
             <FaqSection>
