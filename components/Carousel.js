@@ -10,7 +10,7 @@ const FlexBox = styled.div`
 
 const Container = styled.div`
     position: relative;
-    width: 100%;
+    width: ${(p) => p.width}px;
 `
 
 const FilledDiamond = styled.div`
@@ -43,8 +43,8 @@ const Image = styled.img`
     border-radius: 6px;
     object-fit: cover;
     ${(p) => p.theme.mediaQueries.mobile} {
-        width: 100%;
-        height: 100%;
+        width: ${(p) => p.width}px;
+        height: ${(p) => p.height}px;
     }
 `;
 
@@ -63,7 +63,7 @@ const RightArrow = styled.i`
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
     margin-right: 0px;
-    right: 8%;
+    right: 2%;
 `
 
 const LeftArrow = styled.i`
