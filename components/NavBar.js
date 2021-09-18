@@ -163,7 +163,7 @@ const DropDownContentContainer = styled.div`
   background-color: ${(p) => p.theme.colors.background};
 `;
 
-const MenuItem = ({ name, href, isAnchor }) => {
+const MenuItem = ({ name, href, isAnchor, setIsScrollByNavbar, setVisibility, setOpacity }) => {
   const [anchorTarget, setAnchorTarget] = useState(null);
 
   useEffect(() => {
@@ -173,9 +173,12 @@ const MenuItem = ({ name, href, isAnchor }) => {
   }, [href]);
 
   const handleClick = (event) => {
+    setIsScrollByNavbar(true);
+    setVisibility('hidden');
+    setOpacity('0');
     if (isAnchor && anchorTarget) {
       event.preventDefault();
-      anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });      
     }
   };
 
@@ -186,13 +189,13 @@ const MenuItem = ({ name, href, isAnchor }) => {
   );
 };
 
-const MenuList = () => {
+const MenuList = ({ setIsScrollByNavbar, setVisibility, setOpacity }) => {
   return (
     <>
-      <MenuItem name='About Us' href='/#about' isAnchor />
-      <MenuItem name='Hackathons' href='/#hackathons' isAnchor />
-      <MenuItem name='Resources' href='/#resources' isAnchor />
-      <MenuItem name='FAQ' href='/#faq' isAnchor />
+      <MenuItem name='About Us' href='/#about' isAnchor setIsScrollByNavbar={setIsScrollByNavbar} setVisibility={setVisibility} setOpacity={setOpacity} />
+      <MenuItem name='Hackathons' href='/#hackathons' isAnchor setIsScrollByNavbar={setIsScrollByNavbar} setVisibility={setVisibility} setOpacity={setOpacity} />
+      <MenuItem name='Resources' href='/#resources' isAnchor setIsScrollByNavbar={setIsScrollByNavbar} setVisibility={setVisibility} setOpacity={setOpacity} />
+      <MenuItem name='FAQ' href='/#faq' isAnchor setIsScrollByNavbar={setIsScrollByNavbar} setVisibility={setVisibility} setOpacity={setOpacity} />
     </>
   );
 };
@@ -201,6 +204,7 @@ const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [visibility, setVisibility] = useState('visible');
   const [opacity, setOpacity] = useState('1');
+  const [isScrollByNavbar, setIsScrollByNavbar] = useState(false);
 
   const [applicationInfo, setapplicationInfo] = useState(null);
   const [livePortalLink, setLivePortalLink] = useState('');
@@ -229,20 +233,25 @@ const NavBar = () => {
   };
 
   const handleScroll = () => {
-    var lastScroll = 0;
+    var lastScroll = 0;    
     return () => {
       const scroll = window.pageYOffset || document.documentElement.scrollTop;
-      if (scroll <= 0) {
-        setVisibility('visible');
-        setOpacity('1');
-      } else if (scroll > lastScroll) {
+      if (scroll > lastScroll) {
+        console.log('scroll down: ', isScrollByNavbar);
         setVisibility('hidden');
         setOpacity('0');
-      } else {
+      } else if(!isScrollByNavbar) {
+        console.log('scroll up: ', isScrollByNavbar);
         setVisibility('visible');
         setOpacity('1');
       }
+      else {
+        console.log('is navbar clicked: ', isScrollByNavbar)
+        setVisibility('hidden');
+        setOpacity('0');
+      }
       lastScroll = scroll;
+      setIsScrollByNavbar(false);
     };
   };
 
@@ -291,7 +300,7 @@ const NavBar = () => {
           />
         </a>
         <NavTextContainer>
-          <MenuList />
+          <MenuList setIsScrollByNavbar={setIsScrollByNavbar} setVisibility={setVisibility} setOpacity={setOpacity} />
         </NavTextContainer>
       </NavGroupContainer>
       <NavTextContainer>

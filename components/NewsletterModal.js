@@ -50,6 +50,17 @@ const StyledInput = styled.input`
   font-weight: normal;
   font-size: 18px;
   width: 100%;
+  autocomplete: chrome-off;
+
+  -webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px red inset;
+    -webkit-text-fill-color: #333;
+}
+
+-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px red inset;
+    -webkit-text-fill-color: #333;
+} 
 
   ${(p) => p.theme.mediaQueries.mobile} {
     padding: 4px 8px;
@@ -134,12 +145,14 @@ export default function NewsletterModal({ show, onClose }) {
           {inputMessage &&
             <Body>{ inputMessage }</Body>
           }
+          <form>
           <StyledInput
             ref={emailInput}
             name="email"
             type="email"
-            placeholder="hacker@nwplus.io"
+            placeholder="hacker@nwplus.io"                    
           />
+          </form>
           <ComboButton
             height="41px"
             width="200px"
