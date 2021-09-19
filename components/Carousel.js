@@ -10,7 +10,8 @@ const FlexBox = styled.div`
 
 const Container = styled.div`
     position: relative;
-    width: ${(p) => p.width}px;
+    height: ${(p) => p.height ? p.height : '100%'};
+    width: ${(p) => p.width ? p.width : '100%'};
 `
 
 const FilledDiamond = styled.div`
@@ -37,15 +38,11 @@ const EmptyDiamond = styled.div`
 `;
 
 const Image = styled.img`
-    width: 29vw;
-    height: 25hw;
+    height: 100%;
+    width: 100%;
     margin-bottom: 10px;
     border-radius: 6px;
     object-fit: cover;
-    ${(p) => p.theme.mediaQueries.mobile} {
-        width: ${(p) => p.width}px;
-        height: ${(p) => p.height}px;
-    }
 `;
 
 const BaseArrow = css`
@@ -89,10 +86,10 @@ export default function Carousel ({ images, height, width }) {
             {
                 numImages > 0
                 &&
-                <Container width={width}>
+                <Container width={width} height={height}>
                     <RightArrow onClick={() => setImageIndex(imageIndex == numImages - 1 ? 0 : imageIndex + 1)}/>
                     <LeftArrow onClick={() => setImageIndex(imageIndex == 0 ? numImages - 1 : imageIndex - 1)}/>
-                    <Image src={images[imageIndex]} width={width} height={height}/>
+                    <Image src={images[imageIndex]} />
                     <FlexBox>
                         {images.map((item, index) => {
                             return index == imageIndex

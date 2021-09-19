@@ -40,11 +40,20 @@ const AboutSection = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 128px;
+  gap: 64px;
 
   ${(p) => p.theme.mediaQueries.mobile} {
     flex-direction: column;
     gap: 32px;
+  }
+`;
+
+const CarouselContainer = styled.div`
+  height: 50vh;
+  min-width: 40%;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    width: 100%;
   }
 `;
 
@@ -104,19 +113,19 @@ export default function Home() {
           </AboutHeader>
           {activeTab === 'Who We Are' ?
             <AboutSection>
-              <Carousel
-                images={[
-                  '/assets/images/team_nwplus.png',
-                  '/assets/images/team_social_1.png',
-                  '/assets/images/team_hackcamp.png',
-                  '/assets/images/team_nwhacks.png',
-                  '/assets/images/team_social_2.png',
-                  '/assets/images/team_design.png',
-                  '/assets/images/team_dev.png'
-                ]}
-                height={363}
-                width={500}
-              />
+              <CarouselContainer>
+                <Carousel
+                  images={[
+                    '/assets/images/team_nwplus.png',
+                    '/assets/images/team_social_1.png',
+                    '/assets/images/team_hackcamp.png',
+                    '/assets/images/team_nwhacks.png',
+                    '/assets/images/team_social_2.png',
+                    '/assets/images/team_design.png',
+                    '/assets/images/team_dev.png'
+                  ]}
+                />
+              </CarouselContainer>
               <div>
                 <Title2 withGradient>nwPlus is a student-led club supporting aspiring programmers and designers, based out of University of British Columbia.</Title2>
                 <Body>Our mission: foster innovation and creativity in tech for students to connect with passionate peers and mentors, through events such as our annual hackathons. By providing the right tools, resources, and support, the team at nwPlus aims to encourage students to gain hands-on experience with cutting-edge technology outside of classroom settings.</Body>
