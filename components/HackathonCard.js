@@ -7,7 +7,7 @@ const BackgroundImageContainer = styled.div`
 `
 
 const CardContainer = styled.div`
-    width: 380px;
+    width: 100%;
     height: 500px;
     overflow: hidden;
     border-radius: 12px;
@@ -15,12 +15,11 @@ const CardContainer = styled.div`
     position: relative;
 
     & > ${BackgroundImageContainer} {
-        background: ${p => p.theme.colors.shadedGradient}, url(${p => p.imageLink}) center;
-        background-size: cover;
+        background: ${p => p.theme.colors.shadedGradient}, url(${p => p.imageLink}) center/cover;
     }
 
     &:hover > ${BackgroundImageContainer} {
-        background: url(${p => p.imageLink}) center;
+        background: url(${p => p.imageLink}) center/cover;
         transform: scale(1.1);
     }
 `
@@ -46,9 +45,14 @@ const OverLayFooterContainer = styled.div`
 const EventDataContainer = styled.div`
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     font-size: 1.2em;
     font-weight: bold;
+
+    ${(p) => p.theme.mediaQueries.mobile} {
+        flex-direction: column;
+    }
 `
 
 const EventRegistrationStatus = styled.div`
