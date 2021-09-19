@@ -15,12 +15,11 @@ const CardContainer = styled.div`
     position: relative;
 
     & > ${BackgroundImageContainer} {
-        background: ${p => p.theme.colors.shadedGradient}, url(${p => p.imageLink}) center;
-        background-size: cover;
+        background: ${p => p.theme.colors.shadedGradient}, url(${p => p.imageLink}) center/cover;
     }
 
     &:hover > ${BackgroundImageContainer} {
-        background: url(${p => p.imageLink}) center;
+        background: url(${p => p.imageLink}) center/cover;
         transform: scale(1.1);
     }
 `
