@@ -264,11 +264,13 @@ const NavBar = () => {
         </NavBarContainer>
         <DropDownContentContainer>
           <MenuList />
-          <JoinLink
-            hiring={applicationInfo?.isOpen}
-            hiringLink={applicationInfo?.url}
-            setShowDropdown={() => setShowDropdown(false)}
-          />
+          {applicationInfo &&
+            <JoinLink
+              hiring={applicationInfo?.isOpen}
+              hiringLink={applicationInfo?.url}
+              setShowDropdown={() => setShowDropdown(false)}
+            />
+          }
           <a
             href={livePortalLink}
             rel='noreferrer noopener'
@@ -295,10 +297,12 @@ const NavBar = () => {
         </NavTextContainer>
       </NavGroupContainer>
       <NavTextContainer>
-        <JoinLink
-          hiring={applicationInfo?.isOpen}
-          hiringLink={applicationInfo?.url ?? '#'}
-        />
+        {applicationInfo &&
+          <JoinLink
+            hiring={applicationInfo?.isOpen}
+            hiringLink={applicationInfo?.url ?? '#'}
+          />
+        }
         <a href={livePortalLink ?? '#'}>
           <LivePortalButton>Live Portal</LivePortalButton>
         </a>

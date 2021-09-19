@@ -60,7 +60,8 @@ export default function ApplicationPage() {
   return (
     <>
       <Head>
-        <title>Application Page | nwPlus</title>
+        <title>Apply | nwPlus</title>
+        <meta name="description" content="Apply to join the nwPlus team today!" />
       </Head>
 
       <FullScreenBackgroundColor>

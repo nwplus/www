@@ -85,7 +85,7 @@ export default function Home() {
     <>
       <Head>
         <title>nwPlus</title>
-        <meta name="description" content="Website for all things nwPlus!" />
+        <meta name="description" content="nwPlus is a student-led club supporting aspiring programmers and designers, based out of University of British Columbia." />
       </Head>
       <Background>
         <NavBar/>
