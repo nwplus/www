@@ -49,10 +49,11 @@ const AboutSection = styled.div`
 `;
 
 const CarouselContainer = styled.div`
-  height: 50vh;
+  height: 400px;
   min-width: 40%;
 
   ${(p) => p.theme.mediaQueries.mobile} {
+    height: 250px;
     width: 100%;
   }
 `;
