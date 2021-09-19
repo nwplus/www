@@ -5,7 +5,6 @@ module.exports = () => {
     return withOptimizedImages({
       reactStrictMode: true,
       poweredByHeader: false,
-      trailingSlash: true, // https://github.com/vercel/next.js/discussions/10522#discussioncomment-28307
       env: {
         NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_ENV_FIREBASE_API_KEY,
         NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: process.env.NEXT_ENV_FIREBASE_AUTH_DOMAIN,
@@ -20,7 +19,6 @@ module.exports = () => {
   }
   return withOptimizedImages({
     poweredByHeader: false,
-    trailingSlash: true,
     env: {
       NEXT_PUBLIC_FIREBASE_API_KEY: 'AIzaSyDGa7alU0NhfBATSQ6CalkY4Za9wWPrM7o',
       NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: 'nwplus-ubc.firebaseapp.com',
