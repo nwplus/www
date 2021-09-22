@@ -78,7 +78,8 @@ export default function NewsletterModal({ show, onClose }) {
           email: email,
         },
       }).then(() => {
-        setInputMessage(`${email} is now subscribed!`);
+        setInputMessage(``);
+        onClose();
       }).catch((err) => {
         // If the email is already subscribed we get a 409
         if (err.response.status === 409) {
