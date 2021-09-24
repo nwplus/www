@@ -204,8 +204,11 @@ const NavBar = () => {
 
   const [applicationInfo, setapplicationInfo] = useState(null);
   const [livePortalLink, setLivePortalLink] = useState('');
+  const [isHiring, setIsHiring] = useState(false)
 
   const getApplicationData = async () => {
+    const { featureFlags } = await fireDb.getWebsiteData('www');
+    setIsHiring(featureFlags.isHiring)
     const applicationInfo = await fireDb.getCollection('www', 'Applications');
     setapplicationInfo(applicationInfo[0]);
     const liveportalInfo = await fireDb.getCollection('www', 'LivePortalLink');
@@ -265,7 +268,7 @@ const NavBar = () => {
         <DropDownContentContainer>
           <MenuList />
           <JoinLink
-            hiring={applicationInfo?.isOpen}
+            hiring={isHiring}
             hiringLink={applicationInfo?.url}
             setShowDropdown={() => setShowDropdown(false)}
           />
@@ -296,7 +299,7 @@ const NavBar = () => {
       </NavGroupContainer>
       <NavTextContainer>
         <JoinLink
-          hiring={applicationInfo?.isOpen}
+          hiring={isHiring}
           hiringLink={applicationInfo?.url ?? '#'}
         />
         <a href={livePortalLink ?? '#'}>
