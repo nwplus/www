@@ -71,6 +71,7 @@ export default function Home() {
   const themeContext = useContext(ThemeContext);
   const [activeTab, setActiveTab] = useState('Who We Are');
   const [faqs, setFaqs] = useState(null);
+  const metaDescription = 'nwPlus is a student-led club supporting aspiring programmers and designers, based out of University of British Columbia.';
 
   const getFaq = async () => {
     const faqs = await fireDb.getCollection('www', 'FAQ');
@@ -85,7 +86,22 @@ export default function Home() {
     <>
       <Head>
         <title>nwPlus</title>
-        <meta name="description" content="Website for all things nwPlus!" />
+        <meta name="description" content={metaDescription} />
+
+        <meta itemProp="name" content="nwPlus" />
+        <meta itemProp="description" content={metaDescription} />
+        <meta itemProp="image" content="/assets/meta-image.png" />
+
+        <meta property="og:url" content="https://nwplus.io" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="nwPlus" />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:image" content="/assets/meta-image.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="nwPlus" />
+        <meta name="twitter:description" content={metaDescription} />
+        <meta name="twitter:image" content="/assets/meta-image.png" />
       </Head>
       <Background>
         <NavBar/>

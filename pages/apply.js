@@ -57,10 +57,28 @@ const FullScreenBackgroundColor = styled(BackgroundColor)`
 `;
 
 export default function ApplicationPage() {
+  const metaDescription = "Apply to join the nwPlus team today!";
+  
   return (
     <>
       <Head>
-        <title>Application Page | nwPlus</title>
+        <title>Apply | nwPlus</title>
+        <meta name="description" content={metaDescription} />
+
+        <meta itemProp="name" content="nwPlus" />
+        <meta itemProp="description" content={metaDescription} />
+        <meta itemProp="image" content="/assets/meta-image.png" />
+
+        <meta property="og:url" content="https://nwplus.io" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="nwPlus" />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:image" content="/assets/meta-image.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="nwPlus" />
+        <meta name="twitter:description" content={metaDescription} />
+        <meta name="twitter:image" content="/assets/meta-image.png" />
       </Head>
 
       <FullScreenBackgroundColor>

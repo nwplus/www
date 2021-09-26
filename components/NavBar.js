@@ -72,6 +72,12 @@ const LinkText = styled.a`
   }
 `;
 
+const JoinLinkContainer = styled.div`
+  visibility: ${(p) => p.visibility};
+  opacity: ${(p) => p.opacity};
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+`;
+
 const JoinLinkInactive = styled.div`
   display: flex;
   flex-direction: column;
@@ -109,21 +115,25 @@ const JoinLinkTextMinor = styled.span`
   font-size: 13.5px;
 `;
 
-const JoinLink = ({ hiring, hiringLink, setShowDropdown = () => null }) => {
-  if (hiring) {
-    return (
-      <JoinLinkActive href={hiringLink} onClick={() => setShowDropdown(false)}>
-        <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
-        <JoinLinkTextMinor>Application Open</JoinLinkTextMinor>
-      </JoinLinkActive>
-    );
-  }
+const JoinLink = ({ hiring, hiringLink, visibility, opacity, setShowDropdown = () => null }) => {
   return (
-    <JoinLinkInactive>
-      <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
-      <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
-    </JoinLinkInactive>
-  );
+    <JoinLinkContainer visibility={visibility} opacity={opacity}>
+      {hiring ?
+        <JoinLinkActive
+          href={hiringLink}
+          onClick={() => setShowDropdown(false)}
+        >
+          <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
+          <JoinLinkTextMinor>Application Open</JoinLinkTextMinor>
+        </JoinLinkActive>
+      :
+        <JoinLinkInactive>
+          <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
+          <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
+        </JoinLinkInactive>
+      }
+    </JoinLinkContainer>
+  )
 };
 
 const LivePortalButton = styled.button`
@@ -135,6 +145,10 @@ const LivePortalButton = styled.button`
   height: 41px;
   width: 134px;
   border-radius: 34px;
+
+  &:hover {
+    cursor: not-allowed;
+  }
 
   ${(p) => p.theme.mediaQueries.mobile} {
     width: 160px;
@@ -267,6 +281,8 @@ const NavBar = () => {
           <JoinLink
             hiring={applicationInfo?.isOpen}
             hiringLink={applicationInfo?.url}
+            visibility={applicationInfo ? 'visible' : 'hidden'}
+            opacity={applicationInfo ? '1' : '0'}
             setShowDropdown={() => setShowDropdown(false)}
           />
           <a
@@ -274,7 +290,7 @@ const NavBar = () => {
             rel='noreferrer noopener'
             target={livePortalLink !== '#' && '_blank'}
           >
-            <LivePortalButton>Live Portal</LivePortalButton>
+            <LivePortalButton disabled>Live Portal</LivePortalButton>
           </a>
         </DropDownContentContainer>
       </>
@@ -298,9 +314,11 @@ const NavBar = () => {
         <JoinLink
           hiring={applicationInfo?.isOpen}
           hiringLink={applicationInfo?.url ?? '#'}
+          visibility={applicationInfo ? 'visible' : 'hidden'}
+          opacity={applicationInfo ? '1' : '0'}
         />
         <a href={livePortalLink ?? '#'}>
-          <LivePortalButton>Live Portal</LivePortalButton>
+          <LivePortalButton disabled={true}>Live Portal</LivePortalButton>
         </a>
       </NavTextContainer>
       <HamburgerMenu
