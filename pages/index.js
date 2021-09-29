@@ -137,6 +137,7 @@ export default function Home() {
                     '/assets/images/team_social_1.png',
                     '/assets/images/team_hackcamp.png',
                     '/assets/images/team_nwhacks.png',
+                    '/assets/images/team_cmd-f.jpg',
                     '/assets/images/team_social_2.png',
                     '/assets/images/team_design.png',
                     '/assets/images/team_dev.png'
