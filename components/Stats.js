@@ -27,14 +27,14 @@ const Image = styled.img`
 
 const StatNumberContainer = styled.div`
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 48%;
+    left: 53%;
     transform: translate(-50%, -50%);
 `
 
 const StatDescriptionContainer = styled.div`
     position: absolute;
-    top: 72%;
+    top: 68%;
     left: 50%;
     transform: translate(-50%, -50%);
 `
