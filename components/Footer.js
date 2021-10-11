@@ -115,7 +115,7 @@ const profiles = [
     name: 'Daniel Shmidov',
     emoji: '🏞',
     color: '#44149C',
-    title: 'Sponsorship Coordinator',
+    title: 'nwHacks Logistics Coordinator',
   },
   {
     img: '/assets/profiles/Derek_Chen.png',
