@@ -150,7 +150,7 @@ export default function Home() {
               </div>
             </AboutSection>
             :
-            <Stats numHackathons={13} numProjects={280} prizesValue={'$110,230'} numWorkshops={50} donationsValue={'$5,075'} />
+            <Stats />
           }
         </ContentContainer>
         <ContentContainer
