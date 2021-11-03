@@ -7,17 +7,20 @@ import { Body, LinkBody } from './Typography';
 const HackCampData = {
   imgSrc: '/assets/HackCamp2021.png',
   link: 'https://hackcamp.nwplus.io',
-  date: 'TBA',
+  date: 'Nov 13 - 14',
+  open: true, 
 }
 const nwHacksData = {
   imgSrc: '/assets/nwHacks2021.png',
   link: 'https://nwhacks.io',
   date: 'TBA',
+  open: false,
 }
 const cmdfData = {
   imgSrc: '/assets/cmd-f2021.png',
   link: 'https://cmd-f.nwplus.io',
   date: 'TBA',
+  open: false,
 }
 const subscribeCTAText = 'to our newsletter to stay up to date on our hackathons!';
 
@@ -39,19 +42,19 @@ export default function Hackathons() {
     <>
       <HackathonsContainer>
         <HackathonCard
-          registrationOpen={false}
+          registrationOpen={HackCampData.open}
           link={HackCampData.link}
           dateString={HackCampData.date}
           imageLink={HackCampData.imgSrc}
         />
         <HackathonCard
-          registrationOpen={false}
+          registrationOpen={nwHacksData.open}
           link={nwHacksData.link}
           dateString={nwHacksData.date}
           imageLink={nwHacksData.imgSrc}
         />
         <HackathonCard
-          registrationOpen={false}
+          registrationOpen={cmdfData.open}
           link={cmdfData.link}
           dateString={cmdfData.date}
           imageLink={cmdfData.imgSrc}
