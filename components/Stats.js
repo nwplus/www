@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-const PC_STATS = 'assets/webStats.svg';
+const PC_STATS = 'assets/webStats.png';
 const MOBILE_STATS = 'assets/mobileStats.svg'
 
 const Image = styled.img`
