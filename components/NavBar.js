@@ -226,12 +226,6 @@ const NavBar = () => {
   const [livePortalLink, setLivePortalLink] = useState('');
   const [isLive, setIsLive] = useState(false);
 
-  console.log(
-    applicationInfo?.isLive,
-    applicationInfo?.isLive == true,
-    'this is the value for isLive########'
-  );
-
   const getApplicationData = async () => {
     const applicationInfo = await fireDb.getCollection('www', 'Applications');
     setapplicationInfo(applicationInfo[0]);
