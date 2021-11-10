@@ -115,25 +115,31 @@ const JoinLinkTextMinor = styled.span`
   font-size: 13.5px;
 `;
 
-const JoinLink = ({ hiring, hiringLink, visibility, opacity, setShowDropdown = () => null }) => {
+const JoinLink = ({
+  hiring,
+  hiringLink,
+  visibility,
+  opacity,
+  setShowDropdown = () => null,
+}) => {
   return (
     <JoinLinkContainer visibility={visibility} opacity={opacity}>
-      {hiring ?
+      {hiring ? (
         <JoinLinkActive
           href={hiringLink}
           onClick={() => setShowDropdown(false)}
         >
           <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
-          <JoinLinkTextMinor>Application Open</JoinLinkTextMinor>
+          <JoinLinkTextMinor>Applications Open</JoinLinkTextMinor>
         </JoinLinkActive>
-      :
+      ) : (
         <JoinLinkInactive>
           <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
           <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
         </JoinLinkInactive>
-      }
+      )}
     </JoinLinkContainer>
-  )
+  );
 };
 
 const LivePortalButton = styled.button`
