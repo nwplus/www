@@ -224,12 +224,15 @@ const NavBar = () => {
 
   const [applicationInfo, setapplicationInfo] = useState(null);
   const [livePortalLink, setLivePortalLink] = useState('');
+  const [isLive, setIsLive] = useState(false);
 
   const getApplicationData = async () => {
     const applicationInfo = await fireDb.getCollection('www', 'Applications');
     setapplicationInfo(applicationInfo[0]);
     const liveportalInfo = await fireDb.getCollection('www', 'LivePortalLink');
     setLivePortalLink(liveportalInfo[0]?.url);
+    const isLive = (await fireDb.getWebsiteData('www'))?.featureFlags?.isLive;
+    setIsLive(isLive);
   };
 
   useEffect(() => {
@@ -296,7 +299,7 @@ const NavBar = () => {
             rel='noreferrer noopener'
             target={livePortalLink !== '#' && '_blank'}
           >
-            <LivePortalButton disabled>Live Portal</LivePortalButton>
+            <LivePortalButton disabled={!isLive}>Live Portal</LivePortalButton>
           </a>
         </DropDownContentContainer>
       </>
@@ -324,7 +327,7 @@ const NavBar = () => {
           opacity={applicationInfo ? '1' : '0'}
         />
         <a href={livePortalLink ?? '#'}>
-          <LivePortalButton disabled={true}>Live Portal</LivePortalButton>
+          <LivePortalButton disabled={!isLive}>Live Portal</LivePortalButton>
         </a>
       </NavTextContainer>
       <HamburgerMenu
