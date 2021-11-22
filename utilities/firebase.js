@@ -52,6 +52,12 @@ const fireDb = {
     const data = await ref.get()
     return data.data()
   },
+  getLivePortalLink: async () => {
+    let ref = db.collection('Internal').doc('Livesite')
+    let data = await ref.get()
+    data = data.data().livePortalLink
+    return data
+  }
 }
 
 export default fireDb

@@ -229,8 +229,7 @@ const NavBar = () => {
   const getApplicationData = async () => {
     const applicationInfo = await fireDb.getCollection('www', 'Applications');
     setapplicationInfo(applicationInfo[0]);
-    const livePortalLink = (await fireDb.getWebsiteData('www'))?.metaData
-      ?.livePortalLink;
+    const livePortalLink = await fireDb.getLivePortalLink();
     setLivePortalLink(livePortalLink);
     const isLive = (await fireDb.getWebsiteData('www'))?.featureFlags?.isLive;
     setIsLive(isLive);
