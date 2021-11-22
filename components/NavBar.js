@@ -152,11 +152,10 @@ const LivePortalButton = styled.button`
   width: 134px;
   border-radius: 34px;
 
-  ${(p) =>
-    p.disabled &&
-    `&:hover {
-    cursor: not-allowed;
-  }`}
+
+    &:hover {
+     cursor: ${(p) => (p.disabled ? 'not-allowed' : 'pointer')} ;
+    }
 
   ${(p) => p.theme.mediaQueries.mobile} {
     width: 160px;
