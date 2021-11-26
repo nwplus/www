@@ -4,7 +4,7 @@ import {
   faFacebook,
   faInstagram,
   faLinkedinIn,
-  faMediumM,
+  faMedium,
   faTwitter,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
@@ -69,6 +69,13 @@ const profiles = [
     title: 'Project Manager',
   },
   {
+    img: '/assets/profiles/Anson_Chung.png',
+    name: 'Anson Chung',
+    emoji: '🤡',
+    color: '#878EBB',
+    title: 'Development Coordinator',
+  },
+  {
     img: '/assets/profiles/Ben_Cheung.png',
     name: 'Ben Cheung',
     emoji: '🚀',
@@ -85,15 +92,15 @@ const profiles = [
   {
     img: '/assets/profiles/Bernice_Tang.png',
     name: 'Bernice Tang',
-    emoji: '✨',
-    color: '#FFFFFF',
+    emoji: '🦋',
+    color: '#B19BF0',
     title: 'Sponsorship Coordinator',
   },
   {
     img: '/assets/profiles/Bonny_Yu.png',
     name: 'Bonny Yu',
-    emoji: '✨',
-    color: '#FFFFFF',
+    emoji: '✨', // no angrycry :'(
+    color: '#F1EFDE',
     title: 'Design Coordinator',
   },
   {
@@ -109,13 +116,6 @@ const profiles = [
     emoji: '🙈',
     color: '#C7C6FF',
     title: 'cmd-f Logistics Coordinator',
-  },
-  {
-    img: '/assets/profiles/Daniel_Shmidov.png',
-    name: 'Daniel Shmidov',
-    emoji: '🏞',
-    color: '#44149C',
-    title: 'nwHacks Logistics Coordinator',
   },
   {
     img: '/assets/profiles/Derek_Chen.png',
@@ -167,10 +167,10 @@ const profiles = [
     title: 'Co-President',
   },
   {
-    img: '/assets/profiles/Jenny_Pan.png',
-    name: 'Jenny Pan',
-    emoji: '💅',
-    color: '#FF7E75',
+    img: '/assets/profiles/JaeWu_Chun.png',
+    name: 'Jae Wu Chun',
+    emoji: '🍗',
+    color: '#FFC6ED',
     title: 'Development Coordinator',
   },
   {
@@ -190,14 +190,14 @@ const profiles = [
   {
     img: '/assets/profiles/Karan_Vasdev.png',
     name: 'Karan Vasdev',
-    emoji: '✨',
-    color: '#FFFFFF',
+    emoji: '🦁',
+    color: '#4A2511',
     title: 'Sponsorship Coordinator',
   },
   {
     img: '/assets/profiles/Kevin_Wu.png',
     name: 'Kevin Wu',
-    emoji: '✨',
+    emoji: '🥖',
     color: '#FFFFFF',
     title: 'nwHacks Logistics Coordinator',
   },
@@ -223,6 +223,13 @@ const profiles = [
     title: 'HackCamp Logistics Director',
   },
   {
+    img: '/assets/profiles/Martin_Cai.png',
+    name: 'Martin Cai',
+    emoji: '☃',
+    color: '#FFF8DC',
+    title: 'nwHacks Logistics Coordinator',
+  },
+  {
     img: '/assets/profiles/Melvin_Teo.png',
     name: 'Melvin Teo',
     emoji: '💡',
@@ -244,11 +251,11 @@ const profiles = [
     title: 'nwHacks Logistics Director',
   },
   {
-    img: '/assets/profiles/Nick_Wong.png',
-    name: 'Nick Wong',
-    emoji: '✨',
-    color: '#FFFFFF',
-    title: 'Development Coordinator',
+    img: '/assets/profiles/Naiomi_Chin.png',
+    name: 'Naiomi Chin',
+    emoji: '👻',
+    color: '#F9DCDB',
+    title: 'Sponsorship Coordinator',
   },
   {
     img: '/assets/profiles/Novia_Chao.png',
@@ -323,16 +330,23 @@ const profiles = [
   {
     img: '/assets/profiles/Victoria_Lim.png',
     name: 'Victoria Lim',
-    emoji: '✨',
+    emoji: '🤩',
     color: '#BDE6EC',
     title: 'cmd-f Logistics Coordinator',
   },
   {
     img: '/assets/profiles/Vincent_Chiang.png',
     name: 'Vincent Chiang',
-    emoji: '✨',
+    emoji: '🍍',
     color: '#FFFFFF',
     title: 'Development Coordinator',
+  },
+  {
+    img: '/assets/profiles/Yan_Sidyakin.png',
+    name: 'Yan Sidyakin',
+    emoji: '🌚',
+    color: '#FF7E4D',
+    title: 'Sponsorship Coordinator',
   },
 ];
 
@@ -377,7 +391,7 @@ export default function Footer() {
           <FontAwesomeIcon icon={faYoutube} />
         </a>
         <a href='https://medium.com/nwplusubc' target='_blank' rel='noreferrer'>
-          <FontAwesomeIcon icon={faMediumM} />
+          <FontAwesomeIcon icon={faMedium} />
         </a>
       </SocialMediaIcons>
       <div>Copyright &copy; 2021 nwPlus</div>
