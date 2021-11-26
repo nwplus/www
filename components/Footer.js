@@ -4,7 +4,7 @@ import {
   faFacebook,
   faInstagram,
   faLinkedinIn,
-  faMediumM,
+  faMedium,
   faTwitter,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
@@ -391,7 +391,7 @@ export default function Footer() {
           <FontAwesomeIcon icon={faYoutube} />
         </a>
         <a href='https://medium.com/nwplusubc' target='_blank' rel='noreferrer'>
-          <FontAwesomeIcon icon={faMediumM} />
+          <FontAwesomeIcon icon={faMedium} />
         </a>
       </SocialMediaIcons>
       <div>Copyright &copy; 2021 nwPlus</div>
