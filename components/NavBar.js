@@ -152,9 +152,10 @@ const LivePortalButton = styled.button`
   width: 134px;
   border-radius: 34px;
 
-  &:hover {
-    cursor: not-allowed;
-  }
+
+    &:hover {
+     cursor: ${(p) => (p.disabled ? 'not-allowed' : 'pointer')} ;
+    }
 
   ${(p) => p.theme.mediaQueries.mobile} {
     width: 160px;
@@ -224,7 +225,7 @@ const NavBar = () => {
 
   const [applicationInfo, setapplicationInfo] = useState(null);
   const [livePortalLink, setLivePortalLink] = useState('');
-  const [isLive, setIsLive] = useState(false);
+  const [isLive, setIsLive] = useState(null);
 
   const getApplicationData = async () => {
     const applicationInfo = await fireDb.getCollection('www', 'Applications');
@@ -299,7 +300,11 @@ const NavBar = () => {
             rel='noreferrer noopener'
             target={livePortalLink !== '#' && '_blank'}
           >
-            <LivePortalButton disabled={!isLive}>Live Portal</LivePortalButton>
+            {isLive !== null && (
+              <LivePortalButton disabled={!isLive}>
+                Live Portal
+              </LivePortalButton>
+            )}
           </a>
         </DropDownContentContainer>
       </>
@@ -326,9 +331,11 @@ const NavBar = () => {
           visibility={applicationInfo ? 'visible' : 'hidden'}
           opacity={applicationInfo ? '1' : '0'}
         />
-        <a href={livePortalLink ?? '#'}>
-          <LivePortalButton disabled={!isLive}>Live Portal</LivePortalButton>
-        </a>
+        {isLive !== null && (
+          <a href={livePortalLink ?? '#'}>
+            <LivePortalButton disabled={!isLive}>Live Portal</LivePortalButton>
+          </a>
+        )}
       </NavTextContainer>
       <HamburgerMenu
         src='/assets/icons/menu.svg'
