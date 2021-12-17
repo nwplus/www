@@ -140,7 +140,8 @@ export default function Home() {
                     '/assets/images/team_cmd-f.jpg',
                     '/assets/images/team_social_2.png',
                     '/assets/images/team_design.png',
-                    '/assets/images/team_dev.png'
+                    '/assets/images/team_dev.png',
+                    '/assets/images/team_sponsorship.jpeg',
                   ]}
                 />
               </CarouselContainer>

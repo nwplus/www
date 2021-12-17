@@ -39,6 +39,22 @@ const SocialMediaIcons = styled.div`
   }
 `;
 
+const Links = styled.div`
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  margin-bottom: 32px;  
+
+  a {
+    transition: color 200ms;
+    text-decoration: underline;
+
+    &:hover {
+      color: ${(p) => p.theme.colors.primary};
+    }
+  }
+`;
+
 const profiles = [
   {
     img: '/assets/profiles/Alex_Hernandez.png',
@@ -324,7 +340,7 @@ const profiles = [
     img: '/assets/profiles/Victoria_Kim.png',
     name: 'Victoria Kim',
     emoji: '✨',
-    color: '#FFFFFF',
+    color: '#b9b6df',
     title: 'Sponsorship Director',
   },
   {
@@ -394,6 +410,10 @@ export default function Footer() {
           <FontAwesomeIcon icon={faMedium} />
         </a>
       </SocialMediaIcons>
+      <Links>
+          <a href="mailto:info@nwplus.io" target="_blank" rel='noreferrer'>Email Us</a>
+          <a href="mailto:sponsorship@nwplus.io?subject=Sponsorship" target="_blank" rel='noreferrer'>Become a Sponsor</a>
+      </Links>
       <div>Copyright &copy; 2021 nwPlus</div>
     </FooterContainer>
   );
