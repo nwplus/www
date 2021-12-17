@@ -340,7 +340,7 @@ const profiles = [
     img: '/assets/profiles/Victoria_Kim.png',
     name: 'Victoria Kim',
     emoji: '✨',
-    color: '#FFFFFF',
+    color: '#b9b6df',
     title: 'Sponsorship Director',
   },
   {
