@@ -20,7 +20,7 @@ const cmdfData = {
   imgSrc: '/assets/cmd-f2022.png',
   link: 'https://cmd-f.nwplus.io',
   date: 'Mar 5 - 6',
-  open: true,
+  open: false,
 }
 const subscribeCTAText = 'to our newsletter to stay up to date on our hackathons!';
 
