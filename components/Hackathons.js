@@ -17,9 +17,9 @@ const nwHacksData = {
   open: false,
 }
 const cmdfData = {
-  imgSrc: '/assets/cmd-f2021.png',
+  imgSrc: '/assets/cmd-f2022.png',
   link: 'https://cmd-f.nwplus.io',
-  date: 'TBA',
+  date: 'Mar 5 - 6',
   open: false,
 }
 const subscribeCTAText = 'to our newsletter to stay up to date on our hackathons!';

@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/storage'
+import 'firebase/analytics'
 
 const HACKATHONS = 'Hackathons'
 
@@ -13,11 +14,13 @@ if (!firebase.apps.length) {
     storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
   }
   firebase.initializeApp(config)
 }
 
 const db = firebase.firestore()
+export const analytics = firebase.analytics;
 
 const fireDb = {
   subscribeToCollection: (hackathon, collection, callback) => {
