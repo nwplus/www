@@ -17,10 +17,10 @@ if (!firebase.apps.length) {
     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
   }
   firebase.initializeApp(config)
-  firebase.analytics()
 }
 
 const db = firebase.firestore()
+export const analytics = firebase.analytics;
 
 const fireDb = {
   subscribeToCollection: (hackathon, collection, callback) => {

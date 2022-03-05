@@ -1,5 +1,7 @@
 import '../styles/globals.css';
 import { ThemeProvider } from 'styled-components';
+import { analytics } from '../utilities/firebase';
+import { useEffect } from 'react';
 
 export const SCREEN_BREAKPOINTS = {
   xs: 576,
@@ -36,6 +38,13 @@ const theme = {
 };
 
 export default function MyApp({ Component, pageProps }) {
+  // Initialize analytics
+  useEffect(() => {
+    if (process.env.DEPLOY_ENV == 'PRODUCTION') {
+      analytics();
+    }
+  })
+
   return (
     <>
       <ThemeProvider theme={theme}>
