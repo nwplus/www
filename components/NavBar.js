@@ -223,17 +223,11 @@ const NavBar = () => {
   const [visibility, setVisibility] = useState('visible');
   const [opacity, setOpacity] = useState('1');
 
-  const [applicationInfo, setapplicationInfo] = useState(null);
-  const [livePortalLink, setLivePortalLink] = useState('');
-  const [isLive, setIsLive] = useState(null);
+  const [config, setConfig] = useState(null);
 
   const getApplicationData = async () => {
-    const applicationInfo = await fireDb.getCollection('www', 'Applications');
-    setapplicationInfo(applicationInfo[0]);
-    const isLive = (await fireDb.getWebsiteData('www'))?.featureFlags?.isLive;
-    const CTALink = (await fireDb.getWebsiteData('www'))?.CTALink;
-    setLivePortalLink(CTALink)
-    setIsLive(isLive);
+    const wwwConfig = await fireDb.getWebsiteData('www');
+    setConfig(wwwConfig);
   };
 
   useEffect(() => {
@@ -289,19 +283,19 @@ const NavBar = () => {
         <DropDownContentContainer>
           <MenuList />
           <JoinLink
-            hiring={applicationInfo?.isOpen}
-            hiringLink={applicationInfo?.url}
-            visibility={applicationInfo ? 'visible' : 'hidden'}
-            opacity={applicationInfo ? '1' : '0'}
+            hiring={config?.featureFlags?.isHiring}
+            hiringLink='/apply'
+            visibility={config ? 'visible' : 'hidden'}
+            opacity={config ? '1' : '0'}
             setShowDropdown={() => setShowDropdown(false)}
           />
           <a
-            href={livePortalLink}
+            href={config?.CTALink}
             rel='noreferrer noopener'
-            target={livePortalLink !== '#' && '_blank'}
+            target={config?.CTALink !== '#' && '_blank'}
           >
-            {isLive !== null && (
-              <LivePortalButton disabled={!isLive}>
+            {config?.featureFlags?.isLive !== null && (
+              <LivePortalButton disabled={!config?.featureFlags?.isLive}>
                 Live Portal
               </LivePortalButton>
             )}
@@ -326,14 +320,14 @@ const NavBar = () => {
       </NavGroupContainer>
       <NavTextContainer>
         <JoinLink
-          hiring={applicationInfo?.isOpen}
-          hiringLink={applicationInfo?.url ?? '#'}
-          visibility={applicationInfo ? 'visible' : 'hidden'}
-          opacity={applicationInfo ? '1' : '0'}
+          hiring={config?.featureFlags?.isHiring}
+          hiringLink='/apply'
+          visibility={config ? 'visible' : 'hidden'}
+          opacity={config ? '1' : '0'}
         />
-        {isLive !== null && (
-          <a href={livePortalLink ?? '#'}>
-            <LivePortalButton disabled={!isLive}>Live Portal</LivePortalButton>
+        {config?.featureFlags?.isLive !== null && (
+          <a href={config?.CTALink ?? '#'}>
+            <LivePortalButton disabled={!config?.featureFlags?.isLive}>Live Portal</LivePortalButton>
           </a>
         )}
       </NavTextContainer>
