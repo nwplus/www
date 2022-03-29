@@ -60,11 +60,11 @@ const MobileFormatContainer = styled.div`
 `;
 
 export const JoinUs = () => {
-  const [applicationInfo, setapplicationInfo] = useState(null);
+  const [config, setConfig] = useState(null);
 
   const getApplicationData = async () => {
-    const applicationInfo = await fireDb.getCollection('www', 'Applications');
-    setapplicationInfo(applicationInfo[0]);
+    const wwwConfig = await fireDb.getWebsiteData('www');
+    setConfig(wwwConfig);
   };
 
   useEffect(() => {
@@ -83,7 +83,7 @@ export const JoinUs = () => {
                 Applications are NOW OPEN to all UBC students, no matter your
                 background/faculty, until&nbsp;
               </Body>
-              <Body withGradient>{applicationInfo?.deadline}</Body>
+              <Body withGradient>{config?.hiring?.deadline}</Body>
               <Body>.</Body>
             </MixedTextParagraph>
             <Body>
@@ -97,8 +97,8 @@ export const JoinUs = () => {
               height='48px'
               hollow
               href={
-                applicationInfo?.isOpen &&
-                applicationInfo?.applicationPackageUrl
+                config?.featureFlags?.isHiring &&
+                config?.hiring?.packageLink
               }
               rel='noreferrer noopener'
               target='_blank'
@@ -109,7 +109,8 @@ export const JoinUs = () => {
               width='212px'
               height='48px'
               href={
-                applicationInfo?.isOpen && applicationInfo?.applicationFormUrl
+                config?.featureFlags?.isHiring &&
+                config?.hiring?.formLink
               }
               rel='noreferrer noopener'
               target='_blank'
