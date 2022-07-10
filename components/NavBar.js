@@ -152,9 +152,10 @@ const LivePortalButton = styled.button`
   width: 134px;
   border-radius: 34px;
 
-  &:hover {
-    cursor: not-allowed;
-  }
+
+    &:hover {
+     cursor: ${(p) => (p.disabled ? 'not-allowed' : 'pointer')} ;
+    }
 
   ${(p) => p.theme.mediaQueries.mobile} {
     width: 160px;
@@ -222,17 +223,11 @@ const NavBar = () => {
   const [visibility, setVisibility] = useState('visible');
   const [opacity, setOpacity] = useState('1');
 
-  const [applicationInfo, setapplicationInfo] = useState(null);
-  const [livePortalLink, setLivePortalLink] = useState('');
-  const [isLive, setIsLive] = useState(false);
+  const [config, setConfig] = useState(null);
 
   const getApplicationData = async () => {
-    const applicationInfo = await fireDb.getCollection('www', 'Applications');
-    setapplicationInfo(applicationInfo[0]);
-    const liveportalInfo = await fireDb.getCollection('www', 'LivePortalLink');
-    setLivePortalLink(liveportalInfo[0]?.url);
-    const isLive = (await fireDb.getWebsiteData('www'))?.featureFlags?.isLive;
-    setIsLive(isLive);
+    const wwwConfig = await fireDb.getWebsiteData('www');
+    setConfig(wwwConfig);
   };
 
   useEffect(() => {
@@ -288,18 +283,22 @@ const NavBar = () => {
         <DropDownContentContainer>
           <MenuList />
           <JoinLink
-            hiring={applicationInfo?.isOpen}
-            hiringLink={applicationInfo?.url}
-            visibility={applicationInfo ? 'visible' : 'hidden'}
-            opacity={applicationInfo ? '1' : '0'}
+            hiring={config?.featureFlags?.isHiring}
+            hiringLink='/apply'
+            visibility={config ? 'visible' : 'hidden'}
+            opacity={config ? '1' : '0'}
             setShowDropdown={() => setShowDropdown(false)}
           />
           <a
-            href={livePortalLink}
+            href={config?.CTALink}
             rel='noreferrer noopener'
-            target={livePortalLink !== '#' && '_blank'}
+            target={config?.CTALink !== '#' && '_blank'}
           >
-            <LivePortalButton disabled={!isLive}>Live Portal</LivePortalButton>
+            {config?.featureFlags?.isLive !== null && (
+              <LivePortalButton disabled={!config?.featureFlags?.isLive}>
+                Live Portal
+              </LivePortalButton>
+            )}
           </a>
         </DropDownContentContainer>
       </>
@@ -321,14 +320,16 @@ const NavBar = () => {
       </NavGroupContainer>
       <NavTextContainer>
         <JoinLink
-          hiring={applicationInfo?.isOpen}
-          hiringLink={applicationInfo?.url ?? '#'}
-          visibility={applicationInfo ? 'visible' : 'hidden'}
-          opacity={applicationInfo ? '1' : '0'}
+          hiring={config?.featureFlags?.isHiring}
+          hiringLink='/apply'
+          visibility={config ? 'visible' : 'hidden'}
+          opacity={config ? '1' : '0'}
         />
-        <a href={livePortalLink ?? '#'}>
-          <LivePortalButton disabled={!isLive}>Live Portal</LivePortalButton>
-        </a>
+        {config?.featureFlags?.isLive !== null && (
+          <a href={config?.CTALink ?? '#'}>
+            <LivePortalButton disabled={!config?.featureFlags?.isLive}>Live Portal</LivePortalButton>
+          </a>
+        )}
       </NavTextContainer>
       <HamburgerMenu
         src='/assets/icons/menu.svg'
