@@ -330,6 +330,13 @@ const profiles = [
     title: 'Sponsorship Coordinator',
   },
   {
+    img: '/assets/profiles/Stephanie_Chen.png',
+    name: 'Stephanie Chen',
+    emoji: '🌱',
+    color: '#F4F7C5',
+    title: 'Design Coordinator',
+  },
+  {
     img: '/assets/profiles/Taryn_Wou.png',
     name: 'Taryn Wou',
     emoji: '🦦',
