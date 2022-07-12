@@ -199,7 +199,7 @@ const profiles = [
   {
     img: '/assets/profiles/Janaye_Cheong.png',
     name: 'Janaye Cheong',
-    emoji: '🐡',
+    emoji: '🥮',
     color: '#73b791',
     title: 'HackCamp Logistics Coordinator',
   },
