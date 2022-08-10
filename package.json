@@ -16,12 +16,18 @@
     "animejs": "^3.2.1",
     "axios": "^0.21.1",
     "firebase": "^8.0.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^10.0.1",
     "lottie-react": "^2.3.1",
     "next": "^11.0.1",
     "next-optimized-images": "^2.6.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.0",
+    "svg-sprite-loader": "^6.0.11",
+    "webp-loader": "^0.6.0"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.13.2",
