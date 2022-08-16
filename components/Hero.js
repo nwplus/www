@@ -1,6 +1,6 @@
 import { ContentContainer } from './ContentContainer';
 import styled from 'styled-components';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import { LargeTitle, Title2 } from './Typography';
 import scollAnimation from './lotties/scroll.json';
 
