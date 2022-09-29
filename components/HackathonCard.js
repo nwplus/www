@@ -19,8 +19,9 @@ const CardContainer = styled.div`
     }
 
     &:hover > ${BackgroundImageContainer} {
-        background: url(${p => p.imageLink}) center/cover;
+        background: url(${p => p.imageLink}) cover;
         transform: scale(1.1);
+        transition: 300ms;
     }
 `
 

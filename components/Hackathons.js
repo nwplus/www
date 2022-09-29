@@ -5,10 +5,10 @@ import NewsletterModal from './NewsletterModal'
 import { Body, LinkBody } from './Typography';
 
 const HackCampData = {
-  imgSrc: '/assets/HackCamp2021.png',
+  imgSrc: '/assets/HackCamp2022.png',
   link: 'https://hackcamp.nwplus.io',
-  date: 'Nov 13 - 14',
-  open: false, 
+  date: 'Nov 5 - 6',
+  open: true, 
 }
 const nwHacksData = {
   imgSrc: '/assets/nwHacks2022.png',
