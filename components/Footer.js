@@ -141,13 +141,6 @@ const profiles = [
     title: 'Marketing Coordinator',
   },
   {
-    img: '/assets/profiles/Christopher_Tse.png',
-    name: 'Christopher Tse',
-    emoji: '🐯',
-    color: '#FFFFFF',
-    title: 'nwHacks Logistics Coordinator',
-  },
-  {
     img: '/assets/profiles/Daphne_Tian.png',
     name: 'Daphne Tian',
     emoji: '🐅',
@@ -300,13 +293,6 @@ const profiles = [
     emoji: '❄️',
     color: '#9CDDFB',
     title: 'Design Coordinator',
-  },
-  {
-    img: '/assets/profiles/Phoenix_Liu.png',
-    name: 'Phoenix Liu',
-    emoji: '🕊',
-    color: '#FFA7A7',
-    title: 'Development Coordinator',
   },
   {
     img: '/assets/profiles/Samantha_Tseng.png',
