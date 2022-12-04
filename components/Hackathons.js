@@ -11,9 +11,9 @@ const HackCampData = {
   open: false, 
 }
 const nwHacksData = {
-  imgSrc: '/assets/nwHacks2022.png',
+  imgSrc: '/assets/nwHacks2023.jpg',
   link: 'https://nwhacks.io',
-  date: 'Jan 15 - 16',
+  date: 'Jan 14 - 15',
   open: false,
 }
 const cmdfData = {
