@@ -14,7 +14,7 @@ const nwHacksData = {
   imgSrc: '/assets/nwHacks2023.jpg',
   link: 'https://nwhacks.io',
   date: 'Jan 14 - 15',
-  open: false,
+  open: true,
 }
 const cmdfData = {
   imgSrc: '/assets/cmd-f2022.png',
