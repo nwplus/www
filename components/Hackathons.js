@@ -13,13 +13,13 @@ const HackCampData = {
 const nwHacksData = {
   imgSrc: '/assets/nwHacks2023.jpg',
   link: 'https://nwhacks.io',
-  date: 'Jan 14 - 15',
-  open: true,
+  date: 'Jan 21 - 22',
+  open: false,
 }
 const cmdfData = {
   imgSrc: '/assets/cmd-f2022.png',
   link: 'https://cmd-f.nwplus.io',
-  date: 'Mar 5 - 6',
+  date: 'Mar 11 - 12',
   open: false,
 }
 const subscribeCTAText = 'to our newsletter to stay up to date on our hackathons!';
