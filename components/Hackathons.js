@@ -17,7 +17,7 @@ const nwHacksData = {
   open: false,
 }
 const cmdfData = {
-  imgSrc: '/assets/cmd-f2022.png',
+  imgSrc: '/assets/cmd-f2023.jpg',
   link: 'https://cmd-f.nwplus.io',
   date: 'Mar 11 - 12',
   open: false,

@@ -133,15 +133,15 @@ export default function Home() {
               <CarouselContainer>
                 <Carousel
                   images={[
-                    '/assets/images/team_nwplus.png',
-                    '/assets/images/team_social_1.png',
-                    '/assets/images/team_hackcamp.png',
-                    '/assets/images/team_nwhacks.png',
+                    '/assets/images/team_nwplus.jpg',
+                    '/assets/images/team_social_1.jpg',
+                    '/assets/images/team_hackcamp.jpg',
+                    '/assets/images/team_nwhacks.jpg',
                     '/assets/images/team_cmd-f.jpg',
-                    '/assets/images/team_social_2.png',
-                    '/assets/images/team_design.png',
-                    '/assets/images/team_dev.png',
-                    '/assets/images/team_sponsorship.jpeg',
+                    '/assets/images/team_social_2.jpg',
+                    '/assets/images/team_marketing.jpg',
+                    '/assets/images/team_dev.jpg',
+                    '/assets/images/team_sponsorship.jpg',
                   ]}
                 />
               </CarouselContainer>
