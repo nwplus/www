@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import HackathonCard from './HackathonCard';
 import NewsletterModal from './NewsletterModal';
 import { Body, Title2 } from './Typography';
+import Button from './Button';
 
 const HackCampData = {
   imgSrc: '/assets/HackCamp2022.png',
@@ -34,6 +35,23 @@ const HackathonsContainer = styled.div`
   }
 `;
 
+const ActionButton = styled(Button)`
+  width: 200px;
+  height: 60px;
+  font-size: 22px;
+  margin: auto;
+  margin-top: 24px;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    height: 60px;
+    width: 200px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 export default function Hackathons() {
   const [showModal, setShowModal] = useState(false);
 
@@ -59,10 +77,17 @@ export default function Hackathons() {
           imageLink={cmdfData.imgSrc}
         />
       </HackathonsContainer>
-      <Title2 align='center' lineHeight='10px'>
+      <Title2 align='center' lineHeight='6px'>
         Subscribe to our newsletter
       </Title2>
       <Body align='center'>Stay up to date on our hackathons!</Body>
+      <ActionButton
+        align='center'
+        fontColor='white'
+        onClick={() => setShowModal(true)}
+      >
+        Subscribe
+      </ActionButton>
       <NewsletterModal show={showModal} onClose={() => setShowModal(false)} />
     </>
   );
