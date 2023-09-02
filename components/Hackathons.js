@@ -1,28 +1,27 @@
-import { useState } from 'react'
-import styled from 'styled-components'
-import HackathonCard from './HackathonCard'
-import NewsletterModal from './NewsletterModal'
-import { Body, LinkBody } from './Typography';
+import { useState } from 'react';
+import styled from 'styled-components';
+import HackathonCard from './HackathonCard';
+import NewsletterModal from './NewsletterModal';
+import { Body, Title2 } from './Typography';
 
 const HackCampData = {
   imgSrc: '/assets/HackCamp2022.png',
   link: 'https://hackcamp.nwplus.io',
   date: 'Nov 5 - 6',
-  open: false, 
-}
+  open: false,
+};
 const nwHacksData = {
   imgSrc: '/assets/nwHacks2023.jpg',
   link: 'https://nwhacks.io',
   date: 'Jan 21 - 22',
   open: false,
-}
+};
 const cmdfData = {
   imgSrc: '/assets/cmd-f2023.jpg',
   link: 'https://cmd-f.nwplus.io',
   date: 'Mar 11 - 12',
   open: false,
-}
-const subscribeCTAText = 'to our newsletter to stay up to date on our hackathons!';
+};
 
 const HackathonsContainer = styled.div`
   display: flex;
@@ -60,11 +59,11 @@ export default function Hackathons() {
           imageLink={cmdfData.imgSrc}
         />
       </HackathonsContainer>
-      <Body align="center"><LinkBody onClick={() => setShowModal(true)}>Subscribe</LinkBody> {subscribeCTAText}</Body>
-      <NewsletterModal
-        show={showModal}
-        onClose={() => setShowModal(false)}
-      />
+      <Title2 align='center' lineHeight='10px'>
+        Subscribe to our newsletter
+      </Title2>
+      <Body align='center'>Stay up to date on our hackathons!</Body>
+      <NewsletterModal show={showModal} onClose={() => setShowModal(false)} />
     </>
-  )
+  );
 }
