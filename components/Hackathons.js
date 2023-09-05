@@ -1,28 +1,28 @@
-import { useState } from 'react'
-import styled from 'styled-components'
-import HackathonCard from './HackathonCard'
-import NewsletterModal from './NewsletterModal'
-import { Body, LinkBody } from './Typography';
+import { useState } from 'react';
+import styled from 'styled-components';
+import HackathonCard from './HackathonCard';
+import NewsletterModal from './NewsletterModal';
+import { Body, Title2 } from './Typography';
+import Button from './Button';
 
 const HackCampData = {
   imgSrc: '/assets/HackCamp2022.png',
   link: 'https://hackcamp.nwplus.io',
   date: 'Nov 5 - 6',
-  open: false, 
-}
+  open: false,
+};
 const nwHacksData = {
   imgSrc: '/assets/nwHacks2023.jpg',
   link: 'https://nwhacks.io',
   date: 'Jan 21 - 22',
   open: false,
-}
+};
 const cmdfData = {
   imgSrc: '/assets/cmd-f2023.jpg',
   link: 'https://cmd-f.nwplus.io',
   date: 'Mar 11 - 12',
   open: false,
-}
-const subscribeCTAText = 'to our newsletter to stay up to date on our hackathons!';
+};
 
 const HackathonsContainer = styled.div`
   display: flex;
@@ -32,6 +32,23 @@ const HackathonsContainer = styled.div`
   ${(p) => p.theme.mediaQueries.mobile} {
     flex-direction: column;
     align-items: center;
+  }
+`;
+
+const ActionButton = styled(Button)`
+  width: 200px;
+  height: 60px;
+  font-size: 22px;
+  margin: auto;
+  margin-top: 24px;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    height: 60px;
+    width: 200px;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
@@ -60,11 +77,18 @@ export default function Hackathons() {
           imageLink={cmdfData.imgSrc}
         />
       </HackathonsContainer>
-      <Body align="center"><LinkBody onClick={() => setShowModal(true)}>Subscribe</LinkBody> {subscribeCTAText}</Body>
-      <NewsletterModal
-        show={showModal}
-        onClose={() => setShowModal(false)}
-      />
+      <Title2 align='center' lineHeight='6px'>
+        Subscribe to our newsletter
+      </Title2>
+      <Body align='center'>Stay up to date on our hackathons!</Body>
+      <ActionButton
+        align='center'
+        fontColor='white'
+        onClick={() => setShowModal(true)}
+      >
+        Subscribe
+      </ActionButton>
+      <NewsletterModal show={showModal} onClose={() => setShowModal(false)} />
     </>
-  )
+  );
 }

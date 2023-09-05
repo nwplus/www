@@ -44,24 +44,19 @@ export const Title1 = styled.h1.attrs((p) => ({
     p.withGradient &&
     `background: -webkit-linear-gradient(92deg, #19cbcb 1.55%, #78ff96 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;`
-  }
+    -webkit-text-fill-color: transparent;`}
   ${(p) => p.theme.mediaQueries.mobile} {
     font-size: 21.32px;
     line-height: 27.77px;
   }
-  ${(p) =>
-    p.underline &&
-    'text-decoration: underline;'
-  }
+  ${(p) => p.underline && 'text-decoration: underline;'}
   ${(p) =>
     p.hover &&
     `&:hover {
       cursor: pointer;
       color: ${p.theme.colors.primary}
-    }`
-  }
-  ${(p) => p.align ? `text-align: ${p.align}` : ''};
+    }`}
+  ${(p) => (p.align ? `text-align: ${p.align}` : '')};
 `;
 
 export const Title2 = styled.h2.attrs((p) => ({
@@ -80,6 +75,8 @@ export const Title2 = styled.h2.attrs((p) => ({
     `background: -webkit-linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;`}
+  ${(p) => (p.align ? `text-align: ${p.align};` : '')}
+  line-height: ${(p) => p.lineHeight || '40px'};
   ${(p) => p.theme.mediaQueries.mobile} {
     font-size: 16px;
     line-height: 24px;
@@ -101,8 +98,7 @@ export const Title3 = styled.h3.attrs((p) => ({
     p.withGradient &&
     `background: -webkit-linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;`
-  }
+    -webkit-text-fill-color: transparent;`}
   ${(p) => p.theme.mediaQueries.mobile} {
     font-size: 12px;
     line-height: 16px;
@@ -126,7 +122,7 @@ export const Body = styled.p.attrs((p) => ({
     `background: -webkit-linear-gradient(92deg, #19cbcb 1.55%, #78ff96 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;`}
-  ${(p) => p.align ? `text-align: ${p.align};` : ''}
+  ${(p) => (p.align ? `text-align: ${p.align};` : '')}
   ${(p) => p.theme.mediaQueries.mobile} {
     font-size: 14px;
     line-height: 24px;
@@ -152,7 +148,7 @@ export const LinkBody = styled.p.attrs((p) => ({
   line-height: 24px;
   letter-spacing: -0.43px;
   text-decoration: underline;
-  text-decoration-thickness: 2px;  
+  text-decoration-thickness: 2px;
   ${SetColor}
   ${SetBackground}
   ${(p) => p.theme.mediaQueries.mobile} {
