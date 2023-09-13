@@ -6,9 +6,9 @@ import { Body, Title2 } from './Typography';
 import Button from './Button';
 
 const HackCampData = {
-  imgSrc: '/assets/HackCamp2022.png',
+  imgSrc: '/assets/HackCamp2023.png',
   link: 'https://hackcamp.nwplus.io',
-  date: 'Nov 5 - 6',
+  date: 'Nov 18 - 19',
   open: false,
 };
 const nwHacksData = {
