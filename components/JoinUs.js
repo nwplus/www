@@ -4,8 +4,12 @@ import { useState, useEffect } from 'react';
 import fireDb from '../utilities/firebase';
 
 import { ContentContainer } from './ContentContainer';
-import { Title1, Body, MixedTextParagraph } from './Typography';
+import { Title1, Body, MixedTextParagraph, LinkBody } from './Typography';
 import Button from './Button';
+
+const CAP_BODY =
+  '* This year, we are also recruiting non UBC students for our Campus Ambassador Program. Apply ';
+const CAP_LINK_TEXT = 'here';
 
 const PaddingContainer = styled.div`
   padding-top: 256px;
@@ -80,7 +84,8 @@ export const JoinUs = () => {
             <Body>Apply now to join our nwPlus organizing team!</Body>
             <MixedTextParagraph>
               <Body>
-                Applications are NOW OPEN to all UBC students, no matter your
+                Applications are NOW OPEN to all UBC students
+                {config?.featureFlags?.isHiringCAP ? '*' : ''}, no matter your
                 background/faculty, until&nbsp;
               </Body>
               <Body withGradient>{config?.hiring?.deadline}</Body>
@@ -90,6 +95,20 @@ export const JoinUs = () => {
               Be sure to apply early as we&#39;ll be conducting interviews and
               sending out offers on a rolling basis!
             </Body>
+            {config?.featureFlags?.isHiringCAP && (
+              <MixedTextParagraph>
+                <Body>
+                  {CAP_BODY}
+                  <a
+                    href={config?.hiring?.CAPFormLink}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    <LinkBody>{CAP_LINK_TEXT}</LinkBody>
+                  </a>
+                </Body>
+              </MixedTextParagraph>
+            )}
           </TextContainer>
           <ButtonContainer>
             <StyledButton
@@ -97,8 +116,7 @@ export const JoinUs = () => {
               height='48px'
               hollow
               href={
-                config?.featureFlags?.isHiring &&
-                config?.hiring?.packageLink
+                config?.featureFlags?.isHiring && config?.hiring?.packageLink
               }
               rel='noreferrer noopener'
               target='_blank'
@@ -108,10 +126,7 @@ export const JoinUs = () => {
             <StyledButton
               width='212px'
               height='48px'
-              href={
-                config?.featureFlags?.isHiring &&
-                config?.hiring?.formLink
-              }
+              href={config?.featureFlags?.isHiring && config?.hiring?.formLink}
               rel='noreferrer noopener'
               target='_blank'
             >
