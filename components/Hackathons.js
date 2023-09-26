@@ -6,10 +6,11 @@ import { Body, Title2 } from './Typography';
 import Button from './Button';
 
 const HackCampData = {
-  imgSrc: '/assets/HackCamp2022.png',
+  imgSrc: '/assets/HackCamp2023.png',
   link: 'https://hackcamp.nwplus.io',
-  date: 'Nov 5 - 6',
-  open: false,
+  date: 'Nov 18 - 19',
+  registrationOpenDate: "Oct 6",
+  open: true,
 };
 const nwHacksData = {
   imgSrc: '/assets/nwHacks2023.jpg',
@@ -62,6 +63,7 @@ export default function Hackathons() {
           registrationOpen={HackCampData.open}
           link={HackCampData.link}
           dateString={HackCampData.date}
+          registrationOpenDate={HackCampData.registrationOpenDate}
           imageLink={HackCampData.imgSrc}
         />
         <HackathonCard

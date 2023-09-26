@@ -421,7 +421,7 @@ export default function Footer() {
           <a href="mailto:info@nwplus.io" target="_blank" rel='noreferrer'>Email Us</a>
           <a href="mailto:sponsorship@nwplus.io?subject=Sponsorship" target="_blank" rel='noreferrer'>Become a Sponsor</a>
       </Links>
-      <div>Copyright &copy; 2022 nwPlus</div>
+      <div>Copyright &copy; 2023 nwPlus</div>
     </FooterContainer>
   );
 }

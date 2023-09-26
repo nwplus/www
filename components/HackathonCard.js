@@ -64,14 +64,14 @@ const EventDateString = styled.div`
     color: ${p => p.theme.colors.metadata};
 `
 
-const HackathonCard = ({ registrationOpen, link, dateString, imageLink }) => {
+const HackathonCard = ({ registrationOpen, link, dateString, imageLink, registrationOpenDate}) => {
     return (
         <CardContainer imageLink={imageLink}>
             <OverlayContainer>
                 <OverLayFooterContainer>
                     <EventDataContainer>
                         <EventRegistrationStatus registrationOpen={registrationOpen}>
-                            {`Registration ${registrationOpen ? 'Open' : 'Closed'}`}
+                            {`${registrationOpen ? 'Registration Opens: ' + registrationOpenDate : 'Registration Closed'}`}
                         </EventRegistrationStatus>
                         <EventDateString>{dateString}</EventDateString>
                     </EventDataContainer>
