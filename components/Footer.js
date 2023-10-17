@@ -326,7 +326,7 @@ const profiles = [
       emoji: '💡',
       color: '#003366',
       title: 'Development Director',
-      social: ""
+      social: "https://www.linkedin.com/in/melvinhteo/"
     },
     {
       img: '/assets/profiles/Michelle_Fung.png',

@@ -122,9 +122,8 @@ export default function Team({ profiles }) {
         }
         <div style={{ willChange: 'transform' }} id='anim-profiles'>
           {profiles.map((profile, i) => (
-            <a href={profile.social}>
+            <a href={profile.social} key={i}>
               <ProfileImage
-                key={i}
                 src={profile.img}
                 color={profile.color}
                 onClick={() => setSelectedProfile(profile)}
@@ -134,9 +133,8 @@ export default function Team({ profiles }) {
           </a>
           ))}
           {profiles.map((profile, i) => (
-            <a href={profile.social}>
+            <a href={profile.social} key={i}>
               <ProfileImage
-                key={i}
                 src={profile.img}
                 color={profile.color}
                 onClick={() => setSelectedProfile(profile)}
