@@ -365,7 +365,7 @@ const profiles = [
       name: 'Oliver Luo',
       emoji: '👴',
       color: '#FFA500',
-      title: 'HackCamp Logistics Coordinator',
+      title: 'Sponsorship Coordinator',
       social: ""
     },
     {
