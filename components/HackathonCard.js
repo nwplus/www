@@ -64,7 +64,7 @@ const EventDateString = styled.div`
     color: ${p => p.theme.colors.metadata};
 `
 
-const HackathonCard = ({ registrationOpen, link, dateString, imageLink, registrationOpenDate}) => {
+const HackathonCard = ({ registrationOpen, link, dateString, imageLink }) => {
     return (
         <CardContainer imageLink={imageLink}>
             <OverlayContainer>
