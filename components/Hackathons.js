@@ -63,7 +63,7 @@ export default function Hackathons() {
           registrationOpen={HackCampData.open}
           link={HackCampData.link}
           dateString={HackCampData.date}
-          registrationOpenDate={HackCampData.registrationOpenDate}
+          // registrationOpenDate={HackCampData.registrationOpenDate}
           imageLink={HackCampData.imgSrc}
         />
         <HackathonCard

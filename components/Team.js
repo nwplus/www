@@ -122,24 +122,26 @@ export default function Team({ profiles }) {
         }
         <div style={{ willChange: 'transform' }} id='anim-profiles'>
           {profiles.map((profile, i) => (
-            <ProfileImage
-              key={i}
-              src={profile.img}
-              color={profile.color}
-              onClick={() => setSelectedProfile(profile)}
-              onMouseEnter={() => setSelectedProfile(profile)}
-              onMouseLeave={() => setSelectedProfile({})}
-            />
+            <a href={profile.social} key={i}>
+              <ProfileImage
+                src={profile.img}
+                color={profile.color}
+                onClick={() => setSelectedProfile(profile)}
+                onMouseEnter={() => setSelectedProfile(profile)}
+                onMouseLeave={() => setSelectedProfile({})}
+              />
+          </a>
           ))}
           {profiles.map((profile, i) => (
-            <ProfileImage
-              key={i}
-              src={profile.img}
-              color={profile.color}
-              onClick={() => setSelectedProfile(profile)}
-              onMouseEnter={() => setSelectedProfile(profile)}
-              onMouseLeave={() => setSelectedProfile({})}
-            />
+            <a href={profile.social} key={i}>
+              <ProfileImage
+                src={profile.img}
+                color={profile.color}
+                onClick={() => setSelectedProfile(profile)}
+                onMouseEnter={() => setSelectedProfile(profile)}
+                onMouseLeave={() => setSelectedProfile({})}
+              />
+            </a>
           ))}
         </div>
       </ProfileList>
