@@ -15,6 +15,7 @@ const HeroContainer = styled.div`
   background-repeat: no-repeat;
   background-position: top;
   background-size: contain;
+  padding-top: 134px;
 `;
 
 const HeroTextContainer = styled.div`

@@ -105,8 +105,8 @@ export default function Home() {
         <meta name="twitter:image" content="/assets/meta-image.png" />
       </Head>
       <Background>
-        <Banner />
         <NavBar/>
+        <Banner />
         <Hero />
         <ContentContainer
           id="about"
