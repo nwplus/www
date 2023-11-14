@@ -13,7 +13,7 @@ const HeroContainer = styled.div`
   padding-bottom: 69%;
   background: url(/assets/hero_illustration.svg);
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: center;
   background-size: contain;
   padding-top: 134px;
 `;
