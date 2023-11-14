@@ -10,6 +10,7 @@ export const SCREEN_BREAKPOINTS = {
   tabletLarge: 1024,
   desktop: 1200,
 };
+export const BANNER_OFFSET = 134;
 
 const theme = {
   colors: {
