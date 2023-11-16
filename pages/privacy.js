@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import styled, { ThemeContext } from 'styled-components'
 import { useContext } from 'react';
 import NavBar from '../components/NavBar';
