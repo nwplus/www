@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 
-import { SCREEN_BREAKPOINTS } from '../pages/_app';
+import { SCREEN_BREAKPOINTS, BANNER_OFFSET } from '../pages/_app';
 import fireDb from '../utilities/firebase';
 
 const NavBarContainer = styled.nav`
-  position: fixed;
-  top: 0;
+  position: ${p => (p.stayAtTop ? 'absolute' : 'fixed')};
+  top: ${p => (p.stayAtTop ? BANNER_OFFSET : '0')}px;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 3;
@@ -223,6 +223,7 @@ const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [visibility, setVisibility] = useState('visible');
   const [opacity, setOpacity] = useState('1');
+  const [stayAtTop, setStayAtTop] = useState(true);
 
   const [config, setConfig] = useState(null);
 
@@ -230,6 +231,27 @@ const NavBar = () => {
     const wwwConfig = await fireDb.getWebsiteData('www');
     setConfig(wwwConfig);
   };
+
+  const handleScroll = () => {
+    let lastScroll = 0
+    return () => {
+      const scroll = window.pageYOffset || document.documentElement.scrollTop
+      if (scroll <= BANNER_OFFSET) {
+        setStayAtTop(true)
+        setVisibility('visible')
+        setOpacity('1')
+      } else if (scroll > lastScroll) {
+        setStayAtTop(false)
+        setVisibility('hidden')
+        setOpacity('0')
+        setStayAtTop(0)
+      } else {
+        setVisibility('visible')
+        setOpacity('1')
+      }
+      lastScroll = scroll
+    }
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll());
@@ -245,24 +267,6 @@ const NavBar = () => {
     if (window.innerWidth >= SCREEN_BREAKPOINTS.mobile) {
       setShowDropdown(false);
     }
-  };
-
-  const handleScroll = () => {
-    var lastScroll = 0;
-    return () => {
-      const scroll = window.pageYOffset || document.documentElement.scrollTop;
-      if (scroll <= 0) {
-        setVisibility('visible');
-        setOpacity('1');
-      } else if (scroll > lastScroll) {
-        setVisibility('hidden');
-        setOpacity('0');
-      } else {
-        setVisibility('visible');
-        setOpacity('1');
-      }
-      lastScroll = scroll;
-    };
   };
 
   if (showDropdown) {
@@ -307,7 +311,7 @@ const NavBar = () => {
   }
 
   return (
-    <NavBarContainer visibility={visibility} opacity={opacity}>
+    <NavBarContainer visibility={visibility} opacity={opacity} stayAtTop={stayAtTop}>
       <NavGroupContainer>
         <a href='/'>
           <NwPlusLogo

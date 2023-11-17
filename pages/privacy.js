@@ -6,13 +6,14 @@ import { Background } from '../components/Background'
 // Typography
 import { Title1, Body, Title2, Title3 } from '../components/Typography';
 import { List, ListItem } from '@material-ui/core';
+import Banner from '../components/Banner'
 
 const PrivacyContainer = styled.div`
 width: 100%;
 height: 100%;
 background-repeat: no-repeat;
 background-position: top;
-padding-top: 5%;
+padding-top: 15%;
 background-size: contain;
 `;
 
@@ -194,6 +195,7 @@ const PrivacyPolicy = () => {
   return (
     <>
       <Background>
+        <Banner/>
         <NavBar />
         <PrivacyContainer>
           <PrivacyTextContainer>

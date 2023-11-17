@@ -10,7 +10,7 @@ const HackCampData = {
   link: 'https://hackcamp.nwplus.io',
   date: 'Nov 18 - 19',
   registrationOpenDate: "Oct 6",
-  open: true,
+  open: false,
 };
 const nwHacksData = {
   imgSrc: '/assets/nwHacks2023.jpg',
@@ -63,7 +63,7 @@ export default function Hackathons() {
           registrationOpen={HackCampData.open}
           link={HackCampData.link}
           dateString={HackCampData.date}
-          registrationOpenDate={HackCampData.registrationOpenDate}
+          // registrationOpenDate={HackCampData.registrationOpenDate}
           imageLink={HackCampData.imgSrc}
         />
         <HackathonCard
