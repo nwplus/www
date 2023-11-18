@@ -55,7 +55,7 @@ const PrivacyPolicy = () => {
   ]
 
   const analyticsData = [
-    "We collect anonymized traffic and visitor data through Firebase",
+    "We collect anonymized traffic and visitor data through Firebase.",
     "This allows us to see anonymous information like the number of visitors we have and the types of devices that our visitors use. It also allows us to better understand what our users are interested in as well as analyze the performance of our sites in the wild.",
     "nwPlus uses cookies to authenticate you across our services."
   ]
@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
 
   const KeyPoints = () => {
     return (
-      <><Title2 color={themeContext.colors.primary}>KeyPoints</Title2>
+      <><Title2 color={themeContext.colors.primary}>Key Points</Title2>
         <IndentedDiv>
           <List>
             {renderListItems(keyPoints)}
