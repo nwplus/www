@@ -4,7 +4,7 @@ import NavBar from '../components/NavBar';
 // Components
 import { Background } from '../components/Background'
 // Typography
-import { Title1, Body, Title2, Title3 } from '../components/Typography';
+import { Title1, Body, Title2, Title3, LinkBody } from '../components/Typography';
 import { List, ListItem } from '@material-ui/core';
 import Banner from '../components/Banner'
 
@@ -23,14 +23,35 @@ const PrivacyTextContainer = styled.div`
 `;
 
 const IndentedDiv = styled(Body)`
-    padding-left: 20px;
+  padding-left: 20px;
 `;
+
+const LinkBody2 = styled(LinkBody)`
+  display: inline;   
+  line-height: inherit; 
+  vertical-align: baseline; 
+  margin: 0; 
+  padding: 0; 
+`
 
 const PrivacyPolicy = () => {
   const themeContext = useContext(ThemeContext);
-  const renderListItems = (items) => items.map((item, index) => (
-    <ListItem key={index}>{item}</ListItem>
-  ));
+  const renderListItems = (items) => items.map((item, index) => {
+    if (item.includes("info@nwplus.io")) {
+      const parts = item.split("info@nwplus.io");
+      return (
+        <ListItem key={index}>
+          {parts[0]}
+          <LinkBody2 href="mailto:info@nwplus.io" style={{ marginLeft: '0.25em' }}>
+            info@nwplus.io
+          </LinkBody2>
+          {parts[1]}
+        </ListItem>
+      );
+    }
+    return <ListItem key={index}>{item}</ListItem>;
+  });
+
   const keyPoints = [
     "We collect anonymized data to improve our services.",
     "We clearly inform you of any plans to share personal data and require explicit consent before doing so.",
@@ -56,14 +77,17 @@ const PrivacyPolicy = () => {
 
   const analyticsData = [
     "We collect anonymized traffic and visitor data through Firebase.",
-    "This allows us to see anonymous information like the number of visitors we have and the types of devices that our visitors use. It also allows us to better understand what our users are interested in as well as analyze the performance of our sites in the wild.",
-    "nwPlus uses cookies to authenticate you across our services."
+    "This allows us to see anonymous information like the number of visitors we have and the types of devices that our visitors use. It also allows us to better understand what our users are interested in as well as analyze the performance of our sites in the wild."
   ]
 
   const dataFreedom = [
     "1. Limit how much information you provide on our forms: You may choose to not fill out any optional fields in our forms and communications with you. Fields that we mark as mandatory, however, are considered to be necessary to our operations and services that we offer to you. You may, in the event that you object to these mandatory fields, terminate your activities with us and request that we delete all data we have collected from you thus far.",
     "2. Opt out of marketing emails: You may elect to stop receiving marketing and promotional material from us by replying to any of  our promotional emails.",
     "3. Use a tracking blocker: nwPlus does require cookies to be enabled for our services to work. We do not, however, have individual control over cookies and other tracking activities done by the services outlined in [Data we collect when you visit our website]. You may elect to use a browser extension to block these anonymous analytics activities."
+  ]
+
+  const cookies = [
+    "nwPlus uses cookies to authenticate you across our services."
   ]
 
   const KeyPoints = () => {
@@ -125,7 +149,7 @@ const PrivacyPolicy = () => {
               {renderListItems(analyticsData)}
             </List>
             <Title3>Cookies</Title3>
-            nwPlus uses cookies to authenticate you across our services.
+            <List>{renderListItems(cookies)}</List>
           </IndentedDiv>
           <Title3 color={themeContext.colors.primary}>2. Data we collect when you apply or sign up as a participant:</Title3>
           <IndentedDiv>
@@ -178,7 +202,7 @@ const PrivacyPolicy = () => {
         <Title2 color={themeContext.colors.primary}>Your Rights</Title2>
         <IndentedDiv>
           <Title3> Data ownership </Title3>
-          <Body>You own your data. You may at any time, with proof of identity, email us at info@nwplus.io and request that we provide,
+          <Body>You own your data. You may at any time, with proof of identity, email us at <LinkBody href="mailto:info@nwplus.io">info@nwplus.io</LinkBody> and request that we provide,
             update, or delete any personal data we have that pertains to you. We will, barring legal requirements or exceptional circumstances,
             comply with your request within 30 days of receipt. Please note that deleted data may be retained in our backups for up to
             an additional 60 days, after which they are purged.</Body>
@@ -210,7 +234,8 @@ const PrivacyPolicy = () => {
             <DataWeShare />
             <YourRights />
             <Title2 color={themeContext.colors.primary}>Questions</Title2>
-            <IndentedDiv>We are always looking for feedback on our practices and policies at nwPlus. If you have any questions, concerns, or complaints regarding our practices or policies please contact us at info@nwplus.io.</IndentedDiv>
+            <IndentedDiv>We are always looking for feedback on our practices and policies at nwPlus. If you have any questions, concerns, or complaints regarding our practices or policies please contact us at <LinkBody href="mailto:info@nwplus.io">info@nwplus.io</LinkBody>.</IndentedDiv>
+            <Body>This privacy policy is adapted from HackTheNorth</Body>
           </PrivacyTextContainer>
         </PrivacyContainer>
       </Background>
