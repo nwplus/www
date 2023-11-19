@@ -214,6 +214,7 @@ const MenuList = () => {
       <MenuItem name='Hackathons' href='/#hackathons' isAnchor />
       <MenuItem name='Resources' href='/#resources' isAnchor />
       <MenuItem name='FAQ' href='/#faq' isAnchor />
+      <MenuItem name='Privacy' href='/privacy' />
     </>
   );
 };
