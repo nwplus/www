@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const BannerContainer = styled.div`
   background: linear-gradient(92.58deg, #0defe1 0%, #78ff96 100%);
@@ -18,23 +18,24 @@ const BannerContainer = styled.div`
     padding-right: 100px;
     font-size: 20px;
   }
-`
+`;
 
 const BannerHeader = styled.div`
   font-weight: 700;
-`
+`;
 
 const BannerText = styled.div`
   font-weight: 600;
-`
+`;
 
 const Banner = () => (
   <BannerContainer>
     <BannerHeader>IMPORTANT UPDATE:</BannerHeader>
     <BannerText>
-    nwHacks 2024 is not currently accepting applications. The application form will open on November 20th, 2023.
+      nwHacks 2024 is not currently accepting applications. The application form
+      will open on November 28th, 2023.
     </BannerText>
   </BannerContainer>
-)
+);
 
-export default Banner
+export default Banner;
