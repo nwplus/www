@@ -33,7 +33,7 @@ const Banner = () => (
     <BannerHeader>IMPORTANT UPDATE:</BannerHeader>
     <BannerText>
       nwHacks 2024 is not currently accepting applications. The application form
-      will open on November 28th, 2023.
+      will open on December 1st, 2023.
     </BannerText>
   </BannerContainer>
 );
