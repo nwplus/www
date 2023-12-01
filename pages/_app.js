@@ -1,7 +1,7 @@
-import '../styles/globals.css';
-import { ThemeProvider } from 'styled-components';
-import { analytics } from '../utilities/firebase';
 import { useEffect } from 'react';
+import { ThemeProvider } from 'styled-components';
+import '../styles/globals.css';
+import { analytics } from '../utilities/firebase';
 
 export const SCREEN_BREAKPOINTS = {
   xs: 576,
@@ -10,13 +10,14 @@ export const SCREEN_BREAKPOINTS = {
   tabletLarge: 1024,
   desktop: 1200,
 };
-export const BANNER_OFFSET = 134;
+// export const BANNER_OFFSET = 134;
 
 const theme = {
   colors: {
     primary: '#20FFAF',
     primaryGradient: 'linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%)',
-    shadedGradient: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 47.69%, rgba(0, 0, 0, 0.8) 100%)',
+    shadedGradient:
+      'linear-gradient(180deg, rgba(0, 0, 0, 0) 47.69%, rgba(0, 0, 0, 0.8) 100%)',
     secondary: '#fff',
     tertiary: '#E2D6FF',
     metadata: '#BDBAC3',
@@ -44,7 +45,7 @@ export default function MyApp({ Component, pageProps }) {
     if (process.env.DEPLOY_ENV == 'PRODUCTION') {
       analytics();
     }
-  })
+  });
 
   return (
     <>
