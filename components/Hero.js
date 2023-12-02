@@ -1,6 +1,6 @@
-import { ContentContainer } from './ContentContainer';
-import styled from 'styled-components';
 import Lottie from 'lottie-react';
+import styled from 'styled-components';
+import { ContentContainer } from './ContentContainer';
 import { LargeTitle, Title2 } from './Typography';
 import scollAnimation from './lotties/scroll.json';
 
@@ -13,9 +13,8 @@ const HeroContainer = styled.div`
   padding-bottom: 69%;
   background: url(/assets/hero_illustration.svg);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
   background-size: contain;
-  padding-top: 134px;
 `;
 
 const HeroTextContainer = styled.div`
@@ -26,7 +25,7 @@ const ScrollContainer = styled.div`
   float: left;
   display: flex;
   align-items: center;
-  color: ${p => p.theme.colors.metadata};
+  color: ${(p) => p.theme.colors.metadata};
   font-size: 13.5px;
   ${(p) => p.theme.mediaQueries.mobile} {
     display: none;
@@ -35,7 +34,7 @@ const ScrollContainer = styled.div`
 
 const ScrollText = styled.p`
   margin-top: -4px;
-`
+`;
 
 export default function Hero() {
   return (
@@ -48,21 +47,23 @@ export default function Hero() {
           </Title2>
         </ContentContainer>
       </HeroTextContainer>
-      <ContentContainer>      
+      <ContentContainer>
         <ScrollContainer>
-          <Lottie 
+          <Lottie
             options={{
               loop: true,
               autoplay: true,
               animationData: scollAnimation,
               rendererSettings: {
-                preserveAspectRatio: 'xMidYMid slice'
-              }
+                preserveAspectRatio: 'xMidYMid slice',
+              },
             }}
             height={44}
             width={28}
           />
-          <ScrollText>Scroll to check out our hackathons and resources!</ScrollText>
+          <ScrollText>
+            Scroll to check out our hackathons and resources!
+          </ScrollText>
         </ScrollContainer>
       </ContentContainer>
     </HeroContainer>

@@ -1,12 +1,12 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
 
-import { SCREEN_BREAKPOINTS, BANNER_OFFSET } from '../pages/_app';
+import { SCREEN_BREAKPOINTS } from '../pages/_app';
 import fireDb from '../utilities/firebase';
 
 const NavBarContainer = styled.nav`
-  position: ${p => (p.stayAtTop ? 'absolute' : 'fixed')};
-  top: ${p => (p.stayAtTop ? BANNER_OFFSET : '0')}px;
+  position: fixed;
+  top: 0;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 3;
@@ -223,7 +223,6 @@ const NavBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [visibility, setVisibility] = useState('visible');
   const [opacity, setOpacity] = useState('1');
-  const [stayAtTop, setStayAtTop] = useState(true);
 
   const [config, setConfig] = useState(null);
 
@@ -233,25 +232,22 @@ const NavBar = () => {
   };
 
   const handleScroll = () => {
-    let lastScroll = 0
+    let lastScroll = 0;
     return () => {
-      const scroll = window.pageYOffset || document.documentElement.scrollTop
-      if (scroll <= BANNER_OFFSET) {
-        setStayAtTop(true)
-        setVisibility('visible')
-        setOpacity('1')
+      const scroll = window.pageYOffset || document.documentElement.scrollTop;
+      if (scroll <= 0) {
+        setVisibility('visible');
+        setOpacity('1');
       } else if (scroll > lastScroll) {
-        setStayAtTop(false)
-        setVisibility('hidden')
-        setOpacity('0')
-        setStayAtTop(0)
+        setVisibility('hidden');
+        setOpacity('0');
       } else {
-        setVisibility('visible')
-        setOpacity('1')
+        setVisibility('visible');
+        setOpacity('1');
       }
-      lastScroll = scroll
-    }
-  }
+      lastScroll = scroll;
+    };
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll());
@@ -311,7 +307,7 @@ const NavBar = () => {
   }
 
   return (
-    <NavBarContainer visibility={visibility} opacity={opacity} stayAtTop={stayAtTop}>
+    <NavBarContainer visibility={visibility} opacity={opacity}>
       <NavGroupContainer>
         <a href='/'>
           <NwPlusLogo
@@ -332,7 +328,9 @@ const NavBar = () => {
         />
         {config?.featureFlags?.isLive !== null && (
           <a href={config?.CTALink ?? '#'}>
-            <LivePortalButton disabled={!config?.featureFlags?.isLive}>Live Portal</LivePortalButton>
+            <LivePortalButton disabled={!config?.featureFlags?.isLive}>
+              Live Portal
+            </LivePortalButton>
           </a>
         )}
       </NavTextContainer>
