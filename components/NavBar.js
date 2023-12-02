@@ -232,7 +232,7 @@ const NavBar = () => {
   };
 
   const handleScroll = () => {
-    var lastScroll = 0;
+    let lastScroll = 0;
     return () => {
       const scroll = window.pageYOffset || document.documentElement.scrollTop;
       if (scroll <= 0) {
