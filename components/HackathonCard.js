@@ -58,6 +58,7 @@ const EventDataContainer = styled.div`
 
 const EventRegistrationStatus = styled.div`
     color: ${p => p.registrationOpen ? p.theme.colors.primary : 'white'};
+    ${p => p.registrationOpen && 'margin-right: 3em;'} /* if registeration open, add 3 spaces in front, or date will be on the same line */
 `
 
 const EventDateString = styled.div`
