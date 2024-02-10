@@ -16,13 +16,13 @@ const nwHacksData = {
   imgSrc: '/assets/nwHacks2024.png',
   link: 'https://nwhacks.io',
   date: 'Jan 20 - 21',
-  open: true,
+  open: false,
 };
 const cmdfData = {
-  imgSrc: '/assets/cmd-f2023.jpg',
+  imgSrc: '/assets/cmd-f2024.png',
   link: 'https://cmd-f.nwplus.io',
-  date: 'Mar 11 - 12',
-  open: false,
+  date: 'Mar 9 - 10',
+  open: true,
 };
 
 const HackathonsContainer = styled.div`
