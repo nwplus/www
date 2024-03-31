@@ -91,10 +91,10 @@ export const JoinUs = () => {
               <Body withGradient>{config?.hiring?.deadline}</Body>
               <Body>.</Body>
             </MixedTextParagraph>
-            <Body>
+            {/* <Body>
               Be sure to apply early as we&#39;ll be conducting interviews and
               sending out offers on a rolling basis!
-            </Body>
+            </Body> */}
             {config?.featureFlags?.isHiringCAP && (
               <MixedTextParagraph>
                 <Body>
