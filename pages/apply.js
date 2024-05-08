@@ -106,7 +106,7 @@ export default function ApplicationPage() {
                   <FontAwesomeIcon icon={faMediumM} />
                   </a>
               </SocialMediaIcons>
-              <div>Copyright &copy; 2023 nwPlus</div>
+              <div>Copyright &copy; 2024 nwPlus</div>
           </FooterContainer>
       </FullScreenBackgroundColor>
     </>
