@@ -490,7 +490,7 @@ export default function Footer() {
           Become a Sponsor
         </a>
       </Links>
-      <div>Copyright &copy; 2023 nwPlus</div>
+      <div>Copyright &copy; 2024 nwPlus</div>
     </FooterContainer>
   );
 }
