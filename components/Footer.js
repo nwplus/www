@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
 import {
   faFacebook,
   faInstagram,
@@ -8,6 +6,8 @@ import {
   faTwitter,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled from 'styled-components';
 import Team from './Team';
 
 const FooterContainer = styled.footer`
@@ -43,7 +43,7 @@ const Links = styled.div`
   display: flex;
   gap: 1em;
   justify-content: center;
-  margin-bottom: 32px;  
+  margin-bottom: 32px;
 
   a {
     transition: color 200ms;
@@ -527,10 +527,18 @@ export default function Footer() {
         </a>
       </SocialMediaIcons>
       <Links>
-          <a href="mailto:info@nwplus.io" target="_blank" rel='noreferrer'>Email Us</a>
-          <a href="mailto:sponsorship@nwplus.io?subject=Sponsorship" target="_blank" rel='noreferrer'>Become a Sponsor</a>
+        <a href='mailto:info@nwplus.io' target='_blank' rel='noreferrer'>
+          Email Us
+        </a>
+        <a
+          href='mailto:sponsorship@nwplus.io?subject=Sponsorship'
+          target='_blank'
+          rel='noreferrer'
+        >
+          Become a Sponsor
+        </a>
       </Links>
-      <div>Copyright &copy; 2023 nwPlus</div>
+      <div>Copyright &copy; 2024 nwPlus</div>
     </FooterContainer>
   );
 }

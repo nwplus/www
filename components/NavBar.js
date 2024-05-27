@@ -1,5 +1,5 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
 
 import { SCREEN_BREAKPOINTS } from '../pages/_app';
 import fireDb from '../utilities/firebase';
@@ -214,6 +214,7 @@ const MenuList = () => {
       <MenuItem name='Hackathons' href='/#hackathons' isAnchor />
       <MenuItem name='Resources' href='/#resources' isAnchor />
       <MenuItem name='FAQ' href='/#faq' isAnchor />
+      <MenuItem name='Privacy' href='/privacy' />
     </>
   );
 };
@@ -230,24 +231,8 @@ const NavBar = () => {
     setConfig(wwwConfig);
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll());
-    window.addEventListener('resize', handleResize);
-    getApplicationData();
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const handleResize = () => {
-    if (window.innerWidth >= SCREEN_BREAKPOINTS.mobile) {
-      setShowDropdown(false);
-    }
-  };
-
   const handleScroll = () => {
-    var lastScroll = 0;
+    let lastScroll = 0;
     return () => {
       const scroll = window.pageYOffset || document.documentElement.scrollTop;
       if (scroll <= 0) {
@@ -262,6 +247,22 @@ const NavBar = () => {
       }
       lastScroll = scroll;
     };
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll());
+    window.addEventListener('resize', handleResize);
+    getApplicationData();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleResize = () => {
+    if (window.innerWidth >= SCREEN_BREAKPOINTS.mobile) {
+      setShowDropdown(false);
+    }
   };
 
   if (showDropdown) {
@@ -327,7 +328,9 @@ const NavBar = () => {
         />
         {config?.featureFlags?.isLive !== null && (
           <a href={config?.CTALink ?? '#'}>
-            <LivePortalButton disabled={!config?.featureFlags?.isLive}>Live Portal</LivePortalButton>
+            <LivePortalButton disabled={!config?.featureFlags?.isLive}>
+              Live Portal
+            </LivePortalButton>
           </a>
         )}
       </NavTextContainer>

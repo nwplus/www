@@ -12,6 +12,7 @@ import Hackathons from '../components/Hackathons'
 import Hero from '../components/Hero'
 import ResourceContainer from '../components/ResourceContainer'
 import Stats from '../components/Stats'
+// import Banner from '../components/Banner'
 // Typography
 import {
   Title1,
@@ -105,6 +106,7 @@ export default function Home() {
       </Head>
       <Background>
         <NavBar/>
+        {/* <Banner /> */}
         <Hero />
         <ContentContainer
           id="about"
