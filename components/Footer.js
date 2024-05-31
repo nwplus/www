@@ -180,7 +180,7 @@ const profiles = [
       img: '/assets/profiles/Erping_Sun.png',
       name: 'Erping Sun',
       emoji: '✈️',
-      color: '#01DACC',
+      color: '#669aed',
       title: 'Dev Coordinator',
       social: 'http://linkedin.com/in/erping-sun'
   },
@@ -235,10 +235,10 @@ const profiles = [
   {
       img: '/assets/profiles/Jennifer_Nguyen.png',
       name: 'Jennifer Nguyen',
-      emoji: '✌🏻',
-      color: '#8797d4',
+      emoji: '☆',
+      color: '#FFFFE0',
       title: 'nwHacks Logistics Director',
-      social: 'www.linkedin.com/in/jennguyen-ubc'
+      social: 'http://www.linkedin.com/in/jennguyen-ubc'
   },
   {
       img: '/assets/profiles/Jennifer_Shui.png',
@@ -284,7 +284,7 @@ const profiles = [
       img: '/assets/profiles/Kevin_Gu.png',
       name: 'Kevin Gu',
       emoji: '🗿',
-      color: '#13b1c9',
+      color: '#d1e1e6',
       title: 'Sponsorship Director',
       social: 'https://www.linkedin.com/in/kevin-gu-/'
   },
