@@ -72,7 +72,7 @@ const HackathonCard = ({ registrationOpen, link, dateString, imageLink }) => {
                 <OverLayFooterContainer>
                     <EventDataContainer>
                         <EventRegistrationStatus registrationOpen={registrationOpen}>
-                            {`${registrationOpen ? 'Registration Open' : 'Registration Closed'}`}
+                            {`${registrationOpen ? 'Interest Form Open' : 'Registration Closed'}`}
                         </EventRegistrationStatus>
                         <EventDateString>{dateString}</EventDateString>
                     </EventDataContainer>
