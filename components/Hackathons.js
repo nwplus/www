@@ -8,21 +8,21 @@ import Button from './Button';
 const HackCampData = {
   imgSrc: '/assets/HackCamp2023.png',
   link: 'https://hackcamp.nwplus.io',
-  date: 'Nov 18 - 19',
+  date: 'Nov 9 - 10',
   registrationOpenDate: "Oct 6",
   open: false,
 };
 const nwHacksData = {
   imgSrc: '/assets/nwHacks2024.png',
   link: 'https://nwhacks.io',
-  date: 'Jan 20 - 21',
-  open: false,
+  date: 'Jan 18 - 19',
+  open: true,
 };
 const cmdfData = {
   imgSrc: '/assets/cmd-f2024.png',
   link: 'https://cmd-f.nwplus.io',
-  date: 'Mar 9 - 10',
-  open: false,
+  date: 'Mar 8 - 9',
+  open: true,
 };
 
 const HackathonsContainer = styled.div`
