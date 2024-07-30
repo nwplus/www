@@ -6,20 +6,20 @@ import { Body, Title2 } from './Typography';
 import Button from './Button';
 
 const HackCampData = {
-  imgSrc: '/assets/HackCamp2023.png',
+  imgSrc: '/assets/hc2023-banner.png',
   link: 'https://hackcamp.nwplus.io',
   date: 'Nov 9 - 10',
   registrationOpenDate: "Oct 6",
   open: false,
 };
 const nwHacksData = {
-  imgSrc: '/assets/nwHacks2024.png',
+  imgSrc: '/assets/nwHacks2024-banner.png',
   link: 'https://nwhacks.io',
   date: 'Jan 18 - 19',
   open: true,
 };
 const cmdfData = {
-  imgSrc: '/assets/cmd-f2024.png',
+  imgSrc: '/assets/cmd-f2024-banner.png',
   link: 'https://cmd-f.nwplus.io',
   date: 'Mar 8 - 9',
   open: true,
