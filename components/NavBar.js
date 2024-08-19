@@ -3,6 +3,15 @@ import styled from 'styled-components';
 
 import { SCREEN_BREAKPOINTS } from '../pages/_app';
 import fireDb from '../utilities/firebase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFacebook,
+  faInstagram,
+  faLinkedinIn,
+  faMediumM,
+  faTwitter,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
 
 const NavBarContainer = styled.nav`
   position: fixed;
@@ -49,6 +58,14 @@ const NavTextContainer = styled.div`
     display: none;
   }
 `;
+
+const SocialIcon = styled.a`
+  color: white;
+  padding: 10px;
+    &:hover {
+    color: #20FFAF;
+  }
+`
 
 const NwPlusLogo = styled.img`
   margin-right: 18px;
@@ -319,20 +336,26 @@ const NavBar = () => {
           <MenuList />
         </NavTextContainer>
       </NavGroupContainer>
+      {/* Right menu */}
       <NavTextContainer>
-        <JoinLink
-          hiring={config?.featureFlags?.isHiring}
-          hiringLink='/apply'
-          visibility={config ? 'visible' : 'hidden'}
-          opacity={config ? '1' : '0'}
-        />
-        {config?.featureFlags?.isLive !== null && (
-          <a href={config?.CTALink ?? '#'}>
-            <LivePortalButton disabled={!config?.featureFlags?.isLive}>
-              Live Portal
-            </LivePortalButton>
-          </a>
-        )}
+          <SocialIcon href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faFacebook} />
+          </SocialIcon>
+          <SocialIcon href="https://www.instagram.com/nwplusubc" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faInstagram} />
+          </SocialIcon>
+          <SocialIcon href="https://twitter.com/nwplusubc" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faTwitter} />
+          </SocialIcon>
+          <SocialIcon href="https://www.linkedin.com/company/nwplus" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faLinkedinIn} />
+          </SocialIcon>
+          <SocialIcon href="https://www.youtube.com/c/nwPlusUBC" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faYoutube} />
+          </SocialIcon>
+          <SocialIcon href="https://medium.com/nwplusubc" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faMediumM} />
+          </SocialIcon>
       </NavTextContainer>
       <HamburgerMenu
         src='/assets/icons/menu.svg'
