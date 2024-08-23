@@ -63,15 +63,26 @@ const AboutHeader = styled.div`
 
 const AboutSection = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   gap: 64px;
 
   ${(p) => p.theme.mediaQueries.mobile} {
-    flex-direction: column;
     gap: 32px;
   }
 `;
+
+const StatsSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;
+  margin-top: 8em;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    gap: 32px;
+  }
+`
 
 const GalleryContainer = styled.div`
   display: flex;
@@ -196,7 +207,18 @@ export default function Home() {
               />
             </GalleryContainer>
           </AboutSection>
-          <Stats />
+          <StatsSection>
+            <Title1 withGradient align='center'>
+              Statistics
+            </Title1>
+            <Stats stats={[
+              { title: "13+", description: "hackathons hosted since 2018" },
+              { title: "280+", description: "projects built" },
+              { title: "$110,230+", description: "in prizes awarded in 2021" },
+              { title: "50+", description: "workshops organized" },
+              { title: "$5,075+", description: "donations to charity in 2021" },
+            ]}/>
+          </StatsSection>
         </ContentContainer>
         <ContentContainer
           id="hackathons"
