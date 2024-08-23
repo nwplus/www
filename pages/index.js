@@ -17,6 +17,7 @@ import { Title1, Title2, Body } from '../components/Typography';
 // Utility
 import fireDb from '../utilities/firebase';
 import ImageTileContainer from '../components/ImageTileContainer';
+import AboutUsGallery from '../components/AboutUsGallery';
 
 const SECTION_MARGIN = '8em auto';
 
@@ -81,37 +82,6 @@ const StatsSection = styled.div`
 
   ${(p) => p.theme.mediaQueries.mobile} {
     gap: 32px;
-  }
-`
-
-const GalleryContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  height: 400px;
-  width: 100%;
-  gap: 16px;
-
-  & > * {
-    flex-basis: 50%;
-  }
-
-  ${(p) => p.theme.mediaQueries.mobile} {
-    flex-direction: column;
-    height: auto;
-
-    & > * {
-      flex-basis: auto;
-    }
-  }
-`;
-
-const GalleryVideo = styled.iframe`
-  height: 400px;
-  border: none;
-  border-radius: 6px;
-
-  ${(p) => p.theme.mediaQueries.mobile} {
-    height: 225px;
   }
 `;
 
@@ -185,27 +155,19 @@ export default function Home() {
             </AboutHeader>
           </AboutHeaderContainer>
           <AboutSection>
-            <GalleryContainer>
-              <GalleryVideo
-                src='https://www.youtube.com/embed/dQw4w9WgXcQ'
-                title='YouTube video player'
-                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                referrerpolicy='strict-origin-when-cross-origin'
-                allowFullScreen
-              ></GalleryVideo>
-              <ImageTileContainer
-                rows={[
-                  {
-                    leftImg: '/assets/images/team_social_1.jpg',
-                    rightImg: '/assets/images/team_hackcamp.jpg',
-                  },
-                  {
-                    leftImg: '/assets/images/team_dev.jpg',
-                    rightImg: '/assets/images/team_social_2.jpg',
-                  },
-                ]}
-              />
-            </GalleryContainer>
+            <AboutUsGallery
+              videoSrc='https://www.youtube.com/embed/dQw4w9WgXcQ'
+              images={[
+                {
+                  leftImg: '/assets/images/team_social_1.jpg',
+                  rightImg: '/assets/images/team_hackcamp.jpg',
+                },
+                {
+                  leftImg: '/assets/images/team_dev.jpg',
+                  rightImg: '/assets/images/team_social_2.jpg',
+                },
+              ]}
+            />
           </AboutSection>
           <StatsSection>
             <Title1 withGradient align='center'>

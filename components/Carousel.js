@@ -1,6 +1,3 @@
-// UNUSED
-// TODO delete component?
-
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 
@@ -40,14 +37,6 @@ const EmptyDiamond = styled.div`
     cursor: pointer;
 `;
 
-const Image = styled.img`
-    height: 100%;
-    width: 100%;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    object-fit: cover;
-`;
-
 const BaseArrow = css`
     border: solid ${(p) => p.theme.colors.primary};
     border-width: 0 2px 2px 0;
@@ -73,9 +62,9 @@ const LeftArrow = styled.i`
     left: 5%;
 `
 
-export default function Carousel ({ images, height, width }) {
+export default function Carousel ({ items, height, width }) {
     const [imageIndex, setImageIndex] = useState(0);
-    const numImages = images.length;
+    const numImages = items.length;
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -92,9 +81,9 @@ export default function Carousel ({ images, height, width }) {
                 <Container width={width} height={height}>
                     <RightArrow onClick={() => setImageIndex(imageIndex == numImages - 1 ? 0 : imageIndex + 1)}/>
                     <LeftArrow onClick={() => setImageIndex(imageIndex == 0 ? numImages - 1 : imageIndex - 1)}/>
-                    <Image src={images[imageIndex]} />
+                    {items[imageIndex]}
                     <FlexBox>
-                        {images.map((item, index) => {
+                        {items.map((item, index) => {
                             return index == imageIndex
                                 ? <FilledDiamond key={index} />
                                 : <EmptyDiamond key={index} onClick={() => setImageIndex(index)}/>
