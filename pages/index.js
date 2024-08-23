@@ -16,7 +16,6 @@ import Stats from '../components/Stats';
 import { Title1, Title2, Body } from '../components/Typography';
 // Utility
 import fireDb from '../utilities/firebase';
-import ImageTileContainer from '../components/ImageTileContainer';
 import AboutUsGallery from '../components/AboutUsGallery';
 
 const SECTION_MARGIN = '8em auto';
