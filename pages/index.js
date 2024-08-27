@@ -161,7 +161,7 @@ export default function Home() {
           margin={SECTION_MARGIN}
         >
           <Title1 withGradient align="center">
-            Hackathons
+            Our hackathons
           </Title1>
           <Hackathons />
         </ContentContainer>
