@@ -89,7 +89,6 @@ const RESOURCES_BODY =
   'If you are looking to get started in Computer Science, check out our ';
 const RESOURCES_LINK = 'https://resources.nwplus.io/';
 const RESOURCES_LINK_TEXT = 'Self-Learning Resources Wiki';
-const EXCLAMATION_MARK = '!';
 
 export default function ResourceContainer() {
   const [typeFilters, setTypeFilters] = useState({
