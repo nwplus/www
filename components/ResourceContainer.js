@@ -9,7 +9,7 @@ import {
   ResourceYear,
   RESOURCES,
 } from '../utils/ResourceUtils';
-import ResourceFilterCard from './ResourceFilterCard';
+import ResourceFilterDropdown from './ResourceFilterDropdown';
 import ResourcePage from './ResourcePage';
 import { Title1 } from './Typography';
 import Button from './Button';
@@ -43,17 +43,11 @@ const FilterContainer = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
+  justify-content: center;
+  padding: 0 8px;
   ${(p) => p.theme.mediaQueries.mobile} {
     flex-wrap: wrap;
-  }
-`;
-
-const FilterCardContainer = styled.div`
-  margin-bottom: 15px;
-  flex-wrap: wrap-content;
-  ${(p) => p.theme.mediaQueries.mobile} {
-    margin-right: 10px;
-    flex-grow: 1;
+    gap: 12px;
   }
 `;
 
@@ -67,6 +61,11 @@ const CallToActionContainer = styled.div`
   border-radius: 10px;
 
   font-weight: bold;
+  text-align: center;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    gap: 8px;
+  }
 `;
 
 const ActionButton = styled(Button)`
@@ -77,6 +76,7 @@ const ActionButton = styled(Button)`
   color: black;
 
   ${(p) => p.theme.mediaQueries.mobile} {
+    font-size: 16px;
   }
 
   &:hover {
@@ -211,13 +211,13 @@ export default function ResourceContainer() {
             filterStates={typeFilters}
             onChange={setTypeFilters}
           />
-          <ResourceFilterCard
+          <ResourceFilterDropdown
             header={FILTER_EVENT}
             items={ResourceEvent}
             filterStates={eventFilters}
             onChange={setEventFilters}
           />
-          <ResourceFilterCard
+          <ResourceFilterDropdown
             header={FILTER_YEAR}
             items={ResourceYear}
             filterStates={yearFilters}
