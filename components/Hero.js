@@ -46,10 +46,10 @@ const ComboButton = styled(Button)`
   z-index: 1;
 
   ${(p) => p.theme.mediaQueries.mobile} {
-    height: 36px;
+    height: 32px;
     width: 90px;
-    margin-top: -36px;
-    margin-left: calc(100% - 90px);
+    margin-top: -32px;
+    margin-left: calc(100% - 160px);
   }
 
   &:hover {
@@ -71,6 +71,7 @@ const StyledInput = styled.input`
     padding: 4px 8px;
     font-size: 14px;
     line-height: 24px;
+    width: 230px;
   }
 `;
 
