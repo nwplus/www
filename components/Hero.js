@@ -28,6 +28,9 @@ const NewsletterForm = styled.div`
 const FormText = styled.p`
   color: white;
   font-size: 1.4em;
+    ${(p) => p.theme.mediaQueries.mobile} {
+      font-size: 1em;
+    }
 `;
 
 const FormResponseText = styled.p`

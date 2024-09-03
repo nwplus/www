@@ -42,6 +42,10 @@ const HackathonPlanet = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 0.5fr 2fr;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    display: block;
+  }
 `
 
 const HackathonImageContainer = styled.div`
@@ -110,6 +114,7 @@ const HackathonButton = styled.a`
   color: #433860;
   padding: 7px 14px;
   border-radius: 7.76px;
+  font-weight: bold;
 `
 
 export default function Hackathons() {
