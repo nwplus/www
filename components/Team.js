@@ -101,7 +101,7 @@ export default function Team({ profiles }) {
 
   return (
     <>
-      <StyledTitle>Meet the minds behind nwPlus</StyledTitle>
+      <StyledTitle>Meet the minds behind nwPlus 💚</StyledTitle>
       <ProfileContent>
         <span>
           <b>{selectedProfile?.name}</b> {selectedProfile?.emoji}
