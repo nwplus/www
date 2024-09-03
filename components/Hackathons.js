@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // import HackathonCard from './HackathonCard';
 // import NewsletterModal from './NewsletterModal';
 // import { Body, Title2 } from './Typography';
-import Button from './Button';
+// import Button from './Button';
 
 const HackCampData = {
   imgSrc: '/assets/HackCampPlanet.svg',
