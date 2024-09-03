@@ -84,11 +84,38 @@ const StatsSection = styled.div`
   }
 `;
 
+const ResourcesSection = styled.div`
+  position: relative;
+  overflow-x: clip; /* so we can offset the planet graphic without scrollbar */
+  z-index: 1;
+
+  &:before {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: 0;
+    background: url('assets/resources-mascot.svg'), url('assets/resources-planet.svg');
+    background-position: bottom -10% left, bottom right;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 500px;
+  }
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    background: none;
+
+    &:before {
+      background: none;
+    }
+  }
+`;
+
 // Added min-height so that planet peeks out
 // When actual FAQs are populated I'm guessing it'll be taller anyways
 const FaqSection = styled.div`
-  background: url('assets/faq-stars.svg'), url('assets/faq-planet.svg');
-  background-position: top left, bottom right;
+  background: url('assets/faq-stars.svg');
+  background-position: top left;
   background-repeat: no-repeat;
   min-height: 600px;
 `;
@@ -172,26 +199,33 @@ export default function Home() {
             <Title1 withGradient align='center'>
               Statistics
             </Title1>
-            <Stats stats={[
-              { title: "13+", description: "hackathons hosted since 2018" },
-              { title: "280+", description: "projects built" },
-              { title: "$110,230+", description: "in prizes awarded in 2021" },
-              { title: "50+", description: "workshops organized" },
-              { title: "$5,075+", description: "donations to charity in 2021" },
-            ]}/>
+            <Stats
+              stats={[
+                { title: '13+', description: 'hackathons hosted since 2018' },
+                { title: '280+', description: 'projects built' },
+                {
+                  title: '$110,230+',
+                  description: 'in prizes awarded in 2021',
+                },
+                { title: '50+', description: 'workshops organized' },
+                {
+                  title: '$5,075+',
+                  description: 'donations to charity in 2021',
+                },
+              ]}
+            />
           </StatsSection>
         </ContentContainer>
-        <ContentContainer
-          id="hackathons"
-          margin={SECTION_MARGIN}
-        >
-          <Title1 withGradient align="center">
+        <ContentContainer id='hackathons' margin={SECTION_MARGIN}>
+          <Title1 withGradient align='center'>
             Our hackathons
           </Title1>
           <Hackathons />
         </ContentContainer>
         <ContentContainer id='resources' margin={SECTION_MARGIN}>
-          <ResourceContainer />
+          <ResourcesSection>
+            <ResourceContainer />
+          </ResourcesSection>
         </ContentContainer>
         {faqs && (
           <ContentContainer id='faq' margin={SECTION_MARGIN}>
