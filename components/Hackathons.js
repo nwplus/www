@@ -38,23 +38,6 @@ const HackathonsContainer = styled.div`
   }
 `;
 
-const ActionButton = styled(Button)`
-  width: 200px;
-  height: 60px;
-  font-size: 22px;
-  margin: auto;
-  margin-top: 24px;
-
-  ${(p) => p.theme.mediaQueries.mobile} {
-    height: 60px;
-    width: 200px;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 const HackathonPlanet = styled.div`
   margin: 0 auto;
   display: grid;
