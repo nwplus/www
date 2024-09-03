@@ -1,13 +1,12 @@
+import React, { useState, useRef, useContext } from 'react';
 import Lottie from 'lottie-react';
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
+import axios from 'axios';
 import { ContentContainer } from './ContentContainer';
 import { LargeTitle, Title2 } from './Typography';
 import scollAnimation from './lotties/scroll.json';
-import Button from './Button'
+import Button from './Button';
 
-/** hack to display image without cropping: width=100%, height=0, padding-bottom to size the div to the image’s proportion
- * padding-bottom: height / width = 998px / 1440px ≈ 69%
- * https://www.quora.com/In-CSS-how-do-I-set-a-background-image-on-a-div-without-part-of-the-image-getting-cutoff */
 const HeroContainer = styled.div`
   width: 100%;
   height: 0;
@@ -30,6 +29,11 @@ const FormText = styled.p`
   color: white;
   font-size: 1.4em;
 `;
+
+const FormResponseText = styled.p`
+  font-size: 1em;
+`
+
 const ComboButton = styled(Button)`
   position: relative;
   margin-top: -31px;
@@ -55,7 +59,7 @@ const StyledInput = styled.input`
   border-radius: 8px;
   padding: 8px 12px;
   background: white;
-  color: white;
+  color: black;
   font-weight: normal;
   font-size: 1em;
   width: 320px;
@@ -92,27 +96,66 @@ const ScrollOval = styled.span`
   height: 30px;
   display: inline-block;
   margin-right: 15px;
-`
+`;
 
 export default function Hero() {
+  // const themeContext = useContext(ThemeContext);
+  const [inputMessage, setInputMessage] = useState('');
+  const [inputMessageColor, setinputMessageColor] = useState('');
+
+  const emailInput = useRef();
+
+  function addToMailingList() {
+    setInputMessage('');
+    setinputMessageColor('#F65C5C')
+
+    const email = emailInput.current.value;
+    const validEmail = validateEmail(email);
+
+    if (validEmail) {
+      axios({
+        method: 'POST',
+        url: 'https://us-central1-nwplus-ubc.cloudfunctions.net/addToMailingList',
+        data: { email },
+      })
+        .then(() => {
+          setInputMessage(`Thank you for subscribing!`);
+          setinputMessageColor('#78FF96')
+        })
+        .catch((err) => {
+          if (err.response?.status === 409) {
+            setInputMessage(`${email} is already subscribed!`);
+          } else {
+            setInputMessage('Something went wrong, please try again later.');
+          }
+        });
+    } else {
+      setInputMessage('Please enter a valid email.');
+    }
+  }
+
+  function validateEmail(email) {
+    if (!email.includes('@')) return false;
+    const [localPart, domain] = email.split('@');
+    if (!localPart || !domain.includes('.') || domain.split('.').some(part => part.length < 1)) {
+      return false;
+    }
+    return true;
+  }
+
   return (
     <HeroContainer>
       <HeroTextContainer>
         <ContentContainer>
           <LargeTitle withGradient>nwPlus</LargeTitle>
-          <Title2>
-            Leading Western Canada&#39;s <br /> Biggest Hackathons
-          </Title2>
+          <Title2>Leading Western Canada&#39;s <br /> Biggest Hackathons</Title2>
         </ContentContainer>
       </HeroTextContainer>
       <NewsletterForm>
         <ContentContainer>
-          <FormText>
-            Get notified when exciting things drop
-          </FormText>
-          
+          <FormText>Get notified when exciting things drop</FormText>
           <StyledInput
-            // ref={emailInput}
+            ref={emailInput}
             name="email"
             type="email"
             placeholder="Email Address"
@@ -122,10 +165,11 @@ export default function Hero() {
             width="200px"
             margin="0"
             padding="0"
-            // onClick={addToMailingList}
+            onClick={addToMailingList}
           >
             Submit
           </ComboButton>
+          {inputMessage && <FormResponseText style={{color: inputMessageColor}}>{inputMessage}</FormResponseText>}
         </ContentContainer>
       </NewsletterForm>
 
