@@ -1,8 +1,8 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import styled from 'styled-components';
-import HackathonCard from './HackathonCard';
-import NewsletterModal from './NewsletterModal';
-import { Body, Title2 } from './Typography';
+// import HackathonCard from './HackathonCard';
+// import NewsletterModal from './NewsletterModal';
+// import { Body, Title2 } from './Typography';
 import Button from './Button';
 
 const HackCampData = {
@@ -130,7 +130,7 @@ const HackathonButton = styled.a`
 `
 
 export default function Hackathons() {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
   return (
     <>
