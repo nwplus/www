@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styled, { ThemeContext } from 'styled-components';
+import styled, { ThemeContext } from 'styled-components'
 import { useContext, useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 // Components
