@@ -1,6 +1,6 @@
-import React, { useState, useRef, useContext } from 'react';
+import React, { useState, useRef } from 'react';
 import Lottie from 'lottie-react';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import axios from 'axios';
 import { ContentContainer } from './ContentContainer';
 import { LargeTitle, Title2 } from './Typography';
