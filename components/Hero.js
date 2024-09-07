@@ -75,6 +75,11 @@ const StyledInput = styled.input`
   }
 `;
 
+const SponsorshipCTA = styled.p`
+  color: #78FF96; // turn into gradient later
+  font-size: 1em;
+`
+
 const ScrollContainer = styled.div`
   float: left;
   display: flex;
@@ -176,6 +181,7 @@ export default function Hero() {
             Submit
           </ComboButton>
           {inputMessage && <FormResponseText style={{color: inputMessageColor}}>{inputMessage}</FormResponseText>}
+          <SponsorshipCTA>Interested in sponsoring? Reach us at <a href="mailto:sponsorship@nwplus.io">sponsorship@nwplus.io</a>!</SponsorshipCTA>
         </ContentContainer>
       </NewsletterForm>
 
