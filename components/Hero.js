@@ -124,11 +124,13 @@ export default function Hero() {
       })
         .then(() => {
           setInputMessage(`Thank you for subscribing!`);
-          setinputMessageColor('#78FF96')
+          setinputMessageColor('#78FF96');
+          emailInput.current.value = '';
         })
         .catch((err) => {
           if (err.response?.status === 409) {
             setInputMessage(`${email} is already subscribed!`);
+            emailInput.current.value = '';
           } else {
             setInputMessage('Something went wrong, please try again later.');
           }
