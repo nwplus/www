@@ -15,6 +15,12 @@ const HeroContainer = styled.div`
   background-repeat: no-repeat;
   background-position: top;
   background-size: contain;
+  ${(div) => div.theme.mediaQueries.mobile} {
+    background: url(/assets/hero_illustration_mobile.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-bottom: 100%;
+  }
 `;
 
 const HeroTextContainer = styled.div`
