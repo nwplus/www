@@ -26,11 +26,17 @@ const ResourcePageContainer = styled.div`
   }
 `;
 
-const RESOURCES_PER_PAGE = 6;
-
 export default function ResourcePage({ resources, startingPageIndex = 0 }) {
   const [currPageIndex, setCurrPageIndex] = useState(startingPageIndex);
   const [currPageResources, setCurrPageResources] = useState([]);
+  const [width, setWidth] = useState(window.innerWidth);
+  const mobileBreakpoint = 768;
+
+  const RESOURCES_PER_PAGE = width <= mobileBreakpoint ? 3 : 6;
+
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth));
+  }, []);
 
   const TOTAL_RESOURCE_PAGES = Math.ceil(resources.length / RESOURCES_PER_PAGE);
 
