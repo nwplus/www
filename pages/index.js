@@ -187,10 +187,10 @@ export default function Home() {
               images={[
                 {
                   leftImg: '/assets/images/team_social_1.jpg',
-                  rightImg: '/assets/images/team_hackcamp.jpg',
+                  rightImg: '/assets/images/team_social_3.jpg',
                 },
                 {
-                  leftImg: '/assets/images/team_dev.jpg',
+                  leftImg: '/assets/images/team_social_4.jpg',
                   rightImg: '/assets/images/team_social_2.jpg',
                 },
               ]}
