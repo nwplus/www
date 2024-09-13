@@ -51,7 +51,7 @@ function Stat({stat: s}) {
     const spinAnimation = anime({
       targets: card,
       rotateX: '360deg',
-      duration: 250,
+      duration: 400,
       easing: 'easeInOutSine',
       autoplay: false,
       complete: () => {
