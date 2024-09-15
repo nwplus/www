@@ -25,6 +25,9 @@ const HeroContainer = styled.div`
 
 const HeroTextContainer = styled.div`
   padding-top: 28%;
+  ${(div) => div.theme.mediaQueries.mobile} {
+    padding-top: 55%;
+  }
 `;
 
 const NewsletterForm = styled.div`
@@ -46,16 +49,19 @@ const FormResponseText = styled.p`
 const ComboButton = styled(Button)`
   position: relative;
   margin-top: -31px;
-  margin-left: 250px;
+  margin-left: 222.5px;
   width: 65px;
   height: 28px;
   z-index: 1;
 
   ${(p) => p.theme.mediaQueries.mobile} {
-    height: 32px;
-    width: 90px;
-    margin-top: -32px;
-    margin-left: calc(100% - 160px);
+    height: 22px;
+    width: 49px;
+    margin-top: -22px;
+    margin-left: calc(100% - 170px);
+    width: Fixed (49px)px;
+    font-size: 0.8em;
+    border-radius: 6px;
   }
 
   &:hover {
@@ -66,18 +72,21 @@ const ComboButton = styled(Button)`
 const StyledInput = styled.input`
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: 0px 12px;
   background: white;
   color: black;
   font-weight: normal;
-  font-size: 1em;
-  width: 320px;
+  font-size: 0.8em;
+  width: 291px;
+  height: 36px;
 
   ${(p) => p.theme.mediaQueries.mobile} {
     padding: 4px 8px;
-    font-size: 14px;
+    font-size: 10px;
     line-height: 24px;
-    width: 230px;
+    width: 179.42px;
+    height: 22.2px;
+    border-radius: 6px;
   }
 `;
 
