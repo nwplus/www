@@ -18,6 +18,11 @@ import { Title1, Title2, Body } from '../components/Typography';
 import fireDb from '../utilities/firebase';
 import AboutUsGallery from '../components/AboutUsGallery';
 
+import teamSocial1 from '../public/assets/images/team_social_1.jpg';
+import teamSocial3 from '../public/assets/images/team_social_3.jpg';
+import teamSocial4 from '../public/assets/images/team_social_4.jpg';
+import teamSocial2 from '../public/assets/images/team_social_2.jpg';
+
 const SECTION_MARGIN = '8em auto';
 
 const AboutHeaderContainer = styled.div`
@@ -186,12 +191,12 @@ export default function Home() {
               videoSrc='https://www.youtube.com/embed/C_1ygFqM_oo'
               images={[
                 {
-                  leftImg: '/assets/images/team_social_1.jpg',
-                  rightImg: '/assets/images/team_social_3.jpg',
+                  leftImg: teamSocial1,
+                  rightImg: teamSocial3,
                 },
                 {
-                  leftImg: '/assets/images/team_social_4.jpg',
-                  rightImg: '/assets/images/team_social_2.jpg',
+                  leftImg: teamSocial4,
+                  rightImg: teamSocial2,
                 },
               ]}
             />

@@ -6,15 +6,16 @@ import { ContentContainer } from './ContentContainer';
 import { LargeTitle, Title2 } from './Typography';
 import scollAnimation from './lotties/scroll.json';
 import Button from './Button';
+import heroBg from "../public/assets/hero_illustration.png";
 
 const HeroContainer = styled.div`
   width: 100%;
   height: 0;
   padding-bottom: 69%;
-  background: url(/assets/hero_illustration.svg);
+  background: url(${heroBg});
   background-repeat: no-repeat;
   background-position: top;
-  background-size: contain;
+  background-size: cover;
   ${(div) => div.theme.mediaQueries.mobile} {
     background: url(/assets/hero_illustration_mobile.svg);
     background-repeat: no-repeat;
@@ -162,6 +163,7 @@ export default function Hero() {
 
   return (
     <HeroContainer>
+
       <HeroTextContainer>
         <ContentContainer>
           <LargeTitle withGradient>nwPlus</LargeTitle>

@@ -4,24 +4,27 @@ import styled from 'styled-components';
 // import NewsletterModal from './NewsletterModal';
 // import { Body, Title2 } from './Typography';
 // import Button from './Button';
-import SpaceDeer from '../public/assets/space-deer.svg'
-import PurpleTexture from '../public/assets/purple-texture.svg'
+import SpaceDeer from '../public/assets/space-deer.svg';
+import PurpleTexture from '../public/assets/purple-texture.svg';
+import hackCampImg from '../public/assets/HackCampPlanet.svg';
+import nwHacksImg from '../public/assets/nwHacksPlanet.svg';
+import cmdFImg from '../public/assets/cmdfPlanet.svg'
 
 const HackCampData = {
-  imgSrc: '/assets/HackCampPlanet.svg',
+  imgSrc: hackCampImg,
   link: 'https://hackcamp.nwplus.io',
   date: 'Nov 9 - 10',
-  registrationOpenDate: "Oct 6",
+  registrationOpenDate: 'Oct 6',
   open: false,
 };
 const nwHacksData = {
-  imgSrc: '/assets/nwHacksPlanet.svg',
+  imgSrc: nwHacksImg,
   link: 'https://nwhacks.io',
   date: 'Jan 18 - 19',
   open: true,
 };
 const cmdfData = {
-  imgSrc: '/assets/cmdfPlanet.svg',
+  imgSrc: cmdFImg,
   link: 'https://cmd-f.nwplus.io',
   date: 'Mar 8 - 9',
   open: true,
@@ -58,75 +61,72 @@ const HackathonPlanet = styled.div`
   ${(p) => p.theme.mediaQueries.mobile} {
     display: block;
   }
-`
+`;
 
 const MobileHackathonPlanet = styled.div`
   display: block;
-    width: 100%;
+  width: 100%;
   margin: 10px 0;
 `;
-
 
 const HackathonImageContainer = styled.div`
   border-radius: 50%;
   overflow: hidden;
   position: relative;
 
-    @keyframes float {
-        0% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-20px);
-        }
-        100% {
-            transform: translateY(0);
-        }
+  @keyframes float {
+    0% {
+      transform: translateY(0);
     }
-`
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+`;
 
 const DashedConnector = styled.div`
   position: relative;
   width: 100%;
   height: 0px;
-  border: 1.66px solid #BDBAC3;
+  border: 1.66px solid #bdbac3;
   border-style: dashed;
 
-  
   ${(props) =>
     props.open &&
     `
       border: 1.66px solid #00D88A;
       border-style: dashed;
   `}
-`
+`;
 
 const MobileDashedConnector = styled.div`
   position: relative;
   width: 80px;
   height: 0px;
-  border: 1.66px solid #BDBAC3;
+  border: 1.66px solid #bdbac3;
   border-style: dashed;
   top: -30px;
-  
+
   ${(props) =>
     props.open &&
     `
       border: 1.66px solid #00D88A;
       border-style: dashed;
   `}
-`
-
+`;
 
 const HackathonImage = styled.img`
   width: 100%;
   height: 100%;
   filter: blur(3px);
-`
+`;
 
 const HackathonDetails = styled.div`
   position: relative;
-  border: 1.66px solid #BDBAC3;
+  border: 1.66px solid #bdbac3;
   border-radius: 24.84px;
   position: relative;
   border-style: dashed;
@@ -141,16 +141,16 @@ const HackathonDetails = styled.div`
       border: 1.66px solid #00D88A;
       border-style: dashed;
   `}
-`
+`;
 
 const HackathonTitle = styled.h2`
-  color: #FFF;
+  color: #fff;
   font-size: 2em;
   margin-top: 0px;
-`
+`;
 
 const LiveBadge = styled.span`
-  background: #F65C5C;
+  background: #f65c5c;
   color: white;
   padding: 4px 8px;
   border-radius: 6.21px;
@@ -158,24 +158,24 @@ const LiveBadge = styled.span`
 `;
 
 const HackathonDescriptions = styled.p`
-  color: #FFF;
-`
+  color: #fff;
+`;
 
 const HackathonDate = styled.p`
-  color: #BDBAC3;
-`
+  color: #bdbac3;
+`;
 
 const HackathonButton = styled.a`
-  background: linear-gradient(90deg, #00DBCE 0%, #00D88A 100%);
+  background: linear-gradient(90deg, #00dbce 0%, #00d88a 100%);
   color: #433860;
   padding: 7px 14px;
   border-radius: 7.76px;
   font-weight: bold;
-`
+`;
 
 const MobileHackathonDetails = styled.div`
   position: relative;
-  border: 1.66px solid #BDBAC3;
+  border: 1.66px solid #bdbac3;
   border-radius: 24.84px;
   position: relative;
   border-style: dashed;
@@ -190,18 +190,18 @@ const MobileHackathonDetails = styled.div`
       border: 1.66px solid #00D88A;
       border-style: dashed;
   `}
-`
+`;
 
 const MobileHackathonTitle = styled.span`
-  color: #FFF;
+  color: #fff;
   font-size: 2em;
   margin-top: 0px;
-`
+`;
 
 const MobileHackathonDate = styled.span`
-  color: #BDBAC3;
+  color: #bdbac3;
   float: right;
-`
+`;
 
 const PurpleTextureImg = styled.img`
   position: absolute;
@@ -210,7 +210,6 @@ const PurpleTextureImg = styled.img`
   float: left;
 
   ${(p) => p.theme.mediaQueries.mobile} {
-
   }
 `;
 
@@ -262,49 +261,102 @@ export default function Hackathons() {
       <HackathonsContainer>
         {/* HackCamp */}
         <HackathonPlanet>
-          <HackathonDetails open={HackCampData.open} style={{ top: "-100px" }}>
-            <HackathonTitle>HackCamp {HackCampData.open && <LiveBadge>Live</LiveBadge>}</HackathonTitle>
-            <HackathonDescriptions>Canada’s largest beginner hackathon, focused on learning.</HackathonDescriptions>
+          <HackathonDetails open={HackCampData.open} style={{ top: '-100px' }}>
+            <HackathonTitle>
+              HackCamp {HackCampData.open && <LiveBadge>Live</LiveBadge>}
+            </HackathonTitle>
+            <HackathonDescriptions>
+              Canada’s largest beginner hackathon, focused on learning.
+            </HackathonDescriptions>
             <HackathonDate>{HackCampData.date}</HackathonDate>
-            <HackathonButton href={HackCampData.link} target="_blank">Visit website</HackathonButton>
+            <HackathonButton href={HackCampData.link} target='_blank'>
+              Visit website
+            </HackathonButton>
           </HackathonDetails>
 
-          <DashedConnector open={HackCampData.open} style={{ top: "0px", left: "10px", transform: "rotate(30deg)" }}></DashedConnector>
+          <DashedConnector
+            open={HackCampData.open}
+            style={{ top: '0px', left: '10px', transform: 'rotate(30deg)' }}
+          ></DashedConnector>
 
-          <HackathonImageContainer style={{width: "254px", height: "254px", top:"-30px", animation: "float 5s ease-in-out infinite"}}>
+          <HackathonImageContainer
+            style={{
+              width: '254px',
+              height: '254px',
+              top: '-30px',
+              animation: 'float 5s ease-in-out infinite',
+            }}
+          >
             <HackathonImage src={HackCampData.imgSrc} />
           </HackathonImageContainer>
         </HackathonPlanet>
 
         {/* nwHacks */}
         <HackathonPlanet>
-          <HackathonImageContainer style={{width: "220px", height: "220px", float: "right", animation: "float 4s ease-in-out infinite" }}>
+          <HackathonImageContainer
+            style={{
+              width: '220px',
+              height: '220px',
+              float: 'right',
+              animation: 'float 4s ease-in-out infinite',
+            }}
+          >
             <HackathonImage src={nwHacksData.imgSrc} />
           </HackathonImageContainer>
-          <DashedConnector open={nwHacksData.open} style={{ top: "80px", left: "-25px", transform: "rotate(-30deg)" }}></DashedConnector>
-          <HackathonDetails open={nwHacksData.open} style={{ textAlign: "left" }}>
-            <HackathonTitle>nwHacks {nwHacksData.open && <LiveBadge>Live</LiveBadge>}</HackathonTitle>
-            <HackathonDescriptions>Our flagship hackathon – largest in Western Canada.</HackathonDescriptions>
+          <DashedConnector
+            open={nwHacksData.open}
+            style={{ top: '80px', left: '-25px', transform: 'rotate(-30deg)' }}
+          ></DashedConnector>
+          <HackathonDetails
+            open={nwHacksData.open}
+            style={{ textAlign: 'left' }}
+          >
+            <HackathonTitle>
+              nwHacks {nwHacksData.open && <LiveBadge>Live</LiveBadge>}
+            </HackathonTitle>
+            <HackathonDescriptions>
+              Our flagship hackathon – largest in Western Canada.
+            </HackathonDescriptions>
             <HackathonDate>{nwHacksData.date}</HackathonDate>
-            <HackathonButton href={nwHacksData.link} target="_blank">Interest Form Open</HackathonButton>
+            <HackathonButton href={nwHacksData.link} target='_blank'>
+              Interest Form Open
+            </HackathonButton>
           </HackathonDetails>
         </HackathonPlanet>
 
         {/* cmd-f */}
         <HackathonPlanet>
-          <HackathonDetails open={cmdfData.open} style={{ top: "50px", left: "-10px" }}>
-            <HackathonTitle>cmd-f {cmdfData.open && <LiveBadge>Live</LiveBadge>}</HackathonTitle>
-            <HackathonDescriptions>Hackathon celebrating underrepresented genders in tech.</HackathonDescriptions>
+          <HackathonDetails
+            open={cmdfData.open}
+            style={{ top: '50px', left: '-10px' }}
+          >
+            <HackathonTitle>
+              cmd-f {cmdfData.open && <LiveBadge>Live</LiveBadge>}
+            </HackathonTitle>
+            <HackathonDescriptions>
+              Hackathon celebrating underrepresented genders in tech.
+            </HackathonDescriptions>
             <HackathonDate>{cmdfData.date}</HackathonDate>
-            <HackathonButton href={cmdfData.link} target="_blank">Interest Form Open</HackathonButton>
+            <HackathonButton href={cmdfData.link} target='_blank'>
+              Interest Form Open
+            </HackathonButton>
           </HackathonDetails>
 
-          <DashedConnector open={cmdfData.open} style={{ top: "120px", left: "-5px", transform: "rotate(-30deg)" }}></DashedConnector>
+          <DashedConnector
+            open={cmdfData.open}
+            style={{ top: '120px', left: '-5px', transform: 'rotate(-30deg)' }}
+          ></DashedConnector>
 
-          <HackathonImageContainer style={{width: "214.75px", height: "214.75px", textAlign: "right",  animation: "float 3.5s ease-in-out infinite"}}>
+          <HackathonImageContainer
+            style={{
+              width: '214.75px',
+              height: '214.75px',
+              textAlign: 'right',
+              animation: 'float 3.5s ease-in-out infinite',
+            }}
+          >
             <HackathonImage src={cmdfData.imgSrc} />
           </HackathonImageContainer>
-
         </HackathonPlanet>
       </HackathonsContainer>
 
@@ -315,14 +367,23 @@ export default function Hackathons() {
             <MobileHackathonImage src={HackCampData.imgSrc} />
           </MobileHackathonImageContainer>
 
-          <MobileDashedConnector open={HackCampData.open} style={{ transform: "rotate(-40deg)", left: "50px" }}></MobileDashedConnector>
+          <MobileDashedConnector
+            open={HackCampData.open}
+            style={{ transform: 'rotate(-40deg)', left: '50px' }}
+          ></MobileDashedConnector>
 
           <MobileHackathonDetails open={HackCampData.open}>
-            <MobileHackathonTitle>HackCamp {HackCampData.open && <LiveBadge>Live</LiveBadge>}</MobileHackathonTitle>
+            <MobileHackathonTitle>
+              HackCamp {HackCampData.open && <LiveBadge>Live</LiveBadge>}
+            </MobileHackathonTitle>
             <MobileHackathonDate>{HackCampData.date}</MobileHackathonDate>
 
-            <HackathonDescriptions>Canada’s largest beginner hackathon, focused on learning.</HackathonDescriptions>
-            <HackathonButton href={HackCampData.link} target="_blank">Visit website</HackathonButton>
+            <HackathonDescriptions>
+              Canada’s largest beginner hackathon, focused on learning.
+            </HackathonDescriptions>
+            <HackathonButton href={HackCampData.link} target='_blank'>
+              Visit website
+            </HackathonButton>
           </MobileHackathonDetails>
         </MobileHackathonPlanet>
 
@@ -332,14 +393,23 @@ export default function Hackathons() {
             <MobileHackathonImage src={nwHacksData.imgSrc} />
           </MobileHackathonImageContainer>
 
-          <MobileDashedConnector open={nwHacksData.open} style={{ transform: "rotate(40deg)", left: "260px" }}></MobileDashedConnector>
+          <MobileDashedConnector
+            open={nwHacksData.open}
+            style={{ transform: 'rotate(40deg)', left: '260px' }}
+          ></MobileDashedConnector>
 
           <MobileHackathonDetails open={nwHacksData.open}>
-            <MobileHackathonTitle>nwHacks {nwHacksData.open && <LiveBadge>Live</LiveBadge>}</MobileHackathonTitle>
+            <MobileHackathonTitle>
+              nwHacks {nwHacksData.open && <LiveBadge>Live</LiveBadge>}
+            </MobileHackathonTitle>
             <MobileHackathonDate>{nwHacksData.date}</MobileHackathonDate>
 
-            <HackathonDescriptions>Our flagship hackathon – largest in Western Canada.</HackathonDescriptions>
-            <HackathonButton href={nwHacksData.link} target="_blank">Interest Form Open</HackathonButton>
+            <HackathonDescriptions>
+              Our flagship hackathon – largest in Western Canada.
+            </HackathonDescriptions>
+            <HackathonButton href={nwHacksData.link} target='_blank'>
+              Interest Form Open
+            </HackathonButton>
           </MobileHackathonDetails>
         </MobileHackathonPlanet>
 
@@ -349,18 +419,25 @@ export default function Hackathons() {
             <MobileHackathonImage src={cmdfData.imgSrc} />
           </MobileHackathonImageContainer>
 
-          <MobileDashedConnector open={cmdfData.open} style={{ transform: "rotate(-40deg)", left: "50px" }}></MobileDashedConnector>
+          <MobileDashedConnector
+            open={cmdfData.open}
+            style={{ transform: 'rotate(-40deg)', left: '50px' }}
+          ></MobileDashedConnector>
 
           <MobileHackathonDetails open={cmdfData.open}>
-            <MobileHackathonTitle>cmd-f {cmdfData.open && <LiveBadge>Live</LiveBadge>}</MobileHackathonTitle>
+            <MobileHackathonTitle>
+              cmd-f {cmdfData.open && <LiveBadge>Live</LiveBadge>}
+            </MobileHackathonTitle>
             <MobileHackathonDate>{cmdfData.date}</MobileHackathonDate>
 
-            <HackathonDescriptions>Hackathon celebrating underrepresented genders in tech.</HackathonDescriptions>
-            <HackathonButton href={cmdfData.link} target="_blank">Interest Form Open</HackathonButton>
+            <HackathonDescriptions>
+              Hackathon celebrating underrepresented genders in tech.
+            </HackathonDescriptions>
+            <HackathonButton href={cmdfData.link} target='_blank'>
+              Interest Form Open
+            </HackathonButton>
           </MobileHackathonDetails>
-
         </MobileHackathonPlanet>
-
       </MobileHackathonsContainer>
 
       <PurpleTextureImg src={PurpleTexture} />
