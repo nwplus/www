@@ -6,7 +6,8 @@ import { ContentContainer } from './ContentContainer';
 import { LargeTitle, Title2 } from './Typography';
 import scollAnimation from './lotties/scroll.json';
 import Button from './Button';
-import heroBg from "../public/assets/hero_illustration.png";
+import heroBg from '../public/assets/hero_illustration.png';
+import heroBgMobile from '../public/assets/hero_illustration_mobile.png';
 
 const HeroContainer = styled.div`
   width: 100%;
@@ -17,7 +18,7 @@ const HeroContainer = styled.div`
   background-position: top;
   background-size: cover;
   ${(div) => div.theme.mediaQueries.mobile} {
-    background: url(/assets/hero_illustration_mobile.svg);
+    background: url(${heroBgMobile});
     background-repeat: no-repeat;
     background-size: 100% 100%;
     padding-bottom: 100%;
