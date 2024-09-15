@@ -6,6 +6,9 @@ import styled from 'styled-components';
 // import Button from './Button';
 import SpaceDeer from '../public/assets/space-deer.svg'
 import PurpleTexture from '../public/assets/purple-texture.svg'
+import moonOneImg from '../public/assets/moon-1.svg'
+import moonTwoImg from '../public/assets/moon-2.svg'
+import moonThreeImg from '../public/assets/moon-3.svg'
 
 const HackCampData = {
   imgSrc: '/assets/HackCampPlanet.svg',
@@ -66,6 +69,19 @@ const MobileHackathonPlanet = styled.div`
   margin: 10px 0;
 `;
 
+const MoonContainer = styled.a`
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.5s;
+`
+
+const HackathonPlanetContainers = styled.div`
+  &:hover ${MoonContainer} {
+    opacity: 1;
+  }
+`
+
 
 const HackathonImageContainer = styled.div`
   border-radius: 50%;
@@ -87,7 +103,7 @@ const HackathonImageContainer = styled.div`
 
 const DashedConnector = styled.div`
   position: relative;
-  width: 100%;
+  width: 80%;
   height: 0px;
   border: 1.66px solid #BDBAC3;
   border-style: dashed;
@@ -254,6 +270,20 @@ const MobileHackathonImage = styled.img`
   filter: blur(3px);
 `;
 
+
+const Moon = styled.img`
+  position: relative;
+  width: 60px; /* Set moon size */
+  height: 60px; /* Set moon size */
+`;
+
+const MoonYear = styled.p`
+    position: absolute;
+    top: -35px;
+    // display: none;
+
+`
+
 export default function Hackathons() {
   // const [showModal, setShowModal] = useState(false);
 
@@ -271,17 +301,58 @@ export default function Hackathons() {
 
           <DashedConnector open={HackCampData.open} style={{ top: "0px", left: "10px", transform: "rotate(30deg)" }}></DashedConnector>
 
-          <HackathonImageContainer style={{width: "254px", height: "254px", top:"-30px", animation: "float 5s ease-in-out infinite"}}>
-            <HackathonImage src={HackCampData.imgSrc} />
-          </HackathonImageContainer>
+          <HackathonPlanetContainers style={{ animation: "float 5s ease-in-out infinite" }}>
+            {/* Position the moons around the planet */}
+
+            <MoonContainer href="https://hackcamp2022.nwplus.io/" style={{top: "-30%", left: "-28px", transform: "translateY(-50%)"}}>
+              <MoonYear style={{color: "#3E6C8C"}}>2022</MoonYear>
+              <Moon src={moonOneImg} />
+            </MoonContainer>
+
+            <MoonContainer href="https://hackcamp2023.nwplus.io/" style={{top: "-25%", left: "105%", transform: "translateX(-50%)"}}>
+              <MoonYear style={{color:"#B89C9F"}}>2023</MoonYear>
+              <Moon src={moonTwoImg} />
+            </MoonContainer>
+
+            <MoonContainer href="https://hackcamp2021.nwplus.io/" style={{top: "90%", right: "42px", transform: "translateY(-50%)"}}>
+              <MoonYear style={{color:"#574D94"}}>2021</MoonYear>
+              <Moon src={moonThreeImg} />
+            </MoonContainer>
+
+            <HackathonImageContainer style={{width: "254px", height: "254px", top:"-75px" }}>
+              <HackathonImage src={HackCampData.imgSrc} />
+            </HackathonImageContainer>
+          </HackathonPlanetContainers>
         </HackathonPlanet>
 
         {/* nwHacks */}
         <HackathonPlanet>
-          <HackathonImageContainer style={{width: "220px", height: "220px", float: "right", animation: "float 4s ease-in-out infinite" }}>
-            <HackathonImage src={nwHacksData.imgSrc} />
-          </HackathonImageContainer>
-          <DashedConnector open={nwHacksData.open} style={{ top: "80px", left: "-25px", transform: "rotate(-30deg)" }}></DashedConnector>
+
+          <HackathonPlanetContainers style={{ animation: "float 4s ease-in-out infinite" }}>
+            {/* Position the moons around the planet */}
+            <MoonContainer href="https://2023.nwhacks.io/" style={{top: "20%", left: "-14px", transform: "translateY(-50%)"}}>
+              <MoonYear style={{color: "#3E6C8C"}}>2023</MoonYear>
+              <Moon src={moonOneImg} />
+            </MoonContainer>
+
+            <MoonContainer href="https://2024.nwhacks.io/" style={{top: "-25%", left: "100%", transform: "translateX(-50%)"}}>
+              <MoonYear style={{color:"#B89C9F"}}>2024</MoonYear>
+              <Moon src={moonTwoImg} />
+            </MoonContainer>
+
+            <MoonContainer href="https://2022.nwhacks.io/" style={{top: "100%", right: "-0px", transform: "translateY(-50%)"}}>
+              <MoonYear style={{color:"#574D94"}}>2022</MoonYear>
+              <Moon src={moonThreeImg} />
+            </MoonContainer>
+
+            <HackathonImageContainer style={{width: "220px", height: "220px", float: "right" }}>
+              <HackathonImage src={nwHacksData.imgSrc} />
+            </HackathonImageContainer>
+
+          </HackathonPlanetContainers>
+
+          <DashedConnector open={nwHacksData.open} style={{ top: "80px", left: "5px", transform: "rotate(-30deg)" }}></DashedConnector>
+
           <HackathonDetails open={nwHacksData.open} style={{ textAlign: "left" }}>
             <HackathonTitle>nwHacks {nwHacksData.open && <LiveBadge>Live</LiveBadge>}</HackathonTitle>
             <HackathonDescriptions>Our flagship hackathon – largest in Western Canada.</HackathonDescriptions>
@@ -299,11 +370,30 @@ export default function Hackathons() {
             <HackathonButton href={cmdfData.link} target="_blank">Interest Form Open</HackathonButton>
           </HackathonDetails>
 
-          <DashedConnector open={cmdfData.open} style={{ top: "120px", left: "-5px", transform: "rotate(-30deg)" }}></DashedConnector>
+          <DashedConnector open={cmdfData.open} style={{ top: "160px", left: "5px", transform: "rotate(-30deg)" }}></DashedConnector>
 
-          <HackathonImageContainer style={{width: "214.75px", height: "214.75px", textAlign: "right",  animation: "float 3.5s ease-in-out infinite"}}>
-            <HackathonImage src={cmdfData.imgSrc} />
-          </HackathonImageContainer>
+          <HackathonPlanetContainers style={{ animation: "float 3.5s ease-in-out infinite" }}>
+            {/* Position the moons around the planet */}
+            <MoonContainer href="https://cmd-f2023.nwplus.io/" style={{top: "0%", left: "-56px", transform: "translateY(-50%)"}}>
+              <MoonYear style={{color: "#3E6C8C"}}>2023</MoonYear>
+              <Moon src={moonOneImg} />
+            </MoonContainer>
+
+            <MoonContainer href="https://cmd-f2024.nwplus.io/" style={{top: "-5%", left: "100%", transform: "translateX(-50%)"}}>
+              <MoonYear style={{color:"#B89C9F"}}>2024</MoonYear>
+              <Moon src={moonTwoImg} />
+            </MoonContainer>
+
+            <MoonContainer href="https://cmd-f2022.nwplus.io/" style={{top: "110%", left: "50%", transform: "translateY(-50%)"}}>
+              <MoonYear style={{color:"#574D94"}}>2022</MoonYear>
+              <Moon src={moonThreeImg} />
+            </MoonContainer>
+
+            <HackathonImageContainer style={{width: "214.75px", height: "214.75px", textAlign: "right" }}>
+              <HackathonImage src={cmdfData.imgSrc} />
+            </HackathonImageContainer>
+            
+          </HackathonPlanetContainers>
 
         </HackathonPlanet>
       </HackathonsContainer>
