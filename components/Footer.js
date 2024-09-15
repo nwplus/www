@@ -69,7 +69,7 @@ const profiles = [
       name: 'Alissa Guo',
       emoji: '🥘',
       color: '#FFC0CB',
-      title: 'Cmd-f logistics coordinator',
+      title: 'cmd-f Logistics Coordinator',
       social: 'https://www.linkedin.com/in/alissa-guo/'
   },
   {
@@ -77,7 +77,7 @@ const profiles = [
       name: 'Allison Chu',
       emoji: '🚅',
       color: '#01DACC',
-      title: '',
+      title: 'Design Coordinator',
       social: ''
   },
   {
@@ -301,7 +301,7 @@ const profiles = [
       name: 'Khoa Bui',
       emoji: '🐧',
       color: '#e46060',
-      title: 'Logistics Coordinator',
+      title: 'nwHacks Logistics Coordinator',
       social: ''
   },
   {
@@ -365,7 +365,7 @@ const profiles = [
       name: 'Michelle Wan',
       emoji: '🙆🏻‍♀️',
       color: '#e8dcfc',
-      title: 'Sponsorships Coordinator',
+      title: 'Sponsorship Coordinator',
       social: 'https://mwchelle.me'
   },
   {
@@ -373,7 +373,7 @@ const profiles = [
       name: 'Michelle Wang',
       emoji: '❄️',
       color: '#9CDDFB',
-      title: 'Tres',
+      title: 'Treasurer',
       social: 'https://www.linkedin.com/in/michelle-wang-mw/'
   },
   {

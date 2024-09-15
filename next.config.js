@@ -6,6 +6,10 @@ module.exports = () => {
       reactStrictMode: true,
       poweredByHeader: false,
       trailingSlash: true,
+      images: {
+        disableStaticImages: true
+      },
+      optimizeImagesInDev: true,
       env: {
         NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_ENV_FIREBASE_API_KEY,
         NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: process.env.NEXT_ENV_FIREBASE_AUTH_DOMAIN,
@@ -21,6 +25,9 @@ module.exports = () => {
   return withOptimizedImages({
     poweredByHeader: false,
     trailingSlash: true,
+    images: {
+      disableStaticImages: true,
+    },
     env: {
       NEXT_PUBLIC_FIREBASE_API_KEY: 'AIzaSyDGa7alU0NhfBATSQ6CalkY4Za9wWPrM7o',
       NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: 'nwplus-ubc.firebaseapp.com',
@@ -31,5 +38,5 @@ module.exports = () => {
       NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: '306881258768',
       NEXT_PUBLIC_FIREBASE_APP_ID: '1:306881258768:web:bc922148732abee79f7195',
     },
-  })
+  });
 }
