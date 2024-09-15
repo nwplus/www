@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styled, { ThemeContext } from 'styled-components'
+import styled, { ThemeContext } from 'styled-components';
 import { useContext, useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 // Components
@@ -17,6 +17,11 @@ import { Title1, Title2, Body } from '../components/Typography';
 // Utility
 import fireDb from '../utilities/firebase';
 import AboutUsGallery from '../components/AboutUsGallery';
+
+import teamSocial1 from '../public/assets/images/team_social_1.jpg';
+import teamSocial3 from '../public/assets/images/team_social_3.jpg';
+import teamSocial4 from '../public/assets/images/team_social_4.jpg';
+import teamSocial2 from '../public/assets/images/team_social_2.jpg';
 
 const SECTION_MARGIN = '8em auto';
 
@@ -95,7 +100,8 @@ const ResourcesSection = styled.div`
     position: absolute;
     bottom: -150px;
     left: 0;
-    background: url('assets/resources-mascot.svg'), url('assets/resources-planet.svg');
+    background: url('assets/resources-mascot.svg'),
+      url('assets/resources-planet.svg');
     background-position: bottom -10% left, bottom right;
     background-repeat: no-repeat;
     width: 100%;
@@ -185,12 +191,12 @@ export default function Home() {
               videoSrc='https://www.youtube.com/embed/C_1ygFqM_oo'
               images={[
                 {
-                  leftImg: '/assets/images/team_social_1.jpg',
-                  rightImg: '/assets/images/team_hackcamp.jpg',
+                  leftImg: teamSocial1,
+                  rightImg: teamSocial3,
                 },
                 {
-                  leftImg: '/assets/images/team_dev.jpg',
-                  rightImg: '/assets/images/team_social_2.jpg',
+                  leftImg: teamSocial4,
+                  rightImg: teamSocial2,
                 },
               ]}
             />
@@ -201,15 +207,21 @@ export default function Home() {
             </Title1>
             <Stats
               stats={[
-                { title: '13+', description: 'hackathons hosted since 2018' },
-                { title: '280+', description: 'projects built' },
                 {
-                  title: '$110,230+',
+                  value: 13,
+                  type: 'text',
+                  description: 'hackathons hosted since 2018',
+                },
+                { value: 280, type: 'text', description: 'projects built' },
+                {
+                  value: 110230,
+                  type: 'moneysign',
                   description: 'in prizes awarded in 2021',
                 },
-                { title: '50+', description: 'workshops organized' },
+                { value: 50, type: 'text', description: 'workshops organized' },
                 {
-                  title: '$5,075+',
+                  value: 5075,
+                  type: 'moneysign',
                   description: 'donations to charity in 2021',
                 },
               ]}

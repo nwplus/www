@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Title1 } from './Typography';
+import anime from 'animejs';
 
 const StatsContainer = styled.div`
   display: flex;
@@ -35,20 +36,101 @@ const StatDescription = styled.div`
     font-size: 16px;
   }
 `;
+
+/** @typedef {{ value: number, type: string, description: string }} StatProps */
+
+/**
+ * @param {{stat: StatProps}} param0 
+ */
+function Stat({stat: s}) {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+
+    const spinAnimation = anime({
+      targets: card,
+      rotateX: '360deg',
+      duration: 400,
+      easing: 'easeInOutSine',
+      autoplay: false,
+      complete: () => {
+        cardRef.current.style.transform = 'rotateX(0deg)';
+      },
+    });
+
+    const onMouseEnter = () => {
+      spinAnimation.play();
+    };
+
+    const onMouseLeave = () => {
+      spinAnimation.reverse();
+      spinAnimation.play();
+    }
+
+    card.addEventListener('mouseenter', onMouseEnter);
+    card.addEventListener('mouseleave', onMouseLeave);
+
+    return () => {
+      card.removeEventListener('mouseenter', onMouseEnter);
+      card.removeEventListener('mouseleave', onMouseLeave);
+    };
+  }, []);
+
+  return (
+    <StatContainer ref={cardRef}>
+      <Title1 withGradient className='num' id={s.type} data-val={s.value}>
+        0
+      </Title1>
+      <StatDescription>{s.description}</StatDescription>
+    </StatContainer>
+  );
+}
+
 /**
  *
- * @param {{ stats: { title: string, description: string }[] }} props
+ * @param {{ stats: StatProps[] }} props
  * @returns
  */
 export default function Stats(props) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const stats = window.document.querySelector('.stats');
+      const renderCountAnimation = () => {
+        const valueDisplays = window.document.querySelectorAll('.num');
+        const interval = 500;
+        valueDisplays.forEach((valueDisplay) => {
+          let startValue = 0;
+          const endValue = parseInt(valueDisplay.getAttribute('data-val'));
+          const id = valueDisplay.getAttribute('id');
+          const duration = Math.floor(interval / endValue);
+          const counter = setInterval(function () {
+            startValue += Math.max(Math.floor((endValue - startValue)/50), 1);
+            if (id === 'moneysign') {
+              valueDisplay.textContent = `$${startValue}+`;
+            } else {
+              valueDisplay.textContent = `${startValue}+`;
+            }
+
+            if (startValue === endValue) {
+              clearInterval(counter);
+            }
+          }, duration);
+        });
+      };
+      const observer = new window.IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          renderCountAnimation();
+        }
+      });
+      observer.observe(stats);
+    }
+  });
 
   return (
-    <StatsContainer numRows={props.stats.length}>
+    <StatsContainer numRows={props.stats.length} className='stats'>
       {props.stats.map((s, i) => (
-        <StatContainer key={i}>
-          <Title1 withGradient>{s.title}</Title1>
-          <StatDescription>{s.description}</StatDescription>
-        </StatContainer>
+        <Stat stat={s} key={i} />
       ))}
     </StatsContainer>
   );
