@@ -43,6 +43,9 @@ const NavGroupContainer = styled.div`
   ${(p) => p.theme.mediaQueries.tablet} {
     gap: 5px;
   }
+  ${(p) => p.theme.mediaQueries.mobile} {
+    display: none;
+  }
 `;
 
 const NavTextContainer = styled.div`
@@ -59,14 +62,32 @@ const NavTextContainer = styled.div`
   }
 `;
 
+const SocialContainer = styled.div`
+  display: flex;
+  gap: 28px;
+  align-items: center;
+
+  ${(p) => p.theme.mediaQueries.tablet} {
+    gap: 15px;
+  }
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    float: left;
+  }
+`;
+
 const SocialIcon = styled.a`
   color: white;
   padding: 10px;
+  font-size: 32px;
     &:hover {
     color: #20FFAF;
   }
+  ${(p) => p.theme.mediaQueries.mobile} {
+    font-size: 16px;
+    padding: 0px;
+  }
 `
-
 const NwPlusLogo = styled.img`
   margin-right: 18px;
 
@@ -79,7 +100,8 @@ const LinkText = styled.a`
   font-weight: bold;
   color: ${(p) => p.theme.colors.secondary};
   font-feature-settings: 'liga' off;
-
+  font-size: 18px;
+  
   &:hover {
     background: ${(p) => p.theme.colors.primaryGradient};
     -webkit-background-clip: text;
@@ -286,12 +308,27 @@ const NavBar = () => {
     return (
       <>
         <NavBarContainer darkBg>
-          <a href='/'>
-            <NwPlusLogo
-              src='/assets/logos/nwPlus_Logo_2020.svg'
-              alt='nwPlus club logo in white against dark blue background'
-            />
-          </a>
+            <SocialContainer>
+              <SocialIcon href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faFacebook} />
+              </SocialIcon>
+              <SocialIcon href="https://www.instagram.com/nwplusubc" target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faInstagram} />
+              </SocialIcon>
+              <SocialIcon href="https://twitter.com/nwplusubc" target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faTwitter} />
+              </SocialIcon>
+              <SocialIcon href="https://www.linkedin.com/company/nwplus" target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faLinkedinIn} />
+              </SocialIcon>
+              <SocialIcon href="https://www.youtube.com/c/nwPlusUBC" target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faYoutube} />
+              </SocialIcon>
+              <SocialIcon href="https://medium.com/nwplusubc" target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faMediumM} />
+              </SocialIcon>
+          </SocialContainer>
+
           <Cross
             src='/assets/icons/close_white.svg'
             alt='dropdown menu icon'
@@ -337,7 +374,7 @@ const NavBar = () => {
         </NavTextContainer>
       </NavGroupContainer>
       {/* Right menu */}
-      <NavTextContainer>
+      <SocialContainer>
           <SocialIcon href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={faFacebook} />
           </SocialIcon>
@@ -356,7 +393,7 @@ const NavBar = () => {
           <SocialIcon href="https://medium.com/nwplusubc" target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={faMediumM} />
           </SocialIcon>
-      </NavTextContainer>
+      </SocialContainer>
       <HamburgerMenu
         src='/assets/icons/menu.svg'
         alt='dropdown menu icon'

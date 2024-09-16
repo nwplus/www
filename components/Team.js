@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { default as anime } from '../node_modules/animejs/lib/anime.es.js';
 import { Title2 } from './Typography.js';
+import Image from 'next/image';
 
 const StyledTitle = styled(Title2)`
   color: ${(p) => p.theme.colors.primary};
@@ -25,24 +26,32 @@ const ProfileList = styled.div`
   margin-bottom: 20px;
 `;
 
-const ProfileImage = styled.img`
+const ProfileLink = styled.a`
   &:hover {
     transform: scale(1.15);
-    opacity: 1;
   }
+  border-radius: 12px;
+  margin: 10px;
   width: 100px;
   height: 100px;
-  border-radius: 12px;
-  background-color: ${(p) => p.color};
-  object-fit: cover;
-  margin: 10px;
-  transition: all 100ms ease-in-out;
-  opacity: 0.42;
 
   ${(p) => p.theme.mediaQueries.mobile} {
     width: 46px;
     height: 46px;
   }
+`;
+
+const ProfileImage = styled(Image)`
+  &:hover {
+    opacity: 1;
+  }
+  border-radius: 12px;
+  background-color: ${(p) => p.color};
+  object-fit: cover;
+  transition: all 100ms ease-in-out;
+  opacity: 0.42;
+  width: 100%;
+  height: 100%;
 `;
 
 let lastTime = -1;
@@ -121,27 +130,22 @@ export default function Team({ profiles }) {
           // duplicate profile maps so that the carousel can loop infinitely
         }
         <div style={{ willChange: 'transform' }} id='anim-profiles'>
-          {profiles.map((profile, i) => (
-            <a href={profile.social} key={i}>
+          {[...profiles, ...profiles].map((profile, i) => (
+            <ProfileLink
+              href={profile.social}
+              key={i}
+            >
               <ProfileImage
                 src={profile.img}
+                alt={profile.name}
                 color={profile.color}
                 onClick={() => setSelectedProfile(profile)}
                 onMouseEnter={() => setSelectedProfile(profile)}
                 onMouseLeave={() => setSelectedProfile({})}
+                width='100px'
+                height='100px'
               />
-          </a>
-          ))}
-          {profiles.map((profile, i) => (
-            <a href={profile.social} key={i}>
-              <ProfileImage
-                src={profile.img}
-                color={profile.color}
-                onClick={() => setSelectedProfile(profile)}
-                onMouseEnter={() => setSelectedProfile(profile)}
-                onMouseLeave={() => setSelectedProfile({})}
-              />
-            </a>
+            </ProfileLink>
           ))}
         </div>
       </ProfileList>

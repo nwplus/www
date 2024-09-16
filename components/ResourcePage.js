@@ -26,12 +26,23 @@ const ResourcePageContainer = styled.div`
   }
 `;
 
-const RESOURCES_PER_PAGE = 6;
-
 export default function ResourcePage({ resources, startingPageIndex = 0 }) {
   const [currPageIndex, setCurrPageIndex] = useState(startingPageIndex);
   const [currPageResources, setCurrPageResources] = useState([]);
+  const [width, setWidth] = useState(0);
+  const mobileBreakpoint = 1024;
 
+  useEffect(() => {
+    function onResize() {
+      setWidth(window.innerWidth);
+    }
+    onResize();
+    window.addEventListener('resize', onResize);
+
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  const RESOURCES_PER_PAGE = width <= mobileBreakpoint ? 3 : 6;
   const TOTAL_RESOURCE_PAGES = Math.ceil(resources.length / RESOURCES_PER_PAGE);
 
   const getCurrPageResources = (resources, currPageIndex) => {
@@ -48,7 +59,7 @@ export default function ResourcePage({ resources, startingPageIndex = 0 }) {
 
   useEffect(() => {
     setCurrPageResources(getCurrPageResources(resources, currPageIndex));
-  }, [currPageIndex, setCurrPageIndex, resources]);
+  }, [currPageIndex, setCurrPageIndex, resources, RESOURCES_PER_PAGE]);
 
   const handlePageChange = (nextPageIndex) => {
     if (nextPageIndex === TOTAL_RESOURCE_PAGES || nextPageIndex < 0) {

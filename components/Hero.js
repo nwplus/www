@@ -6,19 +6,30 @@ import { ContentContainer } from './ContentContainer';
 import { LargeTitle, Title2 } from './Typography';
 import scollAnimation from './lotties/scroll.json';
 import Button from './Button';
+import heroBg from '../public/assets/hero_illustration.png';
+import heroBgMobile from '../public/assets/hero_illustration_mobile.png';
 
 const HeroContainer = styled.div`
   width: 100%;
   height: 0;
   padding-bottom: 69%;
-  background: url(/assets/hero_illustration.svg);
+  background: url(${heroBg});
   background-repeat: no-repeat;
   background-position: top;
-  background-size: contain;
+  background-size: cover;
+  ${(div) => div.theme.mediaQueries.mobile} {
+    background: url(${heroBgMobile});
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-bottom: 100%;
+  }
 `;
 
 const HeroTextContainer = styled.div`
   padding-top: 28%;
+  ${(div) => div.theme.mediaQueries.mobile} {
+    padding-top: 55%;
+  }
 `;
 
 const NewsletterForm = styled.div`
@@ -40,16 +51,19 @@ const FormResponseText = styled.p`
 const ComboButton = styled(Button)`
   position: relative;
   margin-top: -31px;
-  margin-left: 250px;
+  margin-left: 222.5px;
   width: 65px;
   height: 28px;
   z-index: 1;
 
   ${(p) => p.theme.mediaQueries.mobile} {
-    height: 32px;
-    width: 90px;
-    margin-top: -32px;
-    margin-left: calc(100% - 160px);
+    height: 22px;
+    width: 49px;
+    margin-top: -22px;
+    margin-left: calc(100% - 170px);
+    width: Fixed (49px)px;
+    font-size: 0.8em;
+    border-radius: 6px;
   }
 
   &:hover {
@@ -60,20 +74,28 @@ const ComboButton = styled(Button)`
 const StyledInput = styled.input`
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: 0px 12px;
   background: white;
   color: black;
   font-weight: normal;
-  font-size: 1em;
-  width: 320px;
+  font-size: 0.8em;
+  width: 291px;
+  height: 36px;
 
   ${(p) => p.theme.mediaQueries.mobile} {
     padding: 4px 8px;
-    font-size: 14px;
+    font-size: 10px;
     line-height: 24px;
-    width: 230px;
+    width: 179.42px;
+    height: 22.2px;
+    border-radius: 6px;
   }
 `;
+
+const SponsorshipCTA = styled.p`
+  color: #78FF96; // turn into gradient later
+  font-size: 1em;
+`
 
 const ScrollContainer = styled.div`
   float: left;
@@ -124,11 +146,13 @@ export default function Hero() {
       })
         .then(() => {
           setInputMessage(`Thank you for subscribing!`);
-          setinputMessageColor('#78FF96')
+          setinputMessageColor('#78FF96');
+          emailInput.current.value = '';
         })
         .catch((err) => {
           if (err.response?.status === 409) {
             setInputMessage(`${email} is already subscribed!`);
+            emailInput.current.value = '';
           } else {
             setInputMessage('Something went wrong, please try again later.');
           }
@@ -149,6 +173,7 @@ export default function Hero() {
 
   return (
     <HeroContainer>
+
       <HeroTextContainer>
         <ContentContainer>
           <LargeTitle withGradient>nwPlus</LargeTitle>
@@ -174,6 +199,7 @@ export default function Hero() {
             Submit
           </ComboButton>
           {inputMessage && <FormResponseText style={{color: inputMessageColor}}>{inputMessage}</FormResponseText>}
+          <SponsorshipCTA>Interested in sponsoring? Reach us at <a href="mailto:sponsorship@nwplus.io">sponsorship@nwplus.io</a>!</SponsorshipCTA>
         </ContentContainer>
       </NewsletterForm>
 
