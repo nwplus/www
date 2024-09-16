@@ -8,6 +8,8 @@ module.exports = () => {
       trailingSlash: true,
       images: {
         disableStaticImages: true,
+        loader: 'akamai',
+        path: '',
       },
       optipng: {
         optimizationLevel: 4,
@@ -35,6 +37,8 @@ module.exports = () => {
     trailingSlash: true,
     images: {
       disableStaticImages: true,
+      loader: 'akamai',
+      path: '',
     },
     optipng: {
       optimizationLevel: 4,
