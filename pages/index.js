@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styled, { ThemeContext } from 'styled-components';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 // Components
 import { Background } from '../components/Background';
@@ -126,17 +126,20 @@ const FaqSection = styled.div`
   min-height: 600px;
 `;
 
-export async function getServerSideProps() {
-  const faqs = await fireDb.getCollection('www', 'FAQ');
-  return { props: { faqsStringified: JSON.stringify(faqs) } };
-}
-
-export default function Home({ faqsStringified }) {
+export default function Home() {
   const themeContext = useContext(ThemeContext);
+  const [faqs, setFaqs] = useState(null);
   const metaDescription =
     'nwPlus is a student-led club supporting aspiring programmers and designers, based out of University of British Columbia.';
 
-  const faqs = JSON.parse(faqsStringified);
+  const getFaq = async () => {
+    const faqs = await fireDb.getCollection('www', 'FAQ');
+    setFaqs(faqs);
+  };
+
+  useEffect(() => {
+    getFaq();
+  }, []);
 
   return (
     <>
