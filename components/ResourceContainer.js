@@ -103,9 +103,10 @@ export default function ResourceContainer() {
     cmd_f: false,
   });
   const [yearFilters, setYearFilters] = useState({
-    2019: false,
     2020: false,
     2021: false,
+    2023: false,
+    2024: false,
   });
 
   const filteredResources = RESOURCES.filter((resource) => {
@@ -120,9 +121,10 @@ export default function ResourceContainer() {
     let cmdfFilter = false;
     let isEventFilter = false;
 
-    let filter2019 = false;
     let filter2020 = false;
     let filter2021 = false;
+    let filter2023 = false;
+    let filter2024 = false;
     let isYearFilter = false;
 
     const isTypeFilterChecked =
@@ -133,7 +135,10 @@ export default function ResourceContainer() {
     const isEventFilterChecked =
       eventFilters.hackcamp || eventFilters.nwhacks || eventFilters.cmd_f;
     const isYearFilterChecked =
-      yearFilters[2019] || yearFilters[2020] || yearFilters[2021];
+      yearFilters[2020] ||
+      yearFilters[2021] ||
+      yearFilters[2023] ||
+      yearFilters[2024];
 
     if (typeFilters.videos) {
       videosFilter = resource.type === ResourceType.VIDEO;
@@ -163,10 +168,6 @@ export default function ResourceContainer() {
       cmdfFilter = resource.event === ResourceEvent.CMD_F;
     }
 
-    if (yearFilters[2019]) {
-      filter2019 = resource.year === ResourceYear[2019];
-    }
-
     if (yearFilters[2020]) {
       filter2020 = resource.year === ResourceYear[2020];
     }
@@ -175,10 +176,18 @@ export default function ResourceContainer() {
       filter2021 = resource.year === ResourceYear[2021];
     }
 
+    if (yearFilters[2023]) {
+      filter2023 = resource.year === ResourceYear[2023];
+    }
+
+    if (yearFilters[2024]) {
+      filter2024 = resource.year === ResourceYear[2024];
+    }
+
     isTypeFilter =
       videosFilter || githubFilter || articlesFilter || slidesFilter;
     isEventFilter = hackcampFilter || nwhacksFilter || cmdfFilter;
-    isYearFilter = filter2019 || filter2020 || filter2021;
+    isYearFilter = filter2020 || filter2021 || filter2023 || filter2024;
 
     if (isTypeFilterChecked && isEventFilterChecked && isYearFilterChecked) {
       return isTypeFilter && isEventFilter && isYearFilter;
