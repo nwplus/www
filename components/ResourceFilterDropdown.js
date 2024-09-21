@@ -5,6 +5,8 @@ import { resourceCategoryMapper } from '../utils/ResourceUtils';
 
 const FilterContainer = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Header = styled.span`
