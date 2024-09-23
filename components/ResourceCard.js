@@ -20,8 +20,8 @@ const BadgeContainer = styled.div`
   left: -30px;
 
   ${(p) => p.theme.mediaQueries.mobile} {
-    top: -16px;
-    left: -12px;
+    top: -24px;
+    left: 48px;
   }
 `;
 

@@ -47,7 +47,12 @@ export default function ResourcePage({ resources, startingPageIndex = 0 }) {
 
   const getCurrPageResources = (resources, currPageIndex) => {
     const currPageResources = [];
-    for (let i = currPageIndex; i < RESOURCES_PER_PAGE && i < resources.length; i++) {
+    for (
+      let i = currPageIndex * RESOURCES_PER_PAGE;
+      i < currPageIndex * RESOURCES_PER_PAGE + RESOURCES_PER_PAGE &&
+      i < resources.length;
+      i++
+    ) {
       const { name, year, image, type } = resources[i];
       if (!name || !year || !image || !type) {
         return;
@@ -69,9 +74,9 @@ export default function ResourcePage({ resources, startingPageIndex = 0 }) {
   };
   return (
     <ResourcePageWrapper>
-      {currPageResources.length == 0 ?
+      {currPageResources.length == 0 ? (
         <Body>We couldn&apos;t find any resources here :(</Body>
-        :
+      ) : (
         <>
           <ResourcePageContainer>
             {currPageResources.map((resource, index) => (
@@ -86,7 +91,7 @@ export default function ResourcePage({ resources, startingPageIndex = 0 }) {
             onNextClick={() => handlePageChange(currPageIndex + 1)}
           />
         </>
-      }
+      )}
     </ResourcePageWrapper>
   );
 }
