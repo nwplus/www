@@ -5,7 +5,6 @@ import styled from 'styled-components';
 // import { Body, Title2 } from './Typography';
 // import Button from './Button';
 import SpaceDeer from '../public/assets/space-deer.svg'
-import PurpleTexture from '../public/assets/purple-texture.svg'
 // nwHacks
 import nwMoonOneImg from '../public/assets/nwmoon-1.svg'
 import nwMoonTwoImg from '../public/assets/nwmoon-2.svg'
@@ -233,17 +232,6 @@ const MobileHackathonDate = styled.span`
   color: #BDBAC3;
   float: right;
 `
-
-const PurpleTextureImg = styled.img`
-  position: absolute;
-  left: -20px;
-  margin-top: -60px;
-  float: left;
-
-  ${(p) => p.theme.mediaQueries.mobile} {
-
-  }
-`;
 
 const SpaceDeerImg = styled.img`
   position: absolute;
@@ -537,7 +525,6 @@ export default function Hackathons() {
 
       </MobileHackathonsContainer>
 
-      <PurpleTextureImg src={PurpleTexture} />
       <SpaceDeerImg src={SpaceDeer} />
     </>
   );

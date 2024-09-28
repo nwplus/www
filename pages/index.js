@@ -23,6 +23,8 @@ import teamSocial3 from '../public/assets/images/team_social_3.jpg';
 import teamSocial4 from '../public/assets/images/team_social_4.jpg';
 import teamSocial2 from '../public/assets/images/team_social_2.jpg';
 
+import PurpleTexture from '../public/assets/purple-texture.svg'
+
 const SECTION_MARGIN = '8em auto';
 
 const AboutHeaderContainer = styled.div`
@@ -126,6 +128,17 @@ const FaqSection = styled.div`
   min-height: 600px;
 `;
 
+const PurpleTextureImg = styled.img`
+  position: absolute;
+  left: -20px;
+  margin-top: -100px;
+  float: left;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+
+  }
+`;
+
 export default function Home() {
   const themeContext = useContext(ThemeContext);
   const [faqs, setFaqs] = useState(null);
@@ -216,13 +229,13 @@ export default function Home() {
                 {
                   value: 110230,
                   type: 'moneysign',
-                  description: 'in prizes awarded in 2021',
+                  description: 'in prizes awarded since 2021',
                 },
                 { value: 50, type: 'text', description: 'workshops organized' },
                 {
                   value: 5075,
                   type: 'moneysign',
-                  description: 'donations to charity in 2021',
+                  description: 'donations to charity since 2021',
                 },
               ]}
             />
@@ -234,6 +247,7 @@ export default function Home() {
           </Title1>
           <Hackathons />
         </ContentContainer>
+        <PurpleTextureImg src={PurpleTexture} />
         <ContentContainer id='resources' margin={SECTION_MARGIN}>
           <ResourcesSection>
             <ResourceContainer />

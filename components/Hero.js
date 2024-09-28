@@ -54,6 +54,7 @@ const ComboButton = styled(Button)`
   width: 65px;
   height: 28px;
   z-index: 1;
+  transition: 0.3s;
 
   ${(p) => p.theme.mediaQueries.mobile} {
     height: 22px;
@@ -67,6 +68,7 @@ const ComboButton = styled(Button)`
 
   &:hover {
     cursor: pointer;
+    background: linear-gradient(90deg, #00DBCE 0%, #00D88A 100%);
   }
 `;
 
@@ -92,9 +94,11 @@ const StyledInput = styled.input`
 `;
 
 const SponsorshipCTA = styled.p`
-  color: #78FF96; // turn into gradient later
+  background: linear-gradient(92.58deg, #0DEFE1 0%, #78FF96 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 1em;
-`
+`;
 
 const ScrollContainer = styled.div`
   float: left;
