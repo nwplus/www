@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Title1 } from './Typography';
-import anime from 'animejs';
 
 const StatsContainer = styled.div`
   display: flex;
@@ -40,45 +39,45 @@ const StatDescription = styled.div`
 /** @typedef {{ value: number, type: string, description: string }} StatProps */
 
 /**
- * @param {{stat: StatProps}} param0 
+ * @param {{stat: StatProps}} param0
  */
-function Stat({stat: s}) {
-  const cardRef = useRef(null);
+function Stat({ stat: s }) {
+  // const cardRef = useRef(null);
 
-  useEffect(() => {
-    const card = cardRef.current;
+  // useEffect(() => {
+  //   const card = cardRef.current;
 
-    const spinAnimation = anime({
-      targets: card,
-      rotateX: '360deg',
-      duration: 400,
-      easing: 'easeInOutSine',
-      autoplay: false,
-      complete: () => {
-        cardRef.current.style.transform = 'rotateX(0deg)';
-      },
-    });
+  //   const spinAnimation = anime({
+  //     targets: card,
+  //     rotateX: '360deg',
+  //     duration: 400,
+  //     easing: 'easeInOutSine',
+  //     autoplay: false,
+  //     complete: () => {
+  //       cardRef.current.style.transform = 'rotateX(0deg)';
+  //     },
+  //   });
 
-    const onMouseEnter = () => {
-      spinAnimation.play();
-    };
+  //   const onMouseEnter = () => {
+  //     spinAnimation.play();
+  //   };
 
-    const onMouseLeave = () => {
-      spinAnimation.reverse();
-      spinAnimation.play();
-    }
+  //   const onMouseLeave = () => {
+  //     spinAnimation.reverse();
+  //     spinAnimation.play();
+  //   }
 
-    card.addEventListener('mouseenter', onMouseEnter);
-    card.addEventListener('mouseleave', onMouseLeave);
+  //   card.addEventListener('mouseenter', onMouseEnter);
+  //   card.addEventListener('mouseleave', onMouseLeave);
 
-    return () => {
-      card.removeEventListener('mouseenter', onMouseEnter);
-      card.removeEventListener('mouseleave', onMouseLeave);
-    };
-  }, []);
+  //   return () => {
+  //     card.removeEventListener('mouseenter', onMouseEnter);
+  //     card.removeEventListener('mouseleave', onMouseLeave);
+  //   };
+  // }, []);
 
   return (
-    <StatContainer ref={cardRef}>
+    <StatContainer>
       <Title1 withGradient className='num' id={s.type} data-val={s.value}>
         0
       </Title1>
@@ -93,10 +92,21 @@ function Stat({stat: s}) {
  * @returns
  */
 export default function Stats(props) {
+  const [observed, setObserved] = useState(false);
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const stats = window.document.querySelector('.stats');
+
+      const observer = new window.IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting && !observed) {
+          renderCountAnimation();
+          setObserved(true);
+        }
+      });
+      observer.observe(stats);
+
       const renderCountAnimation = () => {
+        console.log('gu');
         const valueDisplays = window.document.querySelectorAll('.num');
         const interval = 500;
         valueDisplays.forEach((valueDisplay) => {
@@ -105,7 +115,7 @@ export default function Stats(props) {
           const id = valueDisplay.getAttribute('id');
           const duration = Math.floor(interval / endValue);
           const counter = setInterval(function () {
-            startValue += Math.max(Math.floor((endValue - startValue)/50), 1);
+            startValue += Math.max(Math.floor((endValue - startValue) / 50), 1);
             if (id === 'moneysign') {
               valueDisplay.textContent = `$${startValue}+`;
             } else {
@@ -118,14 +128,10 @@ export default function Stats(props) {
           }, duration);
         });
       };
-      const observer = new window.IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) {
-          renderCountAnimation();
-        }
-      });
-      observer.observe(stats);
+
+      return () => observer.disconnect();
     }
-  });
+  }, [observed]);
 
   return (
     <StatsContainer numRows={props.stats.length} className='stats'>

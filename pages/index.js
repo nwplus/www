@@ -93,7 +93,6 @@ const StatsSection = styled.div`
 
 const ResourcesSection = styled.div`
   position: relative;
-  overflow-x: clip; /* so we can offset the planet graphic without scrollbar */
   z-index: 1;
 
   &:before {

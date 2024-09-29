@@ -6,14 +6,17 @@ import styled from 'styled-components';
 // import Button from './Button';
 import SpaceDeer from '../public/assets/space-deer.svg'
 // nwHacks
+import nwHacksPlanet from '../public/assets/nwHacksPlanet.png'
 import nwMoonOneImg from '../public/assets/nwmoon-1.svg'
 import nwMoonTwoImg from '../public/assets/nwmoon-2.svg'
 import nwMoonThreeImg from '../public/assets/nwmoon-3.svg'
 // cmd-f
+import cmdfPlanet from '../public/assets/cmdfPlanet.png'
 import cmdfMoonOneImg from '../public/assets/cmdfmoon-1.svg'
 import cmdfMoonTwoImg from '../public/assets/cmdfmoon-2.svg'
 import cmdfMoonThreeImg from '../public/assets/cmdfmoon-3.svg'
 // HackCamp
+import hcPlanet from "../public/assets/HackCampPlanet.png"
 import hcMoonOneImg from '../public/assets/hcmoon-1.svg'
 import hcMoonTwoImg from '../public/assets/hcmoon-2.svg'
 import hcMoonThreeImg from '../public/assets/hcmoon-3.svg'
@@ -22,20 +25,20 @@ import leftToolTip from '../public/assets/moon-left-tooltip.svg'
 import rightToolTip from '../public/assets/moon-right-tooltip.svg'
 
 const HackCampData = {
-  imgSrc: '/assets/HackCampPlanet.svg',
+  imgSrc: hcPlanet,
   link: 'https://hackcamp.nwplus.io',
   date: 'Nov 9 - 10',
   registrationOpenDate: "Oct 6",
   open: false,
 };
 const nwHacksData = {
-  imgSrc: '/assets/nwHacksPlanet.svg',
+  imgSrc: nwHacksPlanet,
   link: 'https://nwhacks.io',
   date: 'Jan 18 - 19',
   open: true,
 };
 const cmdfData = {
-  imgSrc: '/assets/cmdfPlanet.svg',
+  imgSrc: cmdfPlanet,
   link: 'https://cmd-f.nwplus.io',
   date: 'Mar 8 - 9',
   open: true,

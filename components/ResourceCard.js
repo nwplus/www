@@ -18,6 +18,11 @@ const BadgeContainer = styled.div`
   position: absolute;
   top: -30px;
   left: -30px;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    top: -24px;
+    left: 48px;
+  }
 `;
 
 const TextContainer = styled.div`
