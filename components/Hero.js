@@ -26,7 +26,7 @@ const HeroContainer = styled.div`
 `;
 
 const HeroTextContainer = styled.div`
-  padding-top: 28%;
+  padding-top: 32%;
   ${(div) => div.theme.mediaQueries.mobile} {
     padding-top: 55%;
   }
