@@ -55,7 +55,6 @@ const ComboButton = styled(Button)`
   width: 65px;
   height: 28px;
   z-index: 1;
-  transition: 0.3s;
 
   ${(p) => p.theme.mediaQueries.mobile} {
     height: 22px;
@@ -65,11 +64,6 @@ const ComboButton = styled(Button)`
     width: Fixed (49px)px;
     font-size: 0.8em;
     border-radius: 6px;
-  }
-
-  &:hover {
-    cursor: pointer;
-    background: linear-gradient(90deg, #00DBCE 0%, #00D88A 100%);
   }
 `;
 

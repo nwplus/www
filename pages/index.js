@@ -154,11 +154,19 @@ const BearImgContainer = styled.img`
     }
   }
 
+  ${(p) => p.theme.mediaQueries.mobile} {
+    display: none;
+  }
 `
 
 const GreenPlanetImgContainer = styled.img`
   float: right;
-  margin-top: -200px;
+  margin-top: 0px;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    width: 160px;
+    height: auto;
+  }
 `
 
 export default function Home() {

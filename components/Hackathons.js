@@ -204,6 +204,11 @@ const HackathonButton = styled.a`
   padding: 7px 14px;
   border-radius: 7.76px;
   font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(45deg, #19CBCB 0%, #78FF96 100%);
+  }
 `
 
 const MobileHackathonDetails = styled.div`
@@ -376,7 +381,7 @@ export default function Hackathons() {
         </HackathonPlanet>
 
         {/* cmd-f */}
-        <HackathonPlanet>
+        <HackathonPlanet style={{ position: "relative", left: "100px" }}>
           <HackathonDetails open={cmdfData.open} style={{ top: "50px", left: "-10px" }}>
             <HackathonTitle>cmd-f {cmdfData.open && <LiveBadge>Live</LiveBadge>}</HackathonTitle>
             <HackathonDescriptions>Hackathon celebrating underrepresented genders in tech.</HackathonDescriptions>
