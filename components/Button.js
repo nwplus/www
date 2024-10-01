@@ -12,9 +12,15 @@ const StyledButton = styled.a`
     margin: 1em ${p => p.noMargin ? '0em' : '0.5em'};
     padding: ${p => p.padding ? p.padding : '0'};
     border: ${p => p.hollow && `2px solid ${p.theme.colors.primary}`};
-    color: ${p => p.hollow && p.theme.colors.primary}
+    color: ${p => p.hollow && p.theme.colors.primary};
+    transition: 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      background: linear-gradient(45deg, #19CBCB 0%, #78FF96 100%);
+    }
 `
 
 const Button = ({ link, ...props }) => <StyledButton href={link} {...props} />
 
-export default Button
+export default Button;

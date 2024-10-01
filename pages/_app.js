@@ -15,7 +15,7 @@ export const SCREEN_BREAKPOINTS = {
 const theme = {
   colors: {
     primary: '#20FFAF',
-    primaryGradient: 'linear-gradient(92.58deg, #20FFAF 0%, #78FF96 100%)',
+    primaryGradient: 'linear-gradient(90deg, #00DBCE 0%, #00D88A 100%)',
     shadedGradient:
       'linear-gradient(180deg, rgba(0, 0, 0, 0) 47.69%, rgba(0, 0, 0, 0.8) 100%)',
     secondary: '#fff',

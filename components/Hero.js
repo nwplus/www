@@ -26,7 +26,7 @@ const HeroContainer = styled.div`
 `;
 
 const HeroTextContainer = styled.div`
-  padding-top: 28%;
+  padding-top: 32%;
   ${(div) => div.theme.mediaQueries.mobile} {
     padding-top: 55%;
   }
@@ -65,10 +65,6 @@ const ComboButton = styled(Button)`
     font-size: 0.8em;
     border-radius: 6px;
   }
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const StyledInput = styled.input`
@@ -93,9 +89,11 @@ const StyledInput = styled.input`
 `;
 
 const SponsorshipCTA = styled.p`
-  color: #78FF96; // turn into gradient later
+  background: linear-gradient(92.58deg, #0DEFE1 0%, #78FF96 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 1em;
-`
+`;
 
 const ScrollContainer = styled.div`
   float: left;

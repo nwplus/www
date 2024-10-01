@@ -28,6 +28,29 @@ const FlexContainer = styled.div`
     }
 `
 
+const NuggetImgContainer = styled.img`
+  animation: floatNugget 5s ease-in-out infinite;
+  position: relative;
+  top: 100px;
+  float: right;
+
+  @keyframes floatNugget {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(-10deg);
+    }
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+  }
+
+    ${p => p.theme.mediaQueries.mobile} {
+        display: none;
+    }
+`
+
 export default function Faq({ faqs }) {
     // Bucket each FAQ into a dictionary where the key is the category
     var categories = {};
@@ -39,14 +62,17 @@ export default function Faq({ faqs }) {
     });
 
     return (
-        <FaqContainer>
-            <FlexContainer>
-                {categories['Hackers'] && <FaqSection category={'Hackers'} faqs={categories['Hackers']}/>}
-                {categories['Sponsors'] && <FaqSection category={'Sponsors'} faqs={categories['Sponsors']}/>}
-            </FlexContainer>
-            <FlexContainer>
-                {categories['General'] &&<FaqSection category={'General'} faqs={categories['General']}/>}
-            </FlexContainer>    
-        </FaqContainer>
+        <>
+            <FaqContainer>
+                <FlexContainer>
+                    {categories['Hackers'] && <FaqSection category={'Hackers'} faqs={categories['Hackers']}/>}
+                    {categories['Sponsors'] && <FaqSection category={'Sponsors'} faqs={categories['Sponsors']}/>}
+                </FlexContainer>
+                <FlexContainer>
+                    {categories['General'] &&<FaqSection category={'General'} faqs={categories['General']}/>}
+                </FlexContainer>    
+            </FaqContainer>
+            <NuggetImgContainer src="assets/space-nugget.svg"/>
+        </>
     )
 }
