@@ -242,14 +242,14 @@ const SpaceDeerImg = styled.img`
   margin-top: -60px;
   right: 20px;
 
-  animation: float 5s ease-in-out infinite;
+  animation: floatDeer 5s ease-in-out infinite;
 
-  @keyframes float {
+  @keyframes floatDeer {
     0% {
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translateY(-20px) rotate(20deg);
     }
     100% {
       transform: translateY(0);

@@ -101,8 +101,8 @@ const ResourcesSection = styled.div`
     position: absolute;
     bottom: -150px;
     left: 0;
-    background: url('assets/resources-mascot.svg'),
-      url('assets/resources-planet.svg');
+    // background: url('assets/resources-mascot.svg'),
+    //   url('assets/resources-planet.svg');
     background-position: bottom -10% left, bottom right;
     background-repeat: no-repeat;
     width: 100%;
@@ -137,6 +137,29 @@ const PurpleTextureImg = styled.img`
 
   }
 `;
+
+const BearImgContainer = styled.img`
+  animation: floatBear 5s ease-in-out infinite;
+  margin-bottom: -50px;
+
+  @keyframes floatBear {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(20deg);
+    }
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+  }
+
+`
+
+const GreenPlanetImgContainer = styled.img`
+  float: right;
+  margin-top: -200px;
+`
 
 export default function Home() {
   const themeContext = useContext(ThemeContext);
@@ -250,6 +273,8 @@ export default function Home() {
         <ContentContainer id='resources' margin={SECTION_MARGIN}>
           <ResourcesSection>
             <ResourceContainer />
+            <BearImgContainer src="assets/resources-mascot.svg"/>
+            <GreenPlanetImgContainer src="assets/resources-planet.svg" />
           </ResourcesSection>
         </ContentContainer>
         {faqs && (
