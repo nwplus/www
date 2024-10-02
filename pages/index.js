@@ -23,6 +23,8 @@ import teamSocial3 from '../public/assets/images/team_social_3.jpg';
 import teamSocial4 from '../public/assets/images/team_social_4.jpg';
 import teamSocial2 from '../public/assets/images/team_social_2.jpg';
 
+import PurpleTexture from '../public/assets/purple-texture.svg'
+
 const SECTION_MARGIN = '8em auto';
 
 const AboutHeaderContainer = styled.div`
@@ -99,8 +101,8 @@ const ResourcesSection = styled.div`
     position: absolute;
     bottom: -150px;
     left: 0;
-    background: url('assets/resources-mascot.svg'),
-      url('assets/resources-planet.svg');
+    // background: url('assets/resources-mascot.svg'),
+    //   url('assets/resources-planet.svg');
     background-position: bottom -10% left, bottom right;
     background-repeat: no-repeat;
     width: 100%;
@@ -124,6 +126,48 @@ const FaqSection = styled.div`
   background-repeat: no-repeat;
   min-height: 600px;
 `;
+
+const PurpleTextureImg = styled.img`
+  position: absolute;
+  left: -20px;
+  margin-top: -100px;
+  float: left;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+
+  }
+`;
+
+const BearImgContainer = styled.img`
+  animation: floatBear 5s ease-in-out infinite;
+  margin-bottom: -50px;
+
+  @keyframes floatBear {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(20deg);
+    }
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+  }
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    display: none;
+  }
+`
+
+const GreenPlanetImgContainer = styled.img`
+  float: right;
+  margin-top: 0px;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    width: 160px;
+    height: auto;
+  }
+`
 
 export default function Home() {
   const themeContext = useContext(ThemeContext);
@@ -215,13 +259,13 @@ export default function Home() {
                 {
                   value: 110230,
                   type: 'moneysign',
-                  description: 'in prizes awarded in 2021',
+                  description: 'in prizes awarded since 2021',
                 },
                 { value: 50, type: 'text', description: 'workshops organized' },
                 {
                   value: 5075,
                   type: 'moneysign',
-                  description: 'donations to charity in 2021',
+                  description: 'donations to charity since 2021',
                 },
               ]}
             />
@@ -233,9 +277,12 @@ export default function Home() {
           </Title1>
           <Hackathons />
         </ContentContainer>
+        <PurpleTextureImg src={PurpleTexture} />
         <ContentContainer id='resources' margin={SECTION_MARGIN}>
           <ResourcesSection>
             <ResourceContainer />
+            <BearImgContainer src="assets/resources-mascot.svg"/>
+            <GreenPlanetImgContainer src="assets/resources-planet.svg" />
           </ResourcesSection>
         </ContentContainer>
         {faqs && (

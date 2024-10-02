@@ -5,7 +5,6 @@ import styled from 'styled-components';
 // import { Body, Title2 } from './Typography';
 // import Button from './Button';
 import SpaceDeer from '../public/assets/space-deer.svg'
-import PurpleTexture from '../public/assets/purple-texture.svg'
 // nwHacks
 import nwHacksPlanet from '../public/assets/nwHacksPlanet.png'
 import nwMoonOneImg from '../public/assets/nwmoon-1.svg'
@@ -30,7 +29,7 @@ const HackCampData = {
   link: 'https://hackcamp.nwplus.io',
   date: 'Nov 9 - 10',
   registrationOpenDate: "Oct 6",
-  open: false,
+  open: true,
 };
 const nwHacksData = {
   imgSrc: nwHacksPlanet,
@@ -205,6 +204,11 @@ const HackathonButton = styled.a`
   padding: 7px 14px;
   border-radius: 7.76px;
   font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+    background: linear-gradient(45deg, #19CBCB 0%, #78FF96 100%);
+  }
 `
 
 const MobileHackathonDetails = styled.div`
@@ -237,31 +241,20 @@ const MobileHackathonDate = styled.span`
   float: right;
 `
 
-const PurpleTextureImg = styled.img`
-  position: absolute;
-  left: -20px;
-  margin-top: -60px;
-  float: left;
-
-  ${(p) => p.theme.mediaQueries.mobile} {
-
-  }
-`;
-
 const SpaceDeerImg = styled.img`
   position: absolute;
   float: right;
   margin-top: -60px;
   right: 20px;
 
-  animation: float 5s ease-in-out infinite;
+  animation: floatDeer 5s ease-in-out infinite;
 
-  @keyframes float {
+  @keyframes floatDeer {
     0% {
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translateY(-20px) rotate(20deg);
     }
     100% {
       transform: translateY(0);
@@ -322,7 +315,7 @@ export default function Hackathons() {
             <HackathonTitle>HackCamp {HackCampData.open && <LiveBadge>Live</LiveBadge>}</HackathonTitle>
             <HackathonDescriptions>Canada’s largest beginner hackathon, focused on learning.</HackathonDescriptions>
             <HackathonDate>{HackCampData.date}</HackathonDate>
-            <HackathonButton href={HackCampData.link} target="_blank">Visit website</HackathonButton>
+            <HackathonButton href={HackCampData.link} target="_blank">Apply</HackathonButton>
           </HackathonDetails>
 
           <DashedConnector open={HackCampData.open} style={{ top: "0px", left: "10px", transform: "rotate(30deg)" }}></DashedConnector>
@@ -388,7 +381,7 @@ export default function Hackathons() {
         </HackathonPlanet>
 
         {/* cmd-f */}
-        <HackathonPlanet>
+        <HackathonPlanet style={{ position: "relative", left: "100px" }}>
           <HackathonDetails open={cmdfData.open} style={{ top: "50px", left: "-10px" }}>
             <HackathonTitle>cmd-f {cmdfData.open && <LiveBadge>Live</LiveBadge>}</HackathonTitle>
             <HackathonDescriptions>Hackathon celebrating underrepresented genders in tech.</HackathonDescriptions>
@@ -540,7 +533,6 @@ export default function Hackathons() {
 
       </MobileHackathonsContainer>
 
-      <PurpleTextureImg src={PurpleTexture} />
       <SpaceDeerImg src={SpaceDeer} />
     </>
   );

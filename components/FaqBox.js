@@ -55,7 +55,7 @@ const Answer = styled.p`
   transition: 1s linear;
   background: #4b406d;
   color: white;
-  font-size: 13.5px;
+  font-size: 16px;
   border: 2px solid #20FFAF;
   border-radius: 0 0 4px 4px;
   > * {
