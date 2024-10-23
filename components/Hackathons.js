@@ -29,7 +29,7 @@ const HackCampData = {
   link: 'https://hackcamp.nwplus.io',
   date: 'Nov 9 - 10',
   registrationOpenDate: "Oct 6",
-  open: open,
+  open: true,
 };
 const nwHacksData = {
   imgSrc: nwHacksPlanet,
