@@ -60,8 +60,7 @@ const ComboButton = styled(Button)`
     height: 22px;
     width: 49px;
     margin-top: -22px;
-    margin-left: calc(100% - 170px);
-    width: Fixed (49px)px;
+    margin-left: 200px;
     font-size: 0.8em;
     border-radius: 6px;
   }
