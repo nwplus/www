@@ -315,7 +315,7 @@ export default function Hackathons() {
             <HackathonTitle>HackCamp {HackCampData.open && <LiveBadge>Live</LiveBadge>}</HackathonTitle>
             <HackathonDescriptions>Canada’s largest beginner hackathon, focused on learning.</HackathonDescriptions>
             <HackathonDate>{HackCampData.date}</HackathonDate>
-            <HackathonButton href={HackCampData.link} target="_blank">Apply</HackathonButton>
+            <HackathonButton href={HackCampData.link} target="_blank">Visit Website</HackathonButton>
           </HackathonDetails>
 
           <DashedConnector open={HackCampData.open} style={{ top: "0px", left: "10px", transform: "rotate(30deg)" }}></DashedConnector>
