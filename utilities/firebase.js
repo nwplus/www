@@ -55,6 +55,11 @@ const fireDb = {
     const data = await ref.get()
     return data.data()
   },
+  getHackathonData: async () => {
+    const ref = db.collection('InternalWebsites').doc('Portal')
+    const data = await ref.get()
+    return data.data()
+  },
 }
 
 export default fireDb
