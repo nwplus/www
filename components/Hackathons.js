@@ -1,9 +1,7 @@
 // import { useState } from 'react';
 import styled from 'styled-components';
-// import HackathonCard from './HackathonCard';
-// import NewsletterModal from './NewsletterModal';
-// import { Body, Title2 } from './Typography';
-// import Button from './Button';
+import fireDb from '../utilities/firebase';
+
 import SpaceDeer from '../public/assets/space-deer.svg'
 // nwHacks
 import nwHacksPlanet from '../public/assets/nwHacksPlanet.png'
@@ -23,26 +21,8 @@ import hcMoonThreeImg from '../public/assets/hcmoon-3.svg'
 // Mobile tooltips
 import leftToolTip from '../public/assets/moon-left-tooltip.svg'
 import rightToolTip from '../public/assets/moon-right-tooltip.svg'
-
-const HackCampData = {
-  imgSrc: hcPlanet,
-  link: 'https://hackcamp.nwplus.io',
-  date: 'Nov 9 - 10',
-  registrationOpenDate: "Oct 6",
-  open: true,
-};
-const nwHacksData = {
-  imgSrc: nwHacksPlanet,
-  link: 'https://nwhacks.io',
-  date: 'Jan 18 - 19',
-  open: true,
-};
-const cmdfData = {
-  imgSrc: cmdfPlanet,
-  link: 'https://cmd-f.nwplus.io',
-  date: 'Mar 8 - 9',
-  open: true,
-};
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const HackathonsContainer = styled.div`
   width: 90%;
@@ -304,7 +284,130 @@ const ToolTip = styled.img`
 `
 
 export default function Hackathons() {
-  // const [showModal, setShowModal] = useState(false);
+  const [hackathonData, setHackathonData] = useState(null);
+  const [HackCampData, setHackCampData] = useState(null);
+  const [nwHacksData, setNwHacksData] = useState(null);
+  const [cmdfData, setCmdfData] = useState(null);
+  // const [nextHackathon, setNextHackathon] = useState(null);
+
+  const getHackathonData = async () => {
+    const hackathonData = await fireDb.getHackathonData();
+    setHackathonData(hackathonData);
+
+    const hackathons = [
+      {
+        name: 'HackCamp',
+        data: {
+          imgSrc: hcPlanet,
+          link: 'https://hackcamp.nwplus.io',
+          date: hackathonData['hackathonWeekend']['hackcamp'],
+          start: hackathonData['hackathonStart']['hackcamp'],
+          open: hackathonData['applicationsOpen']['hackcamp'],
+        },
+      },
+      {
+        name: 'nwHacks',
+        data: {
+          imgSrc: nwHacksPlanet,
+          link: 'https://nwhacks.io',
+          date: hackathonData['hackathonWeekend']['nwhacks'],
+          start: hackathonData['hackathonStart']['nwhacks'],
+          open: hackathonData['applicationsOpen']['nwhacks'],
+        },
+      },
+      {
+        name: 'cmd-f',
+        data: {
+          imgSrc: cmdfPlanet,
+          link: 'https://cmd-f.nwplus.io',
+          date: hackathonData['hackathonWeekend']['cmd-f'],
+          start: hackathonData['hackathonStart']['cmd-f'],
+          open: hackathonData['applicationsOpen']['cmd-f'],
+        },
+      },
+    ];
+    
+  const sortedHackathons = hackathons.sort((a, b) => {
+    const today = new Date();
+    const threeDayBuffer = (date) => {
+      const bufferDate = new Date(date);
+      bufferDate.setDate(bufferDate.getDate() + 3);
+      return bufferDate;
+    };
+  
+    const aDate = new Date(a.data.start);
+    const bDate = new Date(b.data.start);
+  
+    // Check if the events are past
+    const aIsPast = today > threeDayBuffer(a.data.start);
+    const bIsPast = today > threeDayBuffer(b.data.start);
+  
+    // If one is past and the other isn't, sort accordingly
+    if (aIsPast && !bIsPast) return 1;
+    if (!aIsPast && bIsPast) return -1;
+  
+    // Otherwise, sort by date
+    return aDate - bDate;
+  });
+  // Styling based on the position
+  const getStyleForHackathon = (index) => {
+    switch (index) {
+      case 0:
+        return { width: "254px", height: "254px" };
+      case 1:
+        return { width: "220px", height: "220px" };
+      case 2:
+        return { width: "214.75px", height: "214.75px" };
+      default:
+        return {};
+    }
+  };
+  // Add dynamic width and height to each hackathon data
+  sortedHackathons.forEach((hackathon, index) => {
+    const style = getStyleForHackathon(index);
+    hackathon.data.width = style.width;
+    hackathon.data.height = style.height;
+  });
+  // Dynamically set the data based on the sorted order
+  if (sortedHackathons.length > 0) {
+    // Ensure names are correctly assigned to their respective states
+    sortedHackathons.forEach((hackathon) => {
+      switch (hackathon.name) {
+        case "HackCamp":
+          setHackCampData(hackathon.data || {});
+          break;
+        case "nwHacks":
+          setNwHacksData(hackathon.data || {});
+          break;
+        case "cmd-f":
+          setCmdfData(hackathon.data || {});
+          break;
+        default:
+          break;
+      }
+    });
+   }
+  }
+
+  useEffect(() => {
+    console.log('HackCampData updated:', HackCampData);
+  }, [HackCampData]);
+  
+  useEffect(() => {
+    console.log('nwHacksData updated:', nwHacksData);
+  }, [nwHacksData]);
+  
+  useEffect(() => {
+    console.log('cmdfData updated:', cmdfData);
+  }, [cmdfData]);
+  
+  useEffect(() => {
+    getHackathonData();
+  }, []);
+
+  if (!hackathonData || !HackCampData || !nwHacksData || !cmdfData) {
+    return <></>;
+  }
 
   return (
     <>
@@ -338,7 +441,7 @@ export default function Hackathons() {
               <Moon src={hcMoonThreeImg} />
             </MoonContainer>
 
-            <HackathonImageContainer style={{width: "254px", height: "254px", top:"-75px" }}>
+            <HackathonImageContainer style={{width: HackCampData.width, height: HackCampData.height, top:"-75px" }}>
               <HackathonImage src={HackCampData.imgSrc} />
             </HackathonImageContainer>
           </HackathonPlanetContainers>
@@ -364,7 +467,7 @@ export default function Hackathons() {
               <Moon src={nwMoonThreeImg} />
             </MoonContainer>
 
-            <HackathonImageContainer style={{width: "220px", height: "220px", float: "right" }}>
+            <HackathonImageContainer style={{width: nwHacksData.width, height: nwHacksData.height, float: "right" }}>
               <HackathonImage src={nwHacksData.imgSrc} />
             </HackathonImageContainer>
 
@@ -376,7 +479,7 @@ export default function Hackathons() {
             <HackathonTitle>nwHacks {nwHacksData.open && <LiveBadge>Live</LiveBadge>}</HackathonTitle>
             <HackathonDescriptions>Our flagship hackathon – largest in Western Canada.</HackathonDescriptions>
             <HackathonDate>{nwHacksData.date}</HackathonDate>
-            <HackathonButton href={nwHacksData.link} target="_blank">Interest Form Open</HackathonButton>
+            <HackathonButton href={nwHacksData.link} target="_blank">Apply now!</HackathonButton>
           </HackathonDetails>
         </HackathonPlanet>
 
@@ -408,7 +511,7 @@ export default function Hackathons() {
               <Moon src={cmdfMoonTwoImg} />
             </MoonContainer>
 
-            <HackathonImageContainer style={{width: "214.75px", height: "214.75px", textAlign: "right" }}>
+            <HackathonImageContainer style={{width: cmdfData.width, height: cmdfData.height, textAlign: "right" }}>
               <HackathonImage src={cmdfData.imgSrc} />
             </HackathonImageContainer>
             
@@ -489,7 +592,7 @@ export default function Hackathons() {
             <MobileHackathonDate>{nwHacksData.date}</MobileHackathonDate>
 
             <HackathonDescriptions>Our flagship hackathon – largest in Western Canada.</HackathonDescriptions>
-            <HackathonButton href={nwHacksData.link} target="_blank">Interest Form Open</HackathonButton>
+            <HackathonButton href={nwHacksData.link} target="_blank">Apply now!</HackathonButton>
           </MobileHackathonDetails>
         </MobileHackathonPlanet>
 
