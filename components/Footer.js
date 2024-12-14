@@ -19,6 +19,23 @@ const FooterContainer = styled.footer`
   width: 100%;
 `;
 
+const LandAcknowledgement = styled.p`
+  color: #F1F6FD;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-bottom: 30px;
+
+  a {
+    color: ${(p) => p.theme.colors.primary};
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+`
+
 const SocialMediaIcons = styled.div`
   font-size: 32px;
   margin-bottom: 32px;
@@ -486,6 +503,7 @@ export default function Footer() {
   return (
     <FooterContainer>
       <Team profiles={profiles} />
+      <LandAcknowledgement>nwPlus acknowledges that our members have the privilege of living, learning and facilitating hackathons on the traditional, ancestral, and stolen territory of the xʷməθkʷəy̓əm (Musqueam) and səlilwətaɬ (Tsleil-Waututh) peoples. As members of nwPlus, we play an active role in reconciliation and are working to learn and expand our knowledge on the history of Indigenous peoples. To learn more, visit <a href="https://guides.library.ubc.ca/xwi7xwaresearchguide" target="_blank" rel="noreferrer">xwi7xwa&apos;s Research Guide</a>.</LandAcknowledgement>
       <SocialMediaIcons>
         <a
           href='https://www.facebook.com/nwplusubc'
