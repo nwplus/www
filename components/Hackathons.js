@@ -552,7 +552,7 @@ export default function Hackathons() {
             </HackathonDescriptions>
             <HackathonDate>{nwHacksData.date}</HackathonDate>
             <HackathonButton href={nwHacksData.link} target='_blank'>
-              Apply now!
+              Visit website!
             </HackathonButton>
           </HackathonDetails>
         </HackathonPlanet>
@@ -570,9 +570,7 @@ export default function Hackathons() {
               Hackathon celebrating underrepresented genders in tech.
             </HackathonDescriptions>
             <HackathonDate>{cmdfData.date}</HackathonDate>
-            <HackathonButton href={cmdfData.link} target='_blank'>
-              Interest Form Open
-            </HackathonButton>
+            <HackathonButton href={cmdfData.link} target="_blank">Apply now!</HackathonButton>
           </HackathonDetails>
 
           <DashedConnector
@@ -748,12 +746,8 @@ export default function Hackathons() {
             </MobileHackathonTitle>
             <MobileHackathonDate>{nwHacksData.date}</MobileHackathonDate>
 
-            <HackathonDescriptions>
-              Our flagship hackathon – largest in Western Canada.
-            </HackathonDescriptions>
-            <HackathonButton href={nwHacksData.link} target='_blank'>
-              Apply now!
-            </HackathonButton>
+            <HackathonDescriptions>Our flagship hackathon – largest in Western Canada.</HackathonDescriptions>
+            <HackathonButton href={nwHacksData.link} target="_blank">Visit website!</HackathonButton>
           </MobileHackathonDetails>
         </MobileHackathonPlanet>
 
@@ -811,7 +805,7 @@ export default function Hackathons() {
               Hackathon celebrating underrepresented genders in tech.
             </HackathonDescriptions>
             <HackathonButton href={cmdfData.link} target='_blank'>
-              Interest Form Open
+              Apply now!
             </HackathonButton>
           </MobileHackathonDetails>
         </MobileHackathonPlanet>
