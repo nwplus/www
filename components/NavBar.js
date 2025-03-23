@@ -181,24 +181,23 @@ const JoinLink = ({
   );
 };
 
-const LivePortalButton = styled.button`
-  border: none;
-  background: ${(p) => p.theme.colors.secondary};
-  font-size: inherit;
-  font-family: inherit;
-  font-weight: bold;
-  height: 41px;
-  width: 134px;
-  border-radius: 34px;
+// const LivePortalButton = styled.button`
+//   border: none;
+//   background: ${(p) => p.theme.colors.secondary};
+//   font-size: inherit;
+//   font-family: inherit;
+//   font-weight: bold;
+//   height: 41px;
+//   width: 134px;
+//   border-radius: 34px;
 
+//     &:hover {
+//      cursor: ${(p) => (p.disabled ? 'not-allowed' : 'pointer')} ;
+//     }
 
-    &:hover {
-     cursor: ${(p) => (p.disabled ? 'not-allowed' : 'pointer')} ;
-    }
-
-  ${(p) => p.theme.mediaQueries.mobile} {
-    width: 160px;
-`;
+//   ${(p) => p.theme.mediaQueries.mobile} {
+//     width: 160px;
+// `;
 
 const HamburgerMenu = styled.img`
   display: none;
