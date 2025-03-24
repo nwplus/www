@@ -80,14 +80,14 @@ const SocialIcon = styled.a`
   color: white;
   padding: 10px;
   font-size: 32px;
-    &:hover {
-    color: #20FFAF;
+  &:hover {
+    color: #20ffaf;
   }
   ${(p) => p.theme.mediaQueries.mobile} {
     font-size: 16px;
     padding: 0px;
   }
-`
+`;
 const NwPlusLogo = styled.img`
   margin-right: 18px;
 
@@ -101,7 +101,7 @@ const LinkText = styled.a`
   color: ${(p) => p.theme.colors.secondary};
   font-feature-settings: 'liga' off;
   font-size: 18px;
-  
+
   &:hover {
     background: ${(p) => p.theme.colors.primaryGradient};
     -webkit-background-clip: text;
@@ -115,18 +115,6 @@ const JoinLinkContainer = styled.div`
   visibility: ${(p) => p.visibility};
   opacity: ${(p) => p.opacity};
   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-`;
-
-const JoinLinkInactive = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: ${(p) => p.theme.colors.disabled};
-
-  ${(p) => p.theme.mediaQueries.mobile} {
-    flex-direction: row;
-    gap: 10px;
-  }
 `;
 
 const JoinLinkActive = styled.a`
@@ -171,34 +159,28 @@ const JoinLink = ({
           <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
           <JoinLinkTextMinor>Applications Open</JoinLinkTextMinor>
         </JoinLinkActive>
-      ) : (
-        <JoinLinkInactive>
-          <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
-          <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
-        </JoinLinkInactive>
-      )}
+      ) : null}
     </JoinLinkContainer>
   );
 };
 
-const LivePortalButton = styled.button`
-  border: none;
-  background: ${(p) => p.theme.colors.secondary};
-  font-size: inherit;
-  font-family: inherit;
-  font-weight: bold;
-  height: 41px;
-  width: 134px;
-  border-radius: 34px;
+// const LivePortalButton = styled.button`
+//   border: none;
+//   background: ${(p) => p.theme.colors.secondary};
+//   font-size: inherit;
+//   font-family: inherit;
+//   font-weight: bold;
+//   height: 41px;
+//   width: 134px;
+//   border-radius: 34px;
 
+//     &:hover {
+//      cursor: ${(p) => (p.disabled ? 'not-allowed' : 'pointer')} ;
+//     }
 
-    &:hover {
-     cursor: ${(p) => (p.disabled ? 'not-allowed' : 'pointer')} ;
-    }
-
-  ${(p) => p.theme.mediaQueries.mobile} {
-    width: 160px;
-`;
+//   ${(p) => p.theme.mediaQueries.mobile} {
+//     width: 160px;
+// `;
 
 const HamburgerMenu = styled.img`
   display: none;
@@ -308,25 +290,49 @@ const NavBar = () => {
     return (
       <>
         <NavBarContainer darkBg>
-            <SocialContainer>
-              <SocialIcon href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faFacebook} />
-              </SocialIcon>
-              <SocialIcon href="https://www.instagram.com/nwplusubc" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faInstagram} />
-              </SocialIcon>
-              <SocialIcon href="https://twitter.com/nwplusubc" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faTwitter} />
-              </SocialIcon>
-              <SocialIcon href="https://www.linkedin.com/company/nwplus" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faLinkedinIn} />
-              </SocialIcon>
-              <SocialIcon href="https://www.youtube.com/c/nwPlusUBC" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faYoutube} />
-              </SocialIcon>
-              <SocialIcon href="https://medium.com/nwplusubc" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon icon={faMediumM} />
-              </SocialIcon>
+          <SocialContainer>
+            <SocialIcon
+              href='https://www.facebook.com/nwplusubc'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <FontAwesomeIcon icon={faFacebook} />
+            </SocialIcon>
+            <SocialIcon
+              href='https://www.instagram.com/nwplusubc'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+            </SocialIcon>
+            <SocialIcon
+              href='https://twitter.com/nwplusubc'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <FontAwesomeIcon icon={faTwitter} />
+            </SocialIcon>
+            <SocialIcon
+              href='https://www.linkedin.com/company/nwplus'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <FontAwesomeIcon icon={faLinkedinIn} />
+            </SocialIcon>
+            <SocialIcon
+              href='https://www.youtube.com/c/nwPlusUBC'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <FontAwesomeIcon icon={faYoutube} />
+            </SocialIcon>
+            <SocialIcon
+              href='https://medium.com/nwplusubc'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <FontAwesomeIcon icon={faMediumM} />
+            </SocialIcon>
           </SocialContainer>
 
           <Cross
@@ -344,7 +350,7 @@ const NavBar = () => {
             opacity={config ? '1' : '0'}
             setShowDropdown={() => setShowDropdown(false)}
           />
-          <a
+          {/* <a
             href={config?.CTALink}
             rel='noreferrer noopener'
             target={config?.CTALink !== '#' && '_blank'}
@@ -354,7 +360,7 @@ const NavBar = () => {
                 Live Portal
               </LivePortalButton>
             )}
-          </a>
+          </a> */}
         </DropDownContentContainer>
       </>
     );
@@ -371,28 +377,70 @@ const NavBar = () => {
         </a>
         <NavTextContainer>
           <MenuList />
+          <JoinLink
+            hiring={config?.featureFlags?.isHiring}
+            hiringLink='/apply'
+            visibility={config ? 'visible' : 'hidden'}
+            opacity={config ? '1' : '0'}
+            setShowDropdown={() => setShowDropdown(false)}
+          />
+          {/* <a
+            href={config?.CTALink}
+            rel='noreferrer noopener'
+            target={config?.CTALink !== '#' && '_blank'}
+          >
+            {config?.featureFlags?.isLive !== null && (
+              <LivePortalButton disabled={!config?.featureFlags?.isLive}>
+                Live Portal
+              </LivePortalButton>
+            )}
+          </a> */}
         </NavTextContainer>
       </NavGroupContainer>
       {/* Right menu */}
       <SocialContainer>
-          <SocialIcon href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faFacebook} />
-          </SocialIcon>
-          <SocialIcon href="https://www.instagram.com/nwplusubc" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faInstagram} />
-          </SocialIcon>
-          <SocialIcon href="https://twitter.com/nwplusubc" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faTwitter} />
-          </SocialIcon>
-          <SocialIcon href="https://www.linkedin.com/company/nwplus" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faLinkedinIn} />
-          </SocialIcon>
-          <SocialIcon href="https://www.youtube.com/c/nwPlusUBC" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faYoutube} />
-          </SocialIcon>
-          <SocialIcon href="https://medium.com/nwplusubc" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faMediumM} />
-          </SocialIcon>
+        <SocialIcon
+          href='https://www.facebook.com/nwplusubc'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <FontAwesomeIcon icon={faFacebook} />
+        </SocialIcon>
+        <SocialIcon
+          href='https://www.instagram.com/nwplusubc'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <FontAwesomeIcon icon={faInstagram} />
+        </SocialIcon>
+        <SocialIcon
+          href='https://twitter.com/nwplusubc'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <FontAwesomeIcon icon={faTwitter} />
+        </SocialIcon>
+        <SocialIcon
+          href='https://www.linkedin.com/company/nwplus'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <FontAwesomeIcon icon={faLinkedinIn} />
+        </SocialIcon>
+        <SocialIcon
+          href='https://www.youtube.com/c/nwPlusUBC'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <FontAwesomeIcon icon={faYoutube} />
+        </SocialIcon>
+        <SocialIcon
+          href='https://medium.com/nwplusubc'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <FontAwesomeIcon icon={faMediumM} />
+        </SocialIcon>
       </SocialContainer>
       <HamburgerMenu
         src='/assets/icons/menu.svg'
