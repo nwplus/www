@@ -117,18 +117,6 @@ const JoinLinkContainer = styled.div`
   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 `;
 
-const JoinLinkInactive = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: ${(p) => p.theme.colors.disabled};
-
-  ${(p) => p.theme.mediaQueries.mobile} {
-    flex-direction: row;
-    gap: 10px;
-  }
-`;
-
 const JoinLinkActive = styled.a`
   display: flex;
   flex-direction: column;
