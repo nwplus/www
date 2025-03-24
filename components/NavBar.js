@@ -171,12 +171,7 @@ const JoinLink = ({
           <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
           <JoinLinkTextMinor>Applications Open</JoinLinkTextMinor>
         </JoinLinkActive>
-      ) : (
-        <JoinLinkInactive>
-          <JoinLinkTextMain>Join The Team</JoinLinkTextMain>
-          <JoinLinkTextMinor>Application Closed</JoinLinkTextMinor>
-        </JoinLinkInactive>
-      )}
+      ) : null}
     </JoinLinkContainer>
   );
 };
