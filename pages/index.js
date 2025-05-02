@@ -23,7 +23,7 @@ import teamSocial3 from '../public/assets/images/team_social_3.jpg';
 import teamSocial4 from '../public/assets/images/team_social_4.jpg';
 import teamSocial2 from '../public/assets/images/team_social_2.jpg';
 
-import PurpleTexture from '../public/assets/purple-texture.svg'
+import PurpleTexture from '../public/assets/purple-texture.svg';
 
 const SECTION_MARGIN = '8em auto';
 
@@ -134,7 +134,6 @@ const PurpleTextureImg = styled.img`
   float: left;
 
   ${(p) => p.theme.mediaQueries.mobile} {
-
   }
 `;
 
@@ -157,7 +156,7 @@ const BearImgContainer = styled.img`
   ${(p) => p.theme.mediaQueries.mobile} {
     display: none;
   }
-`
+`;
 
 const GreenPlanetImgContainer = styled.img`
   float: right;
@@ -167,13 +166,13 @@ const GreenPlanetImgContainer = styled.img`
     width: 160px;
     height: auto;
   }
-`
+`;
 
 export default function Home() {
   const themeContext = useContext(ThemeContext);
   const [faqs, setFaqs] = useState(null);
   const metaDescription =
-    'nwPlus is a student-led club supporting aspiring programmers and designers, based out of University of British Columbia.';
+    'We empower students from all backgrounds to solve meaningful problems together.';
 
   const getFaq = async () => {
     const faqs = await fireDb.getCollection('www', 'FAQ');
@@ -214,17 +213,15 @@ export default function Home() {
             <AboutHeader>
               <Title1 color={themeContext.colors.primary}>Who We Are</Title1>
               <div>
-                <Title2 withGradient>
-                  nwPlus is a student-led club supporting aspiring programmers
-                  and designers, based out of University of British Columbia.
-                </Title2>
+                <Title2 withGradient>{metaDescription}</Title2>
                 <Body>
-                  Our mission: foster innovation and creativity in tech for
-                  students to connect with passionate peers and mentors, through
-                  events such as our annual hackathons. By providing the right
-                  tools, resources, and support, the team at nwPlus aims to
-                  encourage students to gain hands-on experience with
-                  cutting-edge technology outside of classroom settings.
+                  Based at the University of British Columbia, nwPlus is a
+                  student-led club that fosters innovation and skill-building in
+                  the tech space for students to connect with passionate peers
+                  and mentors through events such as our annual hackathons. By
+                  providing tools, resources, and support, we encourage students
+                  to gain hands-on experience with cutting-edge technology
+                  outside of the classroom.
                 </Body>
               </div>
             </AboutHeader>
@@ -281,8 +278,8 @@ export default function Home() {
         <ContentContainer id='resources' margin={SECTION_MARGIN}>
           <ResourcesSection>
             <ResourceContainer />
-            <BearImgContainer src="assets/resources-mascot.svg"/>
-            <GreenPlanetImgContainer src="assets/resources-planet.svg" />
+            <BearImgContainer src='assets/resources-mascot.svg' />
+            <GreenPlanetImgContainer src='assets/resources-planet.svg' />
           </ResourcesSection>
         </ContentContainer>
         {faqs && (
