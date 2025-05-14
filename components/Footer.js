@@ -111,7 +111,7 @@ const profiles = [
     emoji: '🫨',
     color: '#01DACC',
     title: 'HackCamp Logistics Coordinator',
-    social: '',
+    social: 'https://www.linkedin.com/in/jonathan-cai-843873314/',
   },
   {
     img: '/assets/profiles/Ben_Beckford.png',
@@ -247,7 +247,7 @@ const profiles = [
     emoji: '',
     color: '#E69A8D',
     title: 'Sponsorship Coordinator',
-    social: '',
+    social: 'https://www.linkedin.com/in/guo-elena/',
   },
   {
     img: '/assets/profiles/Anna_Fang.png',
@@ -284,10 +284,10 @@ const profiles = [
   {
     img: '/assets/profiles/Ramika_De_Silva.png',
     name: 'Ramika De Silva',
-    emoji: '🦋',
-    color: '#EAE6F3',
+    emoji: '🦥',
+    color: '#F7F141',
     title: 'Marketing Coordinator',
-    social: '',
+    social: 'https://www.linkedin.com/in/ramika-de-silva-4995b9203/',
   },
   {
     img: '/assets/profiles/Tiffany_Nguyen.png',
@@ -359,7 +359,7 @@ const profiles = [
     emoji: '💗',
     color: '#D7BDE2',
     title: 'Designer',
-    social: '',
+    social: 'https://www.linkedin.com/in/roberta-lee-3381662ba/',
   },
   {
     img: '/assets/profiles/Rachel_Wang.png',
@@ -367,7 +367,7 @@ const profiles = [
     emoji: '😑',
     color: '#CBC3E3',
     title: 'Designer',
-    social: '',
+    social: 'https://www.linkedin.com/in/rachel-wang-894626217/',
   },
   {
     img: '/assets/profiles/Trisha_Sia.png',
@@ -463,7 +463,7 @@ const profiles = [
     emoji: '🪼',
     color: '#99DEBC',
     title: 'EDI Coordinator',
-    social: 'linkedin.com/in/ryanc-lowe/',
+    social: 'https://www.linkedin.com/in/ryanc-lowe/',
   },
   {
     img: '/assets/profiles/Newgen_Bao.png',
@@ -495,7 +495,7 @@ const profiles = [
     emoji: '',
     color: '#F8D7E1',
     title: 'Engagement Coordinator',
-    social: '',
+    social: 'https://www.linkedin.com/in/jiahui-jin',
   },
 ]
 
