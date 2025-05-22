@@ -420,7 +420,7 @@ export default function Hackathons() {
             </HackathonDescriptions>
             <HackathonDate>{HackCampData.date}</HackathonDate>
             <HackathonButton href={HackCampData.link} target='_blank'>
-              Visit Website
+              Visit website
             </HackathonButton>
           </HackathonDetails>
 
