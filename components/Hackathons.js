@@ -420,7 +420,7 @@ export default function Hackathons() {
             </HackathonDescriptions>
             <HackathonDate>{HackCampData.date}</HackathonDate>
             <HackathonButton href={HackCampData.link} target='_blank'>
-              Visit Website
+              Visit website
             </HackathonButton>
           </HackathonDetails>
 
@@ -552,7 +552,7 @@ export default function Hackathons() {
             </HackathonDescriptions>
             <HackathonDate>{nwHacksData.date}</HackathonDate>
             <HackathonButton href={nwHacksData.link} target='_blank'>
-              Visit website!
+              Visit website
             </HackathonButton>
           </HackathonDetails>
         </HackathonPlanet>
@@ -570,7 +570,7 @@ export default function Hackathons() {
               Hackathon celebrating underrepresented genders in tech.
             </HackathonDescriptions>
             <HackathonDate>{cmdfData.date}</HackathonDate>
-            <HackathonButton href={cmdfData.link} target="_blank">Apply now!</HackathonButton>
+            <HackathonButton href={cmdfData.link} target="_blank">Visit website</HackathonButton>
           </HackathonDetails>
 
           <DashedConnector
@@ -747,7 +747,7 @@ export default function Hackathons() {
             <MobileHackathonDate>{nwHacksData.date}</MobileHackathonDate>
 
             <HackathonDescriptions>Our flagship hackathon – largest in Western Canada.</HackathonDescriptions>
-            <HackathonButton href={nwHacksData.link} target="_blank">Visit website!</HackathonButton>
+            <HackathonButton href={nwHacksData.link} target="_blank">Visit website</HackathonButton>
           </MobileHackathonDetails>
         </MobileHackathonPlanet>
 
