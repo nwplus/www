@@ -88,10 +88,16 @@ const StyledInput = styled.input`
 `;
 
 const SponsorshipCTA = styled.p`
-  background: linear-gradient(92.58deg, #0DEFE1 0%, #78FF96 100%);
+  background: linear-gradient(92.58deg, #0DEFE1 0%, #78FF96 25%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 1em;
+`;
+
+const SponsorLink = styled.a`
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #78FF96;
 `;
 
 const ScrollContainer = styled.div`
@@ -196,7 +202,7 @@ export default function Hero() {
             Submit
           </ComboButton>
           {inputMessage && <FormResponseText style={{color: inputMessageColor}}>{inputMessage}</FormResponseText>}
-          <SponsorshipCTA>Interested in sponsoring? Reach us at <a href="mailto:sponsorship@nwplus.io">sponsorship@nwplus.io</a>!</SponsorshipCTA>
+          <SponsorshipCTA>Interested in sponsoring? <SponsorLink href="https://docs.google.com/forms/d/e/1FAIpQLSc0y2t3f8OoOD8RLlBdmuaeDMbaYHdEN_TC0RIoqq3H95SaBg/viewform">Let&apos;s connect!</SponsorLink></SponsorshipCTA>
         </ContentContainer>
       </NewsletterForm>
 
