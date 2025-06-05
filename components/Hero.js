@@ -202,7 +202,7 @@ export default function Hero() {
             Submit
           </ComboButton>
           {inputMessage && <FormResponseText style={{color: inputMessageColor}}>{inputMessage}</FormResponseText>}
-          <SponsorshipCTA>Interested in sponsoring? <SponsorLink href="https://docs.google.com/forms/d/e/1FAIpQLSc0y2t3f8OoOD8RLlBdmuaeDMbaYHdEN_TC0RIoqq3H95SaBg/viewform">Let&apos;s connect!</SponsorLink></SponsorshipCTA>
+          <SponsorshipCTA>Interested in sponsoring? <SponsorLink href="https://forms.gle/aoT68YNTYYgNxF4f7">Let&apos;s connect!</SponsorLink></SponsorshipCTA>
         </ContentContainer>
       </NewsletterForm>
 
