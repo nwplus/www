@@ -55,6 +55,8 @@ const ComboButton = styled(Button)`
   width: 65px;
   height: 28px;
   z-index: 1;
+  font-size: 0.8em;
+  font-weight: 600;
 
   ${(p) => p.theme.mediaQueries.mobile} {
     height: 22px;
@@ -73,7 +75,7 @@ const StyledInput = styled.input`
   background: white;
   color: black;
   font-weight: normal;
-  font-size: 0.8em;
+  font-size: 0.7em;
   width: 291px;
   height: 36px;
 
