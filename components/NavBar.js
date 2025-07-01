@@ -9,7 +9,6 @@ import {
   faInstagram,
   faLinkedinIn,
   faMediumM,
-  faTwitter,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 
@@ -306,13 +305,6 @@ const NavBar = () => {
               <FontAwesomeIcon icon={faInstagram} />
             </SocialIcon>
             <SocialIcon
-              href='https://twitter.com/nwplusubc'
-              target='_blank'
-              rel='noreferrer'
-            >
-              <FontAwesomeIcon icon={faTwitter} />
-            </SocialIcon>
-            <SocialIcon
               href='https://www.linkedin.com/company/nwplus'
               target='_blank'
               rel='noreferrer'
@@ -412,13 +404,6 @@ const NavBar = () => {
           rel='noreferrer'
         >
           <FontAwesomeIcon icon={faInstagram} />
-        </SocialIcon>
-        <SocialIcon
-          href='https://twitter.com/nwplusubc'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <FontAwesomeIcon icon={faTwitter} />
         </SocialIcon>
         <SocialIcon
           href='https://www.linkedin.com/company/nwplus'
