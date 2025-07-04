@@ -5,7 +5,6 @@ import {
     faInstagram,
     faLinkedinIn,
     faMediumM,
-    faTwitter,
     faYoutube,
   } from '@fortawesome/free-brands-svg-icons';
 import Head from 'next/head';
@@ -92,9 +91,6 @@ export default function ApplicationPage() {
                   </a>
                   <a href="https://www.instagram.com/nwplusubc" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faInstagram} />
-                  </a>
-                  <a href="https://twitter.com/nwplusubc" target="_blank" rel="noreferrer">
-                  <FontAwesomeIcon icon={faTwitter} />
                   </a>
                   <a href="https://www.linkedin.com/company/nwplus" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faLinkedinIn} />

@@ -3,7 +3,6 @@ import {
   faInstagram,
   faLinkedinIn,
   faMedium,
-  faTwitter,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -518,13 +517,6 @@ export default function Footer() {
           rel='noreferrer'
         >
           <FontAwesomeIcon icon={faInstagram} />
-        </a>
-        <a
-          href='https://twitter.com/nwplusubc'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <FontAwesomeIcon icon={faTwitter} />
         </a>
         <a
           href='https://www.linkedin.com/company/nwplus'
