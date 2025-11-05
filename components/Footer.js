@@ -114,14 +114,6 @@ const profiles = [
     social: 'https://www.linkedin.com/in/jonathan-cai-843873314/',
   },
   {
-    img: '/assets/profiles/Ben_Beckford.png',
-    name: 'Ben Beckford',
-    emoji: '🍃',
-    color: '#CF9FFF',
-    title: 'HackCamp Logistics Coordinator',
-    social: 'https://www.linkedin.com/in/benbeckford',
-  },
-  {
     img: '/assets/profiles/Khoa_Bui.png',
     name: 'Khoa Bui',
     emoji: '🐧',
@@ -218,14 +210,6 @@ const profiles = [
     social: 'https://www.linkedin.com/in/arakwon/',
   },
   {
-    img: '/assets/profiles/Alissa_Guo.png',
-    name: 'Alissa Guo',
-    emoji: '🥘',
-    color: '#FFC0CB',
-    title: 'Sponsorship Coordinator',
-    social: 'https://www.linkedin.com/in/alissa-guo/',
-  },
-  {
     img: '/assets/profiles/Stellar_Shar.png',
     name: 'Stellar Shar',
     emoji: '🪿',
@@ -264,6 +248,14 @@ const profiles = [
     color: '#ADD0B3',
     title: 'Sponsorship Coordinator',
     social: '',
+  },
+  {
+    img: '/assets/profiles/Fabian_Siswanto.png',
+    name: 'Fabian Siswanto',
+    emoji: '💯',
+    color: '#BFA98E',
+    title: 'Sponsorship Coordinator',
+    social: 'https://www.linkedin.com/in/fabiansiswanto/',
   },
   {
     img: '/assets/profiles/Paul_Tiberghien.png',
@@ -442,19 +434,11 @@ const profiles = [
     social: '',
   },
   {
-    img: '/assets/profiles/Maiah_Lee.png',
-    name: 'Maiah Lee',
-    emoji: '🦦',
-    color: '#3F6645',
-    title: 'EDI Director',
-    social: '',
-  },
-  {
     img: '/assets/profiles/Keira_Wong.png',
     name: 'Keira Wong',
     emoji: '🤍',
     color: '#66D6A8',
-    title: 'EDI Coordinator',
+    title: 'EDI Co-Director',
     social: 'https://www.linkedin.com/in/keirawong/',
   },
   {
@@ -462,15 +446,31 @@ const profiles = [
     name: 'Ryan Lowe',
     emoji: '🪼',
     color: '#99DEBC',
-    title: 'EDI Coordinator',
+    title: 'EDI Co-Director',
     social: 'https://www.linkedin.com/in/ryanc-lowe/',
+  },
+  {
+    img: '/assets/profiles/Sarah_Chenwang.png',
+    name: 'Sarah Chenwang',
+    emoji: '😛',
+    color: '#cfe2f3',
+    title: 'EDI Coordinator',
+    social: '',
+  },
+  {
+    img: '/assets/profiles/Avery_Chong.png',
+    name: 'Avery Chong',
+    emoji: '☹️',
+    color: '#414141',
+    title: 'EDI Coordinator',
+    social: '',
   },
   {
     img: '/assets/profiles/Newgen_Bao.png',
     name: 'Newgen Bao',
     emoji: '🥐',
     color: '#01DACC',
-    title: 'Engagement Director',
+    title: 'Engagement Co-Director',
     social: 'https://www.linkedin.com/in/newgen-bao/',
   },
   {
@@ -478,7 +478,7 @@ const profiles = [
     name: 'Kelly Hum',
     emoji: '🐳',
     color: '#FFD1A0',
-    title: 'Engagement Coordinator',
+    title: 'Engagement Co-Director',
     social: 'https://www.linkedin.com/in/kellyhum',
   },
   {
@@ -497,6 +497,22 @@ const profiles = [
     title: 'Engagement Coordinator',
     social: 'https://www.linkedin.com/in/jiahui-jin',
   },
+  {
+    img: '/assets/profiles/Ege_Taslicay.png',
+    name: 'Ege Taslicay',
+    emoji: '',
+    color: '#00a378',
+    title: 'Engagement Coordinator',
+    social: '',
+  },
+  {
+    img: '/assets/profiles/Hannah_Baek.png',
+    name: 'Hannah Baek',
+    emoji: '😽',
+    color: '#91213a',
+    title: 'Engagement Coordinator',
+    social: '',
+  }
 ]
 
 export default function Footer() {
