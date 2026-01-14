@@ -228,7 +228,7 @@ export default function Home() {
           </AboutHeaderContainer>
           <AboutSection>
             <AboutUsGallery
-              videoSrc='https://www.youtube.com/embed/C_1ygFqM_oo'
+              videoSrc='https://www.youtube.com/embed/TtYBTPVJCwo?si=1CotVig4bIngdZl3'
               images={[
                 {
                   leftImg: teamSocial1,
