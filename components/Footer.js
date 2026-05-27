@@ -79,6 +79,7 @@ const profiles = [
     color: '#234036',
     title: 'Co-President',
     social: 'https://www.linkedin.com/in/tracy--la/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Angela_Cheng.png',
@@ -87,6 +88,7 @@ const profiles = [
     color: '#9ADDFB',
     title: 'Co-President',
     social: 'https://www.linkedin.com/in/angela-cheng-/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Caitlyn_Chan.png',
@@ -95,6 +97,7 @@ const profiles = [
     color: '#f5bf53',
     title: 'Treasurer',
     social: 'linkedin.com/in/cait-chan/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Jonathan_Cai.png',
@@ -103,6 +106,7 @@ const profiles = [
     color: '#01DACC',
     title: 'HackCamp Logistics Director',
     social: 'https://www.linkedin.com/in/jonathan-cai-843873314/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Hannah_Baek.png',
@@ -111,6 +115,7 @@ const profiles = [
     color: '#91213a',
     title: 'HackCamp Logistics Coordinator',
     social: '',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Stellar_Shar.png',
@@ -119,6 +124,7 @@ const profiles = [
     color: '#FFC0CB',
     title: 'HackCamp Logistics Coordinator',
     social: 'https://www.linkedin.com/in/stellar-shar-4005b219a/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Roberta_Lee.png',
@@ -127,6 +133,7 @@ const profiles = [
     color: '#FFAADC',
     title: 'HackCamp Logistics Coordinator',
     social: 'https://www.linkedin.com/in/roberta-lee-3381662ba/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Anthony_Lu.png',
@@ -135,6 +142,7 @@ const profiles = [
     color: '#ABCDEF',
     title: 'HackCamp Logistics Coordinator',
     social: 'https://www.linkedin.com/in/anthony-h-lu/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Sunny_Su.png',
@@ -143,6 +151,7 @@ const profiles = [
     color: '#C6E2FF',
     title: 'nwHacks Logistics Coordinator',
     social: 'www.linkedin.com/in/sunnysu101',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Jennifer_Shui.png',
@@ -151,6 +160,7 @@ const profiles = [
     color: '#ABCFFF',
     title: 'nwHacks Logistics Director',
     social: 'https://www.linkedin.com/in/jennifershui/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Jagathi_Moturi.png',
@@ -159,6 +169,7 @@ const profiles = [
     color: '#ADD0B3',
     title: 'nwHacks Logistics Coordinator',
     social: 'linkedin.com/in/jagathi-moturi',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Tiffany_Nguyen.png',
@@ -167,6 +178,7 @@ const profiles = [
     color: '#6777B6',
     title: 'nwHacks Logistics Coordinator',
     social: 'www.linkedin.com/in/tiffany-nguyen-14b227216',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Connor_Young.png',
@@ -175,6 +187,7 @@ const profiles = [
     color: '#9cf0ff',
     title: 'nwHacks Logistics Coordinator',
     social: 'linkedin.com/in/conryoung',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Alan_Wu.png',
@@ -183,6 +196,7 @@ const profiles = [
     color: '#3eb489',
     title: 'nwHacks Logistics Coordinator',
     social: 'https://www.linkedin.com/in/alan-w-u/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Yiming_Su.png',
@@ -191,6 +205,7 @@ const profiles = [
     color: '#702963',
     title: 'nwHacks Logistics Coordinator',
     social: 'ysu.dev',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Anna_Fang.png',
@@ -199,6 +214,7 @@ const profiles = [
     color: '#a76d52',
     title: 'Sponsorship Director',
     social: 'https://www.linkedin.com/in/anna-fang-5312a0235/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Fabian_Siswanto.png',
@@ -207,6 +223,7 @@ const profiles = [
     color: '#BFA98E',
     title: 'Sponsorship Coordinator',
     social: 'https://www.linkedin.com/in/fabiansiswanto/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Ramika_De_Silva.png',
@@ -215,6 +232,7 @@ const profiles = [
     color: '#91C2C1',
     title: 'Sponsorship Coordinator',
     social: 'https://www.linkedin.com/in/ramika-de-silva-4995b9203/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Simon_Chen.png',
@@ -223,6 +241,7 @@ const profiles = [
     color: '#BED6EB',
     title: 'Sponsorship Coordinator',
     social: 'https://www.linkedin.com/in/simonchen10/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Corbin_Platti.png',
@@ -231,6 +250,7 @@ const profiles = [
     color: '#fa02ee',
     title: 'Sponsorship Coordinator',
     social: 'https://iamcorbin.com/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Yash_Vasdev.png',
@@ -239,6 +259,7 @@ const profiles = [
     color: '#01DACC',
     title: 'Sponsorship Coordinator',
     social: '',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Ariana_Zhassuzak.png',
@@ -247,6 +268,7 @@ const profiles = [
     color: '#FFF0F5',
     title: 'Sponsorship Coordinator',
     social: '',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Joyce_Park.png',
@@ -255,6 +277,7 @@ const profiles = [
     color: '#01DACC',
     title: 'Marketing Director',
     social: 'https://joycesoyeonpark.wixsite.com/joyce-park',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Lilit_Vanyan.png',
@@ -263,6 +286,7 @@ const profiles = [
     color: '#F2ACB9',
     title: 'Marketing Coordinator',
     social: 'https://www.linkedin.com/in/lilit-vanyan-5626a2240/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Daisy_Han.png',
@@ -271,6 +295,7 @@ const profiles = [
     color: '#A7CCFF',
     title: 'Marketing Coordinator',
     social: 'https://www.linkedin.com/in/daiisyhan/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Claudio_Pires.png',
@@ -279,6 +304,7 @@ const profiles = [
     color: '#278EF5',
     title: 'Marketing Coordinator',
     social: 'https://www.linkedin.com/in/claudiopires-/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Arnavdeep_Singh.png',
@@ -287,6 +313,7 @@ const profiles = [
     color: '#171C45',
     title: 'Media Coordinator',
     social: 'https://www.linkedin.com/in/arnavdeep-singh/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Dilna_Davi.png',
@@ -295,6 +322,7 @@ const profiles = [
     color: '#D1FCA4',
     title: 'Media Coordinator',
     social: 'https://www.linkedin.com/in/dilna-davi',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Kashish_Garg.png',
@@ -303,6 +331,7 @@ const profiles = [
     color: '#01DACC',
     title: 'Content Writer',
     social: 'https://www.linkedin.com/in/kashishgarg1/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Elaine_Chen.png',
@@ -311,6 +340,7 @@ const profiles = [
     color: '#7f4e5a',
     title: 'Design Director',
     social: 'www.linkedin.com/in/elaine-c-3ab8a2231',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Anna_Kovtunenko.png',
@@ -319,6 +349,7 @@ const profiles = [
     color: '#5e0808',
     title: 'Designer',
     social: 'https://www.linkedin.com/in/anna-kovtunenko/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Angela_Chiang.png',
@@ -327,6 +358,7 @@ const profiles = [
     color: '#00A3FF',
     title: 'Designer',
     social: 'https://www.linkedin.com/in/a-hc-chiang/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Sarah_Chenwang.png',
@@ -335,6 +367,7 @@ const profiles = [
     color: '#cfe2f3',
     title: 'Designer',
     social: '',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Alexi_Manning.png',
@@ -343,6 +376,7 @@ const profiles = [
     color: '#e7c9f5',
     title: 'Designer',
     social: '',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Ruby_Ke.png',
@@ -351,6 +385,7 @@ const profiles = [
     color: '#FFF39C',
     title: 'Designer',
     social: 'https://www.linkedin.com/in/ruby-ke/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Geoff_Jiang.png',
@@ -359,6 +394,7 @@ const profiles = [
     color: '#7f11e0',
     title: 'Dev Director',
     social: 'https://www.linkedin.com/in/geoff-jiang/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Jae_Wu_Chun.png',
@@ -367,6 +403,7 @@ const profiles = [
     color: '#01DACC',
     title: 'Developer',
     social: '',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Daksh_Shahani.png',
@@ -375,6 +412,7 @@ const profiles = [
     color: '#008581',
     title: 'Developer',
     social: 'https://dakshitshahani.com',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Mackenzie_Dy.png',
@@ -383,6 +421,7 @@ const profiles = [
     color: '#4E2A84',
     title: 'Developer',
     social: 'mackenziedy.com',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Leia_Chen.png',
@@ -391,6 +430,7 @@ const profiles = [
     color: '#13315c',
     title: 'Developer',
     social: 'https://www.linkedin.com/in/leiahjchen/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Jasper_He.png',
@@ -399,6 +439,7 @@ const profiles = [
     color: '#81b0cc',
     title: 'Developer',
     social: 'https://linkedin.com/in/jasperjjhe',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Eric_Zuo.png',
@@ -407,6 +448,7 @@ const profiles = [
     color: '#4c06c4',
     title: 'Developer',
     social: 'https://www.linkedin.com/in/ericzuo8/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Shannon_Aurelia.png',
@@ -415,6 +457,7 @@ const profiles = [
     color: '#01DACC',
     title: 'Product Manager',
     social: 'https://www.linkedin.com/in/shannon-aurelia-s/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Keira_Wong.png',
@@ -423,6 +466,7 @@ const profiles = [
     color: '#000000',
     title: 'EDI Director',
     social: 'https://www.linkedin.com/in/keirawong/',
+    pronouns: 'she/they',
   },
   {
     img: '/assets/profiles/Rachel_Wang.png',
@@ -431,6 +475,7 @@ const profiles = [
     color: '#CBC3E3',
     title: 'Engagement Internal Director',
     social: 'https://www.linkedin.com/in/rachel-wang-894626217/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Lincoln_Lee.png',
@@ -439,6 +484,7 @@ const profiles = [
     color: '#bae5f9',
     title: 'Engagement Internal Coordinator',
     social: 'linkedin.com/in/lincoln-seungha-lee',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Eric_Shuai.png',
@@ -447,6 +493,7 @@ const profiles = [
     color: '#29cff0',
     title: 'Engagement Internal Coordinator',
     social: 'https://www.linkedin.com/in/ericshuai',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Gregory_Bian.png',
@@ -455,6 +502,7 @@ const profiles = [
     color: '#0000FF',
     title: 'Engagement Internal Coordinator',
     social: 'https://www.linkedin.com/in/gregorybian/',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Dhweya_Modi.png',
@@ -463,6 +511,7 @@ const profiles = [
     color: '#DBC8E2',
     title: 'Engagement External Director',
     social: 'https://www.linkedin.com/in/dhweya-modi-12428a250/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Daniel_Pan.png',
@@ -471,6 +520,7 @@ const profiles = [
     color: '#01DACC',
     title: 'Engagement External Coordinator',
     social: 'danielpanhead.com',
+    pronouns: 'he/him',
   },
   {
     img: '/assets/profiles/Avery_Chong.png',
@@ -479,6 +529,7 @@ const profiles = [
     color: '#414141',
     title: 'Engagement External Coordinator',
     social: '',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Wakana_Kuwayama.png',
@@ -487,6 +538,7 @@ const profiles = [
     color: '#A8D5BA',
     title: 'Engagement External Coordinator',
     social: 'www.linkedin.com/in/wakana-k',
+    pronouns: 'she/her',
   }
 ]
 
