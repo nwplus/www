@@ -452,14 +452,14 @@ export default function Hackathons() {
             {/* Position the moons around the planet */}
 
             <MoonContainer
-              href='https://hackcamp2022.nwplus.io/'
+              href='https://hackcamp2024.nwplus.io/'
               style={{
                 top: '-30%',
                 left: '-28px',
                 transform: 'translateY(-50%)',
               }}
             >
-              <MoonYear style={{ color: '#595E8F' }}>2022</MoonYear>
+              <MoonYear style={{ color: '#595E8F' }}>2024</MoonYear>
               <Moon src={hcMoonTwoImg} />
             </MoonContainer>
 
@@ -476,14 +476,14 @@ export default function Hackathons() {
             </MoonContainer>
 
             <MoonContainer
-              href='https://hackcamp2021.nwplus.io/'
+              href='https://hackcamp2022.nwplus.io/'
               style={{
                 top: '80%',
                 right: '42px',
                 transform: 'translateY(-50%)',
               }}
             >
-              <MoonYear style={{ color: '#265F71' }}>2021</MoonYear>
+              <MoonYear style={{ color: '#265F71' }}>2022</MoonYear>
               <Moon src={hcMoonThreeImg} />
             </MoonContainer>
 
@@ -506,38 +506,38 @@ export default function Hackathons() {
           >
             {/* Position the moons around the planet */}
             <MoonContainer
-              href='https://2023.nwhacks.io/'
+              href='https://2025.nwhacks.io/'
               style={{
                 top: '20%',
                 left: '-14px',
                 transform: 'translateY(-50%)',
               }}
             >
-              <MoonYear style={{ color: '#3E6C8C' }}>2023</MoonYear>
+              <MoonYear style={{ color: '#3E6C8C' }}>2025</MoonYear>
               <Moon src={nwMoonOneImg} />
             </MoonContainer>
 
             <MoonContainer
-              href='https://2024.nwhacks.io/'
+              href='https://2023.nwhacks.io/'
               style={{
                 top: '-25%',
                 left: '100%',
                 transform: 'translateX(-50%)',
               }}
             >
-              <MoonYear style={{ color: '#B89C9F' }}>2024</MoonYear>
+              <MoonYear style={{ color: '#B89C9F' }}>2023</MoonYear>
               <Moon src={nwMoonTwoImg} />
             </MoonContainer>
 
             <MoonContainer
-              href='https://2022.nwhacks.io/'
+              href='https://2024.nwhacks.io/'
               style={{
                 top: '105%',
                 right: '-0px',
                 transform: 'translateY(-50%)',
               }}
             >
-              <MoonYear style={{ color: '#574D94' }}>2022</MoonYear>
+              <MoonYear style={{ color: '#574D94' }}>2024</MoonYear>
               <Moon src={nwMoonThreeImg} />
             </MoonContainer>
 
@@ -600,38 +600,38 @@ export default function Hackathons() {
           >
             {/* Position the moons around the planet */}
             <MoonContainer
-              href='https://cmd-f2023.nwplus.io/'
+              href='https://cmd-f2025.nwplus.io/'
               style={{
                 top: '0%',
                 left: '-56px',
                 transform: 'translateY(-50%)',
               }}
             >
-              <MoonYear style={{ color: '#3B9884' }}>2023</MoonYear>
+              <MoonYear style={{ color: '#3B9884' }}>2025</MoonYear>
               <Moon src={cmdfMoonThreeImg} />
             </MoonContainer>
 
             <MoonContainer
-              href='https://cmd-f2024.nwplus.io/'
+              href='https://cmd-f.nwplus.io/'
               style={{
                 top: '-5%',
                 left: '100%',
                 transform: 'translateX(-50%)',
               }}
             >
-              <MoonYear style={{ color: '#DDC4B1' }}>2024</MoonYear>
+              <MoonYear style={{ color: '#DDC4B1' }}>2026</MoonYear>
               <Moon src={cmdfMoonOneImg} />
             </MoonContainer>
 
             <MoonContainer
-              href='https://cmd-f2022.nwplus.io/'
+              href='https://cmd-f2024.nwplus.io/'
               style={{
                 top: '110%',
                 left: '50%',
                 transform: 'translateY(-50%)',
               }}
             >
-              <MoonYear style={{ color: '#E7D1C7' }}>2022</MoonYear>
+              <MoonYear style={{ color: '#E7D1C7' }}>2024</MoonYear>
               <Moon src={cmdfMoonTwoImg} />
             </MoonContainer>
 
@@ -655,14 +655,14 @@ export default function Hackathons() {
             style={{ animation: 'float 5s ease-in-out infinite' }}
           >
             <MoonContainer
-              href='https://hackcamp2022.nwplus.io/'
+              href='https://hackcamp2024.nwplus.io/'
               style={{
                 top: '20%',
                 right: '0px',
                 transform: 'translateY(-50%)',
               }}
             >
-              <MoonYear style={{ color: '#595E8F' }}>2022</MoonYear>
+              <MoonYear style={{ color: '#595E8F' }}>2024</MoonYear>
               <Moon src={hcMoonTwoImg} />
             </MoonContainer>
 
@@ -676,10 +676,10 @@ export default function Hackathons() {
             </MoonContainer>
 
             <MoonContainer
-              href='https://hackcamp2021.nwplus.io/'
+              href='https://hackcamp2022.nwplus.io/'
               style={{ top: '100%', right: '0', transform: 'translateY(-50%)' }}
             >
-              <MoonYear style={{ color: '#265F71' }}>2021</MoonYear>
+              <MoonYear style={{ color: '#265F71' }}>2022</MoonYear>
               <Moon src={hcMoonThreeImg} />
             </MoonContainer>
 
@@ -715,35 +715,35 @@ export default function Hackathons() {
           >
             {/* Position the moons around the planet */}
             <MoonContainer
-              href='https://2023.nwhacks.io/'
+              href='https://2025.nwhacks.io/'
               style={{
                 top: '20%',
                 right: '0px',
                 transform: 'translateY(-50%)',
               }}
             >
-              <MoonYear style={{ color: '#3E6C8C' }}>2023</MoonYear>
+              <MoonYear style={{ color: '#3E6C8C' }}>2025</MoonYear>
               <Moon src={nwMoonOneImg} />
               <ToolTip src={leftToolTip} />
             </MoonContainer>
 
             <MoonContainer
-              href='https://2024.nwhacks.io/'
+              href='https://2023.nwhacks.io/'
               style={{ top: '-5%', left: '10%', transform: 'translateX(-50%)' }}
             >
-              <MoonYear style={{ color: '#B89C9F' }}>2024</MoonYear>
+              <MoonYear style={{ color: '#B89C9F' }}>2023</MoonYear>
               <Moon src={nwMoonTwoImg} />
             </MoonContainer>
 
             <MoonContainer
-              href='https://2022.nwhacks.io/'
+              href='https://2024.nwhacks.io/'
               style={{
                 top: '100%',
                 left: '10%',
                 transform: 'translateY(-50%)',
               }}
             >
-              <MoonYear style={{ color: '#574D94' }}>2022</MoonYear>
+              <MoonYear style={{ color: '#574D94' }}>2024</MoonYear>
               <Moon src={nwMoonThreeImg} />
             </MoonContainer>
 
@@ -774,31 +774,31 @@ export default function Hackathons() {
             style={{ animation: 'float 3.5s ease-in-out infinite' }}
           >
             <MoonContainer
-              href='https://cmd-f2023.nwplus.io/'
+              href='https://cmd-f2025.nwplus.io/'
               style={{
                 top: '20%',
                 right: '0px',
                 transform: 'translateY(-50%)',
               }}
             >
-              <MoonYear style={{ color: '#3B9884' }}>2023</MoonYear>
+              <MoonYear style={{ color: '#3B9884' }}>2025</MoonYear>
               <Moon src={cmdfMoonThreeImg} />
             </MoonContainer>
 
             <MoonContainer
-              href='https://cmd-f2024.nwplus.io/'
+              href='https://cmd-f.nwplus.io/'
               style={{ top: '0%', left: '10%', transform: 'translateX(-50%)' }}
             >
-              <MoonYear style={{ color: '#DDC4B1' }}>2024</MoonYear>
+              <MoonYear style={{ color: '#DDC4B1' }}>2026</MoonYear>
               <Moon src={cmdfMoonOneImg} />
               <ToolTip src={rightToolTip} />
             </MoonContainer>
 
             <MoonContainer
-              href='https://cmd-f2022.nwplus.io/'
+              href='https://cmd-f2024.nwplus.io/'
               style={{ top: '100%', right: '0', transform: 'translateY(-50%)' }}
             >
-              <MoonYear style={{ color: '#E7D1C7' }}>2022</MoonYear>
+              <MoonYear style={{ color: '#E7D1C7' }}>2024</MoonYear>
               <Moon src={cmdfMoonTwoImg} />
             </MoonContainer>
 
