@@ -189,6 +189,21 @@ const HackathonButton = styled.a`
   }
 `;
 
+const SecondaryButton = styled.span`
+  color: #bdbac3;
+  font-weight: bold;  
+`;
+
+const HackathonActionButton = ({ isLegacy, legacyStatementUrl, link }) => {
+  if (!isLegacy) {
+    return <HackathonButton href={link} target='_blank'>Visit website</HackathonButton>;
+  }
+  if (legacyStatementUrl) {
+    return <HackathonButton href={legacyStatementUrl} target='_blank'>View Statement</HackathonButton>;
+  }
+  return <SecondaryButton>Statement Coming Soon</SecondaryButton>;
+};
+
 const MobileHackathonDetails = styled.div`
   position: relative;
   border: 1.66px solid #bdbac3;
@@ -320,6 +335,8 @@ export default function Hackathons() {
           date: hackathonData['hackathonWeekend']['cmd-f'],
           start: hackathonData['hackathonStart']['cmd-f'],
           open: hackathonData['applicationsOpen']['cmd-f'],
+          isLegacy: hackathonData['isLegacy']?.['cmd-f'] ?? false,
+          legacyStatementUrl: hackathonData['legacyStatementUrl']?.['cmd-f'] ?? '',
         },
       },
     ];
@@ -570,7 +587,7 @@ export default function Hackathons() {
               Hackathon celebrating underrepresented genders in tech.
             </HackathonDescriptions>
             <HackathonDate>{cmdfData.date}</HackathonDate>
-            <HackathonButton href={cmdfData.link} target="_blank">Visit website</HackathonButton>
+            <HackathonActionButton isLegacy={cmdfData.isLegacy} legacyStatementUrl={cmdfData.legacyStatementUrl} link={cmdfData.link} />
           </HackathonDetails>
 
           <DashedConnector
@@ -804,9 +821,7 @@ export default function Hackathons() {
             <HackathonDescriptions>
               Hackathon celebrating underrepresented genders in tech.
             </HackathonDescriptions>
-            <HackathonButton href={cmdfData.link} target='_blank'>
-              Apply now!
-            </HackathonButton>
+            <HackathonActionButton isLegacy={cmdfData.isLegacy} legacyStatementUrl={cmdfData.legacyStatementUrl} link={cmdfData.link} />
           </MobileHackathonDetails>
         </MobileHackathonPlanet>
       </MobileHackathonsContainer>
