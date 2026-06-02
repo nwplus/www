@@ -13,6 +13,8 @@ jobs:
         with:
           node-version: '20'
       - run: npm ci && npm run build
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
@@ -21,4 +23,3 @@ jobs:
           firebaseToolsVersion: 12.9.1
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
-          NODE_OPTIONS: --openssl-legacy-provider
