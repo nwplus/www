@@ -113,7 +113,7 @@ export default function Team({ profiles }) {
       <StyledTitle>Meet the minds behind nwPlus 💚</StyledTitle>
       <ProfileContent>
         <span>
-          <b>{selectedProfile?.name}</b> {selectedProfile?.emoji}
+          <b>{selectedProfile?.name} {selectedProfile?.pronouns && ` (${selectedProfile.pronouns})`}</b> {selectedProfile?.emoji}
         </span>{' '}
         {selectedProfile?.title}
       </ProfileContent>
