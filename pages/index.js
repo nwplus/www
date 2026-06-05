@@ -8,7 +8,8 @@ import { ContentContainer } from '../components/ContentContainer';
 import Faq from '../components/Faq';
 import Footer from '../components/Footer';
 import Hackathons from '../components/Hackathons';
-import Hero from '../components/Hero';
+import dynamic from 'next/dynamic';
+const Hero = dynamic(() => import('../components/Hero'), { ssr: false });
 import ResourceContainer from '../components/ResourceContainer';
 import Stats from '../components/Stats';
 // import Banner from '../components/Banner'
