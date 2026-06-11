@@ -27,7 +27,7 @@ When you create a pull request there will be a template that you can follow - th
 - as an author, be receptive to comments and feedback
 
 ### Reviewing pull requests 👀
-Pull requests require an approving review from a contributor with write access before they can pushed up to the main branch. If you're unsure of who you should ask for a review you can check the [CODEOWNERS](<!-- Link to CODEOWNERS file -->)file.
+Pull requests require an approving review from a contributor with write access before they can pushed up to the main branch. For more information, please reach out to the dev team.
 
 Reviewing is also a great way to learn about the codebase, learn what others are working on, and improve your own coding practices!
 

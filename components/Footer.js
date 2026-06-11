@@ -592,7 +592,7 @@ export default function Footer() {
           Become a Sponsor
         </a>
       </Links>
-      <div>Copyright &copy; 2024 nwPlus</div>
+      <div>Copyright &copy; {new Date().getFullYear()} nwPlus</div>
     </FooterContainer>
   );
 }
