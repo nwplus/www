@@ -5,17 +5,17 @@ Website for all things nwPlus!
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm install
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Deploying
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This site deploys to Firebase Hosting as a static export (`next build && next export` → `out/`).
+Deploys are handled automatically by GitHub Actions:
+- pushes to `main` deploy to production (`.github/workflows/firebase-hosting-merge.yml`)
+- pull requests get a preview channel (`.github/workflows/firebase-hosting-pull-request.yml`)
 
 ## Contributing
 Check out our [contribution guidelines](https://github.com/nwplus/nwplus.io/blob/main/CONTRIBUTING.md).
