@@ -11,11 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Use pnpm
+        uses: pnpm/action-setup@v4
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
-      - run: npm ci && npm run build
+          node-version: '22'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile && pnpm run build
         env:
           NODE_OPTIONS: --openssl-legacy-provider
       - uses: FirebaseExtended/action-hosting-deploy@v0
