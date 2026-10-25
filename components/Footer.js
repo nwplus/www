@@ -271,6 +271,15 @@ const profiles = [
     pronouns: 'she/her',
   },
   {
+    img: '/assets/profiles/Naomi_Ramrus.png',
+    name: 'Naomi Ramrus',
+    emoji: '😋',
+    color: '#01DACC',
+    title: 'Sponsorship Coordinator',
+    social: 'www.linkedin.com/in/naomi-ramrus-42a857310',
+    pronouns: 'she/her',
+  },
+  {
     img: '/assets/profiles/Joyce_Park.png',
     name: 'Joyce Park',
     emoji: '📚',
@@ -304,6 +313,15 @@ const profiles = [
     color: '#278EF5',
     title: 'Marketing Coordinator',
     social: 'https://www.linkedin.com/in/claudiopires-/',
+    pronouns: 'he/him',
+  },
+  {
+    img: '/assets/profiles/Vaughn_Tan.png',
+    name: 'Vaughn Tan',
+    emoji: '🍀',
+    color: '#CCF0FF',
+    title: 'Marketing Coordinator',
+    social: '',
     pronouns: 'he/him',
   },
   {
@@ -467,6 +485,15 @@ const profiles = [
     title: 'EDI Director',
     social: 'https://www.linkedin.com/in/keirawong/',
     pronouns: 'she/they',
+  },
+  {
+    img: '/assets/profiles/Michelle_Xie.png',
+    name: 'Michelle Xie',
+    emoji: '🦈',
+    color: '#ed2d57',
+    title: 'EDI First Year Representative',
+    social: 'https://www.linkedin.com/in/mkxie/',
+    pronouns: 'she/her',
   },
   {
     img: '/assets/profiles/Rachel_Wang.png',
