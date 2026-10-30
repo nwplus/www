@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Title1 } from './Typography';
 
+// Browsers clamp repeating timers to at least 4ms.
+const MIN_TIMER_MS = 4;
+
 const StatsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -106,27 +109,49 @@ export default function Stats(props) {
       observer.observe(stats);
 
       const renderCountAnimation = () => {
-        console.log('gu');
         const valueDisplays = window.document.querySelectorAll('.num');
         const interval = 500;
-        valueDisplays.forEach((valueDisplay) => {
-          let startValue = 0;
+        // One animation-frame loop drives every counter. Each counter still steps at the
+        // cadence its old setInterval had (browsers run timers at most every 4ms), so the
+        // count-up looks the same, but the page is only updated once per frame.
+        const counters = Array.from(valueDisplays).map((valueDisplay) => {
           const endValue = parseInt(valueDisplay.getAttribute('data-val'));
-          const id = valueDisplay.getAttribute('id');
-          const duration = Math.floor(interval / endValue);
-          const counter = setInterval(function () {
-            startValue += Math.max(Math.floor((endValue - startValue) / 50), 1);
-            if (id === 'moneysign') {
-              valueDisplay.textContent = `$${startValue}+`;
-            } else {
-              valueDisplay.textContent = `${startValue}+`;
-            }
-
-            if (startValue === endValue) {
-              clearInterval(counter);
-            }
-          }, duration);
+          return {
+            valueDisplay,
+            endValue,
+            isMoney: valueDisplay.getAttribute('id') === 'moneysign',
+            stepMs: Math.max(Math.floor(interval / endValue), MIN_TIMER_MS),
+            value: 0,
+            steps: 0,
+          };
         });
+        const start = window.performance.now();
+
+        const tick = (now) => {
+          let running = false;
+          counters.forEach((counter) => {
+            const dueSteps = Math.floor((now - start) / counter.stepMs);
+            if (counter.value !== counter.endValue && counter.steps < dueSteps) {
+              while (counter.steps < dueSteps && counter.value !== counter.endValue) {
+                counter.value += Math.max(
+                  Math.floor((counter.endValue - counter.value) / 50),
+                  1
+                );
+                counter.steps += 1;
+              }
+              counter.valueDisplay.textContent = counter.isMoney
+                ? `$${counter.value}+`
+                : `${counter.value}+`;
+            }
+            if (counter.value !== counter.endValue) {
+              running = true;
+            }
+          });
+          if (running) {
+            window.requestAnimationFrame(tick);
+          }
+        };
+        window.requestAnimationFrame(tick);
       };
 
       return () => observer.disconnect();

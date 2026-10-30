@@ -270,11 +270,12 @@ const NavBar = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll());
+    const onScroll = handleScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', handleResize);
     getApplicationData();
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
