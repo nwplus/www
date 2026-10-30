@@ -18,10 +18,12 @@ import { Title1, Title2, Body } from '../components/Typography';
 import fireDb from '../utilities/firebase';
 import AboutUsGallery from '../components/AboutUsGallery';
 
-import teamSocial1 from '../public/assets/images/team_social_1.jpg';
-import teamSocial3 from '../public/assets/images/team_social_3.jpg';
-import teamSocial4 from '../public/assets/images/team_social_4.jpg';
-import teamSocial2 from '../public/assets/images/team_social_2.jpg';
+import {
+  TEAM_SOCIAL_1,
+  TEAM_SOCIAL_2,
+  TEAM_SOCIAL_3,
+  TEAM_SOCIAL_4,
+} from '../utils/GalleryPhotos';
 
 import PurpleTexture from '../public/assets/purple-texture.svg';
 
@@ -231,12 +233,12 @@ export default function Home() {
               videoSrc='https://www.youtube.com/embed/TtYBTPVJCwo?si=1CotVig4bIngdZl3'
               images={[
                 {
-                  leftImg: teamSocial1,
-                  rightImg: teamSocial3,
+                  leftImg: TEAM_SOCIAL_1,
+                  rightImg: TEAM_SOCIAL_3,
                 },
                 {
-                  leftImg: teamSocial4,
-                  rightImg: teamSocial2,
+                  leftImg: TEAM_SOCIAL_4,
+                  rightImg: TEAM_SOCIAL_2,
                 },
               ]}
             />

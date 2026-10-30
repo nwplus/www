@@ -162,10 +162,17 @@ function AboutUsGallery({ videoSrc, images }) {
           <Carousel
             items={[
               <GalleryVideoEmbed src={videoSrc} key='video' />,
-              ...images.flatMap((imgTileRow) => [
-                <Image src={imgTileRow.leftImg} key={imgTileRow.leftImg} />,
-                <Image src={imgTileRow.rightImg} key={imgTileRow.rightImg} />,
-              ]),
+              ...images
+                .flatMap((imgTileRow) => [imgTileRow.leftImg, imgTileRow.rightImg])
+                .map((photo) => (
+                  // The carousel shows each photo at full width.
+                  <Image
+                    key={photo.src}
+                    src={photo.src}
+                    srcSet={photo.srcSet}
+                    sizes='100vw'
+                  />
+                )),
             ]}
           />
         </MobileLayout>
