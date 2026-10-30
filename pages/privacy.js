@@ -4,7 +4,6 @@ import NavBar from '../components/NavBar';
 // Components
 import { Background } from '../components/Background';
 // Typography
-import { List, ListItem } from '@material-ui/core';
 import {
   Body,
   LinkBody,
@@ -13,6 +12,26 @@ import {
   Title3,
 } from '../components/Typography';
 // import Banner from '../components/Banner'
+
+// Same styles as the Material-UI List/ListItem this page used to load.
+const List = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  position: relative;
+`;
+
+const ListItem = styled.li`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  padding: 8px 16px;
+`;
 
 const PrivacyContainer = styled.div`
   width: 100%;
