@@ -7,10 +7,23 @@ import Button from './Button';
 import { SCREEN_BREAKPOINTS } from '../pages/_app';
 import heroBg from '../public/assets/hero_illustration.png';
 import heroBgWebp from '../public/assets/hero_illustration.webp';
+import heroBg1440Webp from '../public/assets/hero_illustration-1440w.webp';
+import heroBg1920Webp from '../public/assets/hero_illustration-1920w.webp';
+import heroBg2560Webp from '../public/assets/hero_illustration-2560w.webp';
 import heroBgMobile from '../public/assets/hero_illustration_mobile.png';
 import heroBgMobileWebp from '../public/assets/hero_illustration_mobile.webp';
 
 const MOBILE_MEDIA = `only screen and (max-width: ${SCREEN_BREAKPOINTS.mobile}px)`;
+
+// The illustration spans the full width, so the browser picks the smallest version that covers
+// the screen's actual pixel width: standard laptops get the 1440px one, retina screens the full
+// 2890px original.
+const HERO_WEBP_SRCSET = [
+  `${heroBg1440Webp} 1440w`,
+  `${heroBg1920Webp} 1920w`,
+  `${heroBg2560Webp} 2560w`,
+  `${heroBgWebp} 2890w`,
+].join(', ');
 
 const HeroContainer = styled.div`
   position: relative;
@@ -207,7 +220,7 @@ export default function Hero() {
       <picture style={{ display: 'contents' }}>
         <source media={MOBILE_MEDIA} srcSet={heroBgMobileWebp} type='image/webp' />
         <source media={MOBILE_MEDIA} srcSet={heroBgMobile} />
-        <source srcSet={heroBgWebp} type='image/webp' />
+        <source srcSet={HERO_WEBP_SRCSET} sizes='100vw' type='image/webp' />
         <HeroBackground src={heroBg} alt='' fetchpriority='high' draggable='false' />
       </picture>
 
