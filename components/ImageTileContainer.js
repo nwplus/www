@@ -39,7 +39,7 @@ const ImageTileRow = styled.div`
   }
 `;
 
-const GalleryImage = styled.img`
+const GalleryImage = styled.img.attrs({ loading: 'lazy' })`
   width: ${(p) => (p.small ? '33%' : '66%')};
   border-radius: 6px;
   object-fit: cover;
