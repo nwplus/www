@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/assets/fonts/HKGrotesk-Black.woff');
+  src: url('/assets/fonts/HKGrotesk-Black.woff2') format('woff2'),
+    url('/assets/fonts/HKGrotesk-Black.woff') format('woff');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -8,7 +9,8 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/assets/fonts/HKGrotesk-Bold.woff');
+  src: url('/assets/fonts/HKGrotesk-Bold.woff2') format('woff2'),
+    url('/assets/fonts/HKGrotesk-Bold.woff') format('woff');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -16,7 +18,8 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/assets/fonts/HKGrotesk-ExtraBold.woff');
+  src: url('/assets/fonts/HKGrotesk-ExtraBold.woff2') format('woff2'),
+    url('/assets/fonts/HKGrotesk-ExtraBold.woff') format('woff');
   font-style: normal;
   font-weight: 800;
   font-display: swap;
@@ -24,7 +27,8 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/assets/fonts/HKGrotesk-Italic.woff');
+  src: url('/assets/fonts/HKGrotesk-Italic.woff2') format('woff2'),
+    url('/assets/fonts/HKGrotesk-Italic.woff') format('woff');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -32,7 +36,8 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/assets/fonts/HKGrotesk-Light.woff');
+  src: url('/assets/fonts/HKGrotesk-Light.woff2') format('woff2'),
+    url('/assets/fonts/HKGrotesk-Light.woff') format('woff');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -40,7 +45,8 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/assets/fonts/HKGrotesk-Medium.woff');
+  src: url('/assets/fonts/HKGrotesk-Medium.woff2') format('woff2'),
+    url('/assets/fonts/HKGrotesk-Medium.woff') format('woff');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -48,7 +54,8 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/assets/fonts/HKGrotesk-Regular.woff');
+  src: url('/assets/fonts/HKGrotesk-Regular.woff2') format('woff2'),
+    url('/assets/fonts/HKGrotesk-Regular.woff') format('woff');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -56,7 +63,8 @@
 
 @font-face {
   font-family: 'HK Grotesk';
-  src: url('/assets/fonts/HKGrotesk-SemiBold.woff');
+  src: url('/assets/fonts/HKGrotesk-SemiBold.woff2') format('woff2'),
+    url('/assets/fonts/HKGrotesk-SemiBold.woff') format('woff');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
