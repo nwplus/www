@@ -3,7 +3,7 @@ import ImageTileContainer from './ImageTileContainer';
 import Carousel from './Carousel';
 import styled from 'styled-components';
 import { SCREEN_BREAKPOINTS } from '../pages/_app';
-import afterPageLoad from '../utilities/afterPageLoad';
+import onFirstInteraction from '../utilities/onFirstInteraction';
 
 const GalleryContainer = styled.div`
   display: flex;
@@ -81,9 +81,9 @@ const DesktopLayout = styled.div`
   }
 `;
 
-// The YouTube embed pulls in about 1 MB of scripts. It's mounted once the rest of the page has
-// finished loading, so it doesn't compete with it but is still ready by the time anyone scrolls
-// down, or right away if it scrolls into view first.
+// The YouTube embed pulls in about 1 MB of scripts, so it's kept off the initial load. It's
+// mounted as soon as the visitor starts interacting with the page (they'll be scrolling toward
+// it), or right away if it's already in view.
 function GalleryVideoEmbed({ src }) {
   const placeholderRef = useRef(null);
   const [shouldMount, setShouldMount] = useState(false);
@@ -94,10 +94,10 @@ function GalleryVideoEmbed({ src }) {
       return undefined;
     }
     let observer;
-    let cancelAfterLoad;
+    let cancelOnInteraction;
     const mount = () => {
       observer.disconnect();
-      cancelAfterLoad();
+      cancelOnInteraction();
       setShouldMount(true);
     };
     observer = new IntersectionObserver((entries) => {
@@ -106,10 +106,10 @@ function GalleryVideoEmbed({ src }) {
       }
     });
     observer.observe(placeholderRef.current);
-    cancelAfterLoad = afterPageLoad(mount);
+    cancelOnInteraction = onFirstInteraction(mount);
     return () => {
       observer.disconnect();
-      cancelAfterLoad();
+      cancelOnInteraction();
     };
   }, []);
 

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import afterPageLoad from '../utilities/afterPageLoad';
+import onFirstInteraction from '../utilities/onFirstInteraction';
 import { ContentContainer } from './ContentContainer';
 import { LargeTitle, Title2 } from './Typography';
 import Button from './Button';
@@ -153,9 +153,10 @@ export default function Hero() {
 
   const emailInput = useRef();
 
-  // Fetch axios (used by the newsletter form) once the page has loaded, so submitting doesn't
+  // Fetch axios (used by the newsletter form) as soon as the visitor interacts with the page;
+  // they have to click or tap into the form before submitting anyway. That way submitting doesn't
   // depend on a later download that could fail, e.g. if a deploy has replaced the file since.
-  useEffect(() => afterPageLoad(() => import('axios').catch(() => {})), []);
+  useEffect(() => onFirstInteraction(() => import('axios').catch(() => {})), []);
 
   function addToMailingList() {
     setInputMessage('');
