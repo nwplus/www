@@ -1,27 +1,44 @@
-import React, { useState, useRef } from 'react';
-import Lottie from 'lottie-react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import afterPageLoad from '../utilities/afterPageLoad';
 import { ContentContainer } from './ContentContainer';
 import { LargeTitle, Title2 } from './Typography';
-import scollAnimation from './lotties/scroll.json';
 import Button from './Button';
+import { SCREEN_BREAKPOINTS } from '../pages/_app';
 import heroBg from '../public/assets/hero_illustration.png';
+import heroBgWebp from '../public/assets/hero_illustration.webp';
 import heroBgMobile from '../public/assets/hero_illustration_mobile.png';
+import heroBgMobileWebp from '../public/assets/hero_illustration_mobile.webp';
+
+const MOBILE_MEDIA = `only screen and (max-width: ${SCREEN_BREAKPOINTS.mobile}px)`;
 
 const HeroContainer = styled.div`
+  position: relative;
   width: 100%;
   height: 0;
   padding-bottom: 69%;
-  background: url(${heroBg});
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
   ${(div) => div.theme.mediaQueries.mobile} {
-    background: url(${heroBgMobile});
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
     padding-bottom: 100%;
+  }
+`;
+
+// The illustration is an <img> rather than a CSS background so the browser finds it in the
+// server-rendered HTML and starts downloading it right away. It's the page's LCP image.
+const HeroBackground = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  pointer-events: none;
+  user-select: none;
+  ${(p) => p.theme.mediaQueries.mobile} {
+    object-fit: fill;
+  }
+  @media print {
+    display: none;
   }
 `;
 
@@ -136,6 +153,10 @@ export default function Hero() {
 
   const emailInput = useRef();
 
+  // Fetch axios (used by the newsletter form) once the page has loaded, so submitting doesn't
+  // depend on a later download that could fail, e.g. if a deploy has replaced the file since.
+  useEffect(() => afterPageLoad(() => import('axios').catch(() => {})), []);
+
   function addToMailingList() {
     setInputMessage('');
     setinputMessageColor('#F65C5C')
@@ -144,11 +165,15 @@ export default function Hero() {
     const validEmail = validateEmail(email);
 
     if (validEmail) {
-      axios({
-        method: 'POST',
-        url: 'https://us-central1-nwplus-ubc.cloudfunctions.net/addToMailingList',
-        data: { email },
-      })
+      // Not part of the page's initial JavaScript; normally already fetched by the effect above.
+      import('axios')
+        .then(({ default: axios }) =>
+          axios({
+            method: 'POST',
+            url: 'https://us-central1-nwplus-ubc.cloudfunctions.net/addToMailingList',
+            data: { email },
+          })
+        )
         .then(() => {
           setInputMessage(`Thank you for subscribing!`);
           setinputMessageColor('#78FF96');
@@ -178,6 +203,12 @@ export default function Hero() {
 
   return (
     <HeroContainer>
+      <picture style={{ display: 'contents' }}>
+        <source media={MOBILE_MEDIA} srcSet={heroBgMobileWebp} type='image/webp' />
+        <source media={MOBILE_MEDIA} srcSet={heroBgMobile} />
+        <source srcSet={heroBgWebp} type='image/webp' />
+        <HeroBackground src={heroBg} alt='' fetchpriority='high' draggable='false' />
+      </picture>
 
       <HeroTextContainer>
         <ContentContainer>
@@ -210,18 +241,6 @@ export default function Hero() {
 
       <ContentContainer>
         <ScrollContainer>
-          <Lottie
-            options={{
-              loop: true,
-              autoplay: true,
-              animationData: scollAnimation,
-              rendererSettings: {
-                preserveAspectRatio: 'xMidYMid slice',
-              },
-            }}
-            height={44}
-            width={28}
-          />
           <ScrollText>
             <ScrollOval></ScrollOval>Scroll to check out our hackathons and resources!
           </ScrollText>

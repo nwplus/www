@@ -8,8 +8,7 @@ import { ContentContainer } from '../components/ContentContainer';
 import Faq from '../components/Faq';
 import Footer from '../components/Footer';
 import Hackathons from '../components/Hackathons';
-import dynamic from 'next/dynamic';
-const Hero = dynamic(() => import('../components/Hero'), { ssr: false });
+import Hero from '../components/Hero';
 import ResourceContainer from '../components/ResourceContainer';
 import Stats from '../components/Stats';
 // import Banner from '../components/Banner'
@@ -128,7 +127,7 @@ const FaqSection = styled.div`
   min-height: 600px;
 `;
 
-const PurpleTextureImg = styled.img`
+const PurpleTextureImg = styled.img.attrs({ loading: 'lazy' })`
   position: absolute;
   left: -20px;
   margin-top: -100px;
