@@ -78,7 +78,13 @@ const FormResponseText = styled.p`
   font-size: 1em;
 `
 
+// A <button>, since it runs an action rather than linking anywhere. Unlike a link, a button doesn't
+// inherit the page's font and color, and it has a default border.
 const ComboButton = styled(Button)`
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  border: none;
   position: relative;
   margin-top: -31px;
   margin-left: 222.5px;
@@ -240,6 +246,8 @@ export default function Hero() {
             placeholder="Email Address"
           />
           <ComboButton
+            forwardedAs="button"
+            type="button"
             height="41px"
             width="200px"
             margin="0"

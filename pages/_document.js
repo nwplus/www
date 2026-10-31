@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
   // position, and FontAwesome inserts its stylesheet among them, which made next/head delete it.
   render() {
     return (
-      <Html>
+      <Html lang='en'>
         <Head>
           {/* Pages fetch their content from Firestore, so open the connection early. */}
           <link

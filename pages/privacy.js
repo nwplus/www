@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import Head from 'next/head';
 import styled, { ThemeContext } from 'styled-components';
 import NavBar from '../components/NavBar';
 // Components
@@ -281,6 +282,13 @@ const PrivacyPolicy = () => {
 
   return (
     <>
+      <Head>
+        <title>Privacy Policy | nwPlus</title>
+        <meta
+          name='description'
+          content='What data nwPlus collects when you visit our website or apply to and attend our events, how we use and share it, and your rights.'
+        />
+      </Head>
       <Background>
         {/* <Banner /> */}
         <NavBar />

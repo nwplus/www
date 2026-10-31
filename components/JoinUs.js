@@ -63,6 +63,11 @@ const MobileFormatContainer = styled.div`
   }
 `;
 
+// Outside hiring season there's nowhere for the buttons to go. role and aria-disabled mark the
+// link-less <a> as a disabled link, for screen readers and crawlers.
+const linkProps = (href) =>
+  href ? { href } : { role: 'link', 'aria-disabled': true };
+
 export const JoinUs = () => {
   const [config, setConfig] = useState(null);
 
@@ -115,9 +120,9 @@ export const JoinUs = () => {
               width='212px'
               height='48px'
               hollow
-              href={
+              {...linkProps(
                 config?.featureFlags?.isHiring && config?.hiring?.packageLink
-              }
+              )}
               rel='noreferrer noopener'
               target='_blank'
             >
@@ -126,7 +131,9 @@ export const JoinUs = () => {
             <StyledButton
               width='212px'
               height='48px'
-              href={config?.featureFlags?.isHiring && config?.hiring?.formLink}
+              {...linkProps(
+                config?.featureFlags?.isHiring && config?.hiring?.formLink
+              )}
               rel='noreferrer noopener'
               target='_blank'
             >

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import styled from 'styled-components';
 import { ContentContainer } from "../components/ContentContainer";
 import { Title1, Title3 } from "../components/Typography";
@@ -24,6 +25,10 @@ const Flexbox = styled.div`
 export default function Custom404() {
   return (
     <Background>
+      <Head>
+        <title>Page Not Found | nwPlus</title>
+        <meta name="description" content="This page doesn't exist. Head back to the nwPlus homepage to explore our hackathons and resources." />
+      </Head>
       <ContentContainer>
         <Flexbox>
           <img width="50%" src="/assets/404-avatar.svg" alt="" />
