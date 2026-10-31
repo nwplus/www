@@ -81,11 +81,11 @@ export default function ResourceCard({
       <CardContainer>
         {badge && (
           <BadgeContainer>
-            <img width='60px' height='60px' src={badge} />
+            <img width='60px' height='60px' src={badge} alt='Our pick' />
           </BadgeContainer>
         )}
         <ThumbnailContainer image={image}>
-          <img id='icon' width='40px' height='40px' src={getResourceIcon(type)} />
+          <img id='icon' width='40px' height='40px' src={getResourceIcon(type)} alt='' />
         </ThumbnailContainer>
         <TextContainer>
           <ResourceName>{name}</ResourceName>

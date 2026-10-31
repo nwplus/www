@@ -8,8 +8,7 @@ import { ContentContainer } from '../components/ContentContainer';
 import Faq from '../components/Faq';
 import Footer from '../components/Footer';
 import Hackathons from '../components/Hackathons';
-import dynamic from 'next/dynamic';
-const Hero = dynamic(() => import('../components/Hero'), { ssr: false });
+import Hero from '../components/Hero';
 import ResourceContainer from '../components/ResourceContainer';
 import Stats from '../components/Stats';
 // import Banner from '../components/Banner'
@@ -19,10 +18,12 @@ import { Title1, Title2, Body } from '../components/Typography';
 import fireDb from '../utilities/firebase';
 import AboutUsGallery from '../components/AboutUsGallery';
 
-import teamSocial1 from '../public/assets/images/team_social_1.jpg';
-import teamSocial3 from '../public/assets/images/team_social_3.jpg';
-import teamSocial4 from '../public/assets/images/team_social_4.jpg';
-import teamSocial2 from '../public/assets/images/team_social_2.jpg';
+import {
+  TEAM_SOCIAL_1,
+  TEAM_SOCIAL_2,
+  TEAM_SOCIAL_3,
+  TEAM_SOCIAL_4,
+} from '../utils/GalleryPhotos';
 
 import PurpleTexture from '../public/assets/purple-texture.svg';
 
@@ -128,7 +129,7 @@ const FaqSection = styled.div`
   min-height: 600px;
 `;
 
-const PurpleTextureImg = styled.img`
+const PurpleTextureImg = styled.img.attrs({ loading: 'lazy' })`
   position: absolute;
   left: -20px;
   margin-top: -100px;
@@ -232,12 +233,12 @@ export default function Home() {
               videoSrc='https://www.youtube.com/embed/TtYBTPVJCwo?si=1CotVig4bIngdZl3'
               images={[
                 {
-                  leftImg: teamSocial1,
-                  rightImg: teamSocial3,
+                  leftImg: TEAM_SOCIAL_1,
+                  rightImg: TEAM_SOCIAL_3,
                 },
                 {
-                  leftImg: teamSocial4,
-                  rightImg: teamSocial2,
+                  leftImg: TEAM_SOCIAL_4,
+                  rightImg: TEAM_SOCIAL_2,
                 },
               ]}
             />
@@ -275,12 +276,12 @@ export default function Home() {
           </Title1>
           <Hackathons />
         </ContentContainer>
-        <PurpleTextureImg src={PurpleTexture} />
+        <PurpleTextureImg src={PurpleTexture} alt='' />
         <ContentContainer id='resources' margin={SECTION_MARGIN}>
           <ResourcesSection>
             <ResourceContainer />
-            <BearImgContainer src='assets/resources-mascot.svg' />
-            <GreenPlanetImgContainer src='assets/resources-planet.svg' />
+            <BearImgContainer src='assets/resources-mascot.svg' alt='' />
+            <GreenPlanetImgContainer src='assets/resources-planet.svg' alt='' />
           </ResourcesSection>
         </ContentContainer>
         {faqs && (

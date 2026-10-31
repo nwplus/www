@@ -1,27 +1,57 @@
-import React, { useState, useRef } from 'react';
-import Lottie from 'lottie-react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import onFirstInteraction from '../utilities/onFirstInteraction';
 import { ContentContainer } from './ContentContainer';
 import { LargeTitle, Title2 } from './Typography';
-import scollAnimation from './lotties/scroll.json';
 import Button from './Button';
+import { SCREEN_BREAKPOINTS } from '../pages/_app';
 import heroBg from '../public/assets/hero_illustration.png';
+import heroBgWebp from '../public/assets/hero_illustration.webp';
+import heroBg1440Webp from '../public/assets/hero_illustration-1440w.webp';
+import heroBg1920Webp from '../public/assets/hero_illustration-1920w.webp';
+import heroBg2560Webp from '../public/assets/hero_illustration-2560w.webp';
 import heroBgMobile from '../public/assets/hero_illustration_mobile.png';
+import heroBgMobileWebp from '../public/assets/hero_illustration_mobile.webp';
+
+const MOBILE_MEDIA = `only screen and (max-width: ${SCREEN_BREAKPOINTS.mobile}px)`;
+
+// The illustration spans the full width, so the browser picks the smallest version that covers
+// the screen's actual pixel width: standard laptops get the 1440px one, retina screens the full
+// 2890px original.
+const HERO_WEBP_SRCSET = [
+  `${heroBg1440Webp} 1440w`,
+  `${heroBg1920Webp} 1920w`,
+  `${heroBg2560Webp} 2560w`,
+  `${heroBgWebp} 2890w`,
+].join(', ');
 
 const HeroContainer = styled.div`
+  position: relative;
   width: 100%;
   height: 0;
   padding-bottom: 69%;
-  background: url(${heroBg});
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
   ${(div) => div.theme.mediaQueries.mobile} {
-    background: url(${heroBgMobile});
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
     padding-bottom: 100%;
+  }
+`;
+
+// The illustration is an <img> rather than a CSS background so the browser finds it in the
+// server-rendered HTML and starts downloading it right away. It's the page's LCP image.
+const HeroBackground = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  pointer-events: none;
+  user-select: none;
+  ${(p) => p.theme.mediaQueries.mobile} {
+    object-fit: fill;
+  }
+  @media print {
+    display: none;
   }
 `;
 
@@ -48,7 +78,13 @@ const FormResponseText = styled.p`
   font-size: 1em;
 `
 
+// A <button>, since it runs an action rather than linking anywhere. Unlike a link, a button doesn't
+// inherit the page's font and color, and it has a default border.
 const ComboButton = styled(Button)`
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  border: none;
   position: relative;
   margin-top: -31px;
   margin-left: 222.5px;
@@ -136,6 +172,11 @@ export default function Hero() {
 
   const emailInput = useRef();
 
+  // Fetch axios (used by the newsletter form) as soon as the visitor interacts with the page;
+  // they have to click or tap into the form before submitting anyway. That way submitting doesn't
+  // depend on a later download that could fail, e.g. if a deploy has replaced the file since.
+  useEffect(() => onFirstInteraction(() => import('axios').catch(() => {})), []);
+
   function addToMailingList() {
     setInputMessage('');
     setinputMessageColor('#F65C5C')
@@ -144,11 +185,15 @@ export default function Hero() {
     const validEmail = validateEmail(email);
 
     if (validEmail) {
-      axios({
-        method: 'POST',
-        url: 'https://us-central1-nwplus-ubc.cloudfunctions.net/addToMailingList',
-        data: { email },
-      })
+      // Not part of the page's initial JavaScript; normally already fetched by the effect above.
+      import('axios')
+        .then(({ default: axios }) =>
+          axios({
+            method: 'POST',
+            url: 'https://us-central1-nwplus-ubc.cloudfunctions.net/addToMailingList',
+            data: { email },
+          })
+        )
         .then(() => {
           setInputMessage(`Thank you for subscribing!`);
           setinputMessageColor('#78FF96');
@@ -178,6 +223,12 @@ export default function Hero() {
 
   return (
     <HeroContainer>
+      <picture style={{ display: 'contents' }}>
+        <source media={MOBILE_MEDIA} srcSet={heroBgMobileWebp} type='image/webp' />
+        <source media={MOBILE_MEDIA} srcSet={heroBgMobile} />
+        <source srcSet={HERO_WEBP_SRCSET} sizes='100vw' type='image/webp' />
+        <HeroBackground src={heroBg} alt='' fetchpriority='high' draggable='false' />
+      </picture>
 
       <HeroTextContainer>
         <ContentContainer>
@@ -195,6 +246,8 @@ export default function Hero() {
             placeholder="Email Address"
           />
           <ComboButton
+            forwardedAs="button"
+            type="button"
             height="41px"
             width="200px"
             margin="0"
@@ -210,18 +263,6 @@ export default function Hero() {
 
       <ContentContainer>
         <ScrollContainer>
-          <Lottie
-            options={{
-              loop: true,
-              autoplay: true,
-              animationData: scollAnimation,
-              rendererSettings: {
-                preserveAspectRatio: 'xMidYMid slice',
-              },
-            }}
-            height={44}
-            width={28}
-          />
           <ScrollText>
             <ScrollOval></ScrollOval>Scroll to check out our hackathons and resources!
           </ScrollText>

@@ -1,0 +1,3 @@
+# Allow all crawlers to index the whole site.
+User-agent: *
+Allow: /

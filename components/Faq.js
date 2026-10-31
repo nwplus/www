@@ -72,7 +72,7 @@ export default function Faq({ faqs }) {
                     {categories['General'] &&<FaqSection category={'General'} faqs={categories['General']}/>}
                 </FlexContainer>    
             </FaqContainer>
-            <NuggetImgContainer src="assets/space-nugget.svg"/>
+            <NuggetImgContainer src="assets/space-nugget.svg" alt=""/>
         </>
     )
 }
