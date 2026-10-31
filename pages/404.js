@@ -26,7 +26,7 @@ export default function Custom404() {
     <Background>
       <ContentContainer>
         <Flexbox>
-          <img width="50%" src="/assets/404-avatar.svg" />
+          <img width="50%" src="/assets/404-avatar.svg" alt="" />
           <div>
             <Title1>uh-oh!</Title1>
             <Title3>Looks like the page you’re looking for is lost in the nwSpace.</Title3>

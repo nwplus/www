@@ -170,6 +170,7 @@ function AboutUsGallery({ videoSrc, images }) {
                     key={photo.src}
                     src={photo.src}
                     srcSet={photo.srcSet}
+                    alt={photo.alt}
                     sizes='100vw'
                   />
                 )),

@@ -276,12 +276,12 @@ export default function Home() {
           </Title1>
           <Hackathons />
         </ContentContainer>
-        <PurpleTextureImg src={PurpleTexture} />
+        <PurpleTextureImg src={PurpleTexture} alt='' />
         <ContentContainer id='resources' margin={SECTION_MARGIN}>
           <ResourcesSection>
             <ResourceContainer />
-            <BearImgContainer src='assets/resources-mascot.svg' />
-            <GreenPlanetImgContainer src='assets/resources-planet.svg' />
+            <BearImgContainer src='assets/resources-mascot.svg' alt='' />
+            <GreenPlanetImgContainer src='assets/resources-planet.svg' alt='' />
           </ResourcesSection>
         </ContentContainer>
         {faqs && (

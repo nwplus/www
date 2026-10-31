@@ -65,6 +65,7 @@ const Tile = ({ photo, small }) => (
     small={small}
     src={photo.src}
     srcSet={photo.srcSet}
+    alt={photo.alt}
     sizes={small ? SMALL_TILE_SIZES : LARGE_TILE_SIZES}
   />
 );

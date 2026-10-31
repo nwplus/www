@@ -134,7 +134,8 @@ const MobileDashedConnector = styled.div`
   `}
 `;
 
-const HackathonImage = styled.img`
+// Decorative: the hackathon's name is in the title next to it.
+const HackathonImage = styled.img.attrs({ alt: '' })`
   width: 100%;
   height: 100%;
   filter: blur(2.5px);
@@ -239,7 +240,7 @@ const MobileHackathonDate = styled.span`
   float: right;
 `;
 
-const SpaceDeerImg = styled.img`
+const SpaceDeerImg = styled.img.attrs({ alt: '' })`
   position: absolute;
   float: right;
   margin-top: -60px;
@@ -273,13 +274,14 @@ const MobileHackathonImageContainer = styled.div`
   margin: 20px auto;
 `;
 
-const MobileHackathonImage = styled.img`
+const MobileHackathonImage = styled.img.attrs({ alt: '' })`
   width: 100%;
   height: 100%;
   filter: blur(3px);
 `;
 
-const Moon = styled.img`
+// Decorative: the year above it names the link it's in.
+const Moon = styled.img.attrs({ alt: '' })`
   position: relative;
   width: 60px; /* Set moon size */
   height: 60px; /* Set moon size */
@@ -292,7 +294,8 @@ const MoonYear = styled.p`
   // display: none;
 `;
 
-const ToolTip = styled.img`
+// A "Tap to view past hackathon" hint for touch screens; the link already says where it goes.
+const ToolTip = styled.img.attrs({ alt: '' })`
   position: absolute;
   top: 60px;
   left: 0px;
