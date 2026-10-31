@@ -86,19 +86,19 @@ export default function ApplicationPage() {
         <JoinUs/>
           <FooterContainer>
               <SocialMediaIcons>
-                  <a href="https://www.facebook.com/nwplusubc" target="_blank" rel="noreferrer">
+                  <a href="https://www.facebook.com/nwplusubc" aria-label="nwPlus on Facebook" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faFacebook} />
                   </a>
-                  <a href="https://www.instagram.com/nwplusubc" target="_blank" rel="noreferrer">
+                  <a href="https://www.instagram.com/nwplusubc" aria-label="nwPlus on Instagram" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faInstagram} />
                   </a>
-                  <a href="https://www.linkedin.com/company/nwplus" target="_blank" rel="noreferrer">
+                  <a href="https://www.linkedin.com/company/nwplus" aria-label="nwPlus on LinkedIn" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faLinkedinIn} />
                   </a>
-                  <a href="https://www.youtube.com/c/nwPlusUBC" target="_blank" rel="noreferrer">
+                  <a href="https://www.youtube.com/c/nwPlusUBC" aria-label="nwPlus on YouTube" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faYoutube} />
                   </a>
-                  <a href="https://medium.com/nwplusubc" target="_blank" rel="noreferrer">
+                  <a href="https://medium.com/nwplusubc" aria-label="nwPlus on Medium" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon icon={faMediumM} />
                   </a>
               </SocialMediaIcons>

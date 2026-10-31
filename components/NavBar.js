@@ -293,6 +293,7 @@ const NavBar = () => {
           <SocialContainer>
             <SocialIcon
               href='https://www.facebook.com/nwplusubc'
+              aria-label='nwPlus on Facebook'
               target='_blank'
               rel='noreferrer'
             >
@@ -300,6 +301,7 @@ const NavBar = () => {
             </SocialIcon>
             <SocialIcon
               href='https://www.instagram.com/nwplusubc'
+              aria-label='nwPlus on Instagram'
               target='_blank'
               rel='noreferrer'
             >
@@ -307,6 +309,7 @@ const NavBar = () => {
             </SocialIcon>
             <SocialIcon
               href='https://www.linkedin.com/company/nwplus'
+              aria-label='nwPlus on LinkedIn'
               target='_blank'
               rel='noreferrer'
             >
@@ -314,6 +317,7 @@ const NavBar = () => {
             </SocialIcon>
             <SocialIcon
               href='https://www.youtube.com/c/nwPlusUBC'
+              aria-label='nwPlus on YouTube'
               target='_blank'
               rel='noreferrer'
             >
@@ -321,6 +325,7 @@ const NavBar = () => {
             </SocialIcon>
             <SocialIcon
               href='https://medium.com/nwplusubc'
+              aria-label='nwPlus on Medium'
               target='_blank'
               rel='noreferrer'
             >
@@ -394,6 +399,7 @@ const NavBar = () => {
       <SocialContainer>
         <SocialIcon
           href='https://www.facebook.com/nwplusubc'
+          aria-label='nwPlus on Facebook'
           target='_blank'
           rel='noreferrer'
         >
@@ -401,6 +407,7 @@ const NavBar = () => {
         </SocialIcon>
         <SocialIcon
           href='https://www.instagram.com/nwplusubc'
+          aria-label='nwPlus on Instagram'
           target='_blank'
           rel='noreferrer'
         >
@@ -408,6 +415,7 @@ const NavBar = () => {
         </SocialIcon>
         <SocialIcon
           href='https://www.linkedin.com/company/nwplus'
+          aria-label='nwPlus on LinkedIn'
           target='_blank'
           rel='noreferrer'
         >
@@ -415,6 +423,7 @@ const NavBar = () => {
         </SocialIcon>
         <SocialIcon
           href='https://www.youtube.com/c/nwPlusUBC'
+          aria-label='nwPlus on YouTube'
           target='_blank'
           rel='noreferrer'
         >
@@ -422,6 +431,7 @@ const NavBar = () => {
         </SocialIcon>
         <SocialIcon
           href='https://medium.com/nwplusubc'
+          aria-label='nwPlus on Medium'
           target='_blank'
           rel='noreferrer'
         >
