@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { default as anime } from '../node_modules/animejs/lib/anime.es.js';
 import { Title2 } from './Typography.js';
 import WebpPicture from './WebpPicture';
 
@@ -65,40 +64,57 @@ const ProfileImage = styled.img`
   height: 100px;
 `;
 
-let lastTime = -1;
-let accumulateTime = -1;
-const MAX_SPEED = 2;
+// The speed the carousel has always scrolled at (124 px every 4 s, doubled).
+const SPEED_PX_PER_MS = 0.062;
+// How long it takes to glide to a stop on hover, or to get back up to speed.
+const RAMP_MS = 670;
+
+const setRate = (animation, rateRef, rate) => {
+  rateRef.current = rate;
+  if (animation.updatePlaybackRate) {
+    animation.updatePlaybackRate(rate);
+  } else {
+    animation.playbackRate = rate;
+  }
+};
 
 export default function Team({ profiles }) {
-  const [animator, setAnimator] = useState();
   const [selectedProfile, setSelectedProfile] = useState(null);
-  const [accel, setAccel] = useState(1);
+  const [isHovered, setIsHovered] = useState(false);
   const [isOnScreen, setIsOnScreen] = useState(false);
-  const requestRef = useRef();
   const listRef = useRef();
-  const pausedRef = useRef(true);
+  const stripRef = useRef();
+  const animationRef = useRef();
+  const rateRef = useRef(1);
 
-  // https://codesandbox.io/s/anime-js-speed-adjustment-lm0ui?file=/src/index.js:158-166
-  // https://animejs.com/documentation/#tick
-  // https://css-tricks.com/using-requestanimationframe-with-react-hooks/
-  const animate = (animator, accel, velocity, t) => {
-    if (accumulateTime === -1) {
-      accumulateTime = t;
-    } else {
-      const deltaT = t - lastTime;
-      velocity = velocity += 0.05 * accel;
-      velocity = Math.max(0, velocity);
-      velocity = Math.min(MAX_SPEED, velocity);
-      accumulateTime += deltaT * velocity;
+  // Scroll the strip with the Web Animations API. The browser runs it on the compositor, off the
+  // main thread, so other work on the page can't make it stutter.
+  useEffect(() => {
+    const strip = stripRef.current;
+    if (typeof strip.animate !== 'function') {
+      return undefined;
     }
-    lastTime = t;
-    animator.tick(accumulateTime);
-    requestRef.current = window.requestAnimationFrame((t) =>
-      animate(animator, accel, velocity, t)
+    // The strip holds the profiles twice. The distance between the two copies is one loop, so the
+    // wrap-around lands exactly where it started.
+    const items = strip.children;
+    const loop =
+      items[profiles.length].getBoundingClientRect().left - items[0].getBoundingClientRect().left;
+    if (!(loop > 0)) {
+      return undefined;
+    }
+    const animation = strip.animate(
+      [{ transform: `translateX(${-loop}px)` }, { transform: 'translateX(0px)' }],
+      { duration: loop / SPEED_PX_PER_MS, iterations: Infinity }
     );
-  };
+    animation.pause();
+    animationRef.current = animation;
+    return () => {
+      animationRef.current = undefined;
+      animation.cancel();
+    };
+  }, [profiles.length]);
 
-  // Only run the animation loop while the carousel is on (or about to come on) screen.
+  // Only run the animation while the carousel is on (or about to come on) screen.
   useEffect(() => {
     if (!('IntersectionObserver' in window)) {
       setIsOnScreen(true);
@@ -113,43 +129,43 @@ export default function Team({ profiles }) {
     return () => observer.disconnect();
   }, []);
 
+  // Glide to a stop while hovered and back up to speed afterwards.
   useEffect(() => {
-    if (!animator || !isOnScreen) {
-      pausedRef.current = true;
+    const animation = animationRef.current;
+    if (!animation) {
       return undefined;
     }
-    // Coming back on screen, carry on at the speed it would have settled at by now, without
-    // jumping ahead by the time spent off screen.
-    const resuming = pausedRef.current;
-    pausedRef.current = false;
-    const startVel = accel === 1 ? 0 : MAX_SPEED;
-    const settledVel = accel === 1 ? MAX_SPEED : 0;
-    const vel = resuming ? settledVel : startVel;
-    requestRef.current = window.requestAnimationFrame((t) => {
-      if (resuming) {
-        lastTime = t;
+    if (!isOnScreen) {
+      animation.pause();
+      return undefined;
+    }
+    const target = isHovered ? 0 : 1;
+    if (animation.playState === 'paused') {
+      // Coming back on screen, carry on at the speed it would have settled at by now.
+      setRate(animation, rateRef, target);
+      animation.play();
+      return undefined;
+    }
+    let frame;
+    let lastTime;
+    const step = (t) => {
+      if (lastTime !== undefined) {
+        const change = (t - lastTime) / RAMP_MS;
+        const rate = rateRef.current;
+        setRate(
+          animation,
+          rateRef,
+          target > rate ? Math.min(target, rate + change) : Math.max(target, rate - change)
+        );
       }
-      animate(animator, accel, vel, t);
-    });
-    // Cleanup animation frame listener
-    return () => window.cancelAnimationFrame(requestRef.current);
-  }, [animator, accel, isOnScreen]);
-
-  useEffect(() => {
-    const animation = anime({
-      targets: ['#anim-profiles'],
-      easing: 'linear',
-      loop: true,
-      translateX: [-(124 * profiles.length), 0],
-      duration: 4000 * profiles.length,
-      autoplay: false,
-    });
-    // Position the strip right away. The loop only runs while it's on screen, so otherwise it
-    // would sit untransformed and jump the first time it scrolls into view.
-    accumulateTime = window.performance.now();
-    animation.tick(accumulateTime);
-    setAnimator(animation);
-  }, [setAnimator]);
+      lastTime = t;
+      if (rateRef.current !== target) {
+        frame = window.requestAnimationFrame(step);
+      }
+    };
+    frame = window.requestAnimationFrame(step);
+    return () => window.cancelAnimationFrame(frame);
+  }, [isOnScreen, isHovered]);
 
   return (
     <>
@@ -162,18 +178,14 @@ export default function Team({ profiles }) {
       </ProfileContent>
       <ProfileList
         ref={listRef}
-        onMouseEnter={() => {
-          setAccel(-1);
-        }}
-        onMouseLeave={() => {
-          setAccel(1);
-        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
         {
           // will-change enables hardware acceleration for smoother animations
           // duplicate profile maps so that the carousel can loop infinitely
         }
-        <div style={{ willChange: 'transform' }} id='anim-profiles'>
+        <div ref={stripRef} style={{ willChange: 'transform' }} id='anim-profiles'>
           {[...profiles, ...profiles].map((profile, i) => (
             <ProfileLink
               href={profile.social}
