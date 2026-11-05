@@ -1,4 +1,4 @@
-import Document from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
@@ -26,5 +26,26 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal()
     }
+  }
+
+  // The preconnect lives here rather than in next/head: next/head tracks the tags it manages by
+  // position, and FontAwesome inserts its stylesheet among them, which made next/head delete it.
+  render() {
+    return (
+      <Html lang='en'>
+        <Head>
+          {/* Pages fetch their content from Firestore, so open the connection early. */}
+          <link
+            rel='preconnect'
+            href='https://firestore.googleapis.com'
+            crossOrigin='anonymous'
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
   }
 }

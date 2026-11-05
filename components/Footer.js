@@ -96,7 +96,7 @@ const profiles = [
     emoji: '🤠',
     color: '#f5bf53',
     title: 'Treasurer',
-    social: 'linkedin.com/in/cait-chan/',
+    social: 'https://linkedin.com/in/cait-chan/',
     pronouns: 'she/her',
   },
   {
@@ -150,7 +150,7 @@ const profiles = [
     emoji: '💃',
     color: '#C6E2FF',
     title: 'nwHacks Logistics Coordinator',
-    social: 'www.linkedin.com/in/sunnysu101',
+    social: 'https://www.linkedin.com/in/sunnysu101',
     pronouns: 'she/her',
   },
   {
@@ -168,7 +168,7 @@ const profiles = [
     emoji: '🌟',
     color: '#ADD0B3',
     title: 'nwHacks Logistics Coordinator',
-    social: 'linkedin.com/in/jagathi-moturi',
+    social: 'https://linkedin.com/in/jagathi-moturi',
     pronouns: 'she/her',
   },
   {
@@ -177,7 +177,7 @@ const profiles = [
     emoji: '🐞',
     color: '#6777B6',
     title: 'nwHacks Logistics Coordinator',
-    social: 'www.linkedin.com/in/tiffany-nguyen-14b227216',
+    social: 'https://www.linkedin.com/in/tiffany-nguyen-14b227216',
     pronouns: 'she/her',
   },
   {
@@ -186,7 +186,7 @@ const profiles = [
     emoji: '🐶',
     color: '#9cf0ff',
     title: 'nwHacks Logistics Coordinator',
-    social: 'linkedin.com/in/conryoung',
+    social: 'https://linkedin.com/in/conryoung',
     pronouns: 'he/him',
   },
   {
@@ -204,7 +204,7 @@ const profiles = [
     emoji: '🤤',
     color: '#702963',
     title: 'nwHacks Logistics Coordinator',
-    social: 'ysu.dev',
+    social: 'https://ysu.dev',
     pronouns: 'he/him',
   },
   {
@@ -276,7 +276,7 @@ const profiles = [
     emoji: '😋',
     color: '#01DACC',
     title: 'Sponsorship Coordinator',
-    social: 'www.linkedin.com/in/naomi-ramrus-42a857310',
+    social: 'https://www.linkedin.com/in/naomi-ramrus-42a857310',
     pronouns: 'she/her',
   },
   {
@@ -357,7 +357,7 @@ const profiles = [
     emoji: '✨',
     color: '#7f4e5a',
     title: 'Design Director',
-    social: 'www.linkedin.com/in/elaine-c-3ab8a2231',
+    social: 'https://www.linkedin.com/in/elaine-c-3ab8a2231',
     pronouns: 'she/her',
   },
   {
@@ -438,7 +438,7 @@ const profiles = [
     emoji: '🦖',
     color: '#4E2A84',
     title: 'Developer',
-    social: 'mackenziedy.com',
+    social: 'https://mackenziedy.com',
     pronouns: 'he/him',
   },
   {
@@ -510,7 +510,7 @@ const profiles = [
     emoji: '🍦',
     color: '#bae5f9',
     title: 'Engagement Internal Coordinator',
-    social: 'linkedin.com/in/lincoln-seungha-lee',
+    social: 'https://linkedin.com/in/lincoln-seungha-lee',
     pronouns: 'he/him',
   },
   {
@@ -546,7 +546,7 @@ const profiles = [
     emoji: '🤠',
     color: '#01DACC',
     title: 'Engagement External Coordinator',
-    social: 'danielpanhead.com',
+    social: 'https://danielpanhead.com',
     pronouns: 'he/him',
   },
   {
@@ -564,7 +564,7 @@ const profiles = [
     emoji: '🫧',
     color: '#A8D5BA',
     title: 'Engagement External Coordinator',
-    social: 'www.linkedin.com/in/wakana-k',
+    social: 'https://www.linkedin.com/in/wakana-k',
     pronouns: 'she/her',
   }
 ]
@@ -577,6 +577,7 @@ export default function Footer() {
       <SocialMediaIcons>
         <a
           href='https://www.facebook.com/nwplusubc'
+          aria-label='nwPlus on Facebook'
           target='_blank'
           rel='noreferrer'
         >
@@ -584,6 +585,7 @@ export default function Footer() {
         </a>
         <a
           href='https://www.instagram.com/nwplusubc'
+          aria-label='nwPlus on Instagram'
           target='_blank'
           rel='noreferrer'
         >
@@ -591,6 +593,7 @@ export default function Footer() {
         </a>
         <a
           href='https://www.linkedin.com/company/nwplus'
+          aria-label='nwPlus on LinkedIn'
           target='_blank'
           rel='noreferrer'
         >
@@ -598,12 +601,18 @@ export default function Footer() {
         </a>
         <a
           href='https://www.youtube.com/c/nwPlusUBC'
+          aria-label='nwPlus on YouTube'
           target='_blank'
           rel='noreferrer'
         >
           <FontAwesomeIcon icon={faYoutube} />
         </a>
-        <a href='https://medium.com/nwplusubc' target='_blank' rel='noreferrer'>
+        <a
+          href='https://medium.com/nwplusubc'
+          aria-label='nwPlus on Medium'
+          target='_blank'
+          rel='noreferrer'
+        >
           <FontAwesomeIcon icon={faMedium} />
         </a>
       </SocialMediaIcons>

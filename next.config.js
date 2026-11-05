@@ -1,4 +1,13 @@
+const fs = require('fs')
+const path = require('path')
 const withOptimizedImages = require('next-optimized-images')
+
+// Organizer photos that have a WebP copy next to the PNG. Team.js serves those to browsers that
+// support WebP; a photo added without one just keeps using the PNG.
+const PROFILE_WEBPS = fs
+  .readdirSync(path.join(__dirname, 'public/assets/profiles'))
+  .filter((file) => file.endsWith('.webp'))
+  .join(',')
 
 module.exports = () => {
   if (process.env.DEPLOY_ENV !== 'PRODUCTION') {
@@ -29,6 +38,7 @@ module.exports = () => {
         NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID:
           process.env.NEXT_ENV_FIREBASE_MESSAGING_SENDER_ID,
         NEXT_PUBLIC_FIREBASE_APP_ID: process.env.NEXT_ENV_FIREBASE_APP_ID,
+        PROFILE_WEBPS,
       },
     });
   }
@@ -52,6 +62,7 @@ module.exports = () => {
       NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: 'G-BT2W7DSL1G',
       NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: '306881258768',
       NEXT_PUBLIC_FIREBASE_APP_ID: '1:306881258768:web:bc922148732abee79f7195',
+      PROFILE_WEBPS,
     },
   });
 }

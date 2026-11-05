@@ -1,20 +1,25 @@
 // import { useState } from 'react';
 import styled from 'styled-components';
 import fireDb from '../utilities/firebase';
+import WebpPicture from './WebpPicture';
 
 import SpaceDeer from '../public/assets/space-deer.svg';
 // nwHacks
 import nwHacksPlanet from '../public/assets/nwHacksPlanet.png';
+// ?url keeps these small WebPs as separate files instead of inlining them into the page's JS.
+import nwHacksPlanetWebp from '../public/assets/nwHacksPlanet.webp?url';
 import nwMoonOneImg from '../public/assets/nwmoon-1.svg';
 import nwMoonTwoImg from '../public/assets/nwmoon-2.svg';
 import nwMoonThreeImg from '../public/assets/nwmoon-3.svg';
 // cmd-f
 import cmdfPlanet from '../public/assets/cmdfPlanet.png';
+import cmdfPlanetWebp from '../public/assets/cmdfPlanet.webp?url';
 import cmdfMoonOneImg from '../public/assets/cmdfmoon-1.svg';
 import cmdfMoonTwoImg from '../public/assets/cmdfmoon-2.svg';
 import cmdfMoonThreeImg from '../public/assets/cmdfmoon-3.svg';
 // HackCamp
 import hcPlanet from '../public/assets/HackCampPlanet.png';
+import hcPlanetWebp from '../public/assets/HackCampPlanet.webp?url';
 import hcMoonOneImg from '../public/assets/hcmoon-1.svg';
 import hcMoonTwoImg from '../public/assets/hcmoon-2.svg';
 import hcMoonThreeImg from '../public/assets/hcmoon-3.svg';
@@ -129,7 +134,8 @@ const MobileDashedConnector = styled.div`
   `}
 `;
 
-const HackathonImage = styled.img`
+// Decorative: the hackathon's name is in the title next to it.
+const HackathonImage = styled.img.attrs({ alt: '' })`
   width: 100%;
   height: 100%;
   filter: blur(2.5px);
@@ -234,7 +240,7 @@ const MobileHackathonDate = styled.span`
   float: right;
 `;
 
-const SpaceDeerImg = styled.img`
+const SpaceDeerImg = styled.img.attrs({ alt: '' })`
   position: absolute;
   float: right;
   margin-top: -60px;
@@ -268,13 +274,14 @@ const MobileHackathonImageContainer = styled.div`
   margin: 20px auto;
 `;
 
-const MobileHackathonImage = styled.img`
+const MobileHackathonImage = styled.img.attrs({ alt: '' })`
   width: 100%;
   height: 100%;
   filter: blur(3px);
 `;
 
-const Moon = styled.img`
+// Decorative: the year above it names the link it's in.
+const Moon = styled.img.attrs({ alt: '' })`
   position: relative;
   width: 60px; /* Set moon size */
   height: 60px; /* Set moon size */
@@ -287,7 +294,8 @@ const MoonYear = styled.p`
   // display: none;
 `;
 
-const ToolTip = styled.img`
+// A "Tap to view past hackathon" hint for touch screens; the link already says where it goes.
+const ToolTip = styled.img.attrs({ alt: '' })`
   position: absolute;
   top: 60px;
   left: 0px;
@@ -295,11 +303,30 @@ const ToolTip = styled.img`
   height: 60px;
 `;
 
+// Holds the section's space while the hackathon data loads, so the content below doesn't jump
+// when it arrives. The heights are those of the rendered desktop grid and mobile column, which
+// are fixed by the HackathonDetails/MobileHackathonDetails heights.
+const LoadingPlaceholder = styled.div`
+  height: 520px;
+  margin: 10% auto;
+
+  ${(p) => p.theme.mediaQueries.mobile} {
+    height: 1476px;
+    margin: 20px 0 0;
+  }
+`;
+
+// Without JavaScript the data can never load, so don't hold space for it.
+const HIDE_PLACEHOLDER_WITHOUT_JS = {
+  __html: '<style>.hackathons-loading{display:none}</style>',
+};
+
 export default function Hackathons() {
   const [hackathonData, setHackathonData] = useState(null);
   const [HackCampData, setHackCampData] = useState(null);
   const [nwHacksData, setNwHacksData] = useState(null);
   const [cmdfData, setCmdfData] = useState(null);
+  const [loadFailed, setLoadFailed] = useState(false);
   // const [nextHackathon, setNextHackathon] = useState(null);
 
   const getHackathonData = async () => {
@@ -311,6 +338,7 @@ export default function Hackathons() {
         name: 'HackCamp',
         data: {
           imgSrc: hcPlanet,
+          imgSrcWebp: hcPlanetWebp,
           link: 'https://hackcamp.nwplus.io',
           date: hackathonData['hackathonWeekend']['hackcamp'],
           start: hackathonData['hackathonStart']['hackcamp'],
@@ -321,6 +349,7 @@ export default function Hackathons() {
         name: 'nwHacks',
         data: {
           imgSrc: nwHacksPlanet,
+          imgSrcWebp: nwHacksPlanetWebp,
           link: 'https://nwhacks.io',
           date: hackathonData['hackathonWeekend']['nwhacks'],
           start: hackathonData['hackathonStart']['nwhacks'],
@@ -331,6 +360,7 @@ export default function Hackathons() {
         name: 'cmd-f',
         data: {
           imgSrc: cmdfPlanet,
+          imgSrcWebp: cmdfPlanetWebp,
           link: 'https://cmd-f.nwplus.io',
           date: hackathonData['hackathonWeekend']['cmd-f'],
           start: hackathonData['hackathonStart']['cmd-f'],
@@ -404,23 +434,23 @@ export default function Hackathons() {
   };
 
   useEffect(() => {
-    console.log('HackCampData updated:', HackCampData);
-  }, [HackCampData]);
-
-  useEffect(() => {
-    console.log('nwHacksData updated:', nwHacksData);
-  }, [nwHacksData]);
-
-  useEffect(() => {
-    console.log('cmdfData updated:', cmdfData);
-  }, [cmdfData]);
-
-  useEffect(() => {
-    getHackathonData();
+    getHackathonData().catch((err) => {
+      console.error(err);
+      setLoadFailed(true);
+    });
   }, []);
 
-  if (!hackathonData || !HackCampData || !nwHacksData || !cmdfData) {
+  if (loadFailed) {
     return <></>;
+  }
+
+  if (!hackathonData || !HackCampData || !nwHacksData || !cmdfData) {
+    return (
+      <>
+        <LoadingPlaceholder className='hackathons-loading' />
+        <noscript dangerouslySetInnerHTML={HIDE_PLACEHOLDER_WITHOUT_JS} />
+      </>
+    );
   }
 
   return (
@@ -494,7 +524,9 @@ export default function Hackathons() {
                 top: '-75px',
               }}
             >
-              <HackathonImage src={HackCampData.imgSrc} />
+              <WebpPicture webp={HackCampData.imgSrcWebp}>
+                <HackathonImage src={HackCampData.imgSrc} />
+              </WebpPicture>
             </HackathonImageContainer>
           </HackathonPlanetContainers>
         </HackathonPlanet>
@@ -548,7 +580,9 @@ export default function Hackathons() {
                 float: 'right',
               }}
             >
-              <HackathonImage src={nwHacksData.imgSrc} />
+              <WebpPicture webp={nwHacksData.imgSrcWebp}>
+                <HackathonImage src={nwHacksData.imgSrc} />
+              </WebpPicture>
             </HackathonImageContainer>
           </HackathonPlanetContainers>
 
@@ -642,7 +676,9 @@ export default function Hackathons() {
                 textAlign: 'right',
               }}
             >
-              <HackathonImage src={cmdfData.imgSrc} />
+              <WebpPicture webp={cmdfData.imgSrcWebp}>
+                <HackathonImage src={cmdfData.imgSrc} />
+              </WebpPicture>
             </HackathonImageContainer>
           </HackathonPlanetContainers>
         </HackathonPlanet>
@@ -684,7 +720,9 @@ export default function Hackathons() {
             </MoonContainer>
 
             <MobileHackathonImageContainer>
-              <MobileHackathonImage src={HackCampData.imgSrc} />
+              <WebpPicture webp={HackCampData.imgSrcWebp}>
+                <MobileHackathonImage src={HackCampData.imgSrc} />
+              </WebpPicture>
             </MobileHackathonImageContainer>
           </HackathonPlanetContainers>
 
@@ -748,7 +786,9 @@ export default function Hackathons() {
             </MoonContainer>
 
             <MobileHackathonImageContainer>
-              <MobileHackathonImage src={nwHacksData.imgSrc} />
+              <WebpPicture webp={nwHacksData.imgSrcWebp}>
+                <MobileHackathonImage src={nwHacksData.imgSrc} />
+              </WebpPicture>
             </MobileHackathonImageContainer>
           </HackathonPlanetContainers>
 
@@ -803,7 +843,9 @@ export default function Hackathons() {
             </MoonContainer>
 
             <MobileHackathonImageContainer>
-              <MobileHackathonImage src={cmdfData.imgSrc} />
+              <WebpPicture webp={cmdfData.imgSrcWebp}>
+                <MobileHackathonImage src={cmdfData.imgSrc} />
+              </WebpPicture>
             </MobileHackathonImageContainer>
           </HackathonPlanetContainers>
 

@@ -76,12 +76,14 @@ export default function Pagination({
     <PaginationContainer>
       <BasePaginationButton
         contentUrl='/assets/pagination/prev.svg'
+        aria-label='Previous page'
         onClick={onPrevClick}
         disabled={pageIndex === 0}
       />
       <Pages count={count} active={pageIndex} onPageClick={onPageClick} />
       <BasePaginationButton
         contentUrl='/assets/pagination/next.svg'
+        aria-label='Next page'
         onClick={onNextClick}
         disabled={pageIndex === count - 1}
       />

@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+// How wide the small (33%) and large (66%) tiles get at the widest layout, where the page content
+// maxes out at 1600px. Narrower screens show them smaller. The browser uses this to pick the
+// smallest photo width from srcSet that's still sharp.
+const SMALL_TILE_SIZES = '250px';
+const LARGE_TILE_SIZES = '500px';
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,7 +45,8 @@ const ImageTileRow = styled.div`
   }
 `;
 
-const GalleryImage = styled.img`
+// decoding: async lets the browser decode these photos off the main thread.
+const GalleryImage = styled.img.attrs({ loading: 'lazy', decoding: 'async' })`
   width: ${(p) => (p.small ? '33%' : '66%')};
   border-radius: 6px;
   object-fit: cover;
@@ -50,8 +57,18 @@ const GalleryImage = styled.img`
 `;
 
 /**
- * @typedef {{leftImg: string, rightImg: string}} ImageTileRow
+ * @typedef {{leftImg: import('../utils/GalleryPhotos').GalleryPhoto, rightImg: import('../utils/GalleryPhotos').GalleryPhoto}} ImageTileRow
  */
+
+const Tile = ({ photo, small }) => (
+  <GalleryImage
+    small={small}
+    src={photo.src}
+    srcSet={photo.srcSet}
+    alt={photo.alt}
+    sizes={small ? SMALL_TILE_SIZES : LARGE_TILE_SIZES}
+  />
+);
 
 /**
  *
@@ -62,8 +79,8 @@ const ImageTileContainer = ({ rows }) => {
     <Container>
       {rows.map((row, i) => (
         <ImageTileRow withMascots={i == 0} key={i}>
-          <GalleryImage small={i % 2 == 0} src={row.leftImg} />
-          <GalleryImage small={i % 2 == 1} src={row.rightImg} />
+          <Tile small={i % 2 == 0} photo={row.leftImg} />
+          <Tile small={i % 2 == 1} photo={row.rightImg} />
         </ImageTileRow>
       ))}
     </Container>
