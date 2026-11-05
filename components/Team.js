@@ -66,15 +66,26 @@ const ProfileImage = styled.img`
 
 // The speed the carousel has always scrolled at (124 px every 4 s, doubled).
 const SPEED_PX_PER_MS = 0.062;
-// How long it takes to glide to a stop on hover, or to get back up to speed.
-const RAMP_MS = 670;
+// How long it takes to glide to a stop on hover, or to get back up to speed. Short enough to feel
+// immediate, long enough not to jerk; it coasts about 6 px before stopping.
+const RAMP_MS = 200;
 
+// Sets how fast the strip moves, from 0 (stopped) to 1 (full speed).
 const setRate = (animation, rateRef, rate) => {
   rateRef.current = rate;
+  // Stop by pausing rather than with a playback rate of 0, which makes Safari jump back to the
+  // start of the loop.
+  if (rate === 0) {
+    animation.pause();
+    return;
+  }
   if (animation.updatePlaybackRate) {
     animation.updatePlaybackRate(rate);
   } else {
     animation.playbackRate = rate;
+  }
+  if (animation.playState === 'paused') {
+    animation.play();
   }
 };
 
@@ -86,6 +97,7 @@ export default function Team({ profiles }) {
   const stripRef = useRef();
   const animationRef = useRef();
   const rateRef = useRef(1);
+  const wasOnScreenRef = useRef(false);
 
   // Scroll the strip with the Web Animations API. The browser runs it on the compositor, off the
   // main thread, so other work on the page can't make it stutter.
@@ -135,15 +147,16 @@ export default function Team({ profiles }) {
     if (!animation) {
       return undefined;
     }
+    const cameOnScreen = isOnScreen && !wasOnScreenRef.current;
+    wasOnScreenRef.current = isOnScreen;
     if (!isOnScreen) {
       animation.pause();
       return undefined;
     }
     const target = isHovered ? 0 : 1;
-    if (animation.playState === 'paused') {
+    if (cameOnScreen) {
       // Coming back on screen, carry on at the speed it would have settled at by now.
       setRate(animation, rateRef, target);
-      animation.play();
       return undefined;
     }
     let frame;
