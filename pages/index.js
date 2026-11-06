@@ -185,6 +185,14 @@ export default function Home() {
     getFaq();
   }, []);
 
+  // The FAQ only appears once it has loaded, after the browser has already looked for #faq. If the
+  // visitor came for the FAQ (say, from another page's menu) and hasn't scrolled yet, go there now.
+  useEffect(() => {
+    if (faqs && window.location.hash === '#faq' && window.scrollY === 0) {
+      document.getElementById('faq')?.scrollIntoView();
+    }
+  }, [faqs]);
+
   return (
     <>
       <Head>

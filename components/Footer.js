@@ -5,7 +5,7 @@ import {
   faMedium,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '../utilities/fontAwesome';
 import styled from 'styled-components';
 import Team from './Team';
 
