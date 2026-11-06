@@ -28,8 +28,7 @@ export default class MyDocument extends Document {
     }
   }
 
-  // The preconnect lives here rather than in next/head: next/head tracks the tags it manages by
-  // position, and FontAwesome inserts its stylesheet among them, which made next/head delete it.
+  // The preconnect lives here rather than in next/head, which is for tags that vary by page.
   render() {
     return (
       <Html lang='en'>

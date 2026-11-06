@@ -244,7 +244,9 @@ const SpaceDeerImg = styled.img.attrs({ alt: '' })`
   position: absolute;
   float: right;
   margin-top: -60px;
-  right: 20px;
+  /* Tilting 20° makes the deer about 39 px wider on each side. Keep that inside the window, or the
+     page gains and loses a horizontal scrollbar every 5 seconds. */
+  right: 40px;
 
   animation: floatDeer 5s ease-in-out infinite;
 

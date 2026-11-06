@@ -48,8 +48,16 @@ const PrivacyTextContainer = styled.div`
   padding: 5%;
 `;
 
-const IndentedDiv = styled(Body)`
+// These hold lists and headings, which can't go inside a <p>: the browser split such paragraphs
+// apart, and the page jumped when React put them back together. Divs with a paragraph's margins
+// avoid that. Which blocks are indented matches how the page has always looked once loaded.
+const IndentedDiv = styled(Body).attrs({ as: 'div' })`
+  margin: 1em 0;
   padding-left: 20px;
+`;
+
+const BodyDiv = styled(Body).attrs({ as: 'div' })`
+  margin: 1em 0;
 `;
 
 const LinkBody2 = styled(LinkBody)`
@@ -136,13 +144,11 @@ const PrivacyPolicy = () => {
       <>
         <Title2 color={themeContext.colors.primary}>Preface</Title2>
         <IndentedDiv>
-          <IndentedDiv>
-            At nwPlus, we care about our privacy and personal data just as much
-            as you do. We are proud to be not-for-profit and respect your rights
-            and privacy as a user. Our goal is simple: to bring together the
-            best speakers, sponsors, and students from across the world to
-            collaborate, create, and bring their ideas to life.
-          </IndentedDiv>
+          At nwPlus, we care about our privacy and personal data just as much
+          as you do. We are proud to be not-for-profit and respect your rights
+          and privacy as a user. Our goal is simple: to bring together the
+          best speakers, sponsors, and students from across the world to
+          collaborate, create, and bring their ideas to life.
         </IndentedDiv>
       </>
     );
@@ -163,7 +169,7 @@ const PrivacyPolicy = () => {
     return (
       <>
         <Title2 color={themeContext.colors.primary}>Data We Collect</Title2>
-        <Body>
+        <IndentedDiv>
           <Title3>
             The data we collect can be separated into three broad categories:
           </Title3>
@@ -220,7 +226,7 @@ const PrivacyPolicy = () => {
             resources such as food and B. better understand participation and
             popularity of activities.
           </IndentedDiv>
-        </Body>
+        </IndentedDiv>
       </>
     );
   };
@@ -256,9 +262,9 @@ const PrivacyPolicy = () => {
     return (
       <>
         <Title2 color={themeContext.colors.primary}>Your Rights</Title2>
-        <IndentedDiv>
+        <BodyDiv>
           <Title3> Data ownership </Title3>
-          <Body>
+          <BodyDiv>
             You own your data. You may at any time, with proof of identity,
             email us at{' '}
             <LinkBody href='mailto:info@nwplus.io'>info@nwplus.io</LinkBody> and
@@ -268,14 +274,14 @@ const PrivacyPolicy = () => {
             of receipt. Please note that deleted data may be retained in our
             backups for up to an additional 60 days, after which they are
             purged.
-          </Body>
+          </BodyDiv>
           <Title3> Data Freedom </Title3>
           <Body>
             You have several options to limit how much information you share
             with us:
           </Body>
           <IndentedDiv>{renderListItems(dataFreedom)}</IndentedDiv>
-        </IndentedDiv>
+        </BodyDiv>
       </>
     );
   };
@@ -302,13 +308,13 @@ const PrivacyPolicy = () => {
             <DataWeShare />
             <YourRights />
             <Title2 color={themeContext.colors.primary}>Questions</Title2>
-            <IndentedDiv>
+            <BodyDiv>
               We are always looking for feedback on our practices and policies
               at nwPlus. If you have any questions, concerns, or complaints
               regarding our practices or policies please contact us at{' '}
               <LinkBody href='mailto:info@nwplus.io'>info@nwplus.io</LinkBody>.
-            </IndentedDiv>
-            <Body>This privacy policy is adapted from HackTheNorth</Body>
+            </BodyDiv>
+            <IndentedDiv>This privacy policy is adapted from HackTheNorth</IndentedDiv>
           </PrivacyTextContainer>
         </PrivacyContainer>
       </Background>

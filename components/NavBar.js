@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { SCREEN_BREAKPOINTS } from '../pages/_app';
 import fireDb from '../utilities/firebase';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '../utilities/fontAwesome';
 import {
   faFacebook,
   faInstagram,
@@ -204,20 +204,16 @@ const DropDownContentContainer = styled.div`
   background-color: ${(p) => p.theme.colors.background};
 `;
 
-const MenuItem = ({ name, href, isAnchor }) => {
-  const [anchorTarget, setAnchorTarget] = useState(null);
-
-  useEffect(() => {
-    if (isAnchor) {
-      setAnchorTarget(document.getElementById(href));
-    }
-  }, [href]);
-
+const MenuItem = ({ name, href, onNavigate = () => null }) => {
+  // The browser follows the link itself (scrolling smoothly, per globals.css). Then close the
+  // mobile menu, which would otherwise cover the section. Closing waits a tick so the link is still
+  // on the page when the browser follows it. Ctrl/Cmd/Shift-clicks open a new tab or window, so
+  // they leave the menu open.
   const handleClick = (event) => {
-    if (isAnchor && anchorTarget) {
-      event.preventDefault();
-      anchorTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return;
     }
+    setTimeout(onNavigate, 0);
   };
 
   return (
@@ -227,14 +223,14 @@ const MenuItem = ({ name, href, isAnchor }) => {
   );
 };
 
-const MenuList = () => {
+const MenuList = ({ onNavigate }) => {
   return (
     <>
-      <MenuItem name='About Us' href='/#about' isAnchor />
-      <MenuItem name='Hackathons' href='/#hackathons' isAnchor />
-      <MenuItem name='Resources' href='/#resources' isAnchor />
-      <MenuItem name='FAQ' href='/#faq' isAnchor />
-      <MenuItem name='Privacy' href='/privacy' />
+      <MenuItem name='About Us' href='/#about' onNavigate={onNavigate} />
+      <MenuItem name='Hackathons' href='/#hackathons' onNavigate={onNavigate} />
+      <MenuItem name='Resources' href='/#resources' onNavigate={onNavigate} />
+      <MenuItem name='FAQ' href='/#faq' onNavigate={onNavigate} />
+      <MenuItem name='Privacy' href='/privacy' onNavigate={onNavigate} />
     </>
   );
 };
@@ -340,7 +336,7 @@ const NavBar = () => {
           />
         </NavBarContainer>
         <DropDownContentContainer>
-          <MenuList />
+          <MenuList onNavigate={() => setShowDropdown(false)} />
           <JoinLink
             hiring={config?.featureFlags?.isHiring}
             hiringLink='/apply'

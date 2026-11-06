@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
+// FontAwesome's icon CSS, in the stylesheet so icons are the right size from the first paint (see
+// utilities/fontAwesome.js).
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import '../styles/globals.css';
 import { analytics } from '../utilities/firebase';
 
